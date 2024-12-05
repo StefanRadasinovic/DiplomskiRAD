@@ -1,0 +1,7 @@
+(1)Da li da stavim vlasnik ili admina, korisnika ili klijenta kao imena?
+(2)Kod servisiranja da li vlasnik dodeljuje zahteve radnicima ili radnik samostalno odlucuje?Sta ako 
+je neki drugi radnik mogao da odradi posao, a ovaj je u medjuvremenu(pre nego sto je ovaj video)
+odbio zahtev?
+(3)Da li radnik obradjuje zahtev za kupovinu?
+
+(4)Moguce funkcionalnosti: ocene proizvoda/servisa i komentari, analitika prodaje....
