@@ -15,9 +15,10 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="IdKupovine" id="A2BDE2CA-1A22-2581-7F9A-F2254A98BFA9">
+<Attribute name="IdKup" id="A2BDE2CA-1A22-2581-7F9A-F2254A98BFA9">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 17:05:19 UTC</createdTime>
+<commentInRDBMS><![CDATA[IdKupovine]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -27,9 +28,10 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Kolicina" id="3D5D9A79-D694-8C9E-93C3-338971427029">
+<Attribute name="KolK" id="3D5D9A79-D694-8C9E-93C3-338971427029">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 17:05:31 UTC</createdTime>
+<commentInRDBMS><![CDATA[Kolicina]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -39,9 +41,10 @@
 <logicalDatatype>LOGDT020</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Cena" id="9915FE0B-E05A-7B46-3916-F8964176E391">
+<Attribute name="Ukc" id="9915FE0B-E05A-7B46-3916-F8964176E391">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 17:05:46 UTC</createdTime>
+<commentInRDBMS><![CDATA[Ukupna cena kupovine]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -51,10 +54,10 @@
 <logicalDatatype>LOGDT020</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Status" id="B9032AA0-77DF-D7E5-20EC-3C525DA71BCA">
+<Attribute name="StatusK" id="B9032AA0-77DF-D7E5-20EC-3C525DA71BCA">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 17:06:08 UTC</createdTime>
-<commentInRDBMS><![CDATA[obijen,zavrsen,na cekanju]]></commentInRDBMS>
+<commentInRDBMS><![CDATA[StatusKupovine : obijen,zavrsen,na cekanju]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -65,22 +68,7 @@
 <dataTypeSize>3</dataTypeSize>
 <ownDataTypeParameters>3,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="IdUsera" id="5AC7FEC6-F03A-BEEA-8754-371F427D9D65">
-<createdBy>User</createdBy>
-<createdTime>2024-12-05 17:26:09 UTC</createdTime>
-<generatorID>FD54C35B-04A9-623E-44E5-FE704053D02D</generatorID>
-<ownerDesignName>BazaModel</ownerDesignName>
-<engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<referedAttribute>690653CF-B2FC-EB95-5F64-E7B25625671B</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="IdDodatneOpreme" id="EBE1A6A9-5F64-629F-15C9-5D6126346646">
+<Attribute name="IdDodatOp" id="EBE1A6A9-5F64-629F-15C9-5D6126346646">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 17:26:26 UTC</createdTime>
 <generatorID>E6882813-4CA0-F12D-6365-16B273DA7BEA</generatorID>
@@ -88,8 +76,35 @@
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
 </engineerTo>
-<nullsAllowed>true</nullsAllowed>
 <referedAttribute>CDA36B59-3882-AF56-C08C-F6337E3483F5</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IdMotocikla" id="801C5383-11A9-AB9F-D7C9-EFE02BB25AE9">
+<createdBy>User</createdBy>
+<createdTime>2024-12-22 18:04:02 UTC</createdTime>
+<generatorID>38A407C1-D5BB-1C6E-D766-42B4C9F30F64</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<referedAttribute>A362BB15-52C7-4EF7-EF03-048D9F77C738</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IdUsera" id="CFB30549-C436-C33A-D4E0-8B39EC5B27C0">
+<createdBy>User</createdBy>
+<createdTime>2024-12-22 19:31:59 UTC</createdTime>
+<generatorID>0608E985-4E12-3BC8-A8F8-4A4415D76B13</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<referedAttribute>690653CF-B2FC-EB95-5F64-E7B25625671B</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>

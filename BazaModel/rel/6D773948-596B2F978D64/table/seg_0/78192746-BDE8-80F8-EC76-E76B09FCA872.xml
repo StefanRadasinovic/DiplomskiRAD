@@ -1,0 +1,103 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="78192746-BDE8-80F8-EC76-E76B09FCA872" name="UpotrebljeniRezervniDeo">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<generatorID>3202D1B0-2929-0992-C12F-8C12B78FF264</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdUpD" id="61851E1D-8DD2-A798-F369-C720E9E1B858">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<commentInRDBMS><![CDATA[IdUpotrebljenogRezervnogDela]]></commentInRDBMS>
+<generatorID>8BD19FC7-89AD-AD85-F445-42FB1DFE9B7B</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Kolicina" id="3CC26A8B-262D-9633-36F8-E4A5AE15F4B9">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<generatorID>59A79C9A-63F8-B2F0-7550-0A3D31BA2C49</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Zadatak_IdZadatka" id="405AF5F7-29F9-945C-124A-A09E6A6E0430">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<generatorID>0FFAAA92-DE0C-E9FF-4AAF-EB3070AF5D51</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0EDF6F1A-7E49-51ED-0A7D-BA6A46790FE5" referredColumn="5C9154BF-95D2-C4FD-06D9-8B31B3AE397F"/>
+</associations>
+</Column>
+<Column name="RezervniDeo_IdRezD" id="E521D342-AAC6-927C-A3B8-AC0AB02C5EDB">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<generatorID>997198D8-7A83-2D1B-D9FB-0527F1C5BC9C</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EDCDCFBA-3542-3B60-6455-0560F18F7A5D" referredColumn="C82252E7-EF5B-D122-1D42-BBF686234699"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DB5D5BFD-1C99-7A1F-49D4-38B5533BE77D" name="UpotrebljeniRezervniDeo_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<generatorID>6563D2D4-DAD8-21F5-A644-FA614480A757</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="61851E1D-8DD2-A798-F369-C720E9E1B858"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3529AA36-3A54-A361-4F03-B809771A55B9" name="UpotrebljeniRezervniDeo_Zadatak_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:58 UTC</createdTime>
+<generatorID>1BA0E4F2-B743-DF6D-F37D-85E130A00DBE</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="405AF5F7-29F9-945C-124A-A09E6A6E0430"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8D8D9D1B-DB22-A3E6-1390-4D62C1F01380" name="UpotrebljeniRezervniDeo_RezervniDeo_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:58 UTC</createdTime>
+<generatorID>7AD0A29D-59C5-5EA8-0326-48DE8A401EC9</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E521D342-AAC6-927C-A3B8-AC0AB02C5EDB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CD059622-235D-8CFD-B7CC-EB3B5E0F884A" name="Radnik">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:58 UTC</createdTime>
+<generatorID>07E8CE51-06CA-FB5F-5774-B4CB2E88DC6A</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdUsera" id="5733B199-63DE-8292-C179-5D231AED3A8F">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:58 UTC</createdTime>
+<generatorID>690653CF-B2FC-EB95-5F64-E7B25625671B</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F550DC27-A4F2-BDAF-72B1-594741D3DCE8" referredColumn="CC89F631-43C8-82BB-7F22-CACDB7CD5660"/>
+</associations>
+</Column>
+<Column name="RadnoVreme" id="EFA8E9D7-C324-B2BF-11EE-D4A1122CB544">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:58 UTC</createdTime>
+<generatorID>CCF0798A-44A0-0630-B2A7-AC95443865C2</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Brtz" id="0D627DCD-CE67-5416-920E-E6E24B7B30E1">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:58 UTC</createdTime>
+<commentInRDBMS><![CDATA[BrojTrenutnihZadataka]]></commentInRDBMS>
+<generatorID>5458A988-A570-AEC9-C4DD-344613402A44</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7A9D63B9-AFC9-9A87-21E7-68CA87D454E6" name="Radnik_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:58 UTC</createdTime>
+<generatorID>224B130C-E1B0-44DF-3587-A256BA94F3D7</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5733B199-63DE-8292-C179-5D231AED3A8F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8270D34A-11FE-6668-8CDB-BCFEA4FBF5CD" name="Radnik_Korisnik_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:58 UTC</createdTime>
+<generatorID>4DE4F34E-59A5-130E-7EA8-38AB5EB84659</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5733B199-63DE-8292-C179-5D231AED3A8F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

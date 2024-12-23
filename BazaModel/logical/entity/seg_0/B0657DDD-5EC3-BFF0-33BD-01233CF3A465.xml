@@ -1,0 +1,127 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="B0657DDD-5EC3-BFF0-33BD-01233CF3A465" name="Servis">
+<createdBy>User</createdBy>
+<createdTime>2024-12-21 21:49:29 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IdServisa" id="A2A274E3-86D3-EFB7-FF25-5B83069A8872">
+<createdBy>User</createdBy>
+<createdTime>2024-12-21 21:49:38 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="OpisK" id="3114E0A4-49B4-3B80-2854-FCE3BC7262CA">
+<createdBy>User</createdBy>
+<createdTime>2024-12-21 21:50:29 UTC</createdTime>
+<commentInRDBMS><![CDATA[OpisKvara]]></commentInRDBMS>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="SlikaK" id="7DC0ECB8-57B7-ACE8-413B-075023CD0942">
+<createdBy>User</createdBy>
+<createdTime>2024-12-21 21:50:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[SlikaKvara]]></commentInRDBMS>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DatumD" id="1AF79847-430F-C004-AC5E-EE680BD39C53">
+<createdBy>User</createdBy>
+<createdTime>2024-12-21 21:49:56 UTC</createdTime>
+<commentInRDBMS><![CDATA[DatumDospeca]]></commentInRDBMS>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DatumZ" id="784053A9-8CE4-8F20-6A7A-18C98F33A866">
+<createdBy>User</createdBy>
+<createdTime>2024-12-22 15:36:09 UTC</createdTime>
+<commentInRDBMS><![CDATA[DatumZavrsetka]]></commentInRDBMS>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="StatusS" id="4DAAEDA0-4C9B-3A2E-A29B-0036BB7FFD6C">
+<createdBy>User</createdBy>
+<createdTime>2024-12-21 21:51:05 UTC</createdTime>
+<commentInRDBMS><![CDATA[Status : na cekanju, u toku, odbijen, zavrsen]]></commentInRDBMS>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>4</dataTypeSize>
+<ownDataTypeParameters>4,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IdUsera" id="AA2A4EBE-3F08-15F0-AB92-CDCAC509A21C">
+<createdBy>User</createdBy>
+<createdTime>2024-12-22 19:34:37 UTC</createdTime>
+<generatorID>9DC1559C-35E6-1F0D-2DCA-F7F5B8C63B6D</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<referedAttribute>690653CF-B2FC-EB95-5F64-E7B25625671B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="43879BA4-F2F2-F4BC-C18E-B9DD3C15D4B4" name="Servis PK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-21 21:49:53 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>A2A274E3-86D3-EFB7-FF25-5B83069A8872</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -18,9 +18,10 @@
 <discriminatorAttributeID>991541A8-2AB4-93EA-83DF-F552D6715639</discriminatorAttributeID>
 <completeSubtypes>true</completeSubtypes>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="IdDodatneOpreme" id="CDA36B59-3882-AF56-C08C-F6337E3483F5">
+<Attribute name="IdDodatOp" id="CDA36B59-3882-AF56-C08C-F6337E3483F5">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 16:51:14 UTC</createdTime>
+<commentInRDBMS><![CDATA[IdDodatneOpreme]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -30,9 +31,10 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Naziv" id="868F8BCA-C1B6-E750-A9E6-A3B3CEB86AA2">
+<Attribute name="NazD" id="868F8BCA-C1B6-E750-A9E6-A3B3CEB86AA2">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 16:51:29 UTC</createdTime>
+<commentInRDBMS><![CDATA[naziv dodatne opreme]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -42,7 +44,7 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Slika" id="42F4250E-B3FC-5BD0-868C-7E4D3134DEB2">
+<Attribute name="SlikaD" id="42F4250E-B3FC-5BD0-868C-7E4D3134DEB2">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 16:51:51 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
@@ -51,24 +53,13 @@
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT010</logicalDatatype>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Proizvodjac" id="53C0DB8C-3446-E2A2-AAEA-2BC8EF84B3DD">
-<createdBy>User</createdBy>
-<createdTime>2024-12-05 16:53:30 UTC</createdTime>
-<ownerDesignName>BazaModel</ownerDesignName>
-<engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Stanje" id="991541A8-2AB4-93EA-83DF-F552D6715639">
+<Attribute name="Stdo" id="991541A8-2AB4-93EA-83DF-F552D6715639">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 16:52:28 UTC</createdTime>
+<commentInRDBMS><![CDATA[Stanje dodatne opreme: nov ili polovan]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -78,21 +69,10 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Kolicina" id="8B18727E-1E48-8D54-E801-33CC6FA44C4B">
+<Attribute name="KolDo" id="8B18727E-1E48-8D54-E801-33CC6FA44C4B">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 16:52:55 UTC</createdTime>
-<ownerDesignName>BazaModel</ownerDesignName>
-<engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT020</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Cena" id="4FAAF0DC-CA13-C4ED-7AC1-7DF6139B1FD9">
-<createdBy>User</createdBy>
-<createdTime>2024-12-05 16:53:21 UTC</createdTime>
+<commentInRDBMS><![CDATA[Kolicina]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>

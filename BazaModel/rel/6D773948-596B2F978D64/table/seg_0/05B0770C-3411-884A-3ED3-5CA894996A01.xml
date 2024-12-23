@@ -1,0 +1,114 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="05B0770C-3411-884A-3ED3-5CA894996A01" name="Proizvodjac">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<generatorID>AC9EC1A6-EE61-D56F-223A-FBD776AEFBCF</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdProizv" id="58733646-F3B9-6C5E-35D3-00B0FAA98E6F">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<commentInRDBMS><![CDATA[Ovo je IdProizvodjaca]]></commentInRDBMS>
+<generatorID>FC2B1351-2A04-ABB8-16FA-FAB90867E338</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NazivP" id="35649790-EC47-9BAA-4F89-8DF8AB04254D">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<commentInRDBMS><![CDATA[NazivProizvodjaca]]></commentInRDBMS>
+<generatorID>161B6ABD-CF4C-074C-F0EC-AC13537CA8C2</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="OpisP" id="95B05E1F-D901-2890-BE39-5BCB7E909DFC">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<generatorID>2B01EF1F-931E-EB04-7CC8-B1D7782FC573</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DodatnaOprema_IdDodatOp" id="DCFA5C08-CD78-239B-BDCF-489E066CC7D0">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<generatorID>E007ACAD-CDF6-3D37-F8FF-CDCD31C375CA</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="14CE352B-0888-9392-3B84-49FC9E4FCE60" referredColumn="7DE897BD-FCF2-D998-75F9-A7C1E11FBF1C"/>
+</associations>
+</Column>
+<Column name="Motocikl_IdMotocikla" id="F2EE87D4-9A85-F312-585F-5589163A9C81">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<generatorID>B9B2F27D-A049-22EC-D970-514121BF2D42</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E9FB7C6C-DA7A-06A9-C10F-EA9B735E96F9" referredColumn="D27B7EF0-8734-2B9B-45DB-73177CC62ACB"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B06B9153-3676-5555-9F3D-C8F1415D329A" name="Proizvodjac_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<generatorID>71757AEE-9872-A467-FC97-8790E1FF3246</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="58733646-F3B9-6C5E-35D3-00B0FAA98E6F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C74E58D0-1EA6-1ED4-7770-DE5F8363D929" name="Proizvodjac_DodatnaOprema_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:58 UTC</createdTime>
+<generatorID>DE89A171-F17B-DFD1-23A8-8598572D6951</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DCFA5C08-CD78-239B-BDCF-489E066CC7D0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9393E57A-49C3-C846-2327-EA756054DBC6" name="Proizvodjac_Motocikl_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:58 UTC</createdTime>
+<generatorID>8A7243EC-858A-AF0F-E991-9F6B6BD56F45</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F2EE87D4-9A85-F312-585F-5589163A9C81"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

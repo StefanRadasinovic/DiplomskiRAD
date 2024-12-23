@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="EFEEAD6A-FA2F-DC3B-DBD5-E472CB4A90D3" containerWithKeyObject="8CD849BB-0A02-F6AA-6BBB-713D58EA7F70" localFKIndex="70C6B68A-4826-1723-CF8D-AA60D078B040" name="Komentar_Servis_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:58 UTC</createdTime>
+<generatorID>BCCE145C-480C-8EAF-5025-078A210ECC3B</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<referredTableLongName>Servis</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>3DE15171-9E9F-48DD-88F7-920CE784A999</referredTableID>
+<keyObject>8DA88DC8-27DE-59C9-E919-062DDE73D8B9</keyObject>
+<referredKeyID>8DA88DC8-27DE-59C9-E919-062DDE73D8B9</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>IdServisa</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

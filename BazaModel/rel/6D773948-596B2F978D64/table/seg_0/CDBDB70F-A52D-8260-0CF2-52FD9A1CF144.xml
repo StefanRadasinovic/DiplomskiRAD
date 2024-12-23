@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CDBDB70F-A52D-8260-0CF2-52FD9A1CF144" name="Klijent">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:58 UTC</createdTime>
+<generatorID>0152FC38-F4A3-09D1-C164-9E152DC54704</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdUsera" id="F2A04EFA-E834-3C29-7001-FFF8E6273261">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:58 UTC</createdTime>
+<generatorID>690653CF-B2FC-EB95-5F64-E7B25625671B</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6DE10671-666E-99F9-4D5B-0F3D32CFEE57" referredColumn="CC89F631-43C8-82BB-7F22-CACDB7CD5660"/>
+</associations>
+</Column>
+<Column name="BrKup" id="2FABB8FC-F239-48D4-C1AB-43A96B6423F7">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:58 UTC</createdTime>
+<commentInRDBMS><![CDATA[brojKupovina]]></commentInRDBMS>
+<generatorID>3349EEFB-AE41-0F5F-F238-05766E210F2C</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="12BCA9E8-DA1C-3A57-51F2-6F138A634E83" name="Klijent_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:58 UTC</createdTime>
+<generatorID>224B130C-E1B0-44DF-3587-A256BA94F3D7</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F2A04EFA-E834-3C29-7001-FFF8E6273261"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EB174E4F-3280-F3AE-45F3-D42328E20347" name="Klijent_Korisnik_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:58 UTC</createdTime>
+<generatorID>FE92BD65-B19C-03C5-EA23-6E312BA599CB</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F2A04EFA-E834-3C29-7001-FFF8E6273261"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,153 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C574F940-6937-CA4C-40DA-FDA9183601D8" name="Kupovina">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<generatorID>58E43E11-80CD-B7E5-C820-4A12D5329CA5</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdKup" id="60D091B9-799F-2DF9-14BA-988510448E1F">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<commentInRDBMS><![CDATA[IdKupovine]]></commentInRDBMS>
+<generatorID>A2BDE2CA-1A22-2581-7F9A-F2254A98BFA9</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="KolK" id="985C7F74-753F-D01C-0308-6FB790AC5710">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<commentInRDBMS><![CDATA[Kolicina]]></commentInRDBMS>
+<generatorID>3D5D9A79-D694-8C9E-93C3-338971427029</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Ukc" id="4B8E1E2D-685C-13C7-0B47-16107FC7D432">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<commentInRDBMS><![CDATA[Ukupna cena kupovine]]></commentInRDBMS>
+<generatorID>9915FE0B-E05A-7B46-3916-F8964176E391</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="StatusK" id="8AF38F0D-B90D-9717-CFEA-E691003986F2">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<commentInRDBMS><![CDATA[StatusKupovine : obijen,zavrsen,na cekanju]]></commentInRDBMS>
+<generatorID>B9032AA0-77DF-D7E5-20EC-3C525DA71BCA</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>3</dataTypeSize>
+<ownDataTypeParameters>3,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DodatnaOprema_IdDodatOp" id="3CB79B08-FA7C-2D5B-AAEC-F336880514A1">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<generatorID>EBE1A6A9-5F64-629F-15C9-5D6126346646</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="291049E0-ADC7-A2ED-E3A7-6604147218A2" referredColumn="7DE897BD-FCF2-D998-75F9-A7C1E11FBF1C"/>
+</associations>
+</Column>
+<Column name="Motocikl_IdMotocikla" id="051F3FDE-8C0F-11C8-9E1D-9F4EC2E35583">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<generatorID>801C5383-11A9-AB9F-D7C9-EFE02BB25AE9</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="68B74FEF-7021-4D11-A48F-FF9AA80C357B" referredColumn="D27B7EF0-8734-2B9B-45DB-73177CC62ACB"/>
+</associations>
+</Column>
+<Column name="Klijent_IdUsera" id="4D1BEC9F-8EAF-E242-19FD-3BC06B6460A3">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<generatorID>CFB30549-C436-C33A-D4E0-8B39EC5B27C0</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E26BD44A-FCD0-9A64-32F0-A9AAC0711BAB" referredColumn="F2A04EFA-E834-3C29-7001-FFF8E6273261"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F9530AD2-7172-045D-9B6A-D4D7E66A1385" name="Kupovina_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:57 UTC</createdTime>
+<generatorID>64255EFB-6BB4-22C3-F7F9-9E169432B9F1</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="60D091B9-799F-2DF9-14BA-988510448E1F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4A48856F-57B8-F75C-1762-2E04C2E815E6" name="Kupovina_Motocikl_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:58 UTC</createdTime>
+<generatorID>38A407C1-D5BB-1C6E-D766-42B4C9F30F64</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="051F3FDE-8C0F-11C8-9E1D-9F4EC2E35583"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4389BB54-2CED-5818-E636-351D6FA596D7" name="Kupovina_DodatnaOprema_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:58 UTC</createdTime>
+<generatorID>E6882813-4CA0-F12D-6365-16B273DA7BEA</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3CB79B08-FA7C-2D5B-AAEC-F336880514A1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DF6C61C6-C2F6-F831-6821-9554A4FDDC77" name="Kupovina_Klijent_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 11:56:58 UTC</createdTime>
+<generatorID>0608E985-4E12-3BC8-A8F8-4A4415D76B13</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4D1BEC9F-8EAF-E242-19FD-3BC06B6460A3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
