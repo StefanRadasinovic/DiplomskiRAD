@@ -1,0 +1,112 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="36850CC5-3D04-5BC1-6BFE-EF9E516CFAF9" name="Komentar">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 13:04:44 UTC</createdTime>
+<generatorID>25D50A57-4BD5-22E9-9C9A-3F89A732795A</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdKom" id="1E138E5C-CB8D-B1DC-0AF9-F03EF0F9F435">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 13:04:44 UTC</createdTime>
+<commentInRDBMS><![CDATA[IdKomentara]]></commentInRDBMS>
+<generatorID>2AED9DC0-A0F4-8495-5B26-48BC137091D4</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Komentar" id="D9307BEC-62ED-1A22-6793-7445C3C13D33">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 13:04:44 UTC</createdTime>
+<generatorID>0E54A7FC-9661-8D50-2938-116B5E1F9686</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Ocena" id="C20B614D-4DEB-EB44-C512-E59431EB69CC">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 13:04:44 UTC</createdTime>
+<generatorID>FF84936A-3039-8FB6-5B2C-91842163F1EC</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Klijent_IdUsera" id="08C88A9A-85B7-9243-FD23-AC685A442621">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 13:04:44 UTC</createdTime>
+<generatorID>3E97519E-D952-593F-C2EE-23F5A6D6E9AE</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="810D2042-B3D0-4356-80F9-102BACAD6DE6" referredColumn="20CA04D7-F0D4-7799-9DB6-3E8C81E5C134"/>
+</associations>
+</Column>
+<Column name="Servis_IdServisa" id="B91C342B-8322-445B-E704-A1B833F43878">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 13:04:44 UTC</createdTime>
+<generatorID>389E84D0-D979-B258-43AD-20457EFC0E40</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0BEF5939-1AA5-349C-F301-C8D9CDA60DCE" referredColumn="B147C827-FE94-3129-A669-951860A8FD87"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="47E149FA-F266-0BDA-A10A-A64F338E5FF1" name="Komentar_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 13:04:44 UTC</createdTime>
+<generatorID>B5D91A52-4CBA-4200-8DC0-0DA6C704C24D</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1E138E5C-CB8D-B1DC-0AF9-F03EF0F9F435"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B77BE375-16F2-A158-D858-5D750637BC94" name="Komentar_Klijent_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 13:04:44 UTC</createdTime>
+<generatorID>CE4136BD-8A04-D0FC-0281-3B4A60695B2F</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="08C88A9A-85B7-9243-FD23-AC685A442621"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2FB25560-872F-B2B5-71CC-2160E4499CCB" name="Komentar_Servis_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-23 13:04:44 UTC</createdTime>
+<generatorID>BCCE145C-480C-8EAF-5025-078A210ECC3B</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B91C342B-8322-445B-E704-A1B833F43878"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
