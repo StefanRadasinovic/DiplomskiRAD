@@ -16,9 +16,10 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="RadnoVreme" id="CCF0798A-44A0-0630-B2A7-AC95443865C2">
+<Attribute name="RadVrm" id="CCF0798A-44A0-0630-B2A7-AC95443865C2">
 <createdBy>User</createdBy>
 <createdTime>2024-12-12 21:21:36 UTC</createdTime>
+<commentInRDBMS><![CDATA[RadnoVreme]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>

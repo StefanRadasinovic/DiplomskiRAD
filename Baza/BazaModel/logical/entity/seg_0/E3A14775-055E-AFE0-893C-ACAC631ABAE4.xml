@@ -68,10 +68,10 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Status" id="CB4F164E-AE80-F2EA-62AC-A462EE2FB5DB">
+<Attribute name="StatusZ" id="CB4F164E-AE80-F2EA-62AC-A462EE2FB5DB">
 <createdBy>User</createdBy>
 <createdTime>2024-12-22 16:05:03 UTC</createdTime>
-<commentInRDBMS><![CDATA[zavrsen, odbijen, u toku]]></commentInRDBMS>
+<commentInRDBMS><![CDATA[Status:zavrsen, odbijen, u toku]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -116,8 +116,9 @@
 <createdBy>User</createdBy>
 <createdTime>2024-12-22 15:44:17 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

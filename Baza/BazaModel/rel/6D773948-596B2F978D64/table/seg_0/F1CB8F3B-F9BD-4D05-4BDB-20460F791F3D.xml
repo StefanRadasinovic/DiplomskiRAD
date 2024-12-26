@@ -1,0 +1,120 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F1CB8F3B-F9BD-4D05-4BDB-20460F791F3D" name="Motocikl">
+<createdBy>User</createdBy>
+<createdTime>2024-12-25 23:47:51 UTC</createdTime>
+<generatorID>15BFD697-2F2F-2A7E-DA18-843B091C45A2</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdMotocikla" id="07956307-5C12-465A-44B3-0BB53F3048C8">
+<createdBy>User</createdBy>
+<createdTime>2024-12-25 23:47:51 UTC</createdTime>
+<generatorID>A362BB15-52C7-4EF7-EF03-048D9F77C738</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NazM" id="504533E5-EF96-6B24-6354-24852F05513D">
+<createdBy>User</createdBy>
+<createdTime>2024-12-25 23:47:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Naziv]]></commentInRDBMS>
+<generatorID>A7D2C5C2-8440-5ACE-541E-FEEDDCA4F512</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SlikaM" id="A4BECF2D-4CDA-2138-E378-8C9E1C5136FE">
+<createdBy>User</createdBy>
+<createdTime>2024-12-25 23:47:51 UTC</createdTime>
+<generatorID>E4327F4B-7642-834C-3425-C2A384DB3608</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Kilm" id="8C320D2D-54CB-6297-37C4-F0A3BF37E6E4">
+<createdBy>User</createdBy>
+<createdTime>2024-12-25 23:47:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Kilometraza]]></commentInRDBMS>
+<generatorID>ED4AB651-AC4E-9E98-2BD1-DD15A0160BED</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="God" id="A9F540B8-D2DA-1F60-AC85-CB163135FE3A">
+<createdBy>User</createdBy>
+<createdTime>2024-12-25 23:47:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Godiste]]></commentInRDBMS>
+<generatorID>37C09DD6-FDD7-C743-76EE-1384C1134B05</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Stm" id="DB9229C6-E64A-9EEF-7D8E-234287551521">
+<createdBy>User</createdBy>
+<createdTime>2024-12-25 23:47:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Stanje: Nov ili polovan]]></commentInRDBMS>
+<generatorID>ACF976B7-9071-C1AF-D58B-81D7684CC834</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="KolM" id="E937A682-D7B5-2699-0D30-14CACC8437C4">
+<createdBy>User</createdBy>
+<createdTime>2024-12-25 23:47:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Kolicina]]></commentInRDBMS>
+<generatorID>78F34668-AE7C-AAC8-0C4A-BDDC0E3C89B5</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TipM" id="7E6AE678-5E01-867C-379F-41DECFCF7D16">
+<createdBy>User</createdBy>
+<createdTime>2024-12-25 23:47:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[TipMotocikla: sportski motor, moped, skuter, elektricni, quad, ostalo]]></commentInRDBMS>
+<generatorID>7F53D088-FCA2-C0AD-7A94-EB837A85B6B7</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A4B1DCB0-1F3F-E685-CB51-2C00C338B776" name="Motocikl_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-25 23:47:51 UTC</createdTime>
+<generatorID>AE9EE2BC-4B98-7FCC-A43D-C6100467C5A9</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="07956307-5C12-465A-44B3-0BB53F3048C8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

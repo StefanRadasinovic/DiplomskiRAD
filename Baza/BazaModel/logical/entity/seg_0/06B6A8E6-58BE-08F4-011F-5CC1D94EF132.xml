@@ -31,9 +31,10 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Naziv" id="868F8BCA-C1B6-E750-A9E6-A3B3CEB86AA2">
+<Attribute name="NazD" id="868F8BCA-C1B6-E750-A9E6-A3B3CEB86AA2">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 16:51:29 UTC</createdTime>
+<commentInRDBMS><![CDATA[Naziv]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -43,7 +44,7 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Slika" id="42F4250E-B3FC-5BD0-868C-7E4D3134DEB2">
+<Attribute name="SlikaD" id="42F4250E-B3FC-5BD0-868C-7E4D3134DEB2">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 16:51:51 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
@@ -55,9 +56,10 @@
 <logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Stanje" id="991541A8-2AB4-93EA-83DF-F552D6715639">
+<Attribute name="Stdo" id="991541A8-2AB4-93EA-83DF-F552D6715639">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 16:52:28 UTC</createdTime>
+<commentInRDBMS><![CDATA[Stanje]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -67,9 +69,10 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Kolicina" id="8B18727E-1E48-8D54-E801-33CC6FA44C4B">
+<Attribute name="KolDo" id="8B18727E-1E48-8D54-E801-33CC6FA44C4B">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 16:52:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Kolicina]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
