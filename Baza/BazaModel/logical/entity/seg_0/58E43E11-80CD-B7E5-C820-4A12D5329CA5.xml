@@ -28,9 +28,10 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Kolicina" id="3D5D9A79-D694-8C9E-93C3-338971427029">
+<Attribute name="KolK" id="3D5D9A79-D694-8C9E-93C3-338971427029">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 17:05:31 UTC</createdTime>
+<commentInRDBMS><![CDATA[Kolicina]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -40,9 +41,10 @@
 <logicalDatatype>LOGDT020</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Cena" id="9915FE0B-E05A-7B46-3916-F8964176E391">
+<Attribute name="Ukc" id="9915FE0B-E05A-7B46-3916-F8964176E391">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 17:05:46 UTC</createdTime>
+<commentInRDBMS><![CDATA[Cena ukupna]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -52,10 +54,10 @@
 <logicalDatatype>LOGDT020</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Status" id="B9032AA0-77DF-D7E5-20EC-3C525DA71BCA">
+<Attribute name="StatusK" id="B9032AA0-77DF-D7E5-20EC-3C525DA71BCA">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 17:06:08 UTC</createdTime>
-<commentInRDBMS><![CDATA[obijen,zavrsen,na cekanju]]></commentInRDBMS>
+<commentInRDBMS><![CDATA[Status: obijen,zavrsen,na cekanju]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>

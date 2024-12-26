@@ -28,9 +28,10 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Komentar" id="0E54A7FC-9661-8D50-2938-116B5E1F9686">
+<Attribute name="Kom" id="0E54A7FC-9661-8D50-2938-116B5E1F9686">
 <createdBy>User</createdBy>
 <createdTime>2024-12-22 18:06:19 UTC</createdTime>
+<commentInRDBMS><![CDATA[Komentar]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -52,20 +53,6 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="IdUsera" id="3E97519E-D952-593F-C2EE-23F5A6D6E9AE">
-<createdBy>User</createdBy>
-<createdTime>2024-12-22 19:36:00 UTC</createdTime>
-<generatorID>CE4136BD-8A04-D0FC-0281-3B4A60695B2F</generatorID>
-<ownerDesignName>BazaModel</ownerDesignName>
-<engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
-</engineerTo>
-<referedAttribute>690653CF-B2FC-EB95-5F64-E7B25625671B</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="IdServisa" id="389E84D0-D979-B258-43AD-20457EFC0E40">
 <createdBy>User</createdBy>
 <createdTime>2024-12-22 20:03:10 UTC</createdTime>
@@ -75,6 +62,20 @@
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
 </engineerTo>
 <referedAttribute>A2A274E3-86D3-EFB7-FF25-5B83069A8872</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IdUsera" id="0698EB71-A1B3-C604-BDC7-CD89C77666BD">
+<createdBy>User</createdBy>
+<createdTime>2024-12-25 23:35:14 UTC</createdTime>
+<generatorID>CE4136BD-8A04-D0FC-0281-3B4A60695B2F</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<referedAttribute>690653CF-B2FC-EB95-5F64-E7B25625671B</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>

@@ -27,9 +27,10 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Naziv" id="A7D2C5C2-8440-5ACE-541E-FEEDDCA4F512">
+<Attribute name="NazM" id="A7D2C5C2-8440-5ACE-541E-FEEDDCA4F512">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 17:28:28 UTC</createdTime>
+<commentInRDBMS><![CDATA[Naziv]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -39,7 +40,7 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Slika" id="E4327F4B-7642-834C-3425-C2A384DB3608">
+<Attribute name="SlikaM" id="E4327F4B-7642-834C-3425-C2A384DB3608">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 17:28:28 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
@@ -51,9 +52,10 @@
 <logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Kilometraza" id="ED4AB651-AC4E-9E98-2BD1-DD15A0160BED">
+<Attribute name="Kilm" id="ED4AB651-AC4E-9E98-2BD1-DD15A0160BED">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 17:28:28 UTC</createdTime>
+<commentInRDBMS><![CDATA[Kilometraza]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -63,9 +65,10 @@
 <logicalDatatype>LOGDT020</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Godiste" id="37C09DD6-FDD7-C743-76EE-1384C1134B05">
+<Attribute name="God" id="37C09DD6-FDD7-C743-76EE-1384C1134B05">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 17:28:28 UTC</createdTime>
+<commentInRDBMS><![CDATA[Godiste]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -75,10 +78,10 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Stanje" id="ACF976B7-9071-C1AF-D58B-81D7684CC834">
+<Attribute name="Stm" id="ACF976B7-9071-C1AF-D58B-81D7684CC834">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 17:28:28 UTC</createdTime>
-<commentInRDBMS><![CDATA[Nov ili polovan]]></commentInRDBMS>
+<commentInRDBMS><![CDATA[Stanje: Nov ili polovan]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -88,9 +91,10 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Kolicina" id="78F34668-AE7C-AAC8-0C4A-BDDC0E3C89B5">
+<Attribute name="KolM" id="78F34668-AE7C-AAC8-0C4A-BDDC0E3C89B5">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 17:28:28 UTC</createdTime>
+<commentInRDBMS><![CDATA[Kolicina]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -100,10 +104,10 @@
 <logicalDatatype>LOGDT020</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="TipMotocikla" id="7F53D088-FCA2-C0AD-7A94-EB837A85B6B7">
+<Attribute name="TipM" id="7F53D088-FCA2-C0AD-7A94-EB837A85B6B7">
 <createdBy>User</createdBy>
 <createdTime>2024-12-19 16:32:17 UTC</createdTime>
-<commentInRDBMS><![CDATA[sportski motor, moped, skuter, elektricni, quad, ostalo]]></commentInRDBMS>
+<commentInRDBMS><![CDATA[TipMotocikla: sportski motor, moped, skuter, elektricni, quad, ostalo]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
