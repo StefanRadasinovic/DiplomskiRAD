@@ -1,0 +1,102 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="06B3CAB8-A7EF-5D08-2FE5-2EFB930BA167" name="Cenovnik">
+<createdBy>User</createdBy>
+<createdTime>2024-12-25 23:47:51 UTC</createdTime>
+<generatorID>5FC3B2CF-90DC-E036-79A0-45C1B368E6C2</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdCenovnika" id="56B9EE92-2DF2-256E-C955-FEFA01344AAA">
+<createdBy>User</createdBy>
+<createdTime>2024-12-25 23:47:51 UTC</createdTime>
+<generatorID>CABB8859-00F1-91FD-1B56-639DA4C0156A</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cena" id="A1FBDB7B-B3F7-8D15-6B16-7DF73E2091C8">
+<createdBy>User</createdBy>
+<createdTime>2024-12-25 23:47:51 UTC</createdTime>
+<generatorID>62A89C73-2F47-B2C1-2C00-11672B11776F</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DodatnaOprema_IdDodatOp" id="40BE87FA-7EA5-EE4A-EEB7-B5E0A960EC4E">
+<createdBy>User</createdBy>
+<createdTime>2024-12-25 23:47:51 UTC</createdTime>
+<generatorID>757E4118-E062-268B-10D3-FE4DA03C5BD6</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2E64E5E4-CD41-35F2-0089-77CEDD504FAD" referredColumn="B93DE43B-78B2-08D7-8943-945CE65EA5D7"/>
+</associations>
+</Column>
+<Column name="Motocikl_IdMotocikla" id="B4870A33-6858-1846-B3E7-EC0255F57F0A">
+<createdBy>User</createdBy>
+<createdTime>2024-12-25 23:47:51 UTC</createdTime>
+<generatorID>88D128CB-A13A-C005-7948-0BD8640BF779</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1FF6CE1D-41A1-DB34-8C6E-97CABF63D2C8" referredColumn="07956307-5C12-465A-44B3-0BB53F3048C8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6818DF28-56D6-C27D-2B52-2A85AD2F35FB" name="Cenovnik_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-25 23:47:51 UTC</createdTime>
+<generatorID>7A76BAAD-4DBC-2C7A-CFFE-574F26ACFC52</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="56B9EE92-2DF2-256E-C955-FEFA01344AAA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4B5AF3ED-F75B-C671-BFCB-21C57706017A" name="Cenovnik_DodatnaOprema_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-25 23:47:51 UTC</createdTime>
+<generatorID>4AAA4D0D-B1F0-EBA9-E9C9-5306163C2F14</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="40BE87FA-7EA5-EE4A-EEB7-B5E0A960EC4E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B2C77BDC-E1ED-068C-9DAB-5D58F242CA92" name="Cenovnik_Motocikl_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-25 23:47:51 UTC</createdTime>
+<generatorID>E313722C-1646-334F-3190-648C2BD668B4</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B4870A33-6858-1846-B3E7-EC0255F57F0A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

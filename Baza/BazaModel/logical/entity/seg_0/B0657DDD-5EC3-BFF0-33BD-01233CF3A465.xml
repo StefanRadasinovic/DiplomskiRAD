@@ -27,9 +27,10 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="OpisKvara" id="3114E0A4-49B4-3B80-2854-FCE3BC7262CA">
+<Attribute name="OpisK" id="3114E0A4-49B4-3B80-2854-FCE3BC7262CA">
 <createdBy>User</createdBy>
 <createdTime>2024-12-21 21:50:29 UTC</createdTime>
+<commentInRDBMS><![CDATA[OpisKvara]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -39,9 +40,10 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="SlikaKvara" id="7DC0ECB8-57B7-ACE8-413B-075023CD0942">
+<Attribute name="SlikaK" id="7DC0ECB8-57B7-ACE8-413B-075023CD0942">
 <createdBy>User</createdBy>
 <createdTime>2024-12-21 21:50:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[SlikaKvara]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -79,10 +81,10 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Status" id="4DAAEDA0-4C9B-3A2E-A29B-0036BB7FFD6C">
+<Attribute name="StatusS" id="4DAAEDA0-4C9B-3A2E-A29B-0036BB7FFD6C">
 <createdBy>User</createdBy>
 <createdTime>2024-12-21 21:51:05 UTC</createdTime>
-<commentInRDBMS><![CDATA[na cekanju, u toku, odbijen, zavrsen]]></commentInRDBMS>
+<commentInRDBMS><![CDATA[Status: na cekanju, u toku, odbijen, zavrsen]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
