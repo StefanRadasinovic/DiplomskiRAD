@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5FC3B2CF-90DC-E036-79A0-45C1B368E6C2" name="Cenovnik">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D58D34BD-8D7C-3309-8466-91FBA40E49BA" name="Recenzija">
 <createdBy>User</createdBy>
-<createdTime>2024-12-19 15:54:13 UTC</createdTime>
+<createdTime>2024-12-27 16:12:19 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -15,9 +15,10 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="IdCenovnika" id="CABB8859-00F1-91FD-1B56-639DA4C0156A">
+<Attribute name="IdRec" id="ADEF9556-4911-C0F1-1B33-5B3FA024DFB3">
 <createdBy>User</createdBy>
-<createdTime>2024-12-22 18:01:54 UTC</createdTime>
+<createdTime>2024-12-27 16:12:32 UTC</createdTime>
+<commentInRDBMS><![CDATA[Id recenzije]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -27,68 +28,53 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Cena" id="62A89C73-2F47-B2C1-2C00-11672B11776F">
+<Attribute name="Kom" id="9899DC71-FF4A-1613-3160-79F722D921D7">
 <createdBy>User</createdBy>
-<createdTime>2024-12-19 16:19:06 UTC</createdTime>
+<createdTime>2024-12-27 16:12:42 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT020</logicalDatatype>
+<logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="DatumPc" id="9A23571F-43C7-5637-4A7F-8C8FB78C66A8">
+<Attribute name="Ocena" id="256ED8A5-B969-5B58-5D33-17291CFC9345">
 <createdBy>User</createdBy>
-<createdTime>2024-12-27 16:35:09 UTC</createdTime>
-<commentInRDBMS><![CDATA[DatumPocetka Cene]]></commentInRDBMS>
+<createdTime>2024-12-27 16:12:48 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
 </engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="DatumKc" id="780997B4-6970-A4C2-A9E8-FC40DEEC6073">
-<createdBy>User</createdBy>
-<createdTime>2024-12-27 16:35:33 UTC</createdTime>
-<ownerDesignName>BazaModel</ownerDesignName>
-<engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="IdDodatOp" id="757E4118-E062-268B-10D3-FE4DA03C5BD6">
-<createdBy>User</createdBy>
-<createdTime>2024-12-22 18:03:06 UTC</createdTime>
-<generatorID>4AAA4D0D-B1F0-EBA9-E9C9-5306163C2F14</generatorID>
-<ownerDesignName>BazaModel</ownerDesignName>
-<engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<referedAttribute>CDA36B59-3882-AF56-C08C-F6337E3483F5</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="IdMotocikla" id="88D128CB-A13A-C005-7948-0BD8640BF779">
+<Attribute name="IdUsera" id="9A5A2DBF-FE69-4377-D589-F78BB85DBB89">
 <createdBy>User</createdBy>
-<createdTime>2024-12-22 18:04:23 UTC</createdTime>
-<generatorID>E313722C-1646-334F-3190-648C2BD668B4</generatorID>
+<createdTime>2024-12-27 16:13:46 UTC</createdTime>
+<generatorID>5419A61E-72C4-5B1C-7ABC-A1217FA5715D</generatorID>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
 </engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<referedAttribute>A362BB15-52C7-4EF7-EF03-048D9F77C738</referedAttribute>
+<referedAttribute>690653CF-B2FC-EB95-5F64-E7B25625671B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IdServisa" id="DA67044C-6CCB-1699-706F-0B4F7237F4DE">
+<createdBy>User</createdBy>
+<createdTime>2024-12-27 16:13:52 UTC</createdTime>
+<generatorID>4DB6E471-D5A4-71B6-00FB-A412AE395A55</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<referedAttribute>A2A274E3-86D3-EFB7-FF25-5B83069A8872</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -96,16 +82,16 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="7A76BAAD-4DBC-2C7A-CFFE-574F26ACFC52" name="Cenovnik PK">
+<identifier id="D641EBB8-529C-A1CA-5E1F-E7B0830987BC" name="Recenzija PK">
 <createdBy>User</createdBy>
-<createdTime>2024-12-19 16:17:35 UTC</createdTime>
+<createdTime>2024-12-27 16:12:39 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>CABB8859-00F1-91FD-1B56-639DA4C0156A</attributeRef>
+<attributeRef>ADEF9556-4911-C0F1-1B33-5B3FA024DFB3</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>
