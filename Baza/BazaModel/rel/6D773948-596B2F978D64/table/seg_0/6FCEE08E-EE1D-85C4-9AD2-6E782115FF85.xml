@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6FCEE08E-EE1D-85C4-9AD2-6E782115FF85" name="DodatnaOprema">
+<createdBy>User</createdBy>
+<createdTime>2024-12-27 18:05:26 UTC</createdTime>
+<generatorID>06B6A8E6-58BE-08F4-011F-5CC1D94EF132</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdDodatOp" id="9030B495-E4C5-6238-3940-A563AB24FB8B">
+<createdBy>User</createdBy>
+<createdTime>2024-12-27 18:05:26 UTC</createdTime>
+<commentInRDBMS><![CDATA[IdDodatneOpreme]]></commentInRDBMS>
+<generatorID>CDA36B59-3882-AF56-C08C-F6337E3483F5</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NazD" id="99766B2B-14B4-9F44-D90A-E37A5DB12E69">
+<createdBy>User</createdBy>
+<createdTime>2024-12-27 18:05:26 UTC</createdTime>
+<commentInRDBMS><![CDATA[Naziv]]></commentInRDBMS>
+<generatorID>868F8BCA-C1B6-E750-A9E6-A3B3CEB86AA2</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SlikaD" id="875E1590-D8A0-62D3-AA68-E1C74B2C544C">
+<createdBy>User</createdBy>
+<createdTime>2024-12-27 18:05:26 UTC</createdTime>
+<generatorID>42F4250E-B3FC-5BD0-868C-7E4D3134DEB2</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Stdo" id="64917CFB-93A9-891E-4A7B-3F9D8DB07AF3">
+<createdBy>User</createdBy>
+<createdTime>2024-12-27 18:05:26 UTC</createdTime>
+<commentInRDBMS><![CDATA[Stanje]]></commentInRDBMS>
+<generatorID>991541A8-2AB4-93EA-83DF-F552D6715639</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="KolDo" id="97A035A8-F0DC-F0ED-1D14-540D8DABC66C">
+<createdBy>User</createdBy>
+<createdTime>2024-12-27 18:05:26 UTC</createdTime>
+<commentInRDBMS><![CDATA[Kolicina]]></commentInRDBMS>
+<generatorID>8B18727E-1E48-8D54-E801-33CC6FA44C4B</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C2639980-24DD-CC39-6956-366DDE2F2454" name="DodatnaOprema_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-27 18:05:26 UTC</createdTime>
+<generatorID>18BDF5D8-DEC2-543B-4180-5EE52D0179A2</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9030B495-E4C5-6238-3940-A563AB24FB8B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

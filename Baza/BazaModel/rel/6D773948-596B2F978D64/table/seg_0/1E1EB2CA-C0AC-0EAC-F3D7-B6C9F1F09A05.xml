@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1E1EB2CA-C0AC-0EAC-F3D7-B6C9F1F09A05" name="UpotrebljeniRezervniDeo">
+<createdBy>User</createdBy>
+<createdTime>2024-12-27 18:05:26 UTC</createdTime>
+<generatorID>432D9EF7-D9A9-CEDE-504A-32AC192FBCE4</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Zadatak_IdZadatka" id="9FE7F6A8-A8B8-D63E-F964-BDCDD90FE406">
+<createdBy>User</createdBy>
+<createdTime>2024-12-27 18:05:26 UTC</createdTime>
+<generatorID>78C321CC-7664-917A-F957-D2B7A0613E3A</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B2BE6A2B-726F-F894-42AA-4C9FDD482F99" referredColumn="38D0D3A7-DD89-345E-1AF9-DD6A6DD803E4"/>
+</associations>
+</Column>
+<Column name="RezervniDeo_IdRezD" id="370D6C8C-7F4B-A7A3-1BBE-86FB300DA5AD">
+<createdBy>User</createdBy>
+<createdTime>2024-12-27 18:05:26 UTC</createdTime>
+<generatorID>30745ECC-90E1-7F3D-DBD4-5459B122FCC6</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BDFC5509-1F67-8D81-798E-C52999966338" referredColumn="66022298-F1C2-3CF3-3597-D087CE6DCE51"/>
+</associations>
+</Column>
+<Column name="KolUrz" id="4991C863-28BC-C149-EB72-C7DA3FE613ED">
+<createdBy>User</createdBy>
+<createdTime>2024-12-27 18:05:26 UTC</createdTime>
+<generatorID>86AD8D7B-C769-D0E5-DD0F-CB8122963E79</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EFFE9423-FB1C-E0BE-C440-F5F2B32B6059" name="UpotrebljeniRezervniDeo_PK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-27 18:05:26 UTC</createdTime>
+<generatorID>EDE71AF2-5051-5D1A-583E-61B543124ABE</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9FE7F6A8-A8B8-D63E-F964-BDCDD90FE406"/>
+<colUsage columnID="370D6C8C-7F4B-A7A3-1BBE-86FB300DA5AD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9B096B98-C8E6-E22A-23E7-CBAEA00EA479" name="UpotrebljeniRezervniDeo_Zadatak_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-27 18:05:26 UTC</createdTime>
+<generatorID>F0CDFCC6-D3B0-2816-F953-785777A40179</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9FE7F6A8-A8B8-D63E-F964-BDCDD90FE406"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A0E4E65E-00AB-1210-6397-0D926894E53A" name="UpotrebljeniRezervniDeo_RezervniDeo_FK">
+<createdBy>User</createdBy>
+<createdTime>2024-12-27 18:05:26 UTC</createdTime>
+<generatorID>4C1BD60E-F939-D1AE-4A95-AA4670EFDE77</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="370D6C8C-7F4B-A7A3-1BBE-86FB300DA5AD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

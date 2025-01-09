@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5FC3B2CF-90DC-E036-79A0-45C1B368E6C2" name="Cenovnik">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="AE8551C5-1959-1057-153A-8CFEF1C1F4EA" name="Porudzbina">
 <createdBy>User</createdBy>
-<createdTime>2024-12-19 15:54:13 UTC</createdTime>
+<createdTime>2024-12-27 16:02:43 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -15,9 +15,10 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="IdCenovnika" id="CABB8859-00F1-91FD-1B56-639DA4C0156A">
+<Attribute name="IdPor" id="37CFB7C3-1F01-70A2-98D7-6A5242C145C6">
 <createdBy>User</createdBy>
-<createdTime>2024-12-22 18:01:54 UTC</createdTime>
+<createdTime>2024-12-27 16:02:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[IdPorudzbine]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -27,9 +28,10 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Cena" id="62A89C73-2F47-B2C1-2C00-11672B11776F">
+<Attribute name="KolP" id="8E887C75-5160-A936-78D2-D5B561DCC3C5">
 <createdBy>User</createdBy>
-<createdTime>2024-12-19 16:19:06 UTC</createdTime>
+<createdTime>2024-12-27 16:03:11 UTC</createdTime>
+<commentInRDBMS><![CDATA[Kolicina Porudzbine]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
@@ -39,55 +41,69 @@
 <logicalDatatype>LOGDT020</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="DatumPc" id="9A23571F-43C7-5637-4A7F-8C8FB78C66A8">
+<Attribute name="Ukc" id="02EE1D87-C4C9-FDDA-A43C-8E6E3147B072">
 <createdBy>User</createdBy>
-<createdTime>2024-12-27 16:35:09 UTC</createdTime>
-<commentInRDBMS><![CDATA[DatumPocetka Cene]]></commentInRDBMS>
+<createdTime>2024-12-27 16:03:40 UTC</createdTime>
+<commentInRDBMS><![CDATA[Ukupna cena]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
+<logicalDatatype>LOGDT020</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="DatumKc" id="780997B4-6970-A4C2-A9E8-FC40DEEC6073">
+<Attribute name="StatusP" id="3F942D47-CCB7-0668-6ACD-5AA02A9D5242">
 <createdBy>User</createdBy>
-<createdTime>2024-12-27 16:35:33 UTC</createdTime>
+<createdTime>2024-12-27 16:04:01 UTC</createdTime>
+<commentInRDBMS><![CDATA[Status: obijen,zavrsen,na cekanju]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="IdDodatOp" id="757E4118-E062-268B-10D3-FE4DA03C5BD6">
+<Attribute name="IdDodatOp" id="BC8C398D-482C-AA65-1250-A3C222268CF8">
 <createdBy>User</createdBy>
-<createdTime>2024-12-22 18:03:06 UTC</createdTime>
-<generatorID>4AAA4D0D-B1F0-EBA9-E9C9-5306163C2F14</generatorID>
+<createdTime>2024-12-27 16:05:01 UTC</createdTime>
+<generatorID>94A724A3-3A53-9DE3-5720-64AFDC8B7737</generatorID>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
 </engineerTo>
-<nullsAllowed>true</nullsAllowed>
 <referedAttribute>CDA36B59-3882-AF56-C08C-F6337E3483F5</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="IdMotocikla" id="88D128CB-A13A-C005-7948-0BD8640BF779">
+<Attribute name="IdUsera" id="3E65C811-161A-9433-449C-AA48183DA9B8">
 <createdBy>User</createdBy>
-<createdTime>2024-12-22 18:04:23 UTC</createdTime>
-<generatorID>E313722C-1646-334F-3190-648C2BD668B4</generatorID>
+<createdTime>2024-12-27 16:05:15 UTC</createdTime>
+<generatorID>BB4D20E5-138B-7CAE-D4D5-EA727CE520CA</generatorID>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
 </engineerTo>
-<nullsAllowed>true</nullsAllowed>
+<referedAttribute>690653CF-B2FC-EB95-5F64-E7B25625671B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IdMotocikla" id="42FB94A8-053F-2CE2-FE42-840333627011">
+<createdBy>User</createdBy>
+<createdTime>2024-12-27 16:05:29 UTC</createdTime>
+<generatorID>D811F020-F01C-361B-A1BD-E04403DE3ADD</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
 <referedAttribute>A362BB15-52C7-4EF7-EF03-048D9F77C738</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -96,16 +112,16 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="7A76BAAD-4DBC-2C7A-CFFE-574F26ACFC52" name="Cenovnik PK">
+<identifier id="66EB8EC2-07B7-3604-689D-C732CF22FA37" name="Porudzbina PK">
 <createdBy>User</createdBy>
-<createdTime>2024-12-19 16:17:35 UTC</createdTime>
+<createdTime>2024-12-27 16:03:37 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>CABB8859-00F1-91FD-1B56-639DA4C0156A</attributeRef>
+<attributeRef>37CFB7C3-1F01-70A2-98D7-6A5242C145C6</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

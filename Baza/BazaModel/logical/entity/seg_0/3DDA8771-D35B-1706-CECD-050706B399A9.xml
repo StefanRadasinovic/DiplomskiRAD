@@ -16,7 +16,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Plata" id="48602115-0895-92F8-CFCD-94D34212AAEC">
+<Attribute name="PlataD" id="48602115-0895-92F8-CFCD-94D34212AAEC">
 <createdBy>User</createdBy>
 <createdTime>2024-12-19 16:24:51 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
