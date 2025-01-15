@@ -64,36 +64,6 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="IdDodatOp" id="757E4118-E062-268B-10D3-FE4DA03C5BD6">
-<createdBy>User</createdBy>
-<createdTime>2024-12-22 18:03:06 UTC</createdTime>
-<generatorID>4AAA4D0D-B1F0-EBA9-E9C9-5306163C2F14</generatorID>
-<ownerDesignName>BazaModel</ownerDesignName>
-<engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<referedAttribute>CDA36B59-3882-AF56-C08C-F6337E3483F5</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="IdMotocikla" id="88D128CB-A13A-C005-7948-0BD8640BF779">
-<createdBy>User</createdBy>
-<createdTime>2024-12-22 18:04:23 UTC</createdTime>
-<generatorID>E313722C-1646-334F-3190-648C2BD668B4</generatorID>
-<ownerDesignName>BazaModel</ownerDesignName>
-<engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<referedAttribute>A362BB15-52C7-4EF7-EF03-048D9F77C738</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="7A76BAAD-4DBC-2C7A-CFFE-574F26ACFC52" name="Cenovnik PK">

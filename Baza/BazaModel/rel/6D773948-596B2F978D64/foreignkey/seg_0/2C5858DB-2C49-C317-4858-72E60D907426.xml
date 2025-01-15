@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="2C5858DB-2C49-C317-4858-72E60D907426" containerWithKeyObject="E30C06CC-17F3-1651-8B36-D10BB64C3693" localFKIndex="26A99900-3C76-B542-AAD8-B313D56B8F05" name="ima_DodatnaOprema_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-01-15 14:21:53 UTC</createdTime>
+<generatorID>4AAA4D0D-B1F0-EBA9-E9C9-5306163C2F14</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<referredTableLongName>DodatnaOprema</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>92E7C530-FDC6-4B9B-060C-C3ACB5A2CF89</referredTableID>
+<keyObject>EB80BB09-7151-49F4-9C0C-438C240913E9</keyObject>
+<referredKeyID>EB80BB09-7151-49F4-9C0C-438C240913E9</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>IdDodatOp</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

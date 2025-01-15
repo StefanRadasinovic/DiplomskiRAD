@@ -54,6 +54,34 @@
 <logicalDatatype>LOGDT020</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="UpotRd" id="F68FD2DA-047A-B3F6-A6B3-0B25F28FEB5C">
+<createdBy>User</createdBy>
+<createdTime>2025-01-15 14:05:00 UTC</createdTime>
+<comment><![CDATA[Da li je rezervni deo upotrebljen]]></comment>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IdZadatka" id="6DCADF6C-9D75-138E-F3FF-C2C385A574B8">
+<createdBy>User</createdBy>
+<createdTime>2025-01-15 14:06:00 UTC</createdTime>
+<generatorID>B7F17396-A915-83D9-4D38-098239592916</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<referedAttribute>DE219D4F-1B4C-D691-CD42-DF190C57721E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="4C7FF493-7E05-AE90-2381-FE661C1153A3" name="RezervniDelovi PK">
