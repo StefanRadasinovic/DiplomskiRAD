@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E708C7D6-9493-CECB-1E01-9733D209CAC0" name="sadrzi">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<ordsAlias>relation_21</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdDodatOp" id="50817F66-0D2A-C150-D6F7-BE0257C69307">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A7B93EE2-C17F-8533-D102-62BB58DB47DE" referredColumn="16845AA7-7A96-F05F-1C45-B26E638FB074"/>
+</associations>
+</Column>
+<Column name="IdPor" id="763D3D2E-7B08-2DD1-4F6D-C9AE7E2A6B8E">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B877323D-010C-619B-D7BD-B19E8B5FC8FA" referredColumn="22ADB507-5E49-C57A-4026-0FA536661394"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="29DEA6E0-2F22-97CF-E709-614ECFCD37C2" name="sadrzi_PK">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="50817F66-0D2A-C150-D6F7-BE0257C69307"/>
+<colUsage columnID="763D3D2E-7B08-2DD1-4F6D-C9AE7E2A6B8E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FB0BFA52-E557-66DA-34EB-C1F9BC3D69C5" name="sadrzi_DodatnaOprema_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>94A724A3-3A53-9DE3-5720-64AFDC8B7737</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="50817F66-0D2A-C150-D6F7-BE0257C69307"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B7ACFC8E-3E89-7AAE-7656-1BEB3F32F502" name="sadrzi_Porudzbina_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>94A724A3-3A53-9DE3-5720-64AFDC8B7737</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="763D3D2E-7B08-2DD1-4F6D-C9AE7E2A6B8E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

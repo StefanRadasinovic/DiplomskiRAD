@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="289DD96A-8ACB-2B7D-6E5B-0C4073D1FEF9" name="Cenovnik">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>5FC3B2CF-90DC-E036-79A0-45C1B368E6C2</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdCenovnika" id="771B6561-F6C9-9604-A976-B981D41F9D03">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>CABB8859-00F1-91FD-1B56-639DA4C0156A</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cena" id="35538CDD-A49A-DA81-5A33-EBFA632BD682">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>62A89C73-2F47-B2C1-2C00-11672B11776F</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DatumPc" id="EFBCA549-56BB-D8D3-56E8-AB0F295897A6">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<commentInRDBMS><![CDATA[DatumPocetka Cene]]></commentInRDBMS>
+<generatorID>9A23571F-43C7-5637-4A7F-8C8FB78C66A8</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DatumKc" id="A99E2FA8-1AAC-5EE7-4881-06EF549A977F">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>780997B4-6970-A4C2-A9E8-FC40DEEC6073</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7E47B8B4-78CF-6282-C363-FE191B46B070" name="Cenovnik_PK">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>7A76BAAD-4DBC-2C7A-CFFE-574F26ACFC52</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="771B6561-F6C9-9604-A976-B981D41F9D03"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

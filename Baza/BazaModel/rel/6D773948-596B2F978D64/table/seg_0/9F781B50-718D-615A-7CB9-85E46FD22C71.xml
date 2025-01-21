@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9F781B50-718D-615A-7CB9-85E46FD22C71" name="Direktor">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>3DDA8771-D35B-1706-CECD-050706B399A9</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdUsera" id="9237191C-4467-0B46-C388-B187F2AFC53A">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>690653CF-B2FC-EB95-5F64-E7B25625671B</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5F1BFD19-7F47-AB9C-BA28-28F78DB3646B" referredColumn="C156E501-4364-169B-6AC9-38A3469E4035"/>
+</associations>
+</Column>
+<Column name="PlataD" id="CAB01F2D-C52C-6DD8-C2D1-D9AF555691E6">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>48602115-0895-92F8-CFCD-94D34212AAEC</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F6A62F88-B911-0274-F535-78919FA78A03" name="Direktor_PK">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>224B130C-E1B0-44DF-3587-A256BA94F3D7</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9237191C-4467-0B46-C388-B187F2AFC53A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CA93878B-0A56-95AE-A1F8-3A15CDCDE11A" name="Direktor_Korisnik_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>3D08271F-7AF2-233B-129C-4AA636BEE4F2</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9237191C-4467-0B46-C388-B187F2AFC53A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

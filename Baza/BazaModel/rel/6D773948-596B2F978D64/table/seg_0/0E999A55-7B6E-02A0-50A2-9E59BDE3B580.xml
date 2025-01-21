@@ -1,0 +1,139 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0E999A55-7B6E-02A0-50A2-9E59BDE3B580" name="Servis">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>B0657DDD-5EC3-BFF0-33BD-01233CF3A465</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdServisa" id="6B1270BF-4F88-E30F-DDB2-CFB3019AE66C">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>A2A274E3-86D3-EFB7-FF25-5B83069A8872</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="OpisK" id="6C5AB5EA-5E0A-2310-F4B1-B5BFAA65FD5E">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<commentInRDBMS><![CDATA[OpisKvara]]></commentInRDBMS>
+<generatorID>3114E0A4-49B4-3B80-2854-FCE3BC7262CA</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SlikaK" id="EB0A8B46-9288-F7C6-86B6-466EE71C9C1E">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<commentInRDBMS><![CDATA[SlikaKvara]]></commentInRDBMS>
+<generatorID>7DC0ECB8-57B7-ACE8-413B-075023CD0942</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DatumD" id="6BBF8393-612B-2135-F6B0-3055F4E64EEF">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<commentInRDBMS><![CDATA[DatumDospeca]]></commentInRDBMS>
+<generatorID>1AF79847-430F-C004-AC5E-EE680BD39C53</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DatumZ" id="4140DDD0-F253-4B72-7D11-B3AA44216E31">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<commentInRDBMS><![CDATA[DatumZavrsetka]]></commentInRDBMS>
+<generatorID>784053A9-8CE4-8F20-6A7A-18C98F33A866</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="StatusS" id="48689AE8-E165-B405-87F9-6CCAAEC1AA19">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<commentInRDBMS><![CDATA[Status: na cekanju, u toku, odbijen, zavrsen]]></commentInRDBMS>
+<generatorID>4DAAEDA0-4C9B-3A2E-A29B-0036BB7FFD6C</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>4</dataTypeSize>
+<ownDataTypeParameters>4,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RazOdb" id="C33F622D-F872-A289-F993-000D0742127D">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<commentInRDBMS><![CDATA[RazlogOdbijanjaServisa]]></commentInRDBMS>
+<generatorID>3C99D09C-D15F-59B4-7BD9-33AEA41F305E</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Klijent_IdUsera" id="53A48D24-7F25-C523-4D92-3B5B781252DE">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>AA2A4EBE-3F08-15F0-AB92-CDCAC509A21C</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="98953B9D-4F32-190D-8D6F-F35E5B10D169" referredColumn="AE778C30-EA65-97A1-6444-3682627CAE6B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="52847372-898E-F660-AD35-7C8AEEB0E599" name="Servis_PK">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>43879BA4-F2F2-F4BC-C18E-B9DD3C15D4B4</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6B1270BF-4F88-E30F-DDB2-CFB3019AE66C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D147CB11-2DC2-A6F9-2487-EFDC34686A3F" name="Servis_Klijent_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>9DC1559C-35E6-1F0D-2DCA-F7F5B8C63B6D</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="53A48D24-7F25-C523-4D92-3B5B781252DE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
