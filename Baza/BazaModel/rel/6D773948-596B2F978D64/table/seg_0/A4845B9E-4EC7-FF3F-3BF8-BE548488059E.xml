@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A4845B9E-4EC7-FF3F-3BF8-BE548488059E" name="pravi">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<ordsAlias>relation_26</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdMotocikla" id="33076038-1B93-A9FB-147A-9A484D85FE19">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8AF58A17-4319-9075-A236-A900A7F2861B" referredColumn="4D3EE574-D9A0-E864-3230-AA5353BFE486"/>
+</associations>
+</Column>
+<Column name="IdProizv" id="61E1E418-0000-5DEA-CD41-832130BD20F9">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="85755730-4925-D954-7408-452E08554134" referredColumn="8C426571-A8E2-A7EB-8F39-C9695C15F682"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="47000A6A-E1E3-478A-C759-0EF0C481A19F" name="pravi_PK">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="33076038-1B93-A9FB-147A-9A484D85FE19"/>
+<colUsage columnID="61E1E418-0000-5DEA-CD41-832130BD20F9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="245A9127-A100-63BC-51AE-9BBCF6888490" name="pravi_Motocikl_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>8A7243EC-858A-AF0F-E991-9F6B6BD56F45</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="33076038-1B93-A9FB-147A-9A484D85FE19"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4FB6562D-8E36-60BB-C933-09F7226EA540" name="pravi_Proizvodjac_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>8A7243EC-858A-AF0F-E991-9F6B6BD56F45</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="61E1E418-0000-5DEA-CD41-832130BD20F9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

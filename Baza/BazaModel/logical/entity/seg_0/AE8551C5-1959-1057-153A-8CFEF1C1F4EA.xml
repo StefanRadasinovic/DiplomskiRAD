@@ -68,20 +68,6 @@
 <dataTypeSize>1</dataTypeSize>
 <ownDataTypeParameters>1,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="IdDodatOp" id="BC8C398D-482C-AA65-1250-A3C222268CF8">
-<createdBy>User</createdBy>
-<createdTime>2024-12-27 16:05:01 UTC</createdTime>
-<generatorID>94A724A3-3A53-9DE3-5720-64AFDC8B7737</generatorID>
-<ownerDesignName>BazaModel</ownerDesignName>
-<engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
-</engineerTo>
-<referedAttribute>CDA36B59-3882-AF56-C08C-F6337E3483F5</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="IdUsera" id="3E65C811-161A-9433-449C-AA48183DA9B8">
 <createdBy>User</createdBy>
 <createdTime>2024-12-27 16:05:15 UTC</createdTime>
@@ -91,20 +77,6 @@
 <item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
 </engineerTo>
 <referedAttribute>690653CF-B2FC-EB95-5F64-E7B25625671B</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="IdMotocikla" id="42FB94A8-053F-2CE2-FE42-840333627011">
-<createdBy>User</createdBy>
-<createdTime>2024-12-27 16:05:29 UTC</createdTime>
-<generatorID>D811F020-F01C-361B-A1BD-E04403DE3ADD</generatorID>
-<ownerDesignName>BazaModel</ownerDesignName>
-<engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
-</engineerTo>
-<referedAttribute>A362BB15-52C7-4EF7-EF03-048D9F77C738</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
