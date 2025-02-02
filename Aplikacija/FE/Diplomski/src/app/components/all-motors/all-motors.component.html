@@ -1,0 +1,16 @@
+<div class="home-container">
+    <mat-toolbar class="header">
+      <span class="title">Available Motorcycles</span>
+      <button mat-raised-button
+              id="btnAddTitle"
+              (click)="navigateToAddMotor()"
+              color="primary"
+              class="add-title-button">
+        Add New Motorcycle 
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-toolbar>
+    <hr />
+    <app-motor-container></app-motor-container>
+  </div>
+  

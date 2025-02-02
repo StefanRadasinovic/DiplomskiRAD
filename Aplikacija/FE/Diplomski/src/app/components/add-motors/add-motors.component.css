@@ -1,0 +1,160 @@
+/* Wrapper for the form */
+.form-wrapper {
+    background-color: #DEDEDE;
+    padding: 2.0rem; /* Reduce padding to make the wrapper smaller */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%; /* Make the form smaller */
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Center the title */
+.form-title {
+    text-align: center; 
+    margin-bottom: 1rem;
+}
+
+
+/* Form label styling */
+.form-label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 4px; /* Reduce margin to bring fields closer */
+}
+
+input[type="text"]{
+    width: 93%; /* Reduce input width */
+    padding: 0.4rem; /* Smaller padding */
+    margin-left: 0; /* Align inputs to the left */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Align input fields to the left and make them smaller */
+
+input[type="datetime-local"],
+input[type="checkbox"] {
+    width: 90%; /* Reduce input width */
+    padding: 0.4rem; /* Smaller padding */
+    margin-left: 0; /* Align inputs to the left */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Align Not Available Time Start and End on the same line */
+.form-group-inline {
+    display: flex;
+    justify-content: flex-start; /* Align both fields to the left */
+    gap: 0.3rem; /* Reduce the gap between the fields */
+}
+
+/* This controls the width of Not Available Time fields */
+.form-group-inline-item {
+    width: 48%; /* Reduce width to fit both fields */
+}
+
+/* Submit button and action section styling */
+.form-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.submit-button {
+    align-items: center;
+    background-clip: padding-box;
+    background-color: #27ae60;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px; /* Smaller font size */
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin-left: 1rem;
+    min-height: 2.8rem; /* Reduced minimum height */
+    padding: calc(.5rem - 1px) calc(2.3rem - 1px); /* Reduced padding */
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+}
+
+.submit-button:hover {
+    transform: translateY(-1px);
+  }
+  
+.submit-button:active {
+    background-color: #27ae60;
+    box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+    transform: translateY(0);
+}
+.submit-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Center success message */
+p {
+    text-align: center;
+    color: green;
+    margin-top: 1rem;
+}
+
+
+.drop-zone:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .drop-zone.dragover {
+    background-color: #eef7ff;
+  }
+  
+  .large-icon {
+    color: black;
+    transform: scale(2);
+}
+
+  
+  .upload-text {
+    color: black; 
+  }
+  
+.drop-zone {
+    border: 2px dashed #ccc;
+    border-radius: 4px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    color: #aaa;
+    width: 83%; /* Set a fixed width */
+    height: 130px; /* Set a fixed height */
+    overflow: hidden; /* Prevent overflow if image exceeds the bounds */
+    position: relative; /* For positioning the image preview */
+}
+
+.image-preview {
+    width: 100%; /* Fill the drop zone's width */
+    height: 100%; /* Fill the drop zone's height */
+    object-fit: fill; /* Stretch the image to fill the drop zone */
+    position: absolute; /* Ensure it fills the drop zone */
+    top: 0;
+    left: 0;
+    border: 1px solid #ddd; /* Optional: Add border */
+    border-radius: 4px; /* Optional: Rounded corners */
+}

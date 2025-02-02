@@ -1,0 +1,45 @@
+<div class="form-wrapper" *ngIf="!loading; else loadingTemplate">
+    <h4 class="form-title">Motorcycle Details</h4>
+    <hr />
+  
+    <!-- Form Group for Name -->
+    <div class="form-group">
+      <label class="form-label">Ime:</label>
+      <input type="text" value="{{ motor.name }}" readonly />
+    </div>
+  
+    <br>
+  
+    <div class="form-group">
+      <label class="form-label">Godina proizvodnje:</label>
+      <input type="text" value="{{ motor.yearOfProduction }}" readonly />
+    </div>
+  
+    <br>
+  
+    <!-- Form Group for Motor Type -->
+    <div class="form-group">
+      <label class="form-label">Vrsta Motora:</label>
+      <input type="text" value="{{ motor.motorcycleType }}" readonly />
+    </div>
+    <br>
+  
+    <div class="form-group"></div>
+    <label class="form-label">Slika:</label>
+    <div class="drop-zone">
+      <img [src]="motor.slika" alt="{{ motor.name }}" class="image-preview" />
+    </div>
+  
+    <br>
+  
+    <div mat-dialog-actions class="button-container">
+      <button mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="editMotor(motor.id)">Edit <mat-icon>edit</mat-icon> </button>
+      <button mat-raised-button id="deleteMotor" color="primary" class="delete-button" (click)="deleteMotor()">Delete<mat-icon>delete</mat-icon></button>
+    </div>
+  
+  </div>
+  
+  <ng-template #loadingTemplate>
+    <p>Loading motor details...</p>
+  </ng-template>
+  

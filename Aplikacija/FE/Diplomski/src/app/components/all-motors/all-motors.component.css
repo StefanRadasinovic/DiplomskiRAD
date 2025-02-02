@@ -1,0 +1,65 @@
+.home-container {
+    padding: 0.5rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+}
+
+.title {
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem; 
+}
+
+.add-title-button {
+    align-items: center;
+    background-clip: padding-box;
+    background-color:  #27ae60;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px; /* Smaller font size */
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin-left: 1rem;
+    min-height: 2.8rem; /* Reduced minimum height */
+    padding: calc(.5rem - 1px) calc(1rem - 1px); /* Reduced padding */
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+}
+
+mat-toolbar {
+    background-color: white; 
+}
+
+.add-title-button:hover,
+.add-title-button:focus {
+  background-color: #27ae60;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.add-title-button:hover {
+  transform: translateY(-1px);
+}
+
+.add-title-button:active {
+  background-color:  #27ae60;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}

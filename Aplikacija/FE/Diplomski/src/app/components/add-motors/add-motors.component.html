@@ -1,0 +1,65 @@
+<div class="form-wrapper">
+    <form [formGroup]="motorForm" (ngSubmit)="handleSubmit()" class="motor-form">
+      <h4 class="form-title">Add New Motorcycle</h4>
+      <hr />
+  
+      <!-- Form Group for Name -->
+      <div class="form-group">
+        <label for="name" class="form-label">Ime:</label>
+        <input id="name" type="text" formControlName="name" required />
+      </div>
+  
+    <br>
+
+      <div class="form-group">
+        <label for="yearOfProduction" class="form-label">Godina proizvodnje:</label>
+        <input id="yearOfProduction" type="text" formControlName="yearOfProduction" required />
+      </div>
+  
+  <br>
+      <div class="form-group">
+        <label for="kilometraza" class="form-label">Kilometraza(km):</label>
+        <input id="kilometraza" type="text" formControlName="kilometraza" required />
+      </div>
+
+   <br>
+      <div class="form-group">
+        <label for="motorcycleType" class="form-label">Vrsta Motora:</label>
+        <input id="motorcycleType" type="text" formControlName="motorcycleType" required />
+      </div>
+  <br>
+      <div class="form-group">
+        <label for="motorcycleState" class="form-label">Stanje:</label>
+        <input id="motorcycleState" type="text" formControlName="motorcycleState" required />
+      </div>
+  <br>
+
+      <div class="form-group">
+        <label for="amount" class="form-label">Kolicina:</label>
+        <input id="amount" type="text" formControlName="amount" required />
+      </div>
+  <br>
+  
+    <label for="slika" class="form-label">Slika:</label>
+    <div class="drop-zone" 
+       #dropZone
+       (dragover)="onDragOver($event)" 
+       (drop)="onDrop($event)" 
+       (click)="fileInput.click()">
+      <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden />
+      <br>
+      <mat-icon class="large-icon">cloud_upload</mat-icon>
+      <p class="upload-text">Drag and drop a picture here, or click to upload</p>
+      <img *ngIf="imagePreview" [src]="imagePreview" alt="Image Preview" class="image-preview" />
+  </div>
+  
+  
+      <!-- Submit Button -->
+      <div class="form-action">
+        <button type="submit" [disabled]="motorForm.invalid" class="submit-button">Confirm</button>
+      </div>
+  
+      <!-- Message -->
+      <p>{{ createMessage }}</p>
+    </form>
+  </div>
