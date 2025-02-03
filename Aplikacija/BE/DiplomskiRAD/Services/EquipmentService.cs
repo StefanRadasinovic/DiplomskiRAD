@@ -67,6 +67,7 @@ namespace DiplomskiRAD.Services
 
             existingEquipment.Name = updateEquipmentDTO.Name ?? existingEquipment.Name;
             existingEquipment.Slika = updateEquipmentDTO.Slika ?? existingEquipment.Slika;
+            existingEquipment.EquipmentState = updateEquipmentDTO.EquipmentState;
             existingEquipment.Amount = updateEquipmentDTO.Amount;
 
             await _equipmentRepository.UpdateEquipment(existingEquipment);

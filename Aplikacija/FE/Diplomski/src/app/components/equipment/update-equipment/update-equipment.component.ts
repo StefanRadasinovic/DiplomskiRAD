@@ -39,7 +39,6 @@ export class UpdateEquipmentComponent implements OnInit {
     initializeForm(): void {
       this.equipmentForm = this.fb.group({
         name: ['', Validators.required],
-        kilometraza: [''],
         equipmentState: [''],
         amount: [''],
         slika: [''] // Ensure this matches the expected field name
@@ -48,15 +47,15 @@ export class UpdateEquipmentComponent implements OnInit {
   
     loadMotorDetails(): void {
       this.equipmentService.getEquipmentById(this.equipmentId).subscribe({
-        next: (motor) => {
+        next: (eq) => {
           this.equipmentForm.patchValue({
-            name: motor.name,
-            equipmentState: motor.equipmentState,
-            amount: motor.amount,
-            slika: motor.slika || '' // Default to an empty string if slika is undefined
+            name: eq.name,
+            equipmentState: eq.equipmentState,
+            amount: eq.amount,
+            slika: eq.slika || '' // Default to an empty string if slika is undefined
           });
-          this.imagePreview = motor.slika || null; // Set the initial image preview
-          console.log(motor);
+          this.imagePreview = eq.slika || null; // Set the initial image preview
+          console.log(eq);
         },
         error: (err) => console.error('Error fetching motor details:', err)
       });
@@ -71,6 +70,7 @@ export class UpdateEquipmentComponent implements OnInit {
         this.equipmentService.updateEquipment(this.equipmentId, updatedMotor).subscribe({
           next: () => {
             this.createMessage = "Updated successfully!";
+            console.log(updatedMotor);
             setTimeout(() => {
               this.router.navigate(['/all-equipments']);
             }, 800);

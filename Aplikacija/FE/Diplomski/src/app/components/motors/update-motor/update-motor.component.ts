@@ -76,7 +76,7 @@ export class UpdateMotorComponent implements OnInit {
         next: () => {
           this.createMessage = "Updated successfully!";
           setTimeout(() => {
-            this.router.navigate(['/all-equipments']);
+            this.router.navigate(['/all-motorcycles']);
           }, 800);
         },
         error: (err) => {
