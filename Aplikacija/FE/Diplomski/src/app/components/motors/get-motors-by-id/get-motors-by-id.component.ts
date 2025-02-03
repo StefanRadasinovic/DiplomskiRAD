@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Motor, MotorInfo } from '../../models/motorDTO';
+import { Motor, MotorInfo } from '../../../models/motorDTO';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MotorService } from '../../services/motorServices';
+import { MotorService } from '../../../services/motorServices';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from '../dialog/dialog.component';
+import { DialogComponent } from '../../dialog/dialog.component';
 
 @Component({
   selector: 'app-get-motors-by-id',

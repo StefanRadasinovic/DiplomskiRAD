@@ -1,0 +1,45 @@
+<div class="form-wrapper" *ngIf="!loading; else loadingTemplate">
+    <h4 class="form-title">Specifikacije Dodatne Opreme</h4>
+    <hr />
+  
+    <!-- Form Group for Name -->
+    <div class="form-group">
+      <label class="form-label">Ime:</label>
+      <input type="text" value="{{ equipment.name }}" readonly />
+    </div>
+
+    <br>
+
+    <div class="form-group">
+      <label class="form-label">Stanje:</label>
+      <input type="text" value="{{ equipment.equipmentState }}" readonly />
+    </div>
+
+    <br>
+  
+    <div class="form-group">
+      <label class="form-label">Kolicina:</label>
+      <input type="text" value="{{ equipment.amount }}" readonly />
+    </div>
+    
+    <br>
+  
+    <div class="form-group"></div>
+    <label class="form-label">Slika:</label>
+    <div class="drop-zone">
+      <img [src]="equipment.slika" alt="{{ equipment.name }}" class="image-preview" />
+    </div>
+  
+    <br>
+  
+    <div mat-dialog-actions class="button-container">
+      <button mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="editEquipment(equipment.id)">Izmeni <mat-icon>edit</mat-icon> </button>
+      <button mat-raised-button id="deleteMotor" color="primary" class="delete-button" (click)="deleteEquipment()">Obrisi<mat-icon>delete</mat-icon></button>
+    </div>
+  
+  </div>
+  
+  <ng-template #loadingTemplate>
+    <p>Loading motor details...</p>
+  </ng-template>
+  

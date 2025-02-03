@@ -1,0 +1,53 @@
+<div class="form-wrapper">
+    <form [formGroup]="equipmentForm" (ngSubmit)="handleSubmit()" class="motor-form">
+      <h4 class="form-title">Dodaj Dodatnu Opremu</h4>
+      <hr />
+  
+      <!-- Form Group for Name -->
+      <div class="form-group">
+        <label for="name" class="form-label">Ime:</label>
+        <input id="name" type="text" formControlName="name" required />
+      </div>
+  
+    <br>
+
+    <div class="form-group">
+        <label for="amount" class="form-label">Kolicina:</label>
+        <input id="amount" type="text" formControlName="amount" required />
+    </div>
+
+  <br>
+
+  <div class="form-group">
+    <label for="equipmentState" class="form-label">Stanje:</label>
+    <select id="equipmentState" formControlName="equipmentState" required>
+      <option value="NOVA">NOVA</option>
+      <option value="POLOVNA">POLOVNA</option>
+    </select>
+  </div>
+
+<br>
+  
+    <label for="slika" class="form-label">Slika:</label>
+    <div class="drop-zone" 
+       #dropZone
+       (dragover)="onDragOver($event)" 
+       (drop)="onDrop($event)" 
+       (click)="fileInput.click()">
+      <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden />
+      <br>
+      <mat-icon class="large-icon">cloud_upload</mat-icon>
+      <p class="upload-text">Drag and drop a picture here, or click to upload</p>
+      <img *ngIf="imagePreview" [src]="imagePreview" alt="Image Preview" class="image-preview" />
+  </div>
+  
+  
+      <!-- Submit Button -->
+      <div class="form-action">
+        <button type="submit" [disabled]="equipmentForm.invalid" class="submit-button">Potvrdi</button>
+      </div>
+  
+      <!-- Message -->
+      <p>{{ createMessage }}</p>
+    </form>
+  </div>

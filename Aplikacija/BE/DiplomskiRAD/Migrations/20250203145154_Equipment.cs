@@ -6,11 +6,26 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DiplomskiRAD.Migrations
 {
     /// <inheritdoc />
-    public partial class pocetna : Migration
+    public partial class Equipment : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Equipments",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Slika = table.Column<string>(type: "text", nullable: true),
+                    EquipmentState = table.Column<int>(type: "integer", nullable: false),
+                    Amount = table.Column<double>(type: "double precision", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Equipments", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Motorcycles",
                 columns: table => new
@@ -49,6 +64,9 @@ namespace DiplomskiRAD.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Equipments");
+
             migrationBuilder.DropTable(
                 name: "Motorcycles");
 

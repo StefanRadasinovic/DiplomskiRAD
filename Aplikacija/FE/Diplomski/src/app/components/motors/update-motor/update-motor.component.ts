@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MotorService } from '../../services/motorServices';
-import { UpdateMotorDto } from '../../models/motorDTO';
+import { MotorService } from '../../../services/motorServices';
+import { UpdateMotorDto } from '../../../models/motorDTO';
 
 @Component({
   selector: 'app-update-motor',
@@ -76,7 +76,7 @@ export class UpdateMotorComponent implements OnInit {
         next: () => {
           this.createMessage = "Updated successfully!";
           setTimeout(() => {
-            this.router.navigate(['/all-motorcycles']);
+            this.router.navigate(['/all-equipments']);
           }, 800);
         },
         error: (err) => {
