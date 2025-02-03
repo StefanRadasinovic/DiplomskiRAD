@@ -31,9 +31,9 @@ export class AddMotorsComponent implements AfterViewInit {
       slika: [''] ,
       kilometraza: [null],
       yearOfProduction: [null],
-      motorcycleState: ['', Validators.required],
+      motorcycleState: [''],
       amount: [null],
-      motorcycleType: ['', Validators.required],
+      motorcycleType: [''],
     });
   }
 
@@ -60,6 +60,7 @@ export class AddMotorsComponent implements AfterViewInit {
         },
         error: (error) => {
           console.error('Error adding motor ', error);
+          console.log(motorData);
         }
       });
     }

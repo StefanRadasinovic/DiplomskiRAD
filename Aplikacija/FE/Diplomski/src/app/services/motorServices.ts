@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { CreateMotorDto, MotorInfo, PaginatedMotorProps, UpdateMotorDto } from "../models/motorDTO";
+import { CreateMotorDto, Motor, MotorInfo, PaginatedMotorProps, UpdateMotorDto } from "../models/motorDTO";
 
 const baseUrl = 'https://localhost:7213/api/Motorcycle'
 
@@ -18,8 +18,8 @@ getAllWithPagination(pageNumber: number, pageSize: number): Observable<Paginated
   return this.http.get<PaginatedMotorProps>(`${baseUrl}?pageNumber=${pageNumber}&pageSize=${pageSize}`);
 }
 
-  getMotorById(id: string): Observable<MotorInfo> {
-    return this.http.get<MotorInfo>(`${baseUrl}/${id}`);
+  getMotorById(id: string): Observable<Motor> {
+    return this.http.get<Motor>(`${baseUrl}/${id}`);
   }
 
   createMotor(data: CreateMotorDto): Observable<MotorInfo> {

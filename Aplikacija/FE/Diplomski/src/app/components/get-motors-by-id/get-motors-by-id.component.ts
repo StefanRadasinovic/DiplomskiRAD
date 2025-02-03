@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MotorInfo } from '../../models/motorDTO';
+import { Motor, MotorInfo } from '../../models/motorDTO';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MotorService } from '../../services/motorServices';
 import { MatDialog } from '@angular/material/dialog';
@@ -11,7 +11,7 @@ import { DialogComponent } from '../dialog/dialog.component';
   styleUrl: './get-motors-by-id.component.css'
 })
 export class GetMotorsByIdComponent implements OnInit {
-  motor!: MotorInfo;
+  motor!: Motor;
   loading = true; // Add a loading flag
 
   constructor(
@@ -35,7 +35,7 @@ export class GetMotorsByIdComponent implements OnInit {
     this.motorService.getMotorById(id).subscribe({
       next: (res) => {
         this.motor = res;
-        if(this.motor.slika == '') this.motor.slika ='https://placehold.co/300x300/EEE/31343C';
+        if(this.motor.slika == '' || this.motor.slika == null) this.motor.slika ='https://placehold.co/700x300/EEE/31343C?text=300 x 300';
         this.loading = false; // Set loading to false after data is fetched
         console.log(res);
       },
