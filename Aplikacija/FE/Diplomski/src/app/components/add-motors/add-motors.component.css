@@ -95,6 +95,16 @@ input[type="checkbox"] {
     width: auto;
 }
 
+select {
+    width: 96%; /* Match input width */
+    padding: 0.4rem; /* Smaller padding */
+    margin-left: 0; /* Align inputs to the left */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+
 .submit-button:hover {
     transform: translateY(-1px);
   }

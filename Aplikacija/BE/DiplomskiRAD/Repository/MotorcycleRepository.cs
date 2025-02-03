@@ -1,4 +1,5 @@
 ﻿using DiplomskiRAD.Data;
+using DiplomskiRAD.Enums;
 using DiplomskiRAD.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
@@ -60,5 +61,16 @@ namespace DiplomskiRAD.Repository
         {
             return await GetFilter(x => true);
         }
+
+        public async Task<List<Motorcycle>> GetMotorByType(string motorType)
+        {
+            if (!Enum.TryParse<MotorcycleType>(motorType, out var type))
+            {
+                throw new ArgumentException("Invalid motorcycle type.");
+            }
+
+            return await _context.Motorcycles.Where(m => m.MotorcycleType == type).ToListAsync();
+        }
+
     }
 }

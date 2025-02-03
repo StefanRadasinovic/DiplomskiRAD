@@ -1,13 +1,13 @@
 export interface Motor
 {
-    Id : string,
-    Name : string,
-    Slika? : string
-    Kilometraza : number,
-    YearOfProduction : number,
-    MotorcycleState: string,
-    Amount : number,
-    MotorcycleType : string,
+    id : string,
+    name : string,
+    slika? : string
+    kilometraza : number,
+    yearOfProduction : number,
+    motorcycleState: string,
+    amount : number,
+    motorcycleType : string,
 }
 
 export interface MotorInfo
@@ -44,7 +44,7 @@ export interface CreateMotorDto
 export interface UpdateMotorDto 
 {
     name : string,
-    slika? : string
+    Slika? : string
     kilometraza : number,
     yearOfProduction : number,
     motorcycleState: string,

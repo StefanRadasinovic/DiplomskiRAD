@@ -38,10 +38,12 @@ export class UpdateMotorComponent implements OnInit {
   initializeForm(): void {
     this.motorForm = this.fb.group({
       name: ['', Validators.required],
-      notAvailableTimeStart: [null],
-      notAvailableTimeEnd: [null],
-      IsAvailable: [true],
-      Slika: [''] // Ensure this matches the expected field name
+      kilometraza: [''],
+      yearOfProduction: [''],
+      motorcycleState: [''],
+      motorcycleType: [''],
+      amount: [''],
+      slika: [''] // Ensure this matches the expected field name
     });
   }
 
@@ -50,8 +52,12 @@ export class UpdateMotorComponent implements OnInit {
       next: (motor) => {
         this.motorForm.patchValue({
           name: motor.name,
+          kilometraza: motor.kilometraza,
           yearOfProduction: motor.yearOfProduction,
-          Slika: motor.slika || '' // Default to an empty string if slika is undefined
+          motorcycleState: motor.motorcycleState,
+          motorcycleType: motor.motorcycleType,
+          amount: motor.amount,
+          slika: motor.slika || '' // Default to an empty string if slika is undefined
         });
         this.imagePreview = motor.slika || null; // Set the initial image preview
         console.log(motor);
@@ -63,14 +69,14 @@ export class UpdateMotorComponent implements OnInit {
   handleSubmit(): void {
     if (this.motorForm.valid) {
       const updatedMotor: UpdateMotorDto = this.motorForm.value;
-      updatedMotor.slika = this.originalFileName;
+      updatedMotor.Slika = this.originalFileName;
       
       console.log('Motor Object Being Uploaded:', updatedMotor); // Log the entire object
       this.motorService.updateMotor(this.motorId, updatedMotor).subscribe({
         next: () => {
           this.createMessage = "Updated successfully!";
           setTimeout(() => {
-            this.router.navigate(['/all-motors']);
+            this.router.navigate(['/all-motorcycles']);
           }, 800);
         },
         error: (err) => {

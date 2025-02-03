@@ -17,6 +17,15 @@
     margin-bottom: 1rem;
 }
 
+select {
+    width: 96%; /* Match input width */
+    padding: 0.4rem; /* Smaller padding */
+    margin-left: 0; /* Align inputs to the left */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
 
 /* Form label styling */
 .form-label {
