@@ -12,11 +12,17 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
-import { AddMotorsComponent } from './components/add-motors/add-motors.component';
-import { AllMotorsComponent } from './components/all-motors/all-motors.component';
+import { AddMotorsComponent } from './components/motors/add-motors/add-motors.component';
+import { AllMotorsComponent } from './components/motors/all-motors/all-motors.component';
 import { DialogComponent } from './components/dialog/dialog.component';
-import { GetMotorsByIdComponent } from './components/get-motors-by-id/get-motors-by-id.component';
-import { UpdateMotorComponent } from './components/update-motor/update-motor.component';
+import { GetMotorsByIdComponent } from './components/motors/get-motors-by-id/get-motors-by-id.component';
+import { UpdateMotorComponent } from './components/motors/update-motor/update-motor.component';
+import { EquipmentCardComponent } from './cards/equipment-card/equipment-card.component';
+import { EquipmentContainerComponent } from './cards/equipment-container/equipment-container.component';
+import { AllEquipmentComponent } from './components/equipment/all-equipment/all-equipment.component';
+import { AddEquipmentComponent } from './components/equipment/add-equipment/add-equipment.component';
+import { GetEquipmentByIdComponent } from './components/equipment/get-equipment-by-id/get-equipment-by-id.component';
+import { UpdateEquipmentComponent } from './components/equipment/update-equipment/update-equipment.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +33,13 @@ import { UpdateMotorComponent } from './components/update-motor/update-motor.com
     AllMotorsComponent,
     DialogComponent,
     GetMotorsByIdComponent,
-    UpdateMotorComponent
+    UpdateMotorComponent,
+    EquipmentCardComponent,
+    EquipmentContainerComponent,
+    AllEquipmentComponent,
+    AddEquipmentComponent,
+    GetEquipmentByIdComponent,
+    UpdateEquipmentComponent,
   ],
   imports: [
     BrowserModule,

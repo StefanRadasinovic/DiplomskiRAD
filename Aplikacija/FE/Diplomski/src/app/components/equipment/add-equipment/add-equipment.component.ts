@@ -1,39 +1,36 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MotorService } from '../../services/motorServices';
 import { Router } from '@angular/router';
-import { CreateMotorDto } from '../../models/motorDTO';
+import { EquipmentService } from '../../../services/equipmentServices';
+import { CreateEquipmentDto } from '../../../models/equipmentDTO';
 
 @Component({
-  selector: 'app-add-motors',
-  templateUrl: './add-motors.component.html',
-  styleUrl: './add-motors.component.css'
+  selector: 'app-add-equipment',
+  templateUrl: './add-equipment.component.html',
+  styleUrl: './add-equipment.component.css'
 })
-export class AddMotorsComponent implements AfterViewInit {
-  
-  motorForm: FormGroup;
-  createMessage: string = "";
-  imagePreview: string | ArrayBuffer | null = null;
-  originalFileName: string | undefined;
-  dropZoneWidth: number = 0;
-  dropZoneHeight: number = 0;
+export class AddEquipmentComponent implements AfterViewInit{
 
-  @ViewChild('dropZone', { static: false }) dropZone!: ElementRef<HTMLDivElement>;
-  
-  constructor(
+equipmentForm: FormGroup;
+createMessage: string = "";
+imagePreview: string | ArrayBuffer | null = null;
+originalFileName: string | undefined;
+dropZoneWidth: number = 0;
+dropZoneHeight: number = 0;  
+
+@ViewChild('dropZone', { static: false }) dropZone!: ElementRef<HTMLDivElement>;
+
+constructor(
     private fb: FormBuilder,
-    private motorService: MotorService,
+    private equipmentService: EquipmentService,
     private router: Router
   ) {
-    this.motorForm = this.fb.group({
+    this.equipmentForm = this.fb.group({
      
       name: ['', Validators.required],
       slika: [''] ,
-      kilometraza: [null],
-      yearOfProduction: [null],
-      motorcycleState: [''],
       amount: [null],
-      motorcycleType: [''],
+      equipmentState: [''],
     });
   }
 
@@ -47,15 +44,15 @@ export class AddMotorsComponent implements AfterViewInit {
   }
 
   handleSubmit() {
-    if (this.motorForm.valid) {
-      const motorData: CreateMotorDto = this.motorForm.value;
+    if (this.equipmentForm.valid) {
+      const motorData: CreateEquipmentDto = this.equipmentForm.value;
       motorData.slika = this.originalFileName; 
 
-      this.motorService.createMotor(motorData).subscribe({
+      this.equipmentService.createEquipment(motorData).subscribe({
         next: () => {
-          this.createMessage = "Successfully added";
+          this.createMessage = "Uspesno dodat!";
           setTimeout(() => {
-            this.router.navigate(['/all-motorcycles']);
+            this.router.navigate(['/all-equipments']);
           }, 800);
         },
         error: (error) => {
@@ -125,4 +122,6 @@ export class AddMotorsComponent implements AfterViewInit {
   
     reader.readAsDataURL(file);
   }
+
+
 }

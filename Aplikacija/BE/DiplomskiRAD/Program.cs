@@ -18,6 +18,8 @@ builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<TokenService>();
 */
+builder.Services.AddScoped<EquipmentService>();
+builder.Services.AddScoped<EquipmentRepository>();
 builder.Services.AddScoped<MotorcycleService>();
 builder.Services.AddScoped<MotorcycleRepository>();
 
