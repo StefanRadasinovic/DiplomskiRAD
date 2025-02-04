@@ -11,12 +11,18 @@ namespace DiplomskiRAD.Models
 
         public string Surname { get; set; }
 
-        public string UserName { get; set; }
+        public string Username { get; set; }
 
         public string Password { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
-        public Role Role { get; set; }  
+        public Role Role { get; set; }
+
+        public int numOfPurchases { get; set; } //only for client
+
+        public double Salary { get; set; } //only for director and worker
+
+        public int numOfTasks {  get; set; } //only for worker
 
     }
 }

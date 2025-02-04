@@ -1,10 +1,10 @@
 <div class="form-wrapper" *ngIf="!loading; else loadingTemplate">
-    <h4 class="form-title">Specifikacije Motocikla</h4>
+    <h4 class="form-title">Motorcycle Info</h4>
     <hr />
   
     <!-- Form Group for Name -->
     <div class="form-group">
-      <label class="form-label">Ime:</label>
+      <label class="form-label">Name:</label>
       <input type="text" value="{{ motor.name }}" readonly />
     </div>
 
@@ -12,42 +12,42 @@
 
     <!-- Form Group for Motor Type -->
     <div class="form-group">
-      <label class="form-label">Vrsta Motora:</label>
+      <label class="form-label">Type:</label>
       <input type="text" value="{{ motor.motorcycleType }}" readonly />
     </div>
   
     <br>
 
     <div class="form-group">
-      <label class="form-label">Godina proizvodnje:</label>
+      <label class="form-label">Year of production:</label>
       <input type="text" value="{{ motor.yearOfProduction }}" readonly />
     </div>
 
     <br>
 
     <div class="form-group">
-      <label class="form-label">Stanje:</label>
+      <label class="form-label">State:</label>
       <input type="text" value="{{ motor.motorcycleState }}" readonly />
     </div>
 
     <br>
 
     <div class="form-group">
-      <label class="form-label">Kilometraza(km):</label>
+      <label class="form-label">Mileage(km):</label>
       <input type="text" value="{{ motor.kilometraza }}" readonly />
     </div>
 
     <br>
   
     <div class="form-group">
-      <label class="form-label">Kolicina:</label>
+      <label class="form-label">Amount:</label>
       <input type="text" value="{{ motor.amount }}" readonly />
     </div>
     
     <br>
   
     <div class="form-group"></div>
-    <label class="form-label">Slika:</label>
+    <label class="form-label">Picture:</label>
     <div class="drop-zone">
       <img [src]="motor.slika" alt="{{ motor.name }}" class="image-preview" />
     </div>
@@ -55,8 +55,8 @@
     <br>
   
     <div mat-dialog-actions class="button-container">
-      <button mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="editMotor(motor.id)">Izmeni <mat-icon>edit</mat-icon> </button>
-      <button mat-raised-button id="deleteMotor" color="primary" class="delete-button" (click)="deleteMotor()">Obrisi<mat-icon>delete</mat-icon></button>
+      <button mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="editMotor(motor.id)">Edit<mat-icon>edit</mat-icon> </button>
+      <button mat-raised-button id="deleteMotor" color="primary" class="delete-button" (click)="deleteMotor()">Delete<mat-icon>delete</mat-icon></button>
     </div>
   
   </div>

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { MotorCardComponent } from './cards/motor-card/motor-card.component';
 import { MotorContainerComponent } from './cards/motor-container/motor-container.component';
 import { HttpClientModule } from '@angular/common/http'; 
-import { MatIconModule } from '@angular/material/icon'
+import { MatIcon, MatIconModule } from '@angular/material/icon'
 import { MatTableModule } from '@angular/material/table'
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,6 +23,14 @@ import { AllEquipmentComponent } from './components/equipment/all-equipment/all-
 import { AddEquipmentComponent } from './components/equipment/add-equipment/add-equipment.component';
 import { GetEquipmentByIdComponent } from './components/equipment/get-equipment-by-id/get-equipment-by-id.component';
 import { UpdateEquipmentComponent } from './components/equipment/update-equipment/update-equipment.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { MatSortModule } from '@angular/material/sort';
+import { MatButtonModule } from '@angular/material/button';
+import { DirectorHomepageComponent } from './components/homepages/director-homepage/director-homepage.component';
+import { RadnikHomepageComponent } from './components/homepages/radnik-homepage/radnik-homepage.component';
+import { ClientHomepageComponent } from './components/homepages/client-homepage/client-homepage.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +48,12 @@ import { UpdateEquipmentComponent } from './components/equipment/update-equipmen
     AddEquipmentComponent,
     GetEquipmentByIdComponent,
     UpdateEquipmentComponent,
+    NavbarComponent,
+    LoginComponent,
+    RegisterComponent,
+    DirectorHomepageComponent,
+    RadnikHomepageComponent,
+    ClientHomepageComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,8 +61,11 @@ import { UpdateEquipmentComponent } from './components/equipment/update-equipmen
     MatTableModule,
     HttpClientModule,
     MatToolbarModule,
-    MatIconModule,
     FormsModule,
+    MatSortModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIcon,
     ReactiveFormsModule,
     MatDialogModule
   ],

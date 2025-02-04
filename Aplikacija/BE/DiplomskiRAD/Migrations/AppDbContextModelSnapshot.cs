@@ -96,13 +96,22 @@ namespace DiplomskiRAD.Migrations
                     b.Property<int>("Role")
                         .HasColumnType("integer");
 
+                    b.Property<double>("Salary")
+                        .HasColumnType("double precision");
+
                     b.Property<string>("Surname")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("UserName")
+                    b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("numOfPurchases")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("numOfTasks")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 

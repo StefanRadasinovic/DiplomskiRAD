@@ -13,11 +13,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
-/*
+
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<TokenService>();
-*/
 builder.Services.AddScoped<EquipmentService>();
 builder.Services.AddScoped<EquipmentRepository>();
 builder.Services.AddScoped<MotorcycleService>();

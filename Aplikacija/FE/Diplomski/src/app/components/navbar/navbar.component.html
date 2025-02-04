@@ -1,0 +1,19 @@
+<mat-toolbar color="primary" class="mat-elevation-z6">
+    <span><mat-icon>eco</mat-icon>Service</span>
+  
+    <div class="spacer"></div>
+ 
+
+  <a mat-button  class="nav-button" *ngIf="userRole === 'DIREKTOR'" routerLink="/director-homepage">Direktor Homepage</a>
+  <a mat-button  class="nav-button" *ngIf="userRole === 'RADNIK'" routerLink="/worker-homepage">Radnik Homepage</a>
+  <a mat-button  class="nav-button" *ngIf="userRole === 'KLIJENT'" routerLink="/client-homepage">Klijent Homepage</a>
+
+
+  <a mat-button class="nav-button" routerLink="register" *ngIf="userRole === 'ROLE_NOTAUTH'">Register</a>  
+  <a mat-raised-button color="accent" class="nav-button" routerLink="login" *ngIf="userRole === 'ROLE_NOTAUTH'" >Login</a>
+  <a mat-raised-button color="warn" class="nav-button" *ngIf="userRole != 'ROLE_NOTAUTH'" (click)="logout() " >Logout</a>
+  
+  
+</mat-toolbar>
+  
+
