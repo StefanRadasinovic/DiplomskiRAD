@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
+
   userRole: string | null = 'ROLE_NOTAUTH';
+  userId:string | null = null;
   private authSubscription: Subscription = new Subscription();
 
   constructor(public authService: AuthorisationService, private router: Router) {}
@@ -17,8 +19,11 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.authSubscription = this.authService.userRole$.subscribe(role => {
       this.userRole = role;
-      console.log("Navbar updated with role ", this.userRole);
+      console.log("Navbar updated with role: ", this.userRole);
     });
+  
+    this.userId = this.authService.getUserId();
+    console.log("User ID:", this.userId);
   }
 
   ngOnDestroy(): void {

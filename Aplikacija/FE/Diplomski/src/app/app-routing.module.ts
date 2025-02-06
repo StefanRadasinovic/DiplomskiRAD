@@ -13,6 +13,11 @@ import { LoginComponent } from './components/login/login.component';
 import { DirectorHomepageComponent } from './components/homepages/director-homepage/director-homepage.component';
 import { ClientHomepageComponent } from './components/homepages/client-homepage/client-homepage.component';
 import { RadnikHomepageComponent } from './components/homepages/radnik-homepage/radnik-homepage.component';
+import { AllUsersComponent } from './components/users/all-users/all-users.component';
+import { GetUserByIdComponent } from './components/users/get-user-by-id/get-user-by-id.component';
+import { AddWorkerComponent } from './components/users/add-worker/add-worker.component';
+import { UpdateUsersComponent } from './components/users/update-users/update-users.component';
+import { ShowUsersAdminComponent } from './components/users/show-users-admin/show-users-admin.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -29,6 +34,11 @@ const routes: Routes = [
   {path: 'add-equipments', component: AddEquipmentComponent },
   {path: 'equipments/:id', component: GetEquipmentByIdComponent},
   {path: 'edit-equipments/:id', component: UpdateEquipmentComponent},
+  {path: 'all-users', component: AllUsersComponent },
+  {path: 'users/:id', component: GetUserByIdComponent },
+  {path: 'display/:id', component: ShowUsersAdminComponent },
+  {path: 'add-workers', component: AddWorkerComponent },
+  {path: 'edit-users/:id', component: UpdateUsersComponent },
 ];
 
 @NgModule({

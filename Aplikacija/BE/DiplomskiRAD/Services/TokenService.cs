@@ -23,7 +23,10 @@ namespace DiplomskiRAD.Services
 
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Username),
+                new Claim("id", user.Id.ToString()),
+                new Claim("name", user.Name),       
+                new Claim("surname", user.Surname), 
+                new Claim("username", user.Username), 
                 new Claim(ClaimTypes.Role, user.Role.ToString()),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };

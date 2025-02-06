@@ -68,56 +68,24 @@ namespace DiplomskiRAD.Controllers
         }
 
         [Authorize]
-        [HttpPatch("{id}")]
-        public async Task<IActionResult> UpdateUser(Guid id, [FromBody] object userUpdateDto)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateUser(Guid id, [FromBody] JsonElement updateDto)
         {
-            if (userUpdateDto == null)
+            try
             {
-                return BadRequest("User data is required");
+                var updatedUser = await _userService.UpdateUser(id, updateDto);
+                return Ok(updatedUser);
             }
-
-            var user = await _userRepository.GetUserById(id);
-            if (user == null)
+            catch (KeyNotFoundException)
             {
-                return NotFound();
+                return NotFound("User not found");
             }
-
-            switch (user.Role)
+            catch (ArgumentException ex)
             {
-                case Role.KLIJENT:
-                    var updateUserDto = JsonSerializer.Deserialize<UpdateClientDto>(userUpdateDto.ToString());
-                    user.Name = updateUserDto.Name ?? user.Name;
-                    user.Surname = updateUserDto.Surname ?? user.Surname;
-                    user.Username = updateUserDto.Username ?? user.Username;
-                    user.Password = updateUserDto.Password ?? user.Password;
-                    break;
-
-                case Role.RADNIK:
-                    var updateWorkerDto = JsonSerializer.Deserialize<UpdateWorkerDto>(userUpdateDto.ToString());
-                    user.Name = updateWorkerDto.Name ?? user.Name;
-                    user.Surname = updateWorkerDto.Surname ?? user.Surname;
-                    user.Username = updateWorkerDto.Username ?? user.Username;
-                    user.Password = updateWorkerDto.Password ?? user.Password;
-                    user.Salary = updateWorkerDto.Salary != default ? updateWorkerDto.Salary : user.Salary;
-                    break;
-
-                case Role.DIREKTOR:
-                    var updateDirectorDto = JsonSerializer.Deserialize<UpdateDirectorDto>(userUpdateDto.ToString());
-                    user.Name = updateDirectorDto.Name ?? user.Name;
-                    user.Surname = updateDirectorDto.Surname ?? user.Surname;
-                    user.Username = updateDirectorDto.Username ?? user.Username;
-                    user.Password = updateDirectorDto.Password ?? user.Password;
-                    user.Salary = updateDirectorDto.Salary != default ? updateDirectorDto.Salary : user.Salary;
-                    break;
-
-                default:
-                    return BadRequest("Invalid role");
+                return BadRequest(ex.Message);
             }
-
-            await _userService.UpdateUser(user);
-
-            return NoContent();
         }
+
 
         [Authorize(Roles = "DIREKTOR")]
         [HttpDelete("{id}")]

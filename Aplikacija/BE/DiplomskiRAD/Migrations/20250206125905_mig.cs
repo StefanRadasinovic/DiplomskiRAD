@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DiplomskiRAD.Migrations
 {
     /// <inheritdoc />
-    public partial class users : Migration
+    public partial class mig : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -55,7 +55,7 @@ namespace DiplomskiRAD.Migrations
                     Password = table.Column<string>(type: "text", nullable: false),
                     Role = table.Column<int>(type: "integer", nullable: false),
                     numOfPurchases = table.Column<int>(type: "integer", nullable: false),
-                    Salary = table.Column<double>(type: "double precision", nullable: false),
+                    Salary = table.Column<double>(type: "double precision", nullable: true),
                     numOfTasks = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>

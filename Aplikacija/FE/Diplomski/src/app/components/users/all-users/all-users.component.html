@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="filter-group">
+    <input type="text" class="filter-input" [(ngModel)]="name" placeholder="Search by Name">
+    <input type="text" class="filter-input" [(ngModel)]="surname" placeholder="Search by Surname">
+    <input type="text" class="filter-input" [(ngModel)]="username" placeholder="Search by Username">
+    <div class="dropdown">
+      <select [(ngModel)]="role" class="filter-select">
+        <option value="">Select Role</option>
+        <option value="DIREKTOR">DIREKTOR</option>
+        <option value="RADNIK">RADNIK</option>
+        <option value="KLIJENT">KLIJENT</option>
+      </select>
+    </div>
+
+    <button mat-raised-button id="search" color="primary" class="search-button" (click)="filterByNameAndSurname()">Search</button>
+  </div>
+
+  <table class="user-table" *ngIf="!isLoading">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Username</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; let i = index" [class.active]="currentIndex === i" (click)="setActiveUsers(user, i)">
+        <td>{{ user.name }}</td>
+        <td>{{ user.surname }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.role }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="isLoading" class="loading">
+    <p>Loading...</p>
+  </div>
+</div>

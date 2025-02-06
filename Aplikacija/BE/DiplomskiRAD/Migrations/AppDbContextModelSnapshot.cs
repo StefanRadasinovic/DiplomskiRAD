@@ -96,7 +96,7 @@ namespace DiplomskiRAD.Migrations
                     b.Property<int>("Role")
                         .HasColumnType("integer");
 
-                    b.Property<double>("Salary")
+                    b.Property<double?>("Salary")
                         .HasColumnType("double precision");
 
                     b.Property<string>("Surname")

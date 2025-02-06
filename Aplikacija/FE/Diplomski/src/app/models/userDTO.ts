@@ -26,8 +26,10 @@ export interface UserRegisterDto{
 export interface UserInfo
 {
     id: string,
-    Username: string,
-    Role: string,
+    name: string,
+    surname: string,
+    username: string,
+    role: string,
 }
 
 export interface DisplayWorkerDto
@@ -36,8 +38,9 @@ export interface DisplayWorkerDto
     name: string,
     surname: string,
     username: string,
+    password: string,
     role: string,
-    salary: number,
+    salary?: number,
     numOfTasks: number,
 }
 
@@ -47,6 +50,7 @@ export interface DisplayClientDto
     name: string,
     surname: string,
     username: string,
+    password: string,
     role: string,
     numOfPurchases: number,
 }
@@ -57,8 +61,9 @@ export interface DisplayDirectorDto
     name: string,
     surname: string,
     username: string,
+    password: string,
     role: string,
-    salary: number,
+    salary?: number,
 }
 
 export interface CreateWorkerDtO
@@ -77,7 +82,8 @@ export interface UpdateWorkerDto
     surname: string,
     username: string,
     password: string,
-    salary: number,
+    salary?: number | null;
+    role:string,
 
 }
 
@@ -87,6 +93,7 @@ export interface UpdateClientDto
     surname: string,
     username: string,
     password: string,
+    role:string,
 }
 
 export interface UpdateDirectorDto
@@ -95,5 +102,6 @@ export interface UpdateDirectorDto
     surname: string,
     username: string,
     password: string,
-    salary: number,
+    salary?: number | null;
+    role:string,
 }

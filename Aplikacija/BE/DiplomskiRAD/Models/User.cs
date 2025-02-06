@@ -20,7 +20,7 @@ namespace DiplomskiRAD.Models
 
         public int numOfPurchases { get; set; } //only for client
 
-        public double Salary { get; set; } //only for director and worker
+        public double? Salary { get; set; } //only for director and worker
 
         public int numOfTasks {  get; set; } //only for worker
 

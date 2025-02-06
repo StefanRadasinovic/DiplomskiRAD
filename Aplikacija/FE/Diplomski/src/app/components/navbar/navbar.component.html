@@ -1,10 +1,15 @@
 <mat-toolbar color="primary" class="mat-elevation-z6">
-    <span><mat-icon>eco</mat-icon>Service</span>
+    <span><mat-icon>eco</mat-icon>Diplomski</span>
   
     <div class="spacer"></div>
  
 
+  <a mat-button class="nav-button" *ngIf="userRole === 'DIREKTOR' || userRole === 'RADNIK' || userRole === 'KLIJENT'" [routerLink]="['/users', userId]">Profile</a>
+
   <a mat-button  class="nav-button" *ngIf="userRole === 'DIREKTOR'" routerLink="/director-homepage">Direktor Homepage</a>
+  <a mat-button  class="nav-button" *ngIf="userRole === 'DIREKTOR'" routerLink="/all-users">All Users</a>
+  <a mat-button  class="nav-button" *ngIf="userRole === 'DIREKTOR'" routerLink="/add-workers">Add Worker</a>
+
   <a mat-button  class="nav-button" *ngIf="userRole === 'RADNIK'" routerLink="/worker-homepage">Radnik Homepage</a>
   <a mat-button  class="nav-button" *ngIf="userRole === 'KLIJENT'" routerLink="/client-homepage">Klijent Homepage</a>
 

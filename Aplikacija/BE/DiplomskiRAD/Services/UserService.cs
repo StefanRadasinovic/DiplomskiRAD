@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 using DiplomskiRAD.DTOs;
 using DiplomskiRAD.Enums;
 using DiplomskiRAD.Models;
@@ -57,6 +58,8 @@ namespace DiplomskiRAD.Services
             return users.Select(user => new UserInfo
             {
                 Id = user.Id,
+                Name = user.Name,
+                Surname = user.Surname,
                 Username = user.Username,
                 Role = user.Role
             });
@@ -78,6 +81,7 @@ namespace DiplomskiRAD.Services
                     Name = user.Name,
                     Surname = user.Surname,
                     Username = user.Username,
+                    Password = user.Password,
                     Role = user.Role,
                     numOfPurchases = user.numOfPurchases
                 },
@@ -87,6 +91,7 @@ namespace DiplomskiRAD.Services
                     Name = user.Name,
                     Surname = user.Surname,
                     Username = user.Username,
+                    Password = user.Password,
                     Role = user.Role,
                     Salary = user.Salary,
                     numOfTasks = user.numOfTasks,
@@ -97,6 +102,7 @@ namespace DiplomskiRAD.Services
                     Name = user.Name,
                     Surname = user.Surname,
                     Username = user.Username,
+                    Password = user.Password,
                     Role = user.Role,
                     Salary = user.Salary
                 },
@@ -122,15 +128,52 @@ namespace DiplomskiRAD.Services
             await _userRepository.CreateUser(user);
         }
 
-        public async Task UpdateUser(User user)
+        public async Task<User> UpdateUser(Guid id, JsonElement updateDto)
         {
-            if (!string.IsNullOrEmpty(user.Password))
+            var user = await _userRepository.GetUserById(id);
+            if (user == null)
+                throw new KeyNotFoundException("User not found");
+
+            var updateDict = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(updateDto.ToString());
+
+            if (updateDict.ContainsKey("name") && updateDict["name"].ValueKind != JsonValueKind.Null)
+                user.Name = updateDict["name"].GetString();
+
+            if (updateDict.ContainsKey("surname") && updateDict["surname"].ValueKind != JsonValueKind.Null)
+                user.Surname = updateDict["surname"].GetString();
+
+            if (updateDict.ContainsKey("username") && updateDict["username"].ValueKind != JsonValueKind.Null)
+                user.Username = updateDict["username"].GetString();
+
+            if (updateDict.ContainsKey("password") && updateDict["password"].ValueKind != JsonValueKind.Null)
+                user.Password = _tokenService.HashPassword(updateDict["password"].GetString());  // Ensure hashing
+
+            if (updateDict.ContainsKey("role") && updateDict["role"].ValueKind != JsonValueKind.Null)
             {
-               user.Password = _tokenService.HashPassword(user.Password);
+                if (Enum.TryParse(typeof(DiplomskiRAD.Enums.Role), updateDict["role"].GetString(), out var roleValue))
+                {
+                    user.Role = (DiplomskiRAD.Enums.Role)roleValue;  // Properly casting to enum
+                }
+                else
+                {
+                    throw new ArgumentException("Invalid role value.");
+                }
             }
 
+            if (updateDict.ContainsKey("salary"))
+            {
+                if (updateDict["salary"].ValueKind == JsonValueKind.Null)
+                    user.Salary = null;  // Ensure `Salary` is defined as `double?`
+                else
+                    user.Salary = updateDict["salary"].GetDouble();  // Parse salary correctly
+            }
+
+
             await _userRepository.UpdateUser(user);
+            return user;
         }
+
+
 
         public async Task DeleteUser(Guid id)
         {

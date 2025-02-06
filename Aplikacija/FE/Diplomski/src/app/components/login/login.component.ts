@@ -25,15 +25,18 @@ export class LoginComponent {
       username: this.ime,
       password: this.sifra
     };
-    console.log(loginUser);
+   
     this.authService.login(loginUser).subscribe(
       response => {
         this.authService.setToken(response.token);
+        console.log(loginUser);
         console.log("Successfully logged in");
         alert("Welcome back! You have successfully logged in.");
-  
 
         const userRole = this.authService.getUserRole();
+        //console.log("rola je:",userRole);
+        const logedUserInfo = this.authService.getLogedUserInfo();
+        //console.log("korisnik je", logedUserInfo.name, logedUserInfo.surname, logedUserInfo.username, logedUserInfo.role)
         this.authService.userRoleSubject.next(userRole); 
   
         // Navigate based on user role

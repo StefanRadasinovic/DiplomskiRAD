@@ -2,8 +2,9 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { BehaviorSubject, Observable } from "rxjs";
-import { UserLoginDto, UserRegisterDto } from "../models/userDTO";
+import { UserInfo, UserLoginDto, UserRegisterDto } from "../models/userDTO";
 import jwt_decode from 'jwt-decode';
+
 const baseUrl = 'https://localhost:7213/api/Authentication';
 
 
@@ -54,7 +55,7 @@ export class AuthorisationService {
 
   getToken(): string | null {
     const token = localStorage.getItem(this.TOKEN_KEY);
-    console.log("TOken is : ",token);
+    //console.log("TOken is : ",token);
     return token;
   }
 
@@ -68,8 +69,8 @@ export class AuthorisationService {
       try {
         const payload: any = jwt_decode(token);
         console.log("Decoded Token Payload:", payload);  
-        const userRole: string = payload['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] || 'empty';  
-        console.log("rola je : ",userRole);
+        const userRole: string = payload['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] || 'empty';
+        console.log("rola je:",userRole);
         return userRole;
       } catch (error) {
         console.error("Error decoding token:", error);
@@ -80,27 +81,46 @@ export class AuthorisationService {
     }
   }
 
-  /*
+  getUserId(): string | null {
+    const token = this.getToken();
+    if (token) {
+      try {
+        const payload: any = jwt_decode(token);
+        //console.log("UlogovanKorisnikID:",payload.id);
+        return payload.id || null; 
+      } catch (error) {
+        console.error("Error decoding token:", error);
+        return null;
+      }
+    }
+    return null;
+  }
+
+  
   getLogedUserInfo(): any {
     const token= this.getToken();
     if (token!=null) {
       const payload: any = jwt_decode(token);
-      const Id : string = payload.id;
-      const Password : string = payload.Password;
-      const Username: string = payload.username;
+      const id = payload.id;
+      const name: string = payload["name"] || "empty";
+      const surname: string =  payload["surname"] || "empty";
+      const username: string = payload["username"] || "empty";
+      //console.log("UserId je:", id, "name je:", name, "surname je:",surname, "username je:",username);
       const userRole: string = payload['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
       let logedUserInfo: UserInfo = {
     
-        id: Id,
-        Username: Username,
-        Role: userRole,
-        Password:Password,
+        id: id,
+        name : name,
+        surname : surname,
+        username: username,
+        role: userRole,
+        
         }
-        console.log(logedUserInfo)
+      //console.log("UserId je:", logedUserInfo.id, "name je:", logedUserInfo.name, "surname je:",logedUserInfo.surname, "username je:",logedUserInfo.username);
       return logedUserInfo;
     } else {
       return null;
     }
   }
-  */
+  
 }

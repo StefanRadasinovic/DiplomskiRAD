@@ -28,6 +28,10 @@ namespace DiplomskiRAD.DTOs
         public class UserInfo
         {
             public Guid Id { get; set; }
+            public string Name { get; set; }
+
+            public string Surname { get; set; }
+
             public string Username { get; set; }
             public Role Role { get; set; }
         }
@@ -42,10 +46,12 @@ namespace DiplomskiRAD.DTOs
 
             public string Username { get; set; }
 
+            public string Password { get; set; }
+
             [JsonConverter(typeof(JsonStringEnumConverter))]
             public Role Role { get; set; }
 
-            public double Salary { get; set; } //only for director and worker
+            public double? Salary { get; set; } //only for director and worker
 
             public int numOfTasks { get; set; } //only for worker
 
@@ -60,6 +66,8 @@ namespace DiplomskiRAD.DTOs
             public string Surname { get; set; }
 
             public string Username { get; set; }
+
+            public string Password { get; set; }
 
             [JsonConverter(typeof(JsonStringEnumConverter))]
             public Role Role { get; set; }
@@ -77,10 +85,12 @@ namespace DiplomskiRAD.DTOs
 
             public string Username { get; set; }
 
+            public string Password { get; set; }
+
             [JsonConverter(typeof(JsonStringEnumConverter))]
             public Role Role { get; set; }
 
-            public double Salary { get; set; } //only for director and worker
+            public double? Salary { get; set; } //only for director and worker
         }
 
         public class CreateWorkerDtO
@@ -93,48 +103,57 @@ namespace DiplomskiRAD.DTOs
             public string Username { get; set; }
             public string Password { get; set; }
 
-            public double Salary { get; set; } //only for director and worker
+            public double? Salary { get; set; } //only for director and worker
 
         }
 
         public class UpdateWorkerDto
         {
-            public string Name { get; set; }
+            public string name { get; set; }
 
-            public string Surname { get; set; }
+            public string surname { get; set; }
 
-            public string Username { get; set; }
+            public string username { get; set; }
 
-            public string Password { get; set; }
+            public string password { get; set; }
 
-            public double Salary { get; set; } //only for director and worker
+            public double? salary { get; set; } //only for director and worker
+
+            [JsonConverter(typeof(JsonStringEnumConverter))]
+            public Role role { get; set; }
 
         }
 
         public class UpdateClientDto
         {
-            public string Name { get; set; }
+            public string name { get; set; }
 
-            public string Surname { get; set; }
+            public string surname { get; set; }
 
-            public string Username { get; set; }
+            public string username { get; set; }
 
-            public string Password { get; set; }
+            public string password { get; set; }
+
+            [JsonConverter(typeof(JsonStringEnumConverter))]
+            public Role role { get; set; }
 
 
         }
 
         public class UpdateDirectorDto
         {
-            public string Name { get; set; }
+            public string name { get; set; }
 
-            public string Surname { get; set; }
+            public string surname { get; set; }
 
-            public string Username { get; set; }
+            public string username { get; set; }
 
-            public string Password { get; set; }
+            public string password { get; set; }
 
-            public double Salary { get; set; } //only for director and worker
+            public double? salary { get; set; } //only for director and worker
+
+            [JsonConverter(typeof(JsonStringEnumConverter))]
+            public Role role { get; set; }
 
         }
 
