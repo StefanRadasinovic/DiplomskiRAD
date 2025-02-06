@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DiplomskiRAD.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250206125905_mig")]
-    partial class mig
+    [Migration("20250206141714_SeedData")]
+    partial class SeedData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
