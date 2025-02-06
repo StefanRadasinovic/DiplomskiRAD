@@ -22,18 +22,6 @@
 <colAssociation fkAssociation="ED0C396B-3325-0AA7-C15C-A5E004DD400A" referredColumn="C156E501-4364-169B-6AC9-38A3469E4035"/>
 </associations>
 </Column>
-<Column name="RadVrm" id="ED2AB27D-A0E9-8630-789E-AE97305E2A55">
-<createdBy>User</createdBy>
-<createdTime>2025-01-21 19:29:02 UTC</createdTime>
-<commentInRDBMS><![CDATA[RadnoVreme]]></commentInRDBMS>
-<generatorID>CCF0798A-44A0-0630-B2A7-AC95443865C2</generatorID>
-<ownerDesignName>BazaModel</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT008</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="Brtz" id="FB481100-691C-C434-2234-4478B0063434">
 <createdBy>User</createdBy>
 <createdTime>2025-01-21 19:29:02 UTC</createdTime>

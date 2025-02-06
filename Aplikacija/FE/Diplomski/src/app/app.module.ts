@@ -5,12 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MotorCardComponent } from './cards/motor-card/motor-card.component';
 import { MotorContainerComponent } from './cards/motor-container/motor-container.component';
-import { HttpClientModule } from '@angular/common/http'; 
-import { MatIconModule } from '@angular/material/icon'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; 
+import { MatIcon, MatIconModule } from '@angular/material/icon'
 import { MatTableModule } from '@angular/material/table'
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddMotorsComponent } from './components/motors/add-motors/add-motors.component';
 import { AllMotorsComponent } from './components/motors/all-motors/all-motors.component';
@@ -23,6 +24,20 @@ import { AllEquipmentComponent } from './components/equipment/all-equipment/all-
 import { AddEquipmentComponent } from './components/equipment/add-equipment/add-equipment.component';
 import { GetEquipmentByIdComponent } from './components/equipment/get-equipment-by-id/get-equipment-by-id.component';
 import { UpdateEquipmentComponent } from './components/equipment/update-equipment/update-equipment.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { MatSortModule } from '@angular/material/sort';
+import { MatButtonModule } from '@angular/material/button';
+import { DirectorHomepageComponent } from './components/homepages/director-homepage/director-homepage.component';
+import { RadnikHomepageComponent } from './components/homepages/radnik-homepage/radnik-homepage.component';
+import { ClientHomepageComponent } from './components/homepages/client-homepage/client-homepage.component';
+import { AllUsersComponent } from './components/users/all-users/all-users.component';
+import { GetUserByIdComponent } from './components/users/get-user-by-id/get-user-by-id.component';
+import { AddWorkerComponent } from './components/users/add-worker/add-worker.component';
+import { UpdateUsersComponent } from './components/users/update-users/update-users.component';
+import { AuthInterceptor } from './services/InterceptorService';
+import { ShowUsersAdminComponent } from './components/users/show-users-admin/show-users-admin.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +55,17 @@ import { UpdateEquipmentComponent } from './components/equipment/update-equipmen
     AddEquipmentComponent,
     GetEquipmentByIdComponent,
     UpdateEquipmentComponent,
+    NavbarComponent,
+    LoginComponent,
+    RegisterComponent,
+    DirectorHomepageComponent,
+    RadnikHomepageComponent,
+    ClientHomepageComponent,
+    AllUsersComponent,
+    GetUserByIdComponent,
+    AddWorkerComponent,
+    UpdateUsersComponent,
+    ShowUsersAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,12 +73,18 @@ import { UpdateEquipmentComponent } from './components/equipment/update-equipmen
     MatTableModule,
     HttpClientModule,
     MatToolbarModule,
-    MatIconModule,
     FormsModule,
+    MatSortModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIcon,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

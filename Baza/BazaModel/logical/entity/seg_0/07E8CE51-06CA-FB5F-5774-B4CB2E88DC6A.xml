@@ -16,19 +16,6 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="RadVrm" id="CCF0798A-44A0-0630-B2A7-AC95443865C2">
-<createdBy>User</createdBy>
-<createdTime>2024-12-12 21:21:36 UTC</createdTime>
-<commentInRDBMS><![CDATA[RadnoVreme]]></commentInRDBMS>
-<ownerDesignName>BazaModel</ownerDesignName>
-<engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT008</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="Brtz" id="5458A988-A570-AEC9-C4DD-344613402A44">
 <createdBy>User</createdBy>
 <createdTime>2024-12-19 15:51:34 UTC</createdTime>

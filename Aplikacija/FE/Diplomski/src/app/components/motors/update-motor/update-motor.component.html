@@ -1,17 +1,17 @@
 <div class="form-wrapper">
     <form [formGroup]="motorForm" (ngSubmit)="handleSubmit()" class="motor-form">
-      <h4 class="form-title">Izmeni Motocikl</h4>
+      <h4 class="form-title">Edit Motorcycle</h4>
       <hr />
   
       <div class="form-group">
-        <label for="name" class="form-label">Ime:</label>
+        <label for="name" class="form-label">Name:</label>
         <input id="name" type="text" formControlName="name" required />
       </div>
 
       <br>
       
       <div class="form-group">
-        <label for="motorcycleType" class="form-label">Vrsta Motora:</label>
+        <label for="motorcycleType" class="form-label">Type:</label>
         <select id="motorcycleType" formControlName="motorcycleType" required>
           <option value="SPORTSKI_MOTOR">SPORTSKI_MOTOR</option>
           <option value="SKUTER">SKUTER</option>
@@ -25,14 +25,14 @@
       <br>
 
       <div class="form-group">
-        <label for="yearOfProduction" class="form-label">Godina proizvodnje:</label>
+        <label for="yearOfProduction" class="form-label">Year of production:</label>
         <input id="yearOfProduction" type="text" formControlName="yearOfProduction" required />
       </div>
 
       <br>
 
       <div class="form-group">
-        <label for="motorcycleState" class="form-label">Stanje:</label>
+        <label for="motorcycleState" class="form-label">State:</label>
         <select id="motorcycleState" formControlName="motorcycleState" required>
           <option value="NOV">NOV</option>
           <option value="POLOVAN">POLOVAN</option>
@@ -42,21 +42,21 @@
       <br>
 
       <div class="form-group">
-        <label for="kilometraza" class="form-label">Kilometraza(km):</label>
+        <label for="kilometraza" class="form-label">Mileage(km):</label>
         <input id="kilometraza" type="text" formControlName="kilometraza" required />
       </div>
 
       <br>
 
       <div class="form-group">
-        <label for="amount" class="form-label">Kolicina:</label>
+        <label for="amount" class="form-label">Amount:</label>
         <input id="amount" type="text" formControlName="amount" required />
       </div>
       
       <br>
 
       <div class="form-group">
-        <label for="slika" class="form-label">Slika:</label>
+        <label for="slika" class="form-label">Picture:</label>
         <div class="drop-zone" 
              (dragover)="onDragOver($event)" 
              (drop)="onDrop($event)" 
@@ -73,7 +73,7 @@
       </div>
   
       <div class="form-action">
-        <button type="submit" class="submit-button" [disabled]="motorForm.invalid">Potvrdi</button>
+        <button type="submit" class="submit-button" [disabled]="motorForm.invalid">Confirm</button>
       </div>
   
       <p>{{ createMessage }}</p>

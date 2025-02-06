@@ -1,0 +1,21 @@
+<div class="form-box">
+    <div class="header-text">Register here</div>
+    <form #userForm='ngForm' (ngSubmit)="registerUser(userForm.value)">
+
+        <input type="text" name="name" placeholder="Enter Name" id="name" required [(ngModel)]="userRegisterDto.name"> 
+        <br><br>
+        <input type="text" name="surname" placeholder="Enter Surname" id="surname" required [(ngModel)]="userRegisterDto.surname"> 
+        <br><br>
+        <input type="text" name="username" placeholder="Enter Username" id="username" required [(ngModel)]="userRegisterDto.username"> 
+        <br><br>
+        <input type="password" name="password" placeholder="Enter Password" id="password" required [(ngModel)]="userRegisterDto.password"> 
+        <br><br>
+        <button type="submit" name="submit" value="Register">Register</button>
+        <div class="terms-wrapper">
+        <input id="terms" type="checkbox"> 
+        <label for="terms"></label>
+        <span>Already have an account? <a (click)="redirect()">Login</a></span>
+    </div>
+    </form>
+</div>
+            
