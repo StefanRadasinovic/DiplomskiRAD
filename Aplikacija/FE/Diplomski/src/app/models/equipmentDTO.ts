@@ -1,3 +1,5 @@
+import { CreateProducerDto, ProducerInfo, UpdateProducerDto } from "./producerDTO";
+
 export interface Equipment
 {
     id : string,
@@ -12,6 +14,7 @@ export interface EquipmentInfo
     id : string,
     name : string,
     slika? : string,
+    producers: ProducerInfo[],
 }
 
 export interface PaginatedEquipmentProps { //Za Paginaciju
@@ -28,6 +31,7 @@ export interface CreateEquipmentDto
     slika? : string,
     equipmentState : string,
     amount : number,
+    producers: CreateProducerDto[],
 }
 
 export interface UpdateEquipmentDto
@@ -36,6 +40,7 @@ export interface UpdateEquipmentDto
     slika? : string,
     equipmentState : string,
     amount : number,
+     producers: UpdateProducerDto[],
 }
 
 

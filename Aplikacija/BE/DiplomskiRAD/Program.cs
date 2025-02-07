@@ -21,6 +21,7 @@ builder.Services.AddScoped<EquipmentService>();
 builder.Services.AddScoped<EquipmentRepository>();
 builder.Services.AddScoped<MotorcycleService>();
 builder.Services.AddScoped<MotorcycleRepository>();
+builder.Services.AddScoped<ProducerRepository>();
 
 
 builder.Services.AddCors(options =>
@@ -46,6 +47,7 @@ builder.Services.AddControllers()
     {
         // Ensure enums are serialized as strings in JSON responses
         options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+
     });
 
 builder.Services.AddEndpointsApiExplorer();

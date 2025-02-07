@@ -18,8 +18,8 @@
 }
 
 select {
-    width: 96%; /* Match input width */
-    padding: 0.4rem; /* Smaller padding */
+    width: 98%; /* Match input width */
+    padding: 0.3rem; /* Smaller padding */
     margin-left: 0; /* Align inputs to the left */
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -44,6 +44,8 @@ input[type="text"]{
     font-size: 14px;
 }
 
+
+
 /* Align input fields to the left and make them smaller */
 
 input[type="datetime-local"],
@@ -60,12 +62,12 @@ input[type="checkbox"] {
 .form-group-inline {
     display: flex;
     justify-content: flex-start; /* Align both fields to the left */
-    gap: 0.3rem; /* Reduce the gap between the fields */
+    gap: 0.4rem; /* Reduce the gap between the fields */
 }
 
 /* This controls the width of Not Available Time fields */
 .form-group-inline-item {
-    width: 48%; /* Reduce width to fit both fields */
+    width: 47%; /* Reduce width to fit both fields */
 }
 
 /* Submit button and action section styling */
@@ -162,4 +164,15 @@ p {
     left: 0;
     border: 1px solid #ddd; /* Optional: Add border */
     border-radius: 4px; /* Optional: Rounded corners */
+}
+
+textarea {
+    width: 96.6%;  /* Make the textarea take the full width */
+    padding: 0.4rem;
+    border: 1px solid #ccc;
+    margin-left: 0.3%;
+    font-size: 14px;
+    min-height: 0px;  /* Set a minimum height for the textarea */
+    resize: vertical;  /* Allow users to resize the height of the textarea */
+    box-sizing: border-box;  /* Ensure padding is included in the width */
 }

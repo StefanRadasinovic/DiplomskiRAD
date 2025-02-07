@@ -43,6 +43,8 @@ export class UpdateMotorComponent implements OnInit {
       motorcycleState: [''],
       motorcycleType: [''],
       amount: [''],
+      producerName: [''],
+      description: [''],
       slika: [''] // Ensure this matches the expected field name
     });
   }
@@ -57,6 +59,8 @@ export class UpdateMotorComponent implements OnInit {
           motorcycleState: motor.motorcycleState,
           motorcycleType: motor.motorcycleType,
           amount: motor.amount,
+          producerName:motor.producers[0].name,
+          description:motor.producers[0].description,
           slika: motor.slika || '' // Default to an empty string if slika is undefined
         });
         this.imagePreview = motor.slika || null; // Set the initial image preview
@@ -68,26 +72,33 @@ export class UpdateMotorComponent implements OnInit {
 
   handleSubmit(): void {
     if (this.motorForm.valid) {
-      const updatedMotor: UpdateMotorDto = this.motorForm.value;
-      updatedMotor.Slika = this.originalFileName;
-      
-      console.log('Motor Object Being Uploaded:', updatedMotor); // Log the entire object
-      this.motorService.updateMotor(this.motorId, updatedMotor).subscribe({
-        next: () => {
-          this.createMessage = "Updated successfully!";
-          setTimeout(() => {
-            this.router.navigate(['/all-motorcycles']);
-          }, 800);
-        },
-        error: (err) => {
-          this.createMessage = 'Error updating motor';
-          console.error('Error updating motor:', err);
-        }
-      });
+        const updatedMotor: UpdateMotorDto = {
+            ...this.motorForm.value,
+            Slika: this.originalFileName,
+            producers: [{
+                name: this.motorForm.value.producerName,
+                description: this.motorForm.value.description
+            }]
+        };
+        console.log('Motor Uploaded:', updatedMotor); 
+
+        this.motorService.updateMotor(this.motorId, updatedMotor).subscribe({
+            next: () => {
+                this.createMessage = "Updated successfully!";
+                setTimeout(() => {
+                    this.router.navigate(['/all-motorcycles']);
+                }, 800);
+            },
+            error: (err) => {
+                this.createMessage = 'Error updating motor';
+                console.error('Error updating motor:', err);
+            }
+        });
     } else {
-      console.log('Form is invalid:', this.motorForm.errors);
+        console.log('Form is invalid:', this.motorForm.errors);
     }
-  }
+}
+
 
   onFileSelected(event: Event): void {
   const file = (event.target as HTMLInputElement).files?.[0];

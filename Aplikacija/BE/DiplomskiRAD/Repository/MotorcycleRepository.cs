@@ -17,17 +17,19 @@ namespace DiplomskiRAD.Repository
 
         public async Task<IEnumerable<Motorcycle>> GetWithOffsetPagination(int pageNumber, int pageSize)
         {
-            return await _context.Motorcycles.AsNoTracking()
-                .OrderBy(x => x.Id)
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .ToListAsync();
+            return await _context.Motorcycles
+            .Include(m => m.Producers) 
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
         }
+
 
         public async Task<Motorcycle> GetMotorById(Guid id)
         {
-            return await _context.Motorcycles.FindAsync(id);
+            return await _context.Motorcycles.Include(m => m.Producers).FirstAsync(m => m.Id == id);
         }
+
 
         public async Task CreateMotor(Motorcycle newMotor)
         {

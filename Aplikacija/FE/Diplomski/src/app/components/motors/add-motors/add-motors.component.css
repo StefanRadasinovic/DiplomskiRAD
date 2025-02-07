@@ -14,7 +14,7 @@
 /* Center the title */
 .form-title {
     text-align: center; 
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 
@@ -35,17 +35,7 @@ input[type="text"]{
     font-size: 14px;
 }
 
-/* Align input fields to the left and make them smaller */
 
-input[type="datetime-local"],
-input[type="checkbox"] {
-    width: 90%; /* Reduce input width */
-    padding: 0.4rem; /* Smaller padding */
-    margin-left: 0; /* Align inputs to the left */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
 
 /* Align Not Available Time Start and End on the same line */
 .form-group-inline {
@@ -58,6 +48,7 @@ input[type="checkbox"] {
 .form-group-inline-item {
     width: 48%; /* Reduce width to fit both fields */
 }
+
 
 /* Submit button and action section styling */
 .form-action {
@@ -97,10 +88,10 @@ input[type="checkbox"] {
 
 select {
     width: 96%; /* Match input width */
-    padding: 0.4rem; /* Smaller padding */
+    padding: 0.33rem; /* Smaller padding */
     margin-left: 0; /* Align inputs to the left */
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 3px;
     font-size: 14px;
 }
 
@@ -168,3 +159,18 @@ p {
     border: 1px solid #ddd; /* Optional: Add border */
     border-radius: 4px; /* Optional: Rounded corners */
 }
+
+textarea {
+    width: 97%;  /* Make the textarea take the full width */
+    padding: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    min-height: 0px;  /* Set a minimum height for the textarea */
+    resize: vertical;  /* Allow users to resize the height of the textarea */
+    box-sizing: border-box;  /* Ensure padding is included in the width */
+}
+
+
+
+

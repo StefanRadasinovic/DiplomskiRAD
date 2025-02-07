@@ -1,5 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 using DiplomskiRAD.Enums;
+using static DiplomskiRAD.DTOs.ProducerDTO;
 
 namespace DiplomskiRAD.DTOs
 {
@@ -12,12 +13,15 @@ namespace DiplomskiRAD.DTOs
 
             public string? Slika { get; set; }
 
+            public List<ProducerInfo> Producers { get; set; }
+
             public EquipmentInfo() { }
-            public EquipmentInfo(Guid id, string name, string? slika) //Konstruktor zbog paginacije
+            public EquipmentInfo(Guid id, string name, string? slika, List<ProducerInfo> producers) //Konstruktor zbog paginacije
             {
                 Id = id;
                 Name = name;
                 Slika = slika;
+                Producers = producers;
             }
         }
 
@@ -31,6 +35,10 @@ namespace DiplomskiRAD.DTOs
               public EquipmentState EquipmentState { get; set; }
 
               public double Amount { get; set; }
+
+              public List<CreateProducerDto> Producers { get; set; }
+
+
         }
 
         public class UpdateEquipmentDTO
@@ -43,6 +51,8 @@ namespace DiplomskiRAD.DTOs
             public EquipmentState EquipmentState { get; set; }
 
             public double Amount { get; set; }
+
+            public List<UpdateProducerDto> Producers { get; set; }
         }
     }
 }

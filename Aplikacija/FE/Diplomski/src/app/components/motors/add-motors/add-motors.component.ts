@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MotorService } from '../../../services/motorServices';
 import { Router } from '@angular/router';
 import { CreateMotorDto } from '../../../models/motorDTO';
@@ -26,17 +26,27 @@ export class AddMotorsComponent implements AfterViewInit {
     private router: Router
   ) {
     this.motorForm = this.fb.group({
-     
       name: ['', Validators.required],
-      slika: [''] ,
+      slika: [''],
       kilometraza: [null],
       yearOfProduction: [null],
       motorcycleState: [''],
       amount: [null],
       motorcycleType: [''],
+      producers: this.fb.array([ 
+        this.fb.group({
+          name: [''],
+          description: ['']
+        })
+      ])
     });
+    
   }
 
+  get producers(): FormArray {
+    return this.motorForm.get('producers') as FormArray;
+  }
+  
   ngAfterViewInit() {
     if (this.dropZone) {
       const dropZoneElement = this.dropZone.nativeElement;

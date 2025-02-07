@@ -18,7 +18,7 @@ namespace DiplomskiRAD.Repository
         public async Task<IEnumerable<Equipment>> GetWithOffsetPagination(int pageNumber, int pageSize)
         {
             return await _context.Equipments.AsNoTracking()
-                .OrderBy(x => x.Id)
+                .Include(e=>e.Producers)
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
@@ -26,7 +26,7 @@ namespace DiplomskiRAD.Repository
 
         public async Task<Equipment> GetEquipmentById(Guid id)
         {
-            return await _context.Equipments.FindAsync(id);
+            return await _context.Equipments.Include(e=>e.Producers).FirstAsync(m => m.Id == id);
         }
 
         public async Task CreateEquipment(Equipment newEquipment)
