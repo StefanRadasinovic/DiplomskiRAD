@@ -61,5 +61,22 @@ namespace DiplomskiRAD.Repository
         {
             return await GetFilter(x => true);
         }
+
+
+        public async Task<IEnumerable<Equipment>> GetEquipmentByName(string name)
+        {
+            return await _context.Set<Equipment>()
+                .Include(m => m.Producers) 
+                .Where(m => m.Name.ToLower().Contains(name.ToLower())) 
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Equipment>> GetEquipmentByProducerName(string producerName)
+        {
+            return await _context.Set<Equipment>()
+                .Include(m => m.Producers)
+                .Where(m => m.Producers.Any(p => p.Name.ToLower().Contains(producerName.ToLower()))) 
+                .ToListAsync();
+        }
     }
 }

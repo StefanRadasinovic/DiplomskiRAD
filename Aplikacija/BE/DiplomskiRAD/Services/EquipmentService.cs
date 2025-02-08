@@ -1,4 +1,5 @@
-﻿using DiplomskiRAD.DTOs;
+﻿using System.Xml.Linq;
+using DiplomskiRAD.DTOs;
 using DiplomskiRAD.Enums;
 using DiplomskiRAD.Models;
 using DiplomskiRAD.Repository;
@@ -50,6 +51,32 @@ namespace DiplomskiRAD.Services
                 eq.Amount,
                 eq.Producers.Select(p => new ProducerInfo(p.Name, p.Description)).ToList()
             );
+        }
+
+        public async Task<IEnumerable<EquipmentInfo>> GetEquipmentByName(string name)
+        {
+            var equipment = await _equipmentRepository.GetEquipmentByName(name);
+            return equipment.Select(m => new EquipmentDTO.EquipmentInfo(
+                m.Id,
+                m.Name,
+                m.Slika,
+                m.EquipmentState,
+                m.Amount,
+                m.Producers.Select(p => new ProducerInfo(p.Name, p.Description)).ToList()
+            ));
+        }
+
+        public async Task<IEnumerable<EquipmentInfo>> GetEquipmentByProducerName(string producerName)
+        {
+            var equipment = await _equipmentRepository.GetEquipmentByProducerName(producerName);
+            return equipment.Select(m => new EquipmentDTO.EquipmentInfo(
+                m.Id,
+                m.Name,
+                m.Slika,
+                m.EquipmentState,
+                m.Amount,
+                m.Producers.Select(p => new ProducerInfo(p.Name, p.Description)).ToList()
+            ));
         }
 
 

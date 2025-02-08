@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Linq;
+using System.Text.Json.Serialization;
 using DiplomskiRAD.DTOs;
 using DiplomskiRAD.Enums;
 using DiplomskiRAD.Models;
@@ -157,6 +158,38 @@ namespace DiplomskiRAD.Services
         public async Task DeleteMotor(Guid id)
         {
             await _motorcycleRepository.DeleteMotor(id);
+        }
+
+        public async Task<IEnumerable<MotorcycleInfo>> GetMotorsByName(string name)
+        {
+            var motorcycles = await _motorcycleRepository.GetMotorsByName(name);
+            return motorcycles.Select(m => new MotorcycleDTO.MotorcycleInfo(
+                m.Id,
+                m.Name,
+                m.Slika,
+                m.Kilometraza,
+                m.YearOfProduction,
+                m.MotorcycleState,
+                m.Amount,
+                m.MotorcycleType,
+                m.Producers.Select(p => new ProducerInfo(p.Name, p.Description)).ToList()
+            ));
+        }
+
+        public async Task<IEnumerable<MotorcycleInfo>> GetMotorsByProducerName(string producerName)
+        {
+            var motorcycles = await _motorcycleRepository.GetMotorsByProducerName(producerName);
+            return motorcycles.Select(m => new MotorcycleDTO.MotorcycleInfo(
+                m.Id,
+                m.Name,
+                m.Slika,
+                m.Kilometraza,
+                m.YearOfProduction,
+                m.MotorcycleState,
+                m.Amount,
+                m.MotorcycleType,
+                m.Producers.Select(p => new ProducerInfo(p.Name, p.Description)).ToList()
+            ));
         }
     }
 }

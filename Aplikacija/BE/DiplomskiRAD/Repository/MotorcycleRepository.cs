@@ -74,5 +74,21 @@ namespace DiplomskiRAD.Repository
             return await _context.Motorcycles.Where(m => m.MotorcycleType == type).ToListAsync();
         }
 
+        public async Task<IEnumerable<Motorcycle>> GetMotorsByName(string name)
+        {
+            return await _context.Set<Motorcycle>()
+                .Include(m => m.Producers) 
+                .Where(m => m.Name.ToLower().Contains(name.ToLower())) 
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Motorcycle>> GetMotorsByProducerName(string producerName)
+        {
+            return await _context.Set<Motorcycle>()
+                .Include(m => m.Producers)
+                .Where(m => m.Producers.Any(p => p.Name.ToLower().Contains(producerName.ToLower()))) 
+                .ToListAsync();
+        }
+
     }
 }

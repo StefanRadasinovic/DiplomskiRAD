@@ -4,10 +4,7 @@ namespace DiplomskiRAD.DTOs
 {
     public class PriceListDTO
     {
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
         public class PriceListInfo
         {
             public Guid Id { get; set; }
@@ -20,55 +17,31 @@ namespace DiplomskiRAD.DTOs
 
             public List<MotorcycleInfo> Motorcycles { get; set; }
 
-<<<<<<< Updated upstream
+
             public PriceListInfo(Guid id ,double price, string startingDate, string endingDate, List<MotorcycleInfo> motorcycles)
             {
                 Id = id;
-=======
-            public PriceListInfo(double price, string startingDate, string endingDate, List<MotorcycleInfo> motorcycles)
-            {
->>>>>>> Stashed changes
                 Price = price;
                 StartingDate = startingDate;
                 EndingDate = endingDate;
                 Motorcycles = motorcycles;
             }
 
-<<<<<<< Updated upstream
             public PriceListInfo(Guid id, double price, string startingDate, string endingDate)
             {
                 Id = id;
-=======
-            public PriceListInfo(double price, string startingDate, string endingDate)
-            {
->>>>>>> Stashed changes
                 Price = price;
                 StartingDate = startingDate;
                 EndingDate = endingDate;
             }
-
-<<<<<<< Updated upstream
             public PriceListInfo( double price)
             {
                 Price = price;
          
             }
-
-
-        }
-
-=======
-            public PriceListInfo(double price)
-            {
-                Price = price;
-            }
-
             public PriceListInfo() { }
         }
 
-
-
->>>>>>> Stashed changes
         public class CreatePriceListDto
         {
             public double Price { get; set; }
@@ -78,7 +51,6 @@ namespace DiplomskiRAD.DTOs
             public string EndingDate { get; set; } 
         }
 
-<<<<<<< Updated upstream
         public class UpdatePriceListDto
         {
             public Guid Id { get; set; }
@@ -102,8 +74,5 @@ namespace DiplomskiRAD.DTOs
                 
             }
         }
-
-=======
->>>>>>> Stashed changes
     }
 }

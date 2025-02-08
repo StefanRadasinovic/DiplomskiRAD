@@ -1,36 +1,25 @@
 ﻿using DiplomskiRAD.Services;
 using Microsoft.AspNetCore.Mvc;
-<<<<<<< Updated upstream
 using static DiplomskiRAD.DTOs.EquipmentDTO;
-=======
->>>>>>> Stashed changes
+
 using static DiplomskiRAD.DTOs.PriceListDTO;
 
 namespace DiplomskiRAD.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-<<<<<<< Updated upstream
     public class PriceListController : Controller
     {
 
         private readonly PriceListService _priceListService;
-
-        public PriceListController(PriceListService priceListService)
-=======
-    public class PriceListController : ControllerBase
-    {
-        private readonly PriceListService _priceListService;
         
         public PriceListController(PriceListService priceListService) 
->>>>>>> Stashed changes
         {
             _priceListService = priceListService;
         }
 
-<<<<<<< Updated upstream
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}")] //NE VRACA MOTOR.NAME + PRODUCER.NAME U RESPONSU
         public async Task<ActionResult<PriceListInfo>> GetPriceListById(Guid id)
         {
             var existingEquipment = await _priceListService.GetPriceListById(id);
@@ -41,33 +30,9 @@ namespace DiplomskiRAD.Controllers
 
             return Ok(existingEquipment);
         }
+      
 
-        [HttpGet("currentPrice/{motorcycleId}")]
-        public async Task<IActionResult> GetCurrentPriceListByMotorId(Guid motorcycleId)
-        {
-            var price = await _priceListService.GetCurrentPriceListByMotorId(motorcycleId);
-            if (price == null)
-            {
-                return NotFound("No current price found for this motorcycle");
-            }
-                
-            return Ok(price);
-        }
-
-        [HttpGet("allPrices/{motorcycleId}")]
-        public async Task<IActionResult> GetAllPricesListByMotorId(Guid motorcycleId)
-        {
-            var priceInfos = await _priceListService.GetAllPricesListByMotorId(motorcycleId);
-            if (!priceInfos.Any())
-                return NotFound("No price history found for this motorcycle");
-
-            return Ok(priceInfos);
-        }
-
-
-=======
->>>>>>> Stashed changes
-        [HttpPost("create/{motorcycleId}")]
+        [HttpPost("create/{motorcycleId}")] //NAMESTI DA TI VRACA RESPONSE KOJI IMA PODATKE O NASTALOM PRICELISTI + MOTOR.NAME + PRODUCER.NAME
         public async Task<ActionResult> CreatePriceList(Guid motorcycleId, [FromBody] CreatePriceListDto dto)
         {
             if (!ModelState.IsValid)
@@ -87,7 +52,36 @@ namespace DiplomskiRAD.Controllers
             }
         }
 
-<<<<<<< Updated upstream
+
+        /*
+
+       [HttpGet("currentPrice/{motorcycleId}")]
+       public async Task<IActionResult> GetCurrentPriceListByMotorId(Guid motorcycleId)
+       {
+           var price = await _priceListService.GetCurrentPriceListByMotorId(motorcycleId);
+           if (price == null)
+           {
+               return NotFound("No current price found for this motorcycle");
+           }
+
+           return Ok(price);
+       }
+
+       [HttpGet("allPrices/{motorcycleId}")]
+       public async Task<IActionResult> GetAllPricesListByMotorId(Guid motorcycleId)
+       {
+           var priceInfos = await _priceListService.GetAllPricesListByMotorId(motorcycleId);
+           if (!priceInfos.Any())
+               return NotFound("No price history found for this motorcycle");
+
+           return Ok(priceInfos);
+       }
+       */
+
+
+
+
+
 
         /*
         [HttpPut("update/{motorcycleId}")]
@@ -104,7 +98,5 @@ namespace DiplomskiRAD.Controllers
         }
         */
 
-=======
->>>>>>> Stashed changes
     }
 }

@@ -8,12 +8,12 @@ using System;
 using DiplomskiRAD.Services;
 using DiplomskiRAD.Repository;
 using DiplomskiRAD.Data;
+using DiplomskiRAD.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
-
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<TokenService>();
@@ -22,6 +22,8 @@ builder.Services.AddScoped<EquipmentRepository>();
 builder.Services.AddScoped<MotorcycleService>();
 builder.Services.AddScoped<MotorcycleRepository>();
 builder.Services.AddScoped<ProducerRepository>();
+builder.Services.AddScoped<PriceListRepository>();
+builder.Services.AddScoped<PriceListService>();
 
 
 builder.Services.AddCors(options =>

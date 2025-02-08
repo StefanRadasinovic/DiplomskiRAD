@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 ﻿using DiplomskiRAD.Repository;
 using static DiplomskiRAD.DTOs.PriceListDTO;
 using System.Globalization;
@@ -139,11 +139,6 @@ namespace DiplomskiRAD.Services
             return true;
         }
         */
-=======
-﻿namespace DiplomskiRAD.Services
-{
-    public class PriceListService
-    {
->>>>>>> Stashed changes
+
     }
 }
