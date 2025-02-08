@@ -1,3 +1,4 @@
+import { DisplayPriceOnly } from "./priceListDTO";
 import { CreateProducerDto, Producer, ProducerInfo, UpdateProducerDto } from "./producerDTO";
 
 export interface Equipment
@@ -7,7 +8,8 @@ export interface Equipment
     slika? : string,
     equipmentState : string,
     amount : number,
-    producers: Producer[],
+    producers: Producer[]
+    displayPriceOnly?: DisplayPriceOnly[],
 }
 
 export interface EquipmentInfo
@@ -16,6 +18,7 @@ export interface EquipmentInfo
     name : string,
     slika? : string,
     producers: ProducerInfo[],
+    displayPriceOnly?: DisplayPriceOnly[],
 }
 
 export interface PaginatedEquipmentProps { //Za Paginaciju

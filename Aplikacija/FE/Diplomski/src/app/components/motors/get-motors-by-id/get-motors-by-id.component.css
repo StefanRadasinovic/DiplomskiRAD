@@ -7,7 +7,7 @@
     width: 25%; /* Make the form smaller */
     margin: auto;
     position: relative;
-    top: 50%;
+    top: 48%;
     transform: translateY(-50%);
 }
 
@@ -66,7 +66,7 @@ input[type="checkbox"] {
     text-align: center;
     color: #aaa;
     margin-left: 17px;
-    width: 81%; /* Set a smaller fixed width */
+    width: 79%; /* Set a smaller fixed width */
     height: 130px; /* Reduce height */
     overflow: hidden; /* Prevent overflow if image exceeds the bounds */
     position: relative; /* For positioning the image preview */
@@ -193,7 +193,7 @@ input[type="checkbox"] {
 }
 
 textarea {
-    width: 95%;  /* Make the textarea take the full width */
+    width: 94%;  /* Make the textarea take the full width */
     padding: 0.4rem;
     border: 1px solid #ccc;
     margin-left: 2.7%;

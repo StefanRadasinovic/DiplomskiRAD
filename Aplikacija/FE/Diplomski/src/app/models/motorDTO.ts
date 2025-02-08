@@ -1,3 +1,5 @@
+
+import { DisplayPriceOnly } from "./priceListDTO";
 import { CreateProducerDto, Producer, ProducerInfo, UpdateProducerDto } from "./producerDTO";
 
 export interface Motor
@@ -11,6 +13,7 @@ export interface Motor
     amount : number,
     motorcycleType : string,
     producers: Producer[],
+    displayPriceOnly?: DisplayPriceOnly[],
 }
 
 export interface MotorInfo
@@ -21,6 +24,7 @@ export interface MotorInfo
     yearOfProduction : number,
     motorcycleType : string,
     producers: ProducerInfo[],
+    displayPriceOnly?: DisplayPriceOnly[],
 }
 
 export interface PaginatedMotorProps { //Za Paginaciju

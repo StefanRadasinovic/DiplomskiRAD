@@ -7,8 +7,7 @@ export interface PriceList
 
 }
 
-
-export interface PriceListInfo
+export interface DisplayPriceOnly
 {
     price: number
 
