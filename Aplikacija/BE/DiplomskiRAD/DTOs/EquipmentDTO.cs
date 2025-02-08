@@ -13,9 +13,25 @@ namespace DiplomskiRAD.DTOs
 
             public string? Slika { get; set; }
 
+            [JsonConverter(typeof(JsonStringEnumConverter))]
+            public EquipmentState EquipmentState { get; set; }
+
+            public double Amount { get; set; }
+
             public List<ProducerInfo> Producers { get; set; }
 
             public EquipmentInfo() { }
+
+            public EquipmentInfo(Guid id, string name, string? slika,EquipmentState equipmentState, double amount,List<ProducerInfo> producers) 
+            {
+                Id = id;
+                Name = name;
+                Slika = slika;
+                EquipmentState = equipmentState;
+                Amount = amount;
+                Producers = producers;
+            }
+
             public EquipmentInfo(Guid id, string name, string? slika, List<ProducerInfo> producers) //Konstruktor zbog paginacije
             {
                 Id = id;

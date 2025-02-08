@@ -26,34 +26,35 @@ namespace DiplomskiRAD.Services
             var data = await _equipmentRepository.GetWithOffsetPagination(pageNumber, pageSize);
 
             var equipmentInfos = data.Select(eq => new EquipmentInfo
-            (eq.Id, eq.Name, eq.Slika, eq.Producers.Select(p => new ProducerDTO.ProducerInfo 
+            (eq.Id, eq.Name, eq.Slika, eq.EquipmentState, eq.Amount, eq.Producers.Select(p => new ProducerDTO.ProducerInfo 
             { Name = p.Name, Description = p.Description }).ToList())).ToList();
             var response = new PageResponseOffset<EquipmentInfo>((List<EquipmentInfo>)equipmentInfos, pageNumber, pageSize, count);
             return response;
+
         }
 
 
         public async Task<EquipmentInfo> GetEquipmentById(Guid id)
         {
-            var motor = await _equipmentRepository.GetEquipmentById(id);
-            if (motor == null)
+            var eq = await _equipmentRepository.GetEquipmentById(id);
+            if (eq == null)
             {
                 throw new Exception("Equipment doesn't exist");
             }
 
             return new EquipmentInfo(
-                motor.Id,
-                motor.Name,
-                motor.Slika,
-                motor.Producers.Select(p => new ProducerInfo(p.Name, p.Description)).ToList()
+                eq.Id,
+                eq.Name,
+                eq.Slika,
+                eq.EquipmentState,
+                eq.Amount,
+                eq.Producers.Select(p => new ProducerInfo(p.Name, p.Description)).ToList()
             );
         }
 
 
         public async Task<Equipment> CreateEquipment(CreateEquipmentDTO equipmentDTO)
         {
-
-
             var producers = new List<Producer>();
 
             foreach (var p in equipmentDTO.Producers)
@@ -117,7 +118,7 @@ namespace DiplomskiRAD.Services
 
             foreach (var producerDto in updateEquipmentDTO.Producers)
             {
-                var existingProducer = existingEquipment.Producers.FirstOrDefault(p => p.Name == producerDto.Name);
+                var existingProducer = await _producerRepository.GetProducerByName(producerDto.Name);
 
                 if (existingProducer != null)
                 {
@@ -126,12 +127,15 @@ namespace DiplomskiRAD.Services
                 }
                 else
                 {
-                    updatedProducers.Add(new Producer
+                    var newProducer = new Producer
                     {
                         Id = Guid.NewGuid(),
                         Name = producerDto.Name,
                         Description = producerDto.Description
-                    });
+                    };
+
+                    await _producerRepository.CreateProducer(newProducer);
+                    updatedProducers.Add(newProducer);
                 }
             }
 

@@ -42,12 +42,10 @@ namespace DiplomskiRAD.DTOs
                 Producers = producers;
             }
 
-            public MotorcycleInfo(Guid id, string name, MotorcycleType motorcycleType, int yearOfProduction, string? slika, List<ProducerInfo> producerInfos)
+            public MotorcycleInfo(Guid id, string name, string? slika, List<ProducerInfo> producerInfos)
             {
                 Id = id;
                 Name = name;
-                MotorcycleType = motorcycleType;
-                YearOfProduction = yearOfProduction;
                 Slika = slika;
                 Producers = producerInfos;
             }

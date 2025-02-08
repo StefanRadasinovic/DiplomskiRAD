@@ -1,4 +1,4 @@
-import { CreateProducerDto, ProducerInfo, UpdateProducerDto } from "./producerDTO";
+import { CreateProducerDto, Producer, ProducerInfo, UpdateProducerDto } from "./producerDTO";
 
 export interface Equipment
 {
@@ -7,6 +7,7 @@ export interface Equipment
     slika? : string,
     equipmentState : string,
     amount : number,
+    producers: Producer[],
 }
 
 export interface EquipmentInfo

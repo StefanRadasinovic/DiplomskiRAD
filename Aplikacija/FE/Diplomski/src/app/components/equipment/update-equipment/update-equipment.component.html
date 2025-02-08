@@ -11,6 +11,13 @@
       <br>
 
       <div class="form-group">
+        <label  for="producerName" class="form-label">Producer:</label>
+        <input id="producerName" type="text" formControlName="producerName" required />
+      </div>
+
+      <br>
+
+      <div class="form-group">
         <label for="equipmentState" class="form-label">State:</label>
         <select id="equipmentState" formControlName="equipmentState" required>
           <option value="NOVA">NOVA</option>
@@ -43,7 +50,14 @@
           <img *ngIf="imagePreview" [src]="imagePreview"  class="image-preview" />
         </div>
       </div>
-  
+
+      <br>
+
+      <div class="form-group">
+        <label for="description" class="form-label">Description:</label>
+        <textarea id="description" type="text" formControlName="description"></textarea>
+      </div>
+
       <div class="form-action">
         <button type="submit" class="submit-button" [disabled]="equipmentForm.invalid">Confirm</button>
       </div>

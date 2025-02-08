@@ -26,7 +26,7 @@ namespace DiplomskiRAD.Services
             var data = await _motorcycleRepository.GetWithOffsetPagination(pageNumber, pageSize);
 
             var motorInfos = data.Select(motor => new MotorcycleDTO.MotorcycleInfo(
-            motor.Id,motor.Name, motor.MotorcycleType, motor.YearOfProduction, motor.Slika,
+            motor.Id,motor.Name, motor.Slika,
             motor.Producers.Select(p => new ProducerDTO.ProducerInfo { Name = p.Name, Description = p.Description }).ToList()
             )).ToList();
             var response = new PageResponseOffset<MotorcycleInfo>((List<MotorcycleInfo>)motorInfos, pageNumber, pageSize, count);

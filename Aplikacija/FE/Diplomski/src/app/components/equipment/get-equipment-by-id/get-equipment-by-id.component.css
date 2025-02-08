@@ -169,3 +169,14 @@ input[type="checkbox"] {
     box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
     transform: translateY(0);
   }
+
+  textarea {
+    width: 95%;  /* Make the textarea take the full width */
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    margin-left: 2.7%;
+    font-size: 14px;
+    min-height: 0px;  /* Set a minimum height for the textarea */
+    resize: vertical;  /* Allow users to resize the height of the textarea */
+    box-sizing: border-box;  /* Ensure padding is included in the width */
+}
