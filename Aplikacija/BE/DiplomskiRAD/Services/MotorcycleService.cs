@@ -27,12 +27,26 @@ namespace DiplomskiRAD.Services
             var data = await _motorcycleRepository.GetWithOffsetPagination(pageNumber, pageSize);
 
             var motorInfos = data.Select(motor => new MotorcycleDTO.MotorcycleInfo(
-            motor.Id,motor.Name, motor.Slika,
-            motor.Producers.Select(p => new ProducerDTO.ProducerInfo { Name = p.Name, Description = p.Description }).ToList()
+                motor.Id,
+                motor.Name,
+                motor.Slika,
+                motor.Kilometraza,
+                motor.YearOfProduction,
+                motor.MotorcycleState,
+                motor.Amount,
+                motor.MotorcycleType,
+                motor.Producers.Select(p => new ProducerDTO.ProducerInfo
+                {
+                    Name = p.Name,
+                    Description = p.Description
+                }).ToList(),
+                motor.PriceLists.Select(p => new PriceListDTO.DisplayPriceOnly(p.Price)).ToList() 
             )).ToList();
-            var response = new PageResponseOffset<MotorcycleInfo>((List<MotorcycleInfo>)motorInfos, pageNumber, pageSize, count);
+
+            var response = new PageResponseOffset<MotorcycleInfo>(motorInfos, pageNumber, pageSize, count);
             return response;
         }
+
 
 
         public async Task<MotorcycleInfo> GetMotorById(Guid id)
@@ -53,7 +67,8 @@ namespace DiplomskiRAD.Services
                 motor.MotorcycleState,
                 motor.Amount, 
                 motor.MotorcycleType,
-                motor.Producers.Select(p => new ProducerInfo(p.Name, p.Description)).ToList()
+                motor.Producers.Select(p => new ProducerInfo(p.Name, p.Description)).ToList(),
+                motor.PriceLists.Select(p => new PriceListDTO.DisplayPriceOnly(p.Price)).ToList()
             );
         }
 

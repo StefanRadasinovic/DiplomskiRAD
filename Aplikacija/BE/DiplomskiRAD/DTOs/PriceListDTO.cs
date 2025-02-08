@@ -17,8 +17,7 @@ namespace DiplomskiRAD.DTOs
 
             public List<MotorcycleInfo> Motorcycles { get; set; }
 
-
-            public PriceListInfo(Guid id ,double price, string startingDate, string endingDate, List<MotorcycleInfo> motorcycles)
+            public PriceListInfo(Guid id, double price, string startingDate, string endingDate, List<MotorcycleInfo> motorcycles)
             {
                 Id = id;
                 Price = price;
@@ -34,12 +33,6 @@ namespace DiplomskiRAD.DTOs
                 StartingDate = startingDate;
                 EndingDate = endingDate;
             }
-            public PriceListInfo( double price)
-            {
-                Price = price;
-         
-            }
-            public PriceListInfo() { }
         }
 
         public class CreatePriceListDto
@@ -62,12 +55,12 @@ namespace DiplomskiRAD.DTOs
 
         }
 
-        public class PriceOnly
+        public class DisplayPriceOnly
         {
           
             public double Price { get; set; }
            
-            public PriceOnly( double price)
+            public DisplayPriceOnly( double price)
             {
                 
                 Price = price;

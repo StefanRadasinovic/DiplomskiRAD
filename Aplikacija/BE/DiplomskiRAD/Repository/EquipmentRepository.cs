@@ -19,6 +19,7 @@ namespace DiplomskiRAD.Repository
         {
             return await _context.Equipments.AsNoTracking()
                 .Include(e=>e.Producers)
+                .Include(m => m.PriceLists)
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
@@ -26,7 +27,7 @@ namespace DiplomskiRAD.Repository
 
         public async Task<Equipment> GetEquipmentById(Guid id)
         {
-            return await _context.Equipments.Include(e=>e.Producers).FirstAsync(m => m.Id == id);
+            return await _context.Equipments.Include(e=>e.Producers).Include(m => m.PriceLists).FirstAsync(m => m.Id == id);
         }
 
         public async Task CreateEquipment(Equipment newEquipment)

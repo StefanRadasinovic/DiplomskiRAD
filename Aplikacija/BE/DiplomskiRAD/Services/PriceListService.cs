@@ -15,11 +15,13 @@ namespace DiplomskiRAD.Services
     {
         private readonly PriceListRepository _priceListRepository;
         private readonly MotorcycleRepository _motorcycleRepository;
+        private readonly EquipmentRepository _equipmentRepository;
 
-        public PriceListService(PriceListRepository priceListRepository, MotorcycleRepository motorcycleRepository)
+        public PriceListService(PriceListRepository priceListRepository, MotorcycleRepository motorcycleRepository, EquipmentRepository equipmentRepository)
         {
             _priceListRepository = priceListRepository;
             _motorcycleRepository = motorcycleRepository;
+            _equipmentRepository = equipmentRepository;
         }
 
 
@@ -79,12 +81,42 @@ namespace DiplomskiRAD.Services
 
 
 
-        public async Task<bool> CreatePriceList(Guid motorcycleId, CreatePriceListDto dto)
+        public async Task<bool> CreatePriceList(Guid productId, CreatePriceListDto dto)
         {
-            var motorcycle = await _motorcycleRepository.GetMotorById(motorcycleId);
+            var motorcycle = await _motorcycleRepository.GetMotorById(productId);
             if (motorcycle == null)
             {
-                return false;
+                var equipment = await _equipmentRepository.GetEquipmentById(productId);
+                if (equipment == null)
+                {
+                    return false;
+                }
+
+                if (!DateTime.TryParseExact(dto.StartingDate, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime startDate2))
+                {
+                    throw new FormatException("Invalid Starting Date format. Use dd/MM/yyyy.");
+                }
+
+                if (!DateTime.TryParseExact(dto.EndingDate, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime endDate2))
+                {
+                    throw new FormatException("Invalid Ending Date format. Use dd/MM/yyyy.");
+                }
+
+                // converted to UTC
+                startDate2 = DateTime.SpecifyKind(startDate2, DateTimeKind.Utc);
+                endDate2 = DateTime.SpecifyKind(endDate2, DateTimeKind.Utc);
+
+                var priceList2 = new PriceList
+                {
+                    Id = Guid.NewGuid(),
+                    Price = dto.Price,
+                    StartingDate = startDate2,
+                    EndingDate = endDate2,
+                    Equipments = new List<Equipment> { equipment }
+                };
+
+                await _priceListRepository.CreatePriceList(priceList2);
+                return true;
             }
 
             if (!DateTime.TryParseExact(dto.StartingDate, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime startDate))

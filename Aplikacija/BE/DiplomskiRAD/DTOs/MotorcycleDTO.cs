@@ -25,7 +25,25 @@ namespace DiplomskiRAD.DTOs
 
             public List<ProducerInfo> Producers { get; set; }
 
+            public List<PriceListDTO.DisplayPriceOnly> DisplayPriceOnly { get; set; } //samo za cenu
+
             public MotorcycleInfo() { }
+
+            public MotorcycleInfo(Guid id, string name, string? slika, double kilometraza, int yearOfProduction,
+                                  MotorcycleState motorcycleState, double amount, MotorcycleType motorType,
+                                  List<ProducerInfo> producers, List<PriceListDTO.DisplayPriceOnly> priceList)
+            {
+                Id = id;
+                Name = name;
+                Slika = slika;
+                Kilometraza = kilometraza;
+                YearOfProduction = yearOfProduction;
+                MotorcycleState = motorcycleState;
+                Amount = amount;
+                MotorcycleType = motorType;
+                Producers = producers;
+                DisplayPriceOnly = priceList;
+            }
 
             public MotorcycleInfo(Guid id, string name, string? slika, double kilometraza, int yearOfProduction,
                                   MotorcycleState motorcycleState, double amount, MotorcycleType motorType,

@@ -20,9 +20,23 @@ namespace DiplomskiRAD.DTOs
 
             public List<ProducerInfo> Producers { get; set; }
 
+            public List<PriceListDTO.DisplayPriceOnly> DisplayPriceOnly { get; set; } //samo za cenu
+
             public EquipmentInfo() { }
 
-            public EquipmentInfo(Guid id, string name, string? slika,EquipmentState equipmentState, double amount,List<ProducerInfo> producers) 
+            public EquipmentInfo(Guid id, string name, string? slika,EquipmentState equipmentState, double amount,List<ProducerInfo> producers,
+                                List<PriceListDTO.DisplayPriceOnly> displayPriceOnly) 
+            {
+                Id = id;
+                Name = name;
+                Slika = slika;
+                EquipmentState = equipmentState;
+                Amount = amount;
+                Producers = producers;
+                DisplayPriceOnly = displayPriceOnly;
+            }
+
+            public EquipmentInfo(Guid id, string name, string? slika, EquipmentState equipmentState, double amount, List<ProducerInfo> producers)
             {
                 Id = id;
                 Name = name;

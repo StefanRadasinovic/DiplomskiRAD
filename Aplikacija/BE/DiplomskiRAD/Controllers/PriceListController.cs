@@ -32,17 +32,17 @@ namespace DiplomskiRAD.Controllers
         }
       
 
-        [HttpPost("create/{motorcycleId}")] //NAMESTI DA TI VRACA RESPONSE KOJI IMA PODATKE O NASTALOM PRICELISTI + MOTOR.NAME + PRODUCER.NAME
-        public async Task<ActionResult> CreatePriceList(Guid motorcycleId, [FromBody] CreatePriceListDto dto)
+        [HttpPost("create/{productId}")] //NAMESTI DA TI VRACA RESPONSE KOJI IMA PODATKE O NASTALOM PRICELISTI + MOTOR.NAME + PRODUCER.NAME
+        public async Task<ActionResult> CreatePriceList(Guid productId, [FromBody] CreatePriceListDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             try
             {
-                var created = await _priceListService.CreatePriceList(motorcycleId, dto);
+                var created = await _priceListService.CreatePriceList(productId, dto);
                 if (!created)
-                    return NotFound("Motorcycle not found");
+                    return NotFound("Id not found");
 
                 return Ok("Price list created successfully");
             }

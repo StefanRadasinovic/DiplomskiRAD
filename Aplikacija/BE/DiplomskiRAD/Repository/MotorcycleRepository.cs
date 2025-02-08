@@ -18,7 +18,8 @@ namespace DiplomskiRAD.Repository
         public async Task<IEnumerable<Motorcycle>> GetWithOffsetPagination(int pageNumber, int pageSize)
         {
             return await _context.Motorcycles
-            .Include(m => m.Producers) 
+            .Include(m => m.Producers)
+            .Include(m => m.PriceLists)
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
             .ToListAsync();
@@ -27,7 +28,7 @@ namespace DiplomskiRAD.Repository
 
         public async Task<Motorcycle> GetMotorById(Guid id)
         {
-            return await _context.Motorcycles.Include(m => m.Producers).FirstAsync(m => m.Id == id);
+            return await _context.Motorcycles.Include(m => m.Producers).Include(m => m.PriceLists).FirstOrDefaultAsync(m => m.Id == id);
         }
 
 

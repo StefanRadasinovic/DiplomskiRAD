@@ -28,7 +28,13 @@ namespace DiplomskiRAD.Services
 
             var equipmentInfos = data.Select(eq => new EquipmentInfo
             (eq.Id, eq.Name, eq.Slika, eq.EquipmentState, eq.Amount, eq.Producers.Select(p => new ProducerDTO.ProducerInfo 
-            { Name = p.Name, Description = p.Description }).ToList())).ToList();
+            { 
+              Name = p.Name,
+              Description = p.Description
+            }).ToList(),
+             eq.PriceLists.Select(p => new PriceListDTO.DisplayPriceOnly(p.Price)).ToList()
+            )).ToList();
+
             var response = new PageResponseOffset<EquipmentInfo>((List<EquipmentInfo>)equipmentInfos, pageNumber, pageSize, count);
             return response;
 
@@ -49,7 +55,8 @@ namespace DiplomskiRAD.Services
                 eq.Slika,
                 eq.EquipmentState,
                 eq.Amount,
-                eq.Producers.Select(p => new ProducerInfo(p.Name, p.Description)).ToList()
+                eq.Producers.Select(p => new ProducerInfo(p.Name, p.Description)).ToList(),
+                eq.PriceLists.Select(p => new PriceListDTO.DisplayPriceOnly(p.Price)).ToList()
             );
         }
 
