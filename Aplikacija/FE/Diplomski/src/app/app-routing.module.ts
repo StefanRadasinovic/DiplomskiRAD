@@ -18,6 +18,7 @@ import { GetUserByIdComponent } from './components/users/get-user-by-id/get-user
 import { AddWorkerComponent } from './components/users/add-worker/add-worker.component';
 import { UpdateUsersComponent } from './components/users/update-users/update-users.component';
 import { ShowUsersAdminComponent } from './components/users/show-users-admin/show-users-admin.component';
+import { AdjustPricesComponent } from './components/adjust-prices/adjust-prices.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -39,6 +40,7 @@ const routes: Routes = [
   {path: 'display/:id', component: ShowUsersAdminComponent },
   {path: 'add-workers', component: AddWorkerComponent },
   {path: 'edit-users/:id', component: UpdateUsersComponent },
+  {path: 'adjust-prices', component: AdjustPricesComponent },
 ];
 
 @NgModule({
