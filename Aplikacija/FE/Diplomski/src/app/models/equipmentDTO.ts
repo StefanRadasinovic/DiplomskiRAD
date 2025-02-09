@@ -48,3 +48,12 @@ export interface UpdateEquipmentDto
 }
 
 
+export interface JustEquipmentName
+{
+    id : string,
+    name : string,
+    producers: ProducerInfo[],
+
+}
+
+

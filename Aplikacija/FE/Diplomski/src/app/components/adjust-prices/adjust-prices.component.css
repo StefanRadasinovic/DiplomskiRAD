@@ -54,16 +54,15 @@
     font-weight: bold;
   }
   
-  .search-button {
-    background-color: grey;
-    color: white;
-    border: none;
-    cursor: pointer;
+  .search-button:enabled {
+    background-color: #4b97e7; 
+    color: white; 
+    border: none; 
+    cursor: pointer; 
   }
   
   .search-button:hover {
     transform: translateY(-1px);
-    background-color: #4b97e7;
   }
   
   .dropdown {
@@ -76,4 +75,5 @@
     width: 150px;
     margin-right: 3px;
   }
-  
+
+    

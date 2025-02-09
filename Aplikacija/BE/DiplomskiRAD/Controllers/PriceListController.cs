@@ -32,7 +32,7 @@ namespace DiplomskiRAD.Controllers
         }
 
 
-        [HttpPost("create/{productId}")]
+        [HttpPost("{productId}")]
         public async Task<ActionResult> CreatePriceList(Guid productId, [FromBody] CreatePriceListDto dto)
         {
             if (!ModelState.IsValid)

@@ -62,3 +62,11 @@ export interface UpdateMotorDto
     producers: UpdateProducerDto[],
 
 }
+
+export interface JustMotorcycleName
+{
+    id : string,
+    name : string,
+    producers: ProducerInfo[],
+
+}

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { MotorService } from '../../services/motorServices';
 import { MotorInfo } from '../../models/motorDTO';
 import { EquipmentService } from '../../services/equipmentServices';
+import { PriceListService } from '../../services/priceListService';
+import { PriceListInfo, PriceListInfo22 } from '../../models/priceListDTO';
 
 @Component({
   selector: 'app-adjust-prices',
@@ -22,12 +24,22 @@ export class AdjustPricesComponent {
   currentIndex = -1;
   currentItem: any = null;
   
+
+  /**DEO ZA GETbyId PRIKAZ***/
+  displayForMotor!: PriceListInfo;
+  displayForEquipment!: PriceListInfo22;
+  loading = true; // Add a loading flag
+
   constructor(
     private motorService: MotorService,
     private equipmentService: EquipmentService,
+    private priceListService : PriceListService,
     private router: Router
   ) {}
 
+  isButtonEnabled(): boolean {
+    return Boolean(this.role && (this.name || this.producerName));
+  }
 
   SearchFunction() {
     this.isLoading = true;
@@ -123,8 +135,6 @@ export class AdjustPricesComponent {
       }
     }
   }
-  
-  
 
   transformMotorData(motors: any[]): any[] {
     return motors.map(motor => ({
@@ -144,7 +154,7 @@ export class AdjustPricesComponent {
     }));
   }
 
-  /*
+  
 
   setActiveItem(item: any, index: number): void {//Routing
     console.log('Selected Item:', item); 
@@ -158,10 +168,36 @@ export class AdjustPricesComponent {
     }
 
     if (this.role === 'MOTORCYCLE') {
-      this.router.navigate([`/motorcycles/${item.id}`]);
+      //this.router.navigate([`/motorcycles/${item.id}`]);
+      this.priceListService.getCurrentPriceListByMotorId(item.id).subscribe({
+        next: (res) => {
+          this.displayForMotor = res;
+          this.loading = false; // Set loading to false after data is fetched
+          console.log("Prikazan predmet:", res);
+        },
+        error: (err) => {
+          console.error('Error fetching motor details:', err);
+          this.loading = false; // Set loading to false on error as well
+        }
+      });
+
     } else if (this.role === 'EQUIPMENT') {
-      this.router.navigate([`/equipment/${item.id}`]);
+      //this.router.navigate([`/equipment/${item.id}`]);
+      this.priceListService.getCurrentPriceListByEquipmentId(item.id).subscribe({
+        next: (res) => {
+          this.displayForEquipment = res;
+          this.loading = false; // Set loading to false after data is fetched
+          console.log("Prikazan predmet:",res);
+        },
+        error: (err) => {
+          console.error('Error fetching equipment details:', err);
+          this.loading = false; // Set loading to false on error as well
+        }
+      });
     }
+
   }
-  */
+  
+
+
 }
