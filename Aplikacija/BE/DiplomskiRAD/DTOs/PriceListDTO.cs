@@ -94,5 +94,24 @@ namespace DiplomskiRAD.DTOs
             }
         }
 
+
+        public class CustomPriceListInfo
+        {
+            public Guid Id { get; set; }
+            public double Price { get; set; }
+            public string StartingDate { get; set; }
+            public string EndingDate { get; set; }
+            public List<object> Items { get; set; } // support both motorcycles and equipment
+
+            public CustomPriceListInfo(Guid id, double price, string startingDate, string endingDate, List<object> items)
+            {
+                Id = id;
+                Price = price;
+                StartingDate = startingDate;
+                EndingDate = endingDate;
+                Items = items;
+            }
+        }
+
     }
 }

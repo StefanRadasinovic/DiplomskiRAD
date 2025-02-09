@@ -30,9 +30,9 @@ namespace DiplomskiRAD.Controllers
 
             return Ok(existingEquipment);
         }
-      
 
-        [HttpPost("create/{productId}")] //NAMESTI DA TI VRACA RESPONSE KOJI IMA PODATKE O NASTALOM PRICELISTI + MOTOR.NAME + PRODUCER.NAME
+
+        [HttpPost("create/{productId}")]
         public async Task<ActionResult> CreatePriceList(Guid productId, [FromBody] CreatePriceListDto dto)
         {
             if (!ModelState.IsValid)
@@ -40,11 +40,11 @@ namespace DiplomskiRAD.Controllers
 
             try
             {
-                var created = await _priceListService.CreatePriceList(productId, dto);
-                if (!created)
+                var createdPriceList = await _priceListService.CreatePriceList(productId, dto);
+                if (createdPriceList == null)
                     return NotFound("Id not found");
 
-                return Ok("Price list created successfully");
+                return Ok(createdPriceList);
             }
             catch (FormatException ex)
             {
@@ -53,7 +53,7 @@ namespace DiplomskiRAD.Controllers
         }
 
 
-       [HttpGet("MotorCurrentPrice/{motorcycleId}")]
+        [HttpGet("MotorCurrentPrice/{motorcycleId}")]
        public async Task<IActionResult> GetCurrentPriceListByMotorId(Guid motorcycleId)
        {
            var price = await _priceListService.GetCurrentPriceListByMotorId(motorcycleId);

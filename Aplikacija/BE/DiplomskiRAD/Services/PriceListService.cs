@@ -51,33 +51,32 @@ namespace DiplomskiRAD.Services
                  motorcycleList
             );
         }
-        
-        public async Task<bool> CreatePriceList(Guid productId, CreatePriceListDto dto)
+
+        public async Task<CustomPriceListInfo?> CreatePriceList(Guid productId, CreatePriceListDto dto)
         {
+            PriceList priceList;
+
             var motorcycle = await _motorcycleRepository.GetMotorById(productId);
             if (motorcycle == null)
             {
                 var equipment = await _equipmentRepository.GetEquipmentById(productId);
                 if (equipment == null)
                 {
-                    return false;
+                    return null;
                 }
 
+                // Validate date formats
                 if (!DateTime.TryParseExact(dto.StartingDate, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime startDate2))
-                {
                     throw new FormatException("Invalid Starting Date format. Use dd/MM/yyyy.");
-                }
 
                 if (!DateTime.TryParseExact(dto.EndingDate, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime endDate2))
-                {
                     throw new FormatException("Invalid Ending Date format. Use dd/MM/yyyy.");
-                }
 
-                // converted to UTC
+                // Convert to UTC
                 startDate2 = DateTime.SpecifyKind(startDate2, DateTimeKind.Utc);
                 endDate2 = DateTime.SpecifyKind(endDate2, DateTimeKind.Utc);
 
-                var priceList2 = new PriceList
+                priceList = new PriceList
                 {
                     Id = Guid.NewGuid(),
                     Price = dto.Price,
@@ -86,25 +85,36 @@ namespace DiplomskiRAD.Services
                     Equipments = new List<Equipment> { equipment }
                 };
 
-                await _priceListRepository.CreatePriceList(priceList2);
-                return true;
+                await _priceListRepository.CreatePriceList(priceList);
+
+                return new CustomPriceListInfo(
+                    priceList.Id,
+                    priceList.Price,
+                    priceList.StartingDate.ToString("dd/MM/yyyy"),
+                    priceList.EndingDate.ToString("dd/MM/yyyy"),
+                    priceList.Equipments
+                    .Select(e => new JustEquipmentName(
+                    e.Id,
+                    e.Name,
+                    e.Producers.Select(p => new ProducerInfo(p.Name, p.Description)).ToList()
+                    ))
+                    .Cast<object>() 
+                    .ToList()
+                );
             }
 
+            // Validate date formats
             if (!DateTime.TryParseExact(dto.StartingDate, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime startDate))
-            {
                 throw new FormatException("Invalid Starting Date format. Use dd/MM/yyyy.");
-            }
 
             if (!DateTime.TryParseExact(dto.EndingDate, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime endDate))
-            {
                 throw new FormatException("Invalid Ending Date format. Use dd/MM/yyyy.");
-            }
 
-            // converted to UTC
+            // Convert to UTC
             startDate = DateTime.SpecifyKind(startDate, DateTimeKind.Utc);
             endDate = DateTime.SpecifyKind(endDate, DateTimeKind.Utc);
 
-            var priceList = new PriceList
+            priceList = new PriceList
             {
                 Id = Guid.NewGuid(),
                 Price = dto.Price,
@@ -114,8 +124,21 @@ namespace DiplomskiRAD.Services
             };
 
             await _priceListRepository.CreatePriceList(priceList);
-            return true;
+
+            return new CustomPriceListInfo(
+                priceList.Id,
+                priceList.Price,
+                priceList.StartingDate.ToString("dd/MM/yyyy"),
+                priceList.EndingDate.ToString("dd/MM/yyyy"),
+                priceList.Motorcycles.Select(m => new JustMotorcycleName(
+                    m.Id,
+                    m.Name,
+                    m.Producers.Select(p => new ProducerInfo(p.Name, p.Description)).ToList()
+                    )).Cast<object>() 
+                    .ToList()
+            );
         }
+
 
 
         public async Task<PriceListInfo?> GetCurrentPriceListByMotorId(Guid motorcycleId)
