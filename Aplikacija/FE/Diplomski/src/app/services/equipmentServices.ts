@@ -32,4 +32,19 @@ updateEquipment(id: string, data: UpdateEquipmentDto): Observable<void> {
 delete(id: string): Observable<void> {
     return this.http.delete<void>(`${baseUrl}/${id}`);
   }
+
+  getEquipmentByName(name: string): Observable<Equipment[]> {
+    return this.http.get<Equipment[]>(`${baseUrl}/name/${name}`);     
+  }
+  
+  getEquipmentByProducerName(producerName: string): Observable<Equipment[]> {
+    return this.http.get<Equipment[]>(`${baseUrl}/producer/${producerName}`);
+  }
+
+  getEquipmentByNameAndProducerName(name: string, producerName: string): Observable<Equipment[]> {
+    return this.http.get<Equipment[]>(`${baseUrl}/name-producer?name=${name}&producerName=${producerName}`);
+  }
+
+
+  
 }

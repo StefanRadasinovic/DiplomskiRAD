@@ -38,6 +38,7 @@ import { AddWorkerComponent } from './components/users/add-worker/add-worker.com
 import { UpdateUsersComponent } from './components/users/update-users/update-users.component';
 import { AuthInterceptor } from './services/InterceptorService';
 import { ShowUsersAdminComponent } from './components/users/show-users-admin/show-users-admin.component';
+import { AdjustPricesComponent } from './components/adjust-prices/adjust-prices.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { ShowUsersAdminComponent } from './components/users/show-users-admin/sho
     AddWorkerComponent,
     UpdateUsersComponent,
     ShowUsersAdminComponent,
+    AdjustPricesComponent
   ],
   imports: [
     BrowserModule,

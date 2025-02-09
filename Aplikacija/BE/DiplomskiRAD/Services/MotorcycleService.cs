@@ -206,5 +206,24 @@ namespace DiplomskiRAD.Services
                 m.Producers.Select(p => new ProducerInfo(p.Name, p.Description)).ToList()
             ));
         }
+
+
+        //kombinacija name+producerName
+        public async Task<IEnumerable<MotorcycleInfo>> GetMotorsByNameAndProducerName(string name, string producerName) 
+        {
+            var motorcycles = await _motorcycleRepository.GetMotorsByNameAndProducerName(name, producerName);
+            return motorcycles.Select(m => new MotorcycleDTO.MotorcycleInfo(
+                m.Id,
+                m.Name,
+                m.Slika,
+                m.Kilometraza,
+                m.YearOfProduction,
+                m.MotorcycleState,
+                m.Amount,
+                m.MotorcycleType,
+                m.Producers.Select(p => new ProducerInfo(p.Name, p.Description)).ToList()
+            ));
+        }
+
     }
 }

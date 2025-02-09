@@ -60,33 +60,7 @@ namespace DiplomskiRAD.Services
             );
         }
 
-        public async Task<IEnumerable<EquipmentInfo>> GetEquipmentByName(string name)
-        {
-            var equipment = await _equipmentRepository.GetEquipmentByName(name);
-            return equipment.Select(m => new EquipmentDTO.EquipmentInfo(
-                m.Id,
-                m.Name,
-                m.Slika,
-                m.EquipmentState,
-                m.Amount,
-                m.Producers.Select(p => new ProducerInfo(p.Name, p.Description)).ToList()
-            ));
-        }
-
-        public async Task<IEnumerable<EquipmentInfo>> GetEquipmentByProducerName(string producerName)
-        {
-            var equipment = await _equipmentRepository.GetEquipmentByProducerName(producerName);
-            return equipment.Select(m => new EquipmentDTO.EquipmentInfo(
-                m.Id,
-                m.Name,
-                m.Slika,
-                m.EquipmentState,
-                m.Amount,
-                m.Producers.Select(p => new ProducerInfo(p.Name, p.Description)).ToList()
-            ));
-        }
-
-
+        
         public async Task<Equipment> CreateEquipment(CreateEquipmentDTO equipmentDTO)
         {
             var producers = new List<Producer>();
@@ -180,6 +154,46 @@ namespace DiplomskiRAD.Services
         public async Task DeleteEquipment(Guid id)
         {
             await _equipmentRepository.DeleteEquipment(id);
+        }
+
+        public async Task<IEnumerable<EquipmentInfo>> GetEquipmentByName(string name)
+        {
+            var equipment = await _equipmentRepository.GetEquipmentByName(name);
+            return equipment.Select(m => new EquipmentDTO.EquipmentInfo(
+                m.Id,
+                m.Name,
+                m.Slika,
+                m.EquipmentState,
+                m.Amount,
+                m.Producers.Select(p => new ProducerInfo(p.Name, p.Description)).ToList()
+            ));
+        }
+
+        public async Task<IEnumerable<EquipmentInfo>> GetEquipmentByProducerName(string producerName)
+        {
+            var equipment = await _equipmentRepository.GetEquipmentByProducerName(producerName);
+            return equipment.Select(m => new EquipmentDTO.EquipmentInfo(
+                m.Id,
+                m.Name,
+                m.Slika,
+                m.EquipmentState,
+                m.Amount,
+                m.Producers.Select(p => new ProducerInfo(p.Name, p.Description)).ToList()
+            ));
+        }
+
+        //kombinacija name+producerName
+        public async Task<IEnumerable<EquipmentInfo>> GetEquipmentByNameAndProducerName(string name, string producerName)
+        {
+            var motorcycles = await _equipmentRepository.GetEquipmentByNameAndProducerName(name, producerName);
+            return motorcycles.Select(m => new EquipmentDTO.EquipmentInfo(
+                m.Id,
+                m.Name,
+                m.Slika,
+                m.EquipmentState,
+                m.Amount,
+                m.Producers.Select(p => new ProducerInfo(p.Name, p.Description)).ToList()
+            ));
         }
 
     }

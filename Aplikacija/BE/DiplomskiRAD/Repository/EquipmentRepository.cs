@@ -79,5 +79,15 @@ namespace DiplomskiRAD.Repository
                 .Where(m => m.Producers.Any(p => p.Name.ToLower().Contains(producerName.ToLower()))) 
                 .ToListAsync();
         }
+
+        //kombinacija name+producerName
+        public async Task<IEnumerable<Equipment>> GetEquipmentByNameAndProducerName(string name, string producerName) 
+        {
+            return await _context.Set<Equipment>()
+                .Include(m => m.Producers)
+                .Where(m => (string.IsNullOrEmpty(name) || m.Name.ToLower().Contains(name.ToLower())) &&
+                            (string.IsNullOrEmpty(producerName) || m.Producers.Any(p => p.Name.ToLower().Contains(producerName.ToLower()))))
+                .ToListAsync();
+        }
     }
 }

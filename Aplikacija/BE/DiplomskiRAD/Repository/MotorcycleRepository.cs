@@ -91,5 +91,16 @@ namespace DiplomskiRAD.Repository
                 .ToListAsync();
         }
 
+        //kombinacija name+producerName
+        public async Task<IEnumerable<Motorcycle>> GetMotorsByNameAndProducerName(string name, string producerName) //kombinacija name+producerName
+        {
+            return await _context.Set<Motorcycle>()
+                .Include(m => m.Producers)
+                .Where(m => (string.IsNullOrEmpty(name) || m.Name.ToLower().Contains(name.ToLower())) &&
+                            (string.IsNullOrEmpty(producerName) || m.Producers.Any(p => p.Name.ToLower().Contains(producerName.ToLower()))))
+                .ToListAsync();
+        }
+
+
     }
 }

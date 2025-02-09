@@ -67,7 +67,7 @@ deleteEquipment(): void {
 }
 
 editEquipment(motorId: string): void {
-    this.router.navigate(['/edit-equipments', motorId]);
+    this.router.navigate(['/edit-equipment', motorId]);
 }
 
 }

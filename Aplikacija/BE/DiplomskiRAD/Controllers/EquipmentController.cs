@@ -99,5 +99,13 @@ namespace DiplomskiRAD.Controllers
             var result = await equipmentService.GetEquipmentByProducerName(producerName);
             return Ok(result);
         }
+
+        //kombinacija name+producerName
+        [HttpGet("name-producer")]
+        public async Task<ActionResult<IEnumerable<EquipmentInfo>>> GetEquipmentByNameAndProducerName(string name, string producerName)
+        {
+            var result = await equipmentService.GetEquipmentByNameAndProducerName(name, producerName);
+            return Ok(result);
+        }
     }
 }

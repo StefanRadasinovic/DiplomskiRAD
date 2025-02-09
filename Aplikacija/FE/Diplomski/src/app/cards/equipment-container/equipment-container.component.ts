@@ -65,7 +65,7 @@ equipments: PaginatedEquipmentProps = {
   }
 
   onEquipmentSelected(equipmentId: string) {
-    this.router.navigate(['/equipments', equipmentId]); 
+    this.router.navigate(['/equipment', equipmentId]); 
   }
 
 

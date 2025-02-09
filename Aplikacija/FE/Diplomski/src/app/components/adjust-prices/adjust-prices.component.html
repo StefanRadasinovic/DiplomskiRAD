@@ -1,1 +1,40 @@
-<p>adjust-prices works!</p>
+<div class="container">
+    <div class="filter-group">
+
+      <div class="dropdown">
+        <select [(ngModel)]="role" class="filter-select">
+          <option value="">Select Product</option>
+          <option value="MOTORCYCLE">MOTORCYCLE</option> 
+          <option value="EQUIPMENT">EQUIPMENT</option> 
+        </select>
+      </div>
+
+      <input type="text" class="filter-input" [(ngModel)]="name" placeholder="Search by Name">
+      <input type="text" class="filter-input" [(ngModel)]="producerName" placeholder="Search by Producer"> 
+      
+      <button mat-raised-button id="search" color="primary" class="search-button" (click)="SearchFunction()">Search</button>
+    </div>
+  
+   
+    <table class="user-table" *ngIf="!isLoading && data.length > 0"> 
+      <thead>
+        <tr>
+          <th *ngFor="let column of displayedColumns">{{ column | titlecase }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data; let i = index" [class.active]="currentIndex === i" (click)="setActiveItem(item, i)">
+      <td>{{ item.name }}</td>
+      <td>{{ item.producer }}</td>
+      <td *ngIf="role === 'MOTORCYCLE'">{{ item.motorType }}</td>
+      <td *ngIf="role === 'EQUIPMENT'">{{ item.equipmentState }}</td>
+    </tr>
+      </tbody>
+    </table>
+  
+    <!-- Loading Indicator -->
+    <div *ngIf="isLoading" class="loading">
+      <p>Loading...</p>
+    </div>
+  </div>
+  
