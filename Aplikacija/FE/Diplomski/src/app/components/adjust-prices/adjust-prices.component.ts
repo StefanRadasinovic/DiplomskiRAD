@@ -144,9 +144,10 @@ export class AdjustPricesComponent {
     }));
   }
 
+  /*
 
-  setActiveItem(item: any, index: number): void {
-    console.log('Selected Item:', item); // Debugging
+  setActiveItem(item: any, index: number): void {//Routing
+    console.log('Selected Item:', item); 
 
     this.currentItem = item;
     this.currentIndex = index;
@@ -161,6 +162,6 @@ export class AdjustPricesComponent {
     } else if (this.role === 'EQUIPMENT') {
       this.router.navigate([`/equipment/${item.id}`]);
     }
-}
-
+  }
+  */
 }

@@ -34,31 +34,48 @@ namespace DiplomskiRAD.Services
                 throw new Exception("Price list doesn't exist");
             }
 
+            var motorcycleList = priceList.Motorcycles.Select(m => new MotorcycleDTO.JustMotorcycleName(
+              m.Id,
+              m.Name,
+              m.Producers.Select(p => new ProducerInfo { 
+                  Name = p.Name, 
+                  Description = p.Description 
+              }).ToList())).ToList();
+
+
             return new PriceListInfo(
                  priceList.Id,
                  priceList.Price,
-                 priceList.StartingDate.ToString("dd/MM/yyyy"), // Convert DateTime to string
-                 priceList.EndingDate.ToString("dd/MM/yyyy")
+                 priceList.StartingDate.ToString("dd/MM/yyyy"),
+                 priceList.EndingDate.ToString("dd/MM/yyyy"),
+                 motorcycleList
             );
         }
-
+        
         public async Task<PriceListInfo?> GetCurrentPriceListByMotorId(Guid motorcycleId)
         {
-            var currentPriceList = await _priceListRepository.GetCurrentPriceListByMotorId(motorcycleId);
-            if (currentPriceList == null)
+            var priceList = await _priceListRepository.GetCurrentPriceListByMotorId(motorcycleId);
+            if (priceList == null)
             {
                 return null;
             }
 
+            var motorcycleList = priceList.Motorcycles.Select(m => new MotorcycleDTO.JustMotorcycleName(
+               m.Id,
+               m.Name,
+               m.Producers.Select(p => new ProducerInfo
+               {
+                   Name = p.Name,
+                   Description = p.Description
+               }).ToList())).ToList();
+
+
             return new PriceListInfo(
-                currentPriceList.Id,
-                currentPriceList.Price,
-                currentPriceList.StartingDate.ToString("dd/MM/yyyy"),
-                currentPriceList.EndingDate.ToString("dd/MM/yyyy"),
-                currentPriceList.Motorcycles.Select(m => new MotorcycleInfo
-                {
-                    Name = m.Name,
-                    Producers = m.Producers.Select(p => new ProducerInfo{Name = p.Name,}).ToList()}).ToList()
+                 priceList.Id,
+                 priceList.Price,
+                 priceList.StartingDate.ToString("dd/MM/yyyy"),
+                 priceList.EndingDate.ToString("dd/MM/yyyy"),
+                 motorcycleList
             );
         }
 
@@ -72,12 +89,16 @@ namespace DiplomskiRAD.Services
                 p.Price,
                 p.StartingDate.ToString("dd/MM/yyyy"),
                 p.EndingDate.ToString("dd/MM/yyyy"),
-                p.Motorcycles.Select(m => new MotorcycleInfo
-                {
-                    Name = m.Name,
-                    Producers = m.Producers.Select(prod => new ProducerInfo{Name = prod.Name,}).ToList()}).ToList()
-                )).ToList();
+                p.Motorcycles.Select(m => new JustMotorcycleName(
+                    m.Id,  
+                    m.Name,
+                    m.Producers.Select(prod => new ProducerInfo {
+                        Name = prod.Name,
+                        Description = prod.Description}).ToList()
+                )).ToList()
+            )).ToList();
         }
+
 
 
 

@@ -15,6 +15,11 @@
             }
 
             public ProducerInfo() { }
+
+            public ProducerInfo(string name)
+            {
+                Name = name;
+            }
         }
 
         public class CreateProducerDto
@@ -28,5 +33,6 @@
             public string Name { get; set; }
             public string? Description { get; set; }
         }
+
     }
 }

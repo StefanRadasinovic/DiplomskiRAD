@@ -19,7 +19,7 @@ namespace DiplomskiRAD.Controllers
         }
 
 
-        [HttpGet("{id}")] //NE VRACA MOTOR.NAME + PRODUCER.NAME U RESPONSU
+        [HttpGet("{id}")] 
         public async Task<ActionResult<PriceListInfo>> GetPriceListById(Guid id)
         {
             var existingEquipment = await _priceListService.GetPriceListById(id);
@@ -53,8 +53,6 @@ namespace DiplomskiRAD.Controllers
         }
 
 
-        /*
-
        [HttpGet("currentPrice/{motorcycleId}")]
        public async Task<IActionResult> GetCurrentPriceListByMotorId(Guid motorcycleId)
        {
@@ -76,11 +74,7 @@ namespace DiplomskiRAD.Controllers
 
            return Ok(priceInfos);
        }
-       */
-
-
-
-
+      
 
 
         /*

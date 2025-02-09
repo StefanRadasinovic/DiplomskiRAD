@@ -12,13 +12,13 @@ namespace DiplomskiRAD.DTOs
             public Guid Id { get; set; }
             public string Name { get; set; }
             public string? Slika { get; set; }
-            public double Kilometraza { get; set; } 
+            public double Kilometraza { get; set; }
             public int YearOfProduction { get; set; }
 
             [JsonConverter(typeof(JsonStringEnumConverter))]
-            public MotorcycleState MotorcycleState { get; set; }  
+            public MotorcycleState MotorcycleState { get; set; }
 
-            public double Amount { get; set; } 
+            public double Amount { get; set; }
 
             [JsonConverter(typeof(JsonStringEnumConverter))]
             public MotorcycleType MotorcycleType { get; set; }
@@ -113,6 +113,22 @@ namespace DiplomskiRAD.DTOs
             public MotorcycleType MotorcycleType { get; set; }
 
             public List<UpdateProducerDto> Producers { get; set; }
+
+        }
+
+        public class JustMotorcycleName
+        {
+            public Guid Id { get; set; }
+            public string Name { get; set; }
+
+            public List<ProducerInfo> Producers { get; set; }
+
+            public JustMotorcycleName(Guid id, string name, List<ProducerInfo> producers )
+            {
+                Id = id;
+                Name = name;
+                Producers = producers;
+            }
 
         }
     }

@@ -15,16 +15,18 @@ namespace DiplomskiRAD.DTOs
 
             public string EndingDate { get; set; }   // Change to string
 
-            public List<MotorcycleInfo> Motorcycles { get; set; }
+            public List<JustMotorcycleName> JustMotorcycleNames { get; set; }
 
-            public PriceListInfo(Guid id, double price, string startingDate, string endingDate, List<MotorcycleInfo> motorcycles)
+
+            public PriceListInfo(Guid id, double price, string startingDate, string endingDate, List<JustMotorcycleName> justMotorcycleNames)
             {
                 Id = id;
                 Price = price;
                 StartingDate = startingDate;
                 EndingDate = endingDate;
-                Motorcycles = motorcycles;
+                JustMotorcycleNames = justMotorcycleNames;
             }
+
 
             public PriceListInfo(Guid id, double price, string startingDate, string endingDate)
             {

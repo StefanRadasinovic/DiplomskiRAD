@@ -27,6 +27,8 @@ namespace DiplomskiRAD.Repository
         public async Task<List<PriceList>> GetAllPricesListByMotorId(Guid motorcycleId)
         {
             return await _context.PriceLists
+                                    .Include(p => p.Motorcycles)
+                                    .ThenInclude(m => m.Producers)
                                     .Where(p => p.Motorcycles.Any(m => m.Id == motorcycleId))
                                     .OrderBy(p => p.StartingDate)
                                     .ToListAsync();
@@ -35,6 +37,8 @@ namespace DiplomskiRAD.Repository
         public async Task<PriceList?> GetCurrentPriceListByMotorId(Guid motorcycleId)
         {
             return await _context.PriceLists
+                            .Include(p => p.Motorcycles)
+                            .ThenInclude(m => m.Producers)
                             .Where(p => p.Motorcycles.Any(m => m.Id == motorcycleId) &&
                             p.StartingDate <= DateTime.UtcNow && p.EndingDate >= DateTime.UtcNow)
                             .OrderByDescending(p => p.StartingDate)
