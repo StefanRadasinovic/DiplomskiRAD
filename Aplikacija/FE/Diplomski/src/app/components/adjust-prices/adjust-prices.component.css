@@ -96,18 +96,24 @@
   margin-top: 5px; /* Bring closer to table */
 }
 
-/* FORM LABEL STYLING */
-.form-label {
-  font-weight: bold;
+/* APPLY STYLING TO ALL INPUT TYPES */
+.form-group input {
+  width: 90%;
+  padding: 0.3rem;
+  margin: 0 auto;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   font-size: 13px;
-  color: #333;
-  text-align: center;
-  margin-left: 17px;
 }
+
 
 /* APPLY STYLING ONLY TO INPUTS INSIDE LABELS */
 .form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"]
 .form-group input[type="datetime-local"],
+.form-group input[type="datetime"],
 .form-group input[type="checkbox"] {
   width: 90%;
   padding: 0.3rem;
@@ -117,6 +123,21 @@
   border-radius: 4px;
   font-size: 13px;
 }
+
+/**************/
+
+/* FORM LABEL STYLING */
+.form-group label {
+  font-weight: bold;
+  font-size: 13px;
+  color: #333;
+  display: block;
+  margin-bottom: 2px;
+  margin-left: 18px;
+}
+
+
+/*******/
 
 /* Center the form title */
 .form-title {
@@ -140,13 +161,19 @@ textarea {
 
 .error-message {
   display: flex;
-  justify-content: center; /* Centers horizontally */
-  align-items: center;     /* Centers vertically */
-  text-align: center;      /* Optional, to center the text inside */
-  font-size: 16px;         /* You can adjust the font size as needed */
-  color: red;              /* You can change the color of the error message */
+  justify-content: center; 
+  align-items: center;    
+  text-align: center;       
+  font-size: 16px;         
+  color: red;              
 }
 
+
+.success-message {
+  text-align: center;
+  color: green;
+  margin-top: 1rem;
+}
 
 
 /***********ADJUST PRICELIST************/

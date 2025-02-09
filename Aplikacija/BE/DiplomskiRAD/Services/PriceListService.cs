@@ -69,8 +69,8 @@ namespace DiplomskiRAD.Services
             return new CustomPriceListInfo(
                 priceList.Id,
                 priceList.Price,
-                priceList.StartingDate.ToString("dd/MM/yyyy"),
-                priceList.EndingDate.ToString("dd/MM/yyyy"),
+                priceList.StartingDate.ToString("yyyy-MM-dd"),
+                priceList.EndingDate.ToString("yyyy-MM-dd"),
                 productList 
             );
         }
@@ -91,11 +91,11 @@ namespace DiplomskiRAD.Services
                 }
 
                 // Validate date formats
-                if (!DateTime.TryParseExact(dto.StartingDate, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime startDate2))
-                    throw new FormatException("Invalid Starting Date format. Use dd/MM/yyyy.");
+                if (!DateTime.TryParseExact(dto.StartingDate, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime startDate2))
+                    throw new FormatException("Invalid Starting Date format. Use yyyy-MM-dd.");
 
-                if (!DateTime.TryParseExact(dto.EndingDate, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime endDate2))
-                    throw new FormatException("Invalid Ending Date format. Use dd/MM/yyyy.");
+                if (!DateTime.TryParseExact(dto.EndingDate, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime endDate2))
+                    throw new FormatException("Invalid Ending Date format. Use yyyy-MM-dd.");
 
                 // Convert to UTC
                 startDate2 = DateTime.SpecifyKind(startDate2, DateTimeKind.Utc);
@@ -115,8 +115,8 @@ namespace DiplomskiRAD.Services
                 return new CustomPriceListInfo(
                     priceList.Id,
                     priceList.Price,
-                    priceList.StartingDate.ToString("dd/MM/yyyy"),
-                    priceList.EndingDate.ToString("dd/MM/yyyy"),
+                    priceList.StartingDate.ToString("yyyy-MM-dd"),
+                    priceList.EndingDate.ToString("yyyy-MM-dd"),
                     priceList.Equipments
                     .Select(e => new JustEquipmentName(
                     e.Id,
@@ -129,11 +129,11 @@ namespace DiplomskiRAD.Services
             }
 
             // Validate date formats
-            if (!DateTime.TryParseExact(dto.StartingDate, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime startDate))
-                throw new FormatException("Invalid Starting Date format. Use dd/MM/yyyy.");
+            if (!DateTime.TryParseExact(dto.StartingDate, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime startDate))
+                throw new FormatException("Invalid Starting Date format. Use yyyy-MM-dd.");
 
-            if (!DateTime.TryParseExact(dto.EndingDate, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime endDate))
-                throw new FormatException("Invalid Ending Date format. Use dd/MM/yyyy.");
+            if (!DateTime.TryParseExact(dto.EndingDate, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime endDate))
+                throw new FormatException("Invalid Ending Date format. Use yyyy-MM-dd.");
 
             // Convert to UTC
             startDate = DateTime.SpecifyKind(startDate, DateTimeKind.Utc);
@@ -153,8 +153,8 @@ namespace DiplomskiRAD.Services
             return new CustomPriceListInfo(
                 priceList.Id,
                 priceList.Price,
-                priceList.StartingDate.ToString("dd/MM/yyyy"),
-                priceList.EndingDate.ToString("dd/MM/yyyy"),
+                priceList.StartingDate.ToString("yyyy-MM-dd"),
+                priceList.EndingDate.ToString("yyyy-MM-dd"),
                 priceList.Motorcycles.Select(m => new JustMotorcycleName(
                     m.Id,
                     m.Name,
@@ -187,8 +187,8 @@ namespace DiplomskiRAD.Services
             return new PriceListInfo(
                  priceList.Id,
                  priceList.Price,
-                 priceList.StartingDate.ToString("dd/MM/yyyy"),
-                 priceList.EndingDate.ToString("dd/MM/yyyy"),
+                 priceList.StartingDate.ToString("yyyy-MM-dd"),
+                 priceList.EndingDate.ToString("yyyy-MM-dd"),
                  motorcycleList
             );
         }
@@ -201,8 +201,8 @@ namespace DiplomskiRAD.Services
             return priceLists.Select(p => new PriceListInfo(
                 p.Id,
                 p.Price,
-                p.StartingDate.ToString("dd/MM/yyyy"),
-                p.EndingDate.ToString("dd/MM/yyyy"),
+                p.StartingDate.ToString("yyyy-MM-dd"),
+                p.EndingDate.ToString("yyyy-MM-dd"),
                 p.Motorcycles.Select(m => new JustMotorcycleName(
                     m.Id,
                     m.Name,
@@ -236,8 +236,8 @@ namespace DiplomskiRAD.Services
             return new PriceListInfo22(
                  priceList.Id,
                  priceList.Price,
-                 priceList.StartingDate.ToString("dd/MM/yyyy"),
-                 priceList.EndingDate.ToString("dd/MM/yyyy"),
+                 priceList.StartingDate.ToString("yyyy-MM-dd"),
+                 priceList.EndingDate.ToString("yyyy-MM-dd"),
                  equipmentList
             );
         }
@@ -250,8 +250,8 @@ namespace DiplomskiRAD.Services
             return priceLists.Select(p => new PriceListInfo22(
                 p.Id,
                 p.Price,
-                p.StartingDate.ToString("dd/MM/yyyy"),
-                p.EndingDate.ToString("dd/MM/yyyy"),
+                p.StartingDate.ToString("yyyy-MM-dd"),
+                p.EndingDate.ToString("yyyy-MM-dd"),
                 p.Equipments.Select(m => new JustEquipmentName(
                     m.Id,
                     m.Name,

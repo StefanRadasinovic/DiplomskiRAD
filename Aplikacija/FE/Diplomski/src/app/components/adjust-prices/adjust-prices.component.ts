@@ -4,7 +4,8 @@ import { MotorService } from '../../services/motorServices';
 import { MotorInfo } from '../../models/motorDTO';
 import { EquipmentService } from '../../services/equipmentServices';
 import { PriceListService } from '../../services/priceListService';
-import { PriceListInfo, PriceListInfo22 } from '../../models/priceListDTO';
+import { CreatePriceListDto, PriceListInfo, PriceListInfo22 } from '../../models/priceListDTO';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-adjust-prices',
@@ -24,21 +25,34 @@ export class AdjustPricesComponent {
   currentIndex = -1;
   currentItem: any = null;
 
-
-  errorMessage: string = ''; 
   
 
   /**DEO ZA GETbyId PRIKAZ***/
 displayForMotor: PriceListInfo | null = null;
 displayForEquipment: PriceListInfo22 | null = null;
-  loading = true; // Add a loading flag
+loading = true; // flagovanje loading
+
+/* ZA CretePriceList*/
+creatingPriceListForm: FormGroup;
+createMessage: string = "";
+errorMessage: string = ''; 
+
 
   constructor(
     private motorService: MotorService,
     private equipmentService: EquipmentService,
     private priceListService : PriceListService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private fb: FormBuilder,
+  ) {
+     this.creatingPriceListForm = this.fb.group({
+
+          price: [null],
+          startingDate: [''],
+          endingDate: [''],
+        });
+    
+  }
 
   isButtonEnabled(): boolean {
     return Boolean(this.role && (this.name || this.producerName));
@@ -172,42 +186,83 @@ displayForEquipment: PriceListInfo22 | null = null;
     }
 
     if (this.role === 'MOTORCYCLE') {
-      //this.router.navigate([`/motorcycles/${item.id}`]);
-      this.priceListService.getCurrentPriceListByMotorId(item.id).subscribe({
-        next: (res) => {
-          this.displayForMotor = res;
-          this.errorMessage = '';
-          this.loading = false; // Set loading to false after data is fetched
-          console.log("Prikazan predmet:", res);
-        },
-        error: (err) => {
-          this.displayForMotor = null;
-          this.errorMessage = 'No prices for current motor';
-          console.error('Error fetching motor details:', err);
-          this.loading = false; // Set loading to false on error as well
-        }
-      });
+        this.priceListService.getCurrentPriceListByMotorId(item.id).subscribe({
+            next: (res) => {
+                this.displayForMotor = res;
+                this.errorMessage = '';
+                this.loading = false;
 
+                // Pre-fill the form with current price list data
+                this.creatingPriceListForm.patchValue({
+                    price: res?.price || null,
+                    startingDate: res?.startingDate || '',
+                    endingDate: res?.endingDate || '',
+                });
+
+                console.log("Displayed Motor:", res);
+            },
+            error: (err) => {
+                this.displayForMotor = null;
+                this.errorMessage = 'No prices for current motor';
+                console.error('Error fetching motor details:', err);
+                this.loading = false;
+                this.creatingPriceListForm.patchValue({
+                  price: '',
+                  startingDate: '',
+                  endingDate: '',
+              });
+            }
+        });
     } else if (this.role === 'EQUIPMENT') {
-      //this.router.navigate([`/equipment/${item.id}`]);
-      this.priceListService.getCurrentPriceListByEquipmentId(item.id).subscribe({
-        next: (res) => {
-          this.displayForEquipment = res;
-          this.errorMessage = '';
-          this.loading = false; // Set loading to false after data is fetched
-          console.log("Prikazan predmet:",res);
+        this.priceListService.getCurrentPriceListByEquipmentId(item.id).subscribe({
+            next: (res) => {
+                this.displayForEquipment = res;
+                this.errorMessage = '';
+                this.loading = false;
+
+                // Pre-fill the form with current price list data
+                this.creatingPriceListForm.patchValue({
+                    price: res?.price || null,
+                    startingDate: res?.startingDate || '',
+                    endingDate: res?.endingDate || '',
+                });
+
+                console.log("Displayed Equipment:", res);
+            },
+            error: (err) => {
+                this.displayForEquipment = null;
+                this.errorMessage = 'No prices for current equipment';
+                console.error('Error fetching equipment details:', err);
+                this.loading = false;
+                this.creatingPriceListForm.patchValue({
+                  price: '',
+                  startingDate: '',
+                  endingDate: '',
+              });
+            }
+        });
+    }
+}
+  
+  
+  handleSubmit() {
+    if (this.creatingPriceListForm.valid) {
+      const motorData: CreatePriceListDto = this.creatingPriceListForm.value;
+
+      this.priceListService.createPriceList(this.currentItem.id, motorData).subscribe({
+        next: () => {
+          console.log("ProductId je: ", this.currentItem.id);
+          this.createMessage = "Uspesno dodat!";
+          setTimeout(() => {
+            this.router.navigate(['/all-motorcycles']);
+          }, 800);
         },
-        error: (err) => {
-          this.displayForEquipment = null;
-          this.errorMessage = 'No prices for current equipment';
-          console.error('Error fetching equipment details:', err);
-          this.loading = false; // Set loading to false on error as well
+        error: (error) => {
+          console.error('Error adding motor ', error);
+          console.log(motorData);
         }
       });
     }
-
   }
-  
-
 
 }
