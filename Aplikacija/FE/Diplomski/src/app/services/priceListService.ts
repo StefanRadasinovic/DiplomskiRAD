@@ -1,0 +1,28 @@
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { CreateMotorDto, Motor, MotorInfo, PaginatedMotorProps, UpdateMotorDto } from "../models/motorDTO";
+
+const baseUrl = 'https://localhost:7213/api/Motorcycle'
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class PriceListService {
+  
+constructor(private http: HttpClient) { }
+
+//Paginacija
+getAllWithPagination(pageNumber: number, pageSize: number): Observable<PaginatedMotorProps> {
+  return this.http.get<PaginatedMotorProps>(`${baseUrl}?pageNumber=${pageNumber}&pageSize=${pageSize}`);
+}
+
+  getMotorById(id: string): Observable<Motor> {
+    return this.http.get<Motor>(`${baseUrl}/${id}`);
+  }
+
+  createMotor(data: CreateMotorDto): Observable<MotorInfo> {
+    return this.http.post<MotorInfo>(baseUrl, data);
+  }
+}

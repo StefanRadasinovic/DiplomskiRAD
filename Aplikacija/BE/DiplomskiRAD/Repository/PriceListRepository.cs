@@ -20,7 +20,9 @@ namespace DiplomskiRAD.Repository
         {
             return await _context.PriceLists
                                 .Include(p => p.Motorcycles)
-                                .ThenInclude(m => m.Producers) 
+                                .ThenInclude(m => m.Producers)
+                                .Include(p => p.Equipments)
+                                .ThenInclude(m => m.Producers)
                                 .FirstOrDefaultAsync(p => p.Id == id);
         }
 

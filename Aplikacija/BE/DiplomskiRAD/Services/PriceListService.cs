@@ -26,7 +26,7 @@ namespace DiplomskiRAD.Services
 
 
 
-        public async Task<PriceListInfo> GetPriceListById(Guid id)
+        public async Task<CustomPriceListInfo> GetPriceListById(Guid id)
         {
             var priceList = await _priceListRepository.GetPriceListById(id);
             if (priceList == null)
@@ -34,23 +34,48 @@ namespace DiplomskiRAD.Services
                 throw new Exception("Price list doesn't exist");
             }
 
-            var motorcycleList = priceList.Motorcycles.Select(m => new MotorcycleDTO.JustMotorcycleName(
-              m.Id,
-              m.Name,
-              m.Producers.Select(p => new ProducerInfo { 
-                  Name = p.Name, 
-                  Description = p.Description 
-              }).ToList())).ToList();
+            var motorcycles = priceList.Motorcycles ?? new List<Motorcycle>();
+            var equipments = priceList.Equipments ?? new List<Equipment>();
 
+            var productList = new List<object>();
 
-            return new PriceListInfo(
-                 priceList.Id,
-                 priceList.Price,
-                 priceList.StartingDate.ToString("dd/MM/yyyy"),
-                 priceList.EndingDate.ToString("dd/MM/yyyy"),
-                 motorcycleList
+         
+            if (motorcycles.Any())
+            {
+                productList.AddRange(motorcycles.Select(m => new MotorcycleDTO.JustMotorcycleName(
+                    m.Id,
+                    m.Name,
+                    m.Producers?.Select(p => new ProducerInfo
+                    {
+                        Name = p.Name,
+                        Description = p.Description
+                    }).ToList() ?? new List<ProducerInfo>() 
+                )));
+            }
+
+            if (equipments.Any())
+            {
+                productList.AddRange(equipments.Select(e => new EquipmentDTO.JustEquipmentName(
+                    e.Id,
+                    e.Name,
+                    e.Producers?.Select(p => new ProducerInfo
+                    {
+                        Name = p.Name,
+                        Description = p.Description
+                    }).ToList() ?? new List<ProducerInfo>() 
+                )));
+            }
+
+            return new CustomPriceListInfo(
+                priceList.Id,
+                priceList.Price,
+                priceList.StartingDate.ToString("dd/MM/yyyy"),
+                priceList.EndingDate.ToString("dd/MM/yyyy"),
+                productList 
             );
         }
+
+
 
         public async Task<CustomPriceListInfo?> CreatePriceList(Guid productId, CreatePriceListDto dto)
         {

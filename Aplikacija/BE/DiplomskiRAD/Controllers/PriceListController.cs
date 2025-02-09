@@ -20,7 +20,7 @@ namespace DiplomskiRAD.Controllers
 
 
         [HttpGet("{id}")] 
-        public async Task<ActionResult<PriceListInfo>> GetPriceListById(Guid id)
+        public async Task<ActionResult<CustomPriceListInfo>> GetPriceListById(Guid id)
         {
             var existingEquipment = await _priceListService.GetPriceListById(id);
             if (existingEquipment == null)
