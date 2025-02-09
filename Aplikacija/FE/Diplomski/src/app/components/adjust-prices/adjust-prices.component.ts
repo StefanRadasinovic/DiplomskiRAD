@@ -23,11 +23,14 @@ export class AdjustPricesComponent {
 
   currentIndex = -1;
   currentItem: any = null;
+
+
+  errorMessage: string = ''; 
   
 
   /**DEO ZA GETbyId PRIKAZ***/
-  displayForMotor!: PriceListInfo;
-  displayForEquipment!: PriceListInfo22;
+displayForMotor: PriceListInfo | null = null;
+displayForEquipment: PriceListInfo22 | null = null;
   loading = true; // Add a loading flag
 
   constructor(
@@ -156,11 +159,12 @@ export class AdjustPricesComponent {
 
   
 
-  setActiveItem(item: any, index: number): void {//Routing
+  setActiveItem(item: any, index: number): void { 
     console.log('Selected Item:', item); 
 
     this.currentItem = item;
     this.currentIndex = index;
+    this.errorMessage = ''; 
 
     if (!item.id) {
         console.error('Error: Item does not have an ID', item);
@@ -172,10 +176,13 @@ export class AdjustPricesComponent {
       this.priceListService.getCurrentPriceListByMotorId(item.id).subscribe({
         next: (res) => {
           this.displayForMotor = res;
+          this.errorMessage = '';
           this.loading = false; // Set loading to false after data is fetched
           console.log("Prikazan predmet:", res);
         },
         error: (err) => {
+          this.displayForMotor = null;
+          this.errorMessage = 'No prices for current motor';
           console.error('Error fetching motor details:', err);
           this.loading = false; // Set loading to false on error as well
         }
@@ -186,10 +193,13 @@ export class AdjustPricesComponent {
       this.priceListService.getCurrentPriceListByEquipmentId(item.id).subscribe({
         next: (res) => {
           this.displayForEquipment = res;
+          this.errorMessage = '';
           this.loading = false; // Set loading to false after data is fetched
           console.log("Prikazan predmet:",res);
         },
         error: (err) => {
+          this.displayForEquipment = null;
+          this.errorMessage = 'No prices for current equipment';
           console.error('Error fetching equipment details:', err);
           this.loading = false; // Set loading to false on error as well
         }

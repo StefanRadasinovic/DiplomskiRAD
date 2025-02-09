@@ -1,41 +1,113 @@
 <div class="container">
     <div class="filter-group">
+        <div class="dropdown">
+            <select [(ngModel)]="role" class="filter-select">
+                <option value="">Select Product</option>
+                <option value="MOTORCYCLE">MOTORCYCLE</option> 
+                <option value="EQUIPMENT">EQUIPMENT</option> 
+            </select>
+        </div>
 
-      <div class="dropdown">
-        <select [(ngModel)]="role" class="filter-select">
-          <option value="">Select Product</option>
-          <option value="MOTORCYCLE">MOTORCYCLE</option> 
-          <option value="EQUIPMENT">EQUIPMENT</option> 
-        </select>
-      </div>
+        <input type="text" class="filter-input" [(ngModel)]="name" placeholder="Search by Name">
+        <input type="text" class="filter-input" [(ngModel)]="producerName" placeholder="Search by Producer"> 
+        
+        <button mat-raised-button id="search" [disabled]="!isButtonEnabled()" class="search-button" (click)="SearchFunction()">Search</button>
+    </div>
 
-      <input type="text" class="filter-input" [(ngModel)]="name" placeholder="Search by Name">
-      <input type="text" class="filter-input" [(ngModel)]="producerName" placeholder="Search by Producer"> 
-      
-     <button mat-raised-button id="search" [disabled]="!isButtonEnabled()" class="search-button" (click)="SearchFunction()">Search</button>
-     
+    <div class="content-wrapper"> 
+        <table class="user-table" *ngIf="!isLoading && data.length > 0"> 
+            <thead>
+                <tr>
+                    <th *ngFor="let column of displayedColumns">{{ column | titlecase }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data; let i = index" [class.active]="currentIndex === i" (click)="setActiveItem(item, i)">
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.producer }}</td>
+                    <td *ngIf="role === 'MOTORCYCLE'">{{ item.motorType }}</td>
+                    <td *ngIf="role === 'EQUIPMENT'">{{ item.equipmentState }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="isLoading" class="loading">
+            <p>Loading...</p>
+        </div>
+
+        <!-- getPriceList by Id  -->
+        <div class="form-wrapper" *ngIf="!loading; else loadingTemplate">
+            <h4 class="form-title">Adjust Price</h4>
+            <hr />
+            
+            <br />
+            
+            <div *ngIf="errorMessage" class="error-message" >
+                {{ errorMessage }}
+            </div>
+
+            <!-- MOTOR -->
+            <h1 class="zaMotor" *ngIf="role === 'MOTORCYCLE' && displayForMotor">
+                {{ displayForMotor?.justMotorcycleNames?.[0]?.producers?.[0]?.name || 'NO_PRODUCER' }} -
+                {{ displayForMotor?.justMotorcycleNames?.[0]?.name || 'NO_NAME' }}
+            </h1>
+
+            <!-- EQUIPMENT -->
+            <h1 class="zaOpemu" *ngIf="role === 'EQUIPMENT' && displayForEquipment">
+              {{ displayForEquipment?.justEquipmentName?.[0]?.producers?.[0]?.name || 'NO_PRODUCER' }} -
+              {{ displayForEquipment?.justEquipmentName?.[0]?.name || 'NO_NAME' }}
+          </h1>
+
+
+             <!-- MOTOR -->
+            <div class="form-group" *ngIf="role === 'MOTORCYCLE' && displayForMotor">
+                <label class="form-label">Price($):</label>
+                <input type="text" [value]="displayForMotor.price">
+            </div>
+
+              <!-- EQUIPMENT -->
+            <div class="form-group" *ngIf="role === 'EQUIPMENT' && displayForEquipment">
+              <label class="form-label">Price($):</label>
+              <input type="text" [value]="displayForEquipment.price">
+          </div>
+
+            <br>
+
+            <!-- MOTOR -->
+            <div class="form-group" *ngIf="role === 'MOTORCYCLE' && displayForMotor">
+                <label class="form-label">Starting Date:</label>
+                <input type="text" [value]="displayForMotor.startingDate">
+            </div>
+
+            <!-- EQUIPMENT -->
+            <div class="form-group" *ngIf="role === 'EQUIPMENT' && displayForEquipment">
+              <label class="form-label">Starting Date:</label>
+              <input type="text" [value]="displayForEquipment.startingDate">
+          </div>
+
+            <br>
+
+            <div class="form-group" *ngIf="role === 'MOTORCYCLE' && displayForMotor">
+                <label class="form-label">Ending Date:</label>
+                <input type="text" [value]="displayForMotor.endingDate">
+            </div>
+
+
+            <div class="form-group" *ngIf="role === 'EQUIPMENT' && displayForEquipment">
+                <label class="form-label">Ending Date:</label>
+                <input type="text" [value]="displayForEquipment.endingDate">
+            </div>
+
+            <br>
+
+            <div class="form-action">
+              <!--<button type="submit" [disabled]="motorForm.invalid" class="submit-button">Confirm</button>-->
+              <button type="submit"     class="submit-button">Adjust</button>
+            </div>
+
+        </div>
     </div>
-  
-   
-    <table class="user-table" *ngIf="!isLoading && data.length > 0"> 
-      <thead>
-        <tr>
-          <th *ngFor="let column of displayedColumns">{{ column | titlecase }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of data; let i = index" [class.active]="currentIndex === i" (click)="setActiveItem(item, i)">
-      <td>{{ item.name }}</td>
-      <td>{{ item.producer }}</td>
-      <td *ngIf="role === 'MOTORCYCLE'">{{ item.motorType }}</td>
-      <td *ngIf="role === 'EQUIPMENT'">{{ item.equipmentState }}</td>
-    </tr>
-      </tbody>
-    </table>
-  
-    <!-- Loading Indicator -->
-    <div *ngIf="isLoading" class="loading">
-      <p>Loading...</p>
-    </div>
-  </div>
-  
+</div>
+
+<ng-template #loadingTemplate>
+</ng-template>

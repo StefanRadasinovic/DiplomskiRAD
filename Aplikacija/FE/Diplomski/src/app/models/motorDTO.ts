@@ -67,6 +67,6 @@ export interface JustMotorcycleName
 {
     id : string,
     name : string,
-    producers: ProducerInfo[],
+    producers?: ProducerInfo[],
 
 }

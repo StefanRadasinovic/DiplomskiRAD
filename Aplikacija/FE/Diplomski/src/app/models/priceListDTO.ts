@@ -16,7 +16,7 @@ export interface PriceListInfo {
     price: number;
     startingDate: string;
     endingDate: string;
-    justMotorcycleNames?: JustMotorcycleName[];
+    justMotorcycleNames: JustMotorcycleName[];
 }
 
 
@@ -42,7 +42,7 @@ export interface PriceListInfo22 {
     price: number;
     startingDate: string;
     endingDate: string;
-    justEquipmentName?: JustEquipmentName[];
+    justEquipmentName: JustEquipmentName[];
 }
 
 
