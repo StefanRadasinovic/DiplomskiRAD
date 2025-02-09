@@ -52,56 +52,6 @@ namespace DiplomskiRAD.Services
             );
         }
         
-        public async Task<PriceListInfo?> GetCurrentPriceListByMotorId(Guid motorcycleId)
-        {
-            var priceList = await _priceListRepository.GetCurrentPriceListByMotorId(motorcycleId);
-            if (priceList == null)
-            {
-                return null;
-            }
-
-            var motorcycleList = priceList.Motorcycles.Select(m => new MotorcycleDTO.JustMotorcycleName(
-               m.Id,
-               m.Name,
-               m.Producers.Select(p => new ProducerInfo
-               {
-                   Name = p.Name,
-                   Description = p.Description
-               }).ToList())).ToList();
-
-
-            return new PriceListInfo(
-                 priceList.Id,
-                 priceList.Price,
-                 priceList.StartingDate.ToString("dd/MM/yyyy"),
-                 priceList.EndingDate.ToString("dd/MM/yyyy"),
-                 motorcycleList
-            );
-        }
-
-
-        public async Task<List<PriceListInfo>> GetAllPricesListByMotorId(Guid motorcycleId)
-        {
-            var priceLists = await _priceListRepository.GetAllPricesListByMotorId(motorcycleId);
-
-            return priceLists.Select(p => new PriceListInfo(
-                p.Id,
-                p.Price,
-                p.StartingDate.ToString("dd/MM/yyyy"),
-                p.EndingDate.ToString("dd/MM/yyyy"),
-                p.Motorcycles.Select(m => new JustMotorcycleName(
-                    m.Id,  
-                    m.Name,
-                    m.Producers.Select(prod => new ProducerInfo {
-                        Name = prod.Name,
-                        Description = prod.Description}).ToList()
-                )).ToList()
-            )).ToList();
-        }
-
-
-
-
         public async Task<bool> CreatePriceList(Guid productId, CreatePriceListDto dto)
         {
             var motorcycle = await _motorcycleRepository.GetMotorById(productId);
@@ -165,6 +115,105 @@ namespace DiplomskiRAD.Services
 
             await _priceListRepository.CreatePriceList(priceList);
             return true;
+        }
+
+
+        public async Task<PriceListInfo?> GetCurrentPriceListByMotorId(Guid motorcycleId)
+        {
+            var priceList = await _priceListRepository.GetCurrentPriceListByMotorId(motorcycleId);
+            if (priceList == null)
+            {
+                return null;
+            }
+
+            var motorcycleList = priceList.Motorcycles.Select(m => new MotorcycleDTO.JustMotorcycleName(
+               m.Id,
+               m.Name,
+               m.Producers.Select(p => new ProducerInfo
+               {
+                   Name = p.Name,
+                   Description = p.Description
+               }).ToList())).ToList();
+
+
+            return new PriceListInfo(
+                 priceList.Id,
+                 priceList.Price,
+                 priceList.StartingDate.ToString("dd/MM/yyyy"),
+                 priceList.EndingDate.ToString("dd/MM/yyyy"),
+                 motorcycleList
+            );
+        }
+
+
+        public async Task<List<PriceListInfo>> GetAllPricesListByMotorId(Guid motorcycleId)
+        {
+            var priceLists = await _priceListRepository.GetAllPricesListByMotorId(motorcycleId);
+
+            return priceLists.Select(p => new PriceListInfo(
+                p.Id,
+                p.Price,
+                p.StartingDate.ToString("dd/MM/yyyy"),
+                p.EndingDate.ToString("dd/MM/yyyy"),
+                p.Motorcycles.Select(m => new JustMotorcycleName(
+                    m.Id,
+                    m.Name,
+                    m.Producers.Select(prod => new ProducerInfo
+                    {
+                        Name = prod.Name,
+                        Description = prod.Description
+                    }).ToList()
+                )).ToList()
+            )).ToList();
+        }
+
+        public async Task<PriceListInfo22?> GetCurrentPriceListByEquipmentId(Guid equipmentId)
+        {
+            var priceList = await _priceListRepository.GetCurrentPriceListByEquipmentId(equipmentId);
+            if (priceList == null)
+            {
+                return null;
+            }
+
+            var equipmentList = priceList.Equipments.Select(m => new EquipmentDTO.JustEquipmentName(
+               m.Id,
+               m.Name,
+               m.Producers.Select(p => new ProducerInfo
+               {
+                   Name = p.Name,
+                   Description = p.Description
+               }).ToList())).ToList();
+
+
+            return new PriceListInfo22(
+                 priceList.Id,
+                 priceList.Price,
+                 priceList.StartingDate.ToString("dd/MM/yyyy"),
+                 priceList.EndingDate.ToString("dd/MM/yyyy"),
+                 equipmentList
+            );
+        }
+
+
+        public async Task<List<PriceListInfo22>> GetAllPricesListByEquipmentId(Guid equipmentId)
+        {
+            var priceLists = await _priceListRepository.GetAllPricesListByEquipmentId(equipmentId);
+
+            return priceLists.Select(p => new PriceListInfo22(
+                p.Id,
+                p.Price,
+                p.StartingDate.ToString("dd/MM/yyyy"),
+                p.EndingDate.ToString("dd/MM/yyyy"),
+                p.Equipments.Select(m => new JustEquipmentName(
+                    m.Id,
+                    m.Name,
+                    m.Producers.Select(prod => new ProducerInfo
+                    {
+                        Name = prod.Name,
+                        Description = prod.Description
+                    }).ToList()
+                )).ToList()
+            )).ToList();
         }
 
 

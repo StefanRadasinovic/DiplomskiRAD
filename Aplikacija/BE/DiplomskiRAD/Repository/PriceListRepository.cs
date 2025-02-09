@@ -24,6 +24,20 @@ namespace DiplomskiRAD.Repository
                                 .FirstOrDefaultAsync(p => p.Id == id);
         }
 
+        public async Task CreatePriceList(PriceList priceList)
+        {
+            await _context.PriceLists.AddAsync(priceList);
+            await _context.SaveChangesAsync();
+        }
+
+        /*
+        public async Task UpdatePriceList(PriceList priceList)
+        {
+            _context.PriceLists.Update(priceList);
+            await _context.SaveChangesAsync();
+        }
+        */
+
         public async Task<List<PriceList>> GetAllPricesListByMotorId(Guid motorcycleId)
         {
             return await _context.PriceLists
@@ -45,19 +59,26 @@ namespace DiplomskiRAD.Repository
                             .FirstOrDefaultAsync();
         }
 
-        public async Task CreatePriceList(PriceList priceList)
+        public async Task<List<PriceList>> GetAllPricesListByEquipmentId(Guid equipmentId)
         {
-            await _context.PriceLists.AddAsync(priceList);
-            await _context.SaveChangesAsync();
+            return await _context.PriceLists
+                                    .Include(p => p.Equipments)
+                                    .ThenInclude(m => m.Producers)
+                                    .Where(p => p.Equipments.Any(m => m.Id == equipmentId))
+                                    .OrderBy(p => p.StartingDate)
+                                    .ToListAsync();
         }
 
-        /*
-        public async Task UpdatePriceList(PriceList priceList)
+        public async Task<PriceList?> GetCurrentPriceListByEquipmentId(Guid equipmentId)
         {
-            _context.PriceLists.Update(priceList);
-            await _context.SaveChangesAsync();
+            return await _context.PriceLists
+                            .Include(p => p.Equipments)
+                            .ThenInclude(m => m.Producers)
+                            .Where(p => p.Equipments.Any(m => m.Id == equipmentId) &&
+                            p.StartingDate <= DateTime.UtcNow && p.EndingDate >= DateTime.UtcNow)
+                            .OrderByDescending(p => p.StartingDate)
+                            .FirstOrDefaultAsync();
         }
-        */
 
     }
 }

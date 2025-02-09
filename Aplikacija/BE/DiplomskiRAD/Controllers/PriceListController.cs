@@ -53,7 +53,7 @@ namespace DiplomskiRAD.Controllers
         }
 
 
-       [HttpGet("currentPrice/{motorcycleId}")]
+       [HttpGet("MotorCurrentPrice/{motorcycleId}")]
        public async Task<IActionResult> GetCurrentPriceListByMotorId(Guid motorcycleId)
        {
            var price = await _priceListService.GetCurrentPriceListByMotorId(motorcycleId);
@@ -65,7 +65,7 @@ namespace DiplomskiRAD.Controllers
            return Ok(price);
        }
 
-       [HttpGet("allPrices/{motorcycleId}")]
+       [HttpGet("MotorAllPrices/{motorcycleId}")]
        public async Task<IActionResult> GetAllPricesListByMotorId(Guid motorcycleId)
        {
            var priceInfos = await _priceListService.GetAllPricesListByMotorId(motorcycleId);
@@ -74,7 +74,29 @@ namespace DiplomskiRAD.Controllers
 
            return Ok(priceInfos);
        }
-      
+
+        [HttpGet("EquipmentCurrentPrice/{equipmentId}")]
+        public async Task<IActionResult> GetCurrentPriceListByEquipmentId(Guid equipmentId)
+        {
+            var price = await _priceListService.GetCurrentPriceListByEquipmentId(equipmentId);
+            if (price == null)
+            {
+                return NotFound("No current price found for this equipment");
+            }
+
+            return Ok(price);
+        }
+
+        [HttpGet("EquipmentAllPrices/{equipmentId}")]
+        public async Task<IActionResult> GetAllPricesListByEquipmentId(Guid equipmentId)
+        {
+            var priceInfos = await _priceListService.GetAllPricesListByEquipmentId(equipmentId);
+            if (!priceInfos.Any())
+                return NotFound("No price history found for this equipment");
+
+            return Ok(priceInfos);
+        }
+
 
 
         /*

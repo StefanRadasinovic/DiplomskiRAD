@@ -1,4 +1,5 @@
-﻿using static DiplomskiRAD.DTOs.MotorcycleDTO;
+﻿using static DiplomskiRAD.DTOs.EquipmentDTO;
+using static DiplomskiRAD.DTOs.MotorcycleDTO;
 
 namespace DiplomskiRAD.DTOs
 {
@@ -69,5 +70,29 @@ namespace DiplomskiRAD.DTOs
                 
             }
         }
+
+        public class PriceListInfo22
+        {
+            public Guid Id { get; set; }
+
+            public double Price { get; set; }
+
+            public string StartingDate { get; set; } // Change to string
+
+            public string EndingDate { get; set; }   // Change to string
+
+            public List<JustEquipmentName> JustEquipmentName { get; set; }
+
+
+            public PriceListInfo22(Guid id, double price, string startingDate, string endingDate, List<JustEquipmentName> justEquipmentNames)
+            {
+                Id = id;
+                Price = price;
+                StartingDate = startingDate;
+                EndingDate = endingDate;
+                JustEquipmentName = justEquipmentNames;
+            }
+        }
+
     }
 }

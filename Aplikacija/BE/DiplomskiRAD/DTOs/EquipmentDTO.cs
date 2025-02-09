@@ -84,5 +84,22 @@ namespace DiplomskiRAD.DTOs
 
             public List<UpdateProducerDto> Producers { get; set; }
         }
+
+
+        public class JustEquipmentName
+        {
+            public Guid Id { get; set; }
+            public string Name { get; set; }
+
+            public List<ProducerInfo> Producers { get; set; }
+
+            public JustEquipmentName(Guid id, string name, List<ProducerInfo> producers)
+            {
+                Id = id;
+                Name = name;
+                Producers = producers;
+            }
+
+        }
     }
 }
