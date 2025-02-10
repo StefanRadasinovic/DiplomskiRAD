@@ -51,7 +51,7 @@ namespace DiplomskiRAD.Migrations
                     ('" + equipGuids[2] + @"', 'Jakna', 'oprema3.jpg', 0, 1),
                     ('" + equipGuids[3] + @"', 'Zadnje svetlo', 'oprema4.jpg', 0, 2),
                     ('" + equipGuids[4] + @"', 'Kaciga', 'oprema5.jpg', 1, 2)");
-                    
+
 
             migrationBuilder.CreateTable(
                 name: "Motorcycles",
@@ -288,6 +288,80 @@ namespace DiplomskiRAD.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Orders",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    OrderAmount = table.Column<double>(type: "double precision", nullable: false),
+                    TotalPrice = table.Column<decimal>(type: "numeric", nullable: false),
+                    OrderStatus = table.Column<int>(type: "integer", nullable: false),
+                    UserId = table.Column<Guid>(type: "uuid", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orders", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Orders_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "EquipmentOrder",
+                columns: table => new
+                {
+                    EquipmentsId = table.Column<Guid>(type: "uuid", nullable: false),
+                    OrdersId = table.Column<Guid>(type: "uuid", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EquipmentOrder", x => new { x.EquipmentsId, x.OrdersId });
+                    table.ForeignKey(
+                        name: "FK_EquipmentOrder_Equipments_EquipmentsId",
+                        column: x => x.EquipmentsId,
+                        principalTable: "Equipments",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_EquipmentOrder_Orders_OrdersId",
+                        column: x => x.OrdersId,
+                        principalTable: "Orders",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MotorcycleOrder",
+                columns: table => new
+                {
+                    MotorcyclesId = table.Column<Guid>(type: "uuid", nullable: false),
+                    OrdersId = table.Column<Guid>(type: "uuid", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MotorcycleOrder", x => new { x.MotorcyclesId, x.OrdersId });
+                    table.ForeignKey(
+                        name: "FK_MotorcycleOrder_Motorcycles_MotorcyclesId",
+                        column: x => x.MotorcyclesId,
+                        principalTable: "Motorcycles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_MotorcycleOrder_Orders_OrdersId",
+                        column: x => x.OrdersId,
+                        principalTable: "Orders",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EquipmentOrder_OrdersId",
+                table: "EquipmentOrder",
+                column: "OrdersId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_EquipmentPriceList_PriceListsId",
                 table: "EquipmentPriceList",
@@ -299,6 +373,11 @@ namespace DiplomskiRAD.Migrations
                 column: "ProducersId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_MotorcycleOrder_OrdersId",
+                table: "MotorcycleOrder",
+                column: "OrdersId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_MotorcyclePriceList_PriceListsId",
                 table: "MotorcyclePriceList",
                 column: "PriceListsId");
@@ -308,6 +387,10 @@ namespace DiplomskiRAD.Migrations
                 table: "MotorcycleProducer",
                 column: "ProducersId");
 
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_UserId",
+                table: "Orders",
+                column: "UserId");
 
             migrationBuilder.Sql(@"INSERT INTO ""MotorcycleProducer""  VALUES
                     ('" + motorGuids[0] + @"', '" + producerGuids[0] + @"'),
@@ -332,10 +415,16 @@ namespace DiplomskiRAD.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "EquipmentOrder");
+
+            migrationBuilder.DropTable(
                 name: "EquipmentPriceList");
 
             migrationBuilder.DropTable(
                 name: "EquipmentProducer");
+
+            migrationBuilder.DropTable(
+                name: "MotorcycleOrder");
 
             migrationBuilder.DropTable(
                 name: "MotorcyclePriceList");
@@ -344,10 +433,10 @@ namespace DiplomskiRAD.Migrations
                 name: "MotorcycleProducer");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Equipments");
 
             migrationBuilder.DropTable(
-                name: "Equipments");
+                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "PriceLists");
@@ -357,8 +446,9 @@ namespace DiplomskiRAD.Migrations
 
             migrationBuilder.DropTable(
                 name: "Producers");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }
-
-

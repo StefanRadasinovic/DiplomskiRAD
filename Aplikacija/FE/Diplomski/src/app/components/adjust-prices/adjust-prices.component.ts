@@ -306,7 +306,7 @@ priceData: { date: string, price: number }[] = [];
 
                 this.displayForMotor = null;
                 this.errorMessage = 'No prices for current motor';
-                this.errorMessageGraph = 'No graph for current motor';
+                this.errorMessageGraph = 'No chart for current motor';
                 console.error('Error fetching motor details:', err);
                 this.loading = false;
 
@@ -345,7 +345,7 @@ priceData: { date: string, price: number }[] = [];
               
                 this.displayForEquipment = null;
                 this.errorMessage = 'No prices for current equipment';
-                this.errorMessageGraph = 'No graph for current equipment';
+                this.errorMessageGraph = 'No chart for current equipment';
                 console.error('Error fetching equipment details:', err);
                 this.loading = false;
 

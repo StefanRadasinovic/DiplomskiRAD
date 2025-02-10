@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DiplomskiRAD.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250207113503_SeedData")]
+    [Migration("20250210153942_SeedData")]
     partial class SeedData
     {
         /// <inheritdoc />
@@ -80,6 +80,31 @@ namespace DiplomskiRAD.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Motorcycles");
+                });
+
+            modelBuilder.Entity("DiplomskiRAD.Models.Order", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<double>("OrderAmount")
+                        .HasColumnType("double precision");
+
+                    b.Property<int>("OrderStatus")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("numeric");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("DiplomskiRAD.Models.PriceList", b =>
@@ -159,6 +184,21 @@ namespace DiplomskiRAD.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("EquipmentOrder", b =>
+                {
+                    b.Property<Guid>("EquipmentsId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("OrdersId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("EquipmentsId", "OrdersId");
+
+                    b.HasIndex("OrdersId");
+
+                    b.ToTable("EquipmentOrder");
+                });
+
             modelBuilder.Entity("EquipmentPriceList", b =>
                 {
                     b.Property<Guid>("EquipmentsId")
@@ -187,6 +227,21 @@ namespace DiplomskiRAD.Migrations
                     b.HasIndex("ProducersId");
 
                     b.ToTable("EquipmentProducer");
+                });
+
+            modelBuilder.Entity("MotorcycleOrder", b =>
+                {
+                    b.Property<Guid>("MotorcyclesId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("OrdersId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("MotorcyclesId", "OrdersId");
+
+                    b.HasIndex("OrdersId");
+
+                    b.ToTable("MotorcycleOrder");
                 });
 
             modelBuilder.Entity("MotorcyclePriceList", b =>
@@ -219,6 +274,32 @@ namespace DiplomskiRAD.Migrations
                     b.ToTable("MotorcycleProducer");
                 });
 
+            modelBuilder.Entity("DiplomskiRAD.Models.Order", b =>
+                {
+                    b.HasOne("DiplomskiRAD.Models.User", "User")
+                        .WithMany("Orders")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("EquipmentOrder", b =>
+                {
+                    b.HasOne("DiplomskiRAD.Models.Equipment", null)
+                        .WithMany()
+                        .HasForeignKey("EquipmentsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DiplomskiRAD.Models.Order", null)
+                        .WithMany()
+                        .HasForeignKey("OrdersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("EquipmentPriceList", b =>
                 {
                     b.HasOne("DiplomskiRAD.Models.Equipment", null)
@@ -245,6 +326,21 @@ namespace DiplomskiRAD.Migrations
                     b.HasOne("DiplomskiRAD.Models.Producer", null)
                         .WithMany()
                         .HasForeignKey("ProducersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MotorcycleOrder", b =>
+                {
+                    b.HasOne("DiplomskiRAD.Models.Motorcycle", null)
+                        .WithMany()
+                        .HasForeignKey("MotorcyclesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DiplomskiRAD.Models.Order", null)
+                        .WithMany()
+                        .HasForeignKey("OrdersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -277,6 +373,11 @@ namespace DiplomskiRAD.Migrations
                         .HasForeignKey("ProducersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("DiplomskiRAD.Models.User", b =>
+                {
+                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }

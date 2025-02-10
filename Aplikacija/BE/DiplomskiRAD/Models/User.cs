@@ -1,5 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 using DiplomskiRAD.Enums;
+using Microsoft.Extensions.Hosting;
 
 namespace DiplomskiRAD.Models
 {
@@ -23,6 +24,9 @@ namespace DiplomskiRAD.Models
         public double? Salary { get; set; } // director i radnik
 
         public int numOfTasks {  get; set; } //radnik
+
+
+        public ICollection<Order> Orders { get; set; }
 
     }
 }

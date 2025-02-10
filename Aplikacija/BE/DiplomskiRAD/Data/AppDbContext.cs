@@ -13,9 +13,9 @@ namespace DiplomskiRAD.Data
         public DbSet<Motorcycle> Motorcycles { get; set; }
         public DbSet<Equipment> Equipments { get; set; }
         public DbSet<Producer> Producers { get; set; }
-
         public DbSet<PriceList> PriceLists { get; set; }
-        
+        public DbSet<Order> Orders { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,6 +28,7 @@ namespace DiplomskiRAD.Data
                 .HasMany(e => e.Motorcycles)
                 .WithMany(e => e.Producers);
 
+
             modelBuilder.Entity<PriceList>()
                .HasMany(e => e.Equipments)
                .WithMany(e => e.PriceLists);
@@ -35,6 +36,20 @@ namespace DiplomskiRAD.Data
             modelBuilder.Entity<PriceList>()
                 .HasMany(e => e.Motorcycles)
                 .WithMany(e => e.PriceLists);
+
+
+            modelBuilder.Entity<Order>()
+                .HasMany(e => e.Equipments)
+                .WithMany(e => e.Orders);
+
+            modelBuilder.Entity<Order>()
+                .HasMany(e => e.Motorcycles)
+                .WithMany(e => e.Orders);
+
+            modelBuilder.Entity<Order>()
+                .HasOne(r => r.User)  
+                .WithMany(u => u.Orders)  
+                .HasForeignKey(r => r.UserId); 
         }
 
     }

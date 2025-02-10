@@ -24,6 +24,8 @@ builder.Services.AddScoped<MotorcycleRepository>();
 builder.Services.AddScoped<ProducerRepository>();
 builder.Services.AddScoped<PriceListRepository>();
 builder.Services.AddScoped<PriceListService>();
+builder.Services.AddScoped<OrderService>();
+builder.Services.AddScoped<OrderRepository>();
 
 
 builder.Services.AddCors(options =>

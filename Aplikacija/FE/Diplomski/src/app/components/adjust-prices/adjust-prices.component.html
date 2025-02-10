@@ -14,6 +14,11 @@
         <button mat-raised-button id="search" [disabled]="!isButtonEnabled()" class="search-button" (click)="SearchFunction()">Search</button>
     </div>
 
+    <br>
+
+    <div class="click-text-label" *ngIf="!isLoading && data.length > 0"><h2> <h3>Click on an Item</h3></h2></div>
+
+
     <div class="content-wrapper"> 
         <table class="user-table" *ngIf="!isLoading && data.length > 0"> 
             <thead>
@@ -96,9 +101,9 @@
         
         <br><br>
         
+        <div *ngIf="errorMessageGraph" class="error-message" >{{ errorMessageGraph }}</div>
         <!--GRAFIK-->
         <div class="chart-container" *ngIf="priceData.length > 0">
-            <div *ngIf="errorMessageGraph" class="error-message" >{{ errorMessageGraph }}</div>
             <canvas baseChart
               [data]="lineChartData"
               [options]="lineChartOptions"
