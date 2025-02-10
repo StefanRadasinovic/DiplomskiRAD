@@ -6,7 +6,9 @@ import { EquipmentService } from '../../services/equipmentServices';
 import { PriceListService } from '../../services/priceListService';
 import { CreatePriceListDto, PriceListInfo, PriceListInfo22 } from '../../models/priceListDTO';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ChartConfiguration } from 'chart.js';
+import { ChartData, ChartOptions, ChartType } from 'chart.js';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-adjust-prices',
@@ -26,8 +28,6 @@ export class AdjustPricesComponent implements OnInit {
   currentIndex = -1;
   currentItem: any = null;
 
-  
-
   /**DEO ZA GETbyId PRIKAZ***/
 displayForMotor: PriceListInfo | null = null;
 displayForEquipment: PriceListInfo22 | null = null;
@@ -41,18 +41,67 @@ minEndingDate: string = '';
 
 
 //ZA GRAFIK
-priceHistory: { date: string; price: number }[] = [];
+errorMessageGraph : string = '';
 
-lineChartData: ChartConfiguration<'line'>['data'] = {
-    datasets: [],
-    labels: []
-};
+priceData: { date: string, price: number }[] = [];
 
-lineChartOptions: ChartConfiguration<'line'>['options'] = {
-    responsive: true
-};
+  public lineChartOptions: ChartOptions = {
+    responsive: true,
+  maintainAspectRatio: false,
+  scales: {
+    x: {
+      title: {
+        display: true,
+        text: 'Date'
+      },
+      type: 'category',
+      ticks: {
+        autoSkip: true,
+        maxRotation: 45,
+        minRotation: 0
+      }
+    },
+    y: {
+      title: {
+        display: true,
+        text: 'Prices'
+      },
+      min: 0, // Set minimum Y-axis value
+      max: 18000, // Set maximum Y-axis value
+      ticks: {
+        stepSize: 3000,
+        callback: function (tickValue: string | number) {
+          if (typeof tickValue === 'number') {
+            return tickValue.toLocaleString(); // Formats as "3,000", "6,000"...
+          }
+          return tickValue; // Return as is for non-number values
+        }
+      }
+    }
+  },
+  plugins: {
+    legend: {
+      display: true
+    }
+  }
+  };
 
+  public lineChartLabels: string[] = []; // X-axis (dates)
+  public lineChartData: ChartData<'line'> = {
+    labels: this.lineChartLabels,
+    datasets: [
+      {
+        data: [],
+        label: 'Price Over Time',
+        borderColor: 'blue',
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        fill: true,
+      }
+    ]
+  };
+  public lineChartType: ChartType = 'line';
 
+  /**/
   constructor(
     private motorService: MotorService,
     private equipmentService: EquipmentService,
@@ -226,6 +275,7 @@ lineChartOptions: ChartConfiguration<'line'>['options'] = {
     this.currentItem = item;
     this.currentIndex = index;
     this.errorMessage = ''; 
+    this.errorMessageGraph = ''; 
 
     if (!item.id) {
         console.error('Error: Item does not have an ID', item);
@@ -238,6 +288,8 @@ lineChartOptions: ChartConfiguration<'line'>['options'] = {
                 this.displayForMotor = res;
                 this.errorMessage = '';
                 this.loading = false;
+                this.errorMessageGraph = ''; 
+
 
                //pre-filluj formu
                 this.creatingPriceListForm.patchValue({
@@ -247,19 +299,27 @@ lineChartOptions: ChartConfiguration<'line'>['options'] = {
                 });
                 console.log("Displayed Motor:", res);
 
-                //this.loadPriceHistory('motor', item.id); //za grafik
+                this.loadPriceData(this.role, item.id);
+             
             },
             error: (err) => {
+
                 this.displayForMotor = null;
                 this.errorMessage = 'No prices for current motor';
+                this.errorMessageGraph = 'No graph for current motor';
                 console.error('Error fetching motor details:', err);
                 this.loading = false;
+
                 this.creatingPriceListForm.patchValue({
                   price: '',
                   startingDate: '',
                   endingDate: '',
               });
-              //this.clearPriceListDisplay('motor'); //za grafik
+              
+               //Resetuj graf
+               this.lineChartData.datasets[0].data = []; 
+               this.lineChartLabels = [];
+           
             }
         });
     } else if (this.role === 'EQUIPMENT') {
@@ -267,6 +327,7 @@ lineChartOptions: ChartConfiguration<'line'>['options'] = {
             next: (res) => {
                 this.displayForEquipment = res;
                 this.errorMessage = '';
+                this.errorMessageGraph = '';
                 this.loading = false;
 
                 // Pre-fill the form with current price list data
@@ -277,19 +338,27 @@ lineChartOptions: ChartConfiguration<'line'>['options'] = {
                 });
 
                 console.log("Displayed Equipment:", res);
-
-                //this.loadPriceHistory('equipment', item.id); //za grafik
+                this.loadPriceData(this.role, item.id);
+    
             },
             error: (err) => {
+              
                 this.displayForEquipment = null;
                 this.errorMessage = 'No prices for current equipment';
+                this.errorMessageGraph = 'No graph for current equipment';
                 console.error('Error fetching equipment details:', err);
                 this.loading = false;
+
+
                 this.creatingPriceListForm.patchValue({
                   price: '',
                   startingDate: '',
                   endingDate: '',
               });
+
+               //Resetuj graf
+               this.lineChartData.datasets[0].data = []; 
+               this.lineChartLabels = [];
             }
         });
     }
@@ -318,43 +387,49 @@ lineChartOptions: ChartConfiguration<'line'>['options'] = {
   }
 
 
-  //ZA GRAFIK
-/*
-  loadPriceHistory(type: 'motor' | 'equipment', id: string) {
-    const priceListObservable =
-        type === 'motor'
-            ? this.priceListService.getAllPricesListByMotorId(id)
-            : this.priceListService.getAllPricesListByEquipmentId(id);
-
-    priceListObservable.subscribe({
-        next: (data : any) => {
-            this.priceHistory = data.map((entry :any) => ({
-                date: entry.startingDate,
-                price: entry.price
-            })).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-
-            this.updateChart();
-        },
-        error: (err) => {
-            console.error('Error fetching price history:', err);
-            this.priceHistory = [];
-        }
-    });
-}
-
-updateChart() {
-    this.lineChartData = {
+  //Grafik
+  loadPriceData(role: string, currentItemId: string): void {
+    if (!role || !currentItemId) {
+      console.error('Role or item ID missing');
+      return;
+    }
+  
+    let fetchPrices: Observable<PriceListInfo[] | PriceListInfo22[]>;
+  
+    if (role === 'MOTORCYCLE') {
+      fetchPrices = this.priceListService.getAllPricesListByMotorId(currentItemId);
+    } else {
+      fetchPrices = this.priceListService.getAllPricesListByEquipmentId(currentItemId);
+    }
+  
+    fetchPrices.subscribe((prices) => {
+      this.priceData = prices.map(p => ({
+        date: p.startingDate,  
+        endDate: p.endingDate, 
+        price: p.price         
+      }));
+  
+      this.lineChartLabels = this.priceData.map(p => p.date);
+      this.lineChartData = {
         datasets: [
-            {
-                data: this.priceHistory.map(entry => entry.price),
-                label: 'Price Over Time',
-                borderColor: 'rgba(75,192,192,1)',
-                backgroundColor: 'rgba(75,192,192,0.2)',
-                fill: true,
-            }
+          {
+            data: this.priceData.map(p => p.price),
+            label: 'Price Over Time',
+            borderColor: '#4b97e7',
+            fill: false,
+            pointBackgroundColor: '#4b97e7',
+          }
         ],
-        labels: this.priceHistory.map(entry => entry.date),
-    };
-}
-*/
+        labels: this.lineChartLabels
+      };
+    }, (error) => {
+
+      console.error('Error fetching price data:', error);
+       //Resetuj graf
+               this.lineChartData.datasets[0].data = []; 
+               this.lineChartLabels = [];
+    });
+  }
+  
+
 }
