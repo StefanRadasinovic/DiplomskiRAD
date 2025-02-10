@@ -228,3 +228,11 @@ textarea {
   vertical-align: baseline;
   width: auto;
 }
+
+
+/*GRAFIKON*/
+.chart-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}

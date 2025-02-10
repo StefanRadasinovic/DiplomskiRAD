@@ -52,14 +52,20 @@ namespace DiplomskiRAD.Repository
 
         public async Task<PriceList?> GetCurrentPriceListByMotorId(Guid motorcycleId)
         {
-            return await _context.PriceLists
+            var priceLists = await _context.PriceLists
                             .Include(p => p.Motorcycles)
                             .ThenInclude(m => m.Producers)
                             .Where(p => p.Motorcycles.Any(m => m.Id == motorcycleId) &&
-                            p.StartingDate <= DateTime.UtcNow && p.EndingDate >= DateTime.UtcNow)
-                            .OrderByDescending(p => p.StartingDate)
-                            .FirstOrDefaultAsync();
+                                        p.StartingDate <= DateTime.UtcNow &&
+                                        p.EndingDate >= DateTime.UtcNow)
+                            .ToListAsync(); 
+
+            return priceLists
+                    .OrderBy(p => Math.Abs((p.StartingDate - DateTime.UtcNow).Ticks))
+                    .FirstOrDefault();
         }
+
+
 
         public async Task<List<PriceList>> GetAllPricesListByEquipmentId(Guid equipmentId)
         {
@@ -73,13 +79,19 @@ namespace DiplomskiRAD.Repository
 
         public async Task<PriceList?> GetCurrentPriceListByEquipmentId(Guid equipmentId)
         {
-            return await _context.PriceLists
+            
+            var priceLists = await _context.PriceLists
                             .Include(p => p.Equipments)
                             .ThenInclude(m => m.Producers)
                             .Where(p => p.Equipments.Any(m => m.Id == equipmentId) &&
-                            p.StartingDate <= DateTime.UtcNow && p.EndingDate >= DateTime.UtcNow)
-                            .OrderByDescending(p => p.StartingDate)
-                            .FirstOrDefaultAsync();
+                                        p.StartingDate <= DateTime.UtcNow &&
+                                        p.EndingDate >= DateTime.UtcNow)
+                            .ToListAsync();
+
+            return priceLists
+                    .OrderBy(p => Math.Abs((p.StartingDate - DateTime.UtcNow).Ticks))
+                    .FirstOrDefault();
+
         }
 
     }

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MotorService } from '../../services/motorServices';
 import { MotorInfo } from '../../models/motorDTO';
@@ -6,13 +6,14 @@ import { EquipmentService } from '../../services/equipmentServices';
 import { PriceListService } from '../../services/priceListService';
 import { CreatePriceListDto, PriceListInfo, PriceListInfo22 } from '../../models/priceListDTO';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ChartConfiguration } from 'chart.js';
 
 @Component({
   selector: 'app-adjust-prices',
   templateUrl: './adjust-prices.component.html',
   styleUrl: './adjust-prices.component.css'
 })
-export class AdjustPricesComponent {
+export class AdjustPricesComponent implements OnInit {
 
   name: string = '';
   producerName: string = '';
@@ -36,6 +37,20 @@ loading = true; // flagovanje loading
 creatingPriceListForm: FormGroup;
 createMessage: string = "";
 errorMessage: string = ''; 
+minEndingDate: string = '';
+
+
+//ZA GRAFIK
+priceHistory: { date: string; price: number }[] = [];
+
+lineChartData: ChartConfiguration<'line'>['data'] = {
+    datasets: [],
+    labels: []
+};
+
+lineChartOptions: ChartConfiguration<'line'>['options'] = {
+    responsive: true
+};
 
 
   constructor(
@@ -45,14 +60,46 @@ errorMessage: string = '';
     private router: Router,
     private fb: FormBuilder,
   ) {
-     this.creatingPriceListForm = this.fb.group({
+    this.creatingPriceListForm = this.fb.group({
 
-          price: [null],
-          startingDate: [''],
-          endingDate: [''],
-        });
-    
+      price: [null],
+      startingDate: [''],
+      endingDate: [''],
+    });
   }
+
+  ngOnInit() {
+   
+    this.creatingPriceListForm = this.fb.group({
+
+      price: [null],
+      startingDate: [''],
+      endingDate: [''],
+    });
+
+    this.creatingPriceListForm.get('startingDate')?.valueChanges.subscribe(startingDate => {
+      this.updateMinEndingDate(startingDate);
+    });
+  }
+
+  updateMinEndingDate(startingDate: string) {
+    if (startingDate) {
+      
+      const startDate = new Date(startingDate);
+      startDate.setDate(startDate.getDate() + 1);
+
+      this.minEndingDate = startDate.toISOString().split('T')[0];
+
+      // If endingDate is less than or equal to the startingDate, reset it
+      const endingDate = this.creatingPriceListForm.get('endingDate')?.value;
+      if (endingDate && new Date(endingDate) <= startDate) {
+        this.creatingPriceListForm.get('endingDate')?.setValue('');
+      }
+    }
+  }
+
+
+
 
   isButtonEnabled(): boolean {
     return Boolean(this.role && (this.name || this.producerName));
@@ -192,14 +239,15 @@ errorMessage: string = '';
                 this.errorMessage = '';
                 this.loading = false;
 
-                // Pre-fill the form with current price list data
+               //pre-filluj formu
                 this.creatingPriceListForm.patchValue({
                     price: res?.price || null,
                     startingDate: res?.startingDate || '',
                     endingDate: res?.endingDate || '',
                 });
-
                 console.log("Displayed Motor:", res);
+
+                //this.loadPriceHistory('motor', item.id); //za grafik
             },
             error: (err) => {
                 this.displayForMotor = null;
@@ -211,6 +259,7 @@ errorMessage: string = '';
                   startingDate: '',
                   endingDate: '',
               });
+              //this.clearPriceListDisplay('motor'); //za grafik
             }
         });
     } else if (this.role === 'EQUIPMENT') {
@@ -228,6 +277,8 @@ errorMessage: string = '';
                 });
 
                 console.log("Displayed Equipment:", res);
+
+                //this.loadPriceHistory('equipment', item.id); //za grafik
             },
             error: (err) => {
                 this.displayForEquipment = null;
@@ -244,12 +295,13 @@ errorMessage: string = '';
     }
 }
   
-  
+  //ZA CREATE
   handleSubmit() {
     if (this.creatingPriceListForm.valid) {
       const motorData: CreatePriceListDto = this.creatingPriceListForm.value;
-
+    
       this.priceListService.createPriceList(this.currentItem.id, motorData).subscribe({
+        
         next: () => {
           console.log("ProductId je: ", this.currentItem.id);
           this.createMessage = "Uspesno dodat!";
@@ -265,4 +317,44 @@ errorMessage: string = '';
     }
   }
 
+
+  //ZA GRAFIK
+/*
+  loadPriceHistory(type: 'motor' | 'equipment', id: string) {
+    const priceListObservable =
+        type === 'motor'
+            ? this.priceListService.getAllPricesListByMotorId(id)
+            : this.priceListService.getAllPricesListByEquipmentId(id);
+
+    priceListObservable.subscribe({
+        next: (data : any) => {
+            this.priceHistory = data.map((entry :any) => ({
+                date: entry.startingDate,
+                price: entry.price
+            })).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
+            this.updateChart();
+        },
+        error: (err) => {
+            console.error('Error fetching price history:', err);
+            this.priceHistory = [];
+        }
+    });
+}
+
+updateChart() {
+    this.lineChartData = {
+        datasets: [
+            {
+                data: this.priceHistory.map(entry => entry.price),
+                label: 'Price Over Time',
+                borderColor: 'rgba(75,192,192,1)',
+                backgroundColor: 'rgba(75,192,192,0.2)',
+                fill: true,
+            }
+        ],
+        labels: this.priceHistory.map(entry => entry.date),
+    };
+}
+*/
 }

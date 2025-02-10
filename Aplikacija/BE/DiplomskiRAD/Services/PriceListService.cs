@@ -110,6 +110,11 @@ namespace DiplomskiRAD.Services
                     Equipments = new List<Equipment> { equipment }
                 };
 
+                if(priceList.EndingDate <= priceList.StartingDate)
+                {
+                    throw new Exception("EndingDate ne moze biti <= StartingDate");
+                }
+
                 await _priceListRepository.CreatePriceList(priceList);
 
                 return new CustomPriceListInfo(
@@ -147,6 +152,11 @@ namespace DiplomskiRAD.Services
                 EndingDate = endDate,
                 Motorcycles = new List<Motorcycle> { motorcycle }
             };
+
+            if (priceList.EndingDate <= priceList.StartingDate)
+            {
+                throw new Exception("EndingDate ne moze biti <= StartingDate");
+            }
 
             await _priceListRepository.CreatePriceList(priceList);
 

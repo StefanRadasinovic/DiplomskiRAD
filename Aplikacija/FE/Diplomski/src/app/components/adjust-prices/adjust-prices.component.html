@@ -39,7 +39,7 @@
 
         <!-- getPriceList by Id  -->
         <div class="form-wrapper" *ngIf="currentItem">
-            <h4 class="form-title">Adjust Price</h4>
+            <h4 class="form-title">Current Price</h4>
             <hr />
 
             <br />
@@ -79,7 +79,7 @@
     
                 <div class="form-group">
                     <label class="form-label">Ending Date:</label>
-                    <input type="date" formControlName="endingDate" required >
+                    <input type="date" formControlName="endingDate" [min]="minEndingDate" required>
                 </div>
         
                 <br>
@@ -92,3 +92,18 @@
         
             <p class="success-message" *ngIf="createMessage">{{ createMessage }}</p>
         </div>
+
+        <!---
+        <br><br>
+        GRAFIK
+    <div *ngIf="priceHistory.length > 0" class="chart-container">
+        <canvas baseChart
+                [data]="lineChartData"
+                [options]="lineChartOptions"
+                [legend]="true"
+                [chartType]="'line'">
+        </canvas>
+    </div>
+            ---->
+
+   </div>
