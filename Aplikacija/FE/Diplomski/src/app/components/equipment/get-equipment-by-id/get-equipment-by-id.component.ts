@@ -13,7 +13,7 @@ import { DialogComponent } from '../../dialog/dialog.component';
 export class GetEquipmentByIdComponent implements OnInit {
 
 equipment!: Equipment;
-loading = true; // Add a loading flag
+loading = true; 
 
 constructor(
     private route: ActivatedRoute,
@@ -67,7 +67,7 @@ deleteEquipment(): void {
 }
 
 editEquipment(motorId: string): void {
-    this.router.navigate(['/edit-equipments', motorId]);
+    this.router.navigate(['/edit-equipment', motorId]);
 }
 
 }

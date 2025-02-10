@@ -2,46 +2,41 @@
     <h4 class="form-title">Motorcycle Info</h4>
     <hr />
   
-    <!-- Form Group for Name -->
-    <div class="form-group">
-      <label class="form-label">Name:</label>
-      <input type="text" value="{{ motor.name }}" readonly />
+    <div class="form-group-inline">
+      <div class="form-group-inline-item">
+        <label class="form-custom ">Name:</label>
+        <input type="text" value="{{ motor.name }}" readonly  />
+      </div>
+      <div class="form-group-inline-item">
+        <label  class="form-custom ">Producer:</label>
+        <input type="text" value="{{ motor.producers[0].name }}" readonly />
+      </div>
     </div>
 
     <br>
 
-    <!-- Form Group for Motor Type -->
-    <div class="form-group">
-      <label class="form-label">Type:</label>
+    <div class="form-group-inline">
+      <div class="form-group-inline-item">
+        <label class="form-custom ">State:</label>
+        <input type="text" value="{{ motor.motorcycleState }}" readonly  />
+      </div>
+      <div class="form-group-inline-item">
+        <label  class="form-custom ">Mileage(km):</label>
+        <input type="text" value="{{ motor.kilometraza }}" readonly />
+      </div>
+    </div>
+  
+    <br>
+
+    <div class="form-group-inline">
+      <div class="form-group-inline-item">
+        <label class="form-custom">Type:</label>
       <input type="text" value="{{ motor.motorcycleType }}" readonly />
-    </div>
-  
-    <br>
-
-    <div class="form-group">
-      <label class="form-label">Year of production:</label>
-      <input type="text" value="{{ motor.yearOfProduction }}" readonly />
-    </div>
-
-    <br>
-
-    <div class="form-group">
-      <label class="form-label">State:</label>
-      <input type="text" value="{{ motor.motorcycleState }}" readonly />
-    </div>
-
-    <br>
-
-    <div class="form-group">
-      <label class="form-label">Mileage(km):</label>
-      <input type="text" value="{{ motor.kilometraza }}" readonly />
-    </div>
-
-    <br>
-  
-    <div class="form-group">
-      <label class="form-label">Amount:</label>
-      <input type="text" value="{{ motor.amount }}" readonly />
+      </div>
+      <div class="form-group-inline-item">
+        <label class="form-custom">Year of production:</label>
+        <input type="text" value="{{ motor.yearOfProduction }}" readonly />
+      </div>
     </div>
     
     <br>
@@ -51,7 +46,21 @@
     <div class="drop-zone">
       <img [src]="motor.slika" alt="{{ motor.name }}" class="image-preview" />
     </div>
+
+    <br>
+
+    <div class="form-group">
+      <label class="form-label">Price($):</label>
+      <input type="text" value="{{motor.displayPriceOnly && motor.displayPriceOnly.length > 0 ? motor.displayPriceOnly[0].price : 'Without_Price'  }}"readonly />
+    </div>
   
+    <br>
+
+    <div class="form-group">
+      <label class="form-label">Description:</label>
+      <textarea value="{{ motor.producers[0].description }}" readonly></textarea>
+    </div>
+
     <br>
   
     <div mat-dialog-actions class="button-container">

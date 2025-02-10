@@ -33,4 +33,17 @@ getAllWithPagination(pageNumber: number, pageSize: number): Observable<Paginated
   delete(id: string): Observable<void> {
     return this.http.delete<void>(`${baseUrl}/${id}`);
   }
+
+  getMotorsByName(name: string): Observable<Motor[]> {
+    return this.http.get<Motor[]>(`${baseUrl}/name/${name}`);
+  }
+  
+  getMotorsByProducerName(producerName: string): Observable<Motor[]> {
+    return this.http.get<Motor[]>(`${baseUrl}/producer/${producerName}`);
+  }
+  
+  getMotorsByNameAndProducerName(name: string, producerName: string): Observable<Motor[]> {
+      return this.http.get<Motor[]>(`${baseUrl}/name-producer?name=${name}&producerName=${producerName}`);
+    }
+  
 }

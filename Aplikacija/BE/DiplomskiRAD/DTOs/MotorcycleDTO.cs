@@ -1,5 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 using DiplomskiRAD.Enums;
+using static DiplomskiRAD.DTOs.ProducerDTO;
 
 namespace DiplomskiRAD.DTOs
 {
@@ -7,27 +8,67 @@ namespace DiplomskiRAD.DTOs
     {
         public class MotorcycleInfo
         {
-            public Guid Id { get; set; }
 
+            public Guid Id { get; set; }
             public string Name { get; set; }
+            public string? Slika { get; set; }
+            public double Kilometraza { get; set; }
+            public int YearOfProduction { get; set; }
+
+            [JsonConverter(typeof(JsonStringEnumConverter))]
+            public MotorcycleState MotorcycleState { get; set; }
+
+            public double Amount { get; set; }
 
             [JsonConverter(typeof(JsonStringEnumConverter))]
             public MotorcycleType MotorcycleType { get; set; }
 
-            public int YearOfProduction { get; set; }
+            public List<ProducerInfo> Producers { get; set; }
 
-            public string? Slika { get; set; }
+            public List<PriceListDTO.DisplayPriceOnly> DisplayPriceOnly { get; set; } //samo za cenu
 
             public MotorcycleInfo() { }
-            public MotorcycleInfo(Guid id, string name, MotorcycleType motorType, int yearOfProduction, string? slika) //Konstruktor zbog paginacije
+
+            public MotorcycleInfo(Guid id, string name, string? slika, double kilometraza, int yearOfProduction,
+                                  MotorcycleState motorcycleState, double amount, MotorcycleType motorType,
+                                  List<ProducerInfo> producers, List<PriceListDTO.DisplayPriceOnly> priceList)
             {
                 Id = id;
                 Name = name;
-                MotorcycleType = motorType;
-                YearOfProduction = yearOfProduction;
                 Slika = slika;
+                Kilometraza = kilometraza;
+                YearOfProduction = yearOfProduction;
+                MotorcycleState = motorcycleState;
+                Amount = amount;
+                MotorcycleType = motorType;
+                Producers = producers;
+                DisplayPriceOnly = priceList;
+            }
+
+            public MotorcycleInfo(Guid id, string name, string? slika, double kilometraza, int yearOfProduction,
+                                  MotorcycleState motorcycleState, double amount, MotorcycleType motorType,
+                                  List<ProducerInfo> producers)
+            {
+                Id = id;
+                Name = name;
+                Slika = slika;
+                Kilometraza = kilometraza;
+                YearOfProduction = yearOfProduction;
+                MotorcycleState = motorcycleState;
+                Amount = amount;
+                MotorcycleType = motorType;
+                Producers = producers;
+            }
+
+            public MotorcycleInfo(Guid id, string name, string? slika, List<ProducerInfo> producerInfos)
+            {
+                Id = id;
+                Name = name;
+                Slika = slika;
+                Producers = producerInfos;
             }
         }
+
 
         public class CreateMotorcycleDto
         {
@@ -47,6 +88,8 @@ namespace DiplomskiRAD.DTOs
 
             [JsonConverter(typeof(JsonStringEnumConverter))]
             public MotorcycleType MotorcycleType { get; set; }
+
+            public List<CreateProducerDto> Producers { get; set; }
 
 
         }
@@ -68,6 +111,24 @@ namespace DiplomskiRAD.DTOs
 
             [JsonConverter(typeof(JsonStringEnumConverter))]
             public MotorcycleType MotorcycleType { get; set; }
+
+            public List<UpdateProducerDto> Producers { get; set; }
+
+        }
+
+        public class JustMotorcycleName
+        {
+            public Guid Id { get; set; }
+            public string Name { get; set; }
+
+            public List<ProducerInfo> Producers { get; set; }
+
+            public JustMotorcycleName(Guid id, string name, List<ProducerInfo> producers )
+            {
+                Id = id;
+                Name = name;
+                Producers = producers;
+            }
 
         }
     }

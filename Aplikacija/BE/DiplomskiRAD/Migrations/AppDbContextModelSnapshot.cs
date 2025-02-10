@@ -79,6 +79,44 @@ namespace DiplomskiRAD.Migrations
                     b.ToTable("Motorcycles");
                 });
 
+            modelBuilder.Entity("DiplomskiRAD.Models.PriceList", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("EndingDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("double precision");
+
+                    b.Property<DateTime>("StartingDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PriceLists");
+                });
+
+            modelBuilder.Entity("DiplomskiRAD.Models.Producer", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Producers");
+                });
+
             modelBuilder.Entity("DiplomskiRAD.Models.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -116,6 +154,126 @@ namespace DiplomskiRAD.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("EquipmentPriceList", b =>
+                {
+                    b.Property<Guid>("EquipmentsId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("PriceListsId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("EquipmentsId", "PriceListsId");
+
+                    b.HasIndex("PriceListsId");
+
+                    b.ToTable("EquipmentPriceList");
+                });
+
+            modelBuilder.Entity("EquipmentProducer", b =>
+                {
+                    b.Property<Guid>("EquipmentsId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("ProducersId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("EquipmentsId", "ProducersId");
+
+                    b.HasIndex("ProducersId");
+
+                    b.ToTable("EquipmentProducer");
+                });
+
+            modelBuilder.Entity("MotorcyclePriceList", b =>
+                {
+                    b.Property<Guid>("MotorcyclesId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("PriceListsId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("MotorcyclesId", "PriceListsId");
+
+                    b.HasIndex("PriceListsId");
+
+                    b.ToTable("MotorcyclePriceList");
+                });
+
+            modelBuilder.Entity("MotorcycleProducer", b =>
+                {
+                    b.Property<Guid>("MotorcyclesId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("ProducersId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("MotorcyclesId", "ProducersId");
+
+                    b.HasIndex("ProducersId");
+
+                    b.ToTable("MotorcycleProducer");
+                });
+
+            modelBuilder.Entity("EquipmentPriceList", b =>
+                {
+                    b.HasOne("DiplomskiRAD.Models.Equipment", null)
+                        .WithMany()
+                        .HasForeignKey("EquipmentsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DiplomskiRAD.Models.PriceList", null)
+                        .WithMany()
+                        .HasForeignKey("PriceListsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EquipmentProducer", b =>
+                {
+                    b.HasOne("DiplomskiRAD.Models.Equipment", null)
+                        .WithMany()
+                        .HasForeignKey("EquipmentsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DiplomskiRAD.Models.Producer", null)
+                        .WithMany()
+                        .HasForeignKey("ProducersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MotorcyclePriceList", b =>
+                {
+                    b.HasOne("DiplomskiRAD.Models.Motorcycle", null)
+                        .WithMany()
+                        .HasForeignKey("MotorcyclesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DiplomskiRAD.Models.PriceList", null)
+                        .WithMany()
+                        .HasForeignKey("PriceListsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MotorcycleProducer", b =>
+                {
+                    b.HasOne("DiplomskiRAD.Models.Motorcycle", null)
+                        .WithMany()
+                        .HasForeignKey("MotorcyclesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DiplomskiRAD.Models.Producer", null)
+                        .WithMany()
+                        .HasForeignKey("ProducersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

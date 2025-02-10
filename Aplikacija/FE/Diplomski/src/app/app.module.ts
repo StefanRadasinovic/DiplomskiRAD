@@ -11,6 +11,7 @@ import { MatTableModule } from '@angular/material/table'
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddMotorsComponent } from './components/motors/add-motors/add-motors.component';
@@ -38,6 +39,8 @@ import { AddWorkerComponent } from './components/users/add-worker/add-worker.com
 import { UpdateUsersComponent } from './components/users/update-users/update-users.component';
 import { AuthInterceptor } from './services/InterceptorService';
 import { ShowUsersAdminComponent } from './components/users/show-users-admin/show-users-admin.component';
+import { AdjustPricesComponent } from './components/adjust-prices/adjust-prices.component';
+
 
 @NgModule({
   declarations: [
@@ -66,6 +69,7 @@ import { ShowUsersAdminComponent } from './components/users/show-users-admin/sho
     AddWorkerComponent,
     UpdateUsersComponent,
     ShowUsersAdminComponent,
+    AdjustPricesComponent
   ],
   imports: [
     BrowserModule,
@@ -80,9 +84,10 @@ import { ShowUsersAdminComponent } from './components/users/show-users-admin/sho
     MatIcon,
     ReactiveFormsModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgChartsModule
   ],
-  providers: [
+  providers: [ 
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

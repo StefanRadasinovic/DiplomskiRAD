@@ -7,7 +7,7 @@
     width: 25%; /* Make the form smaller */
     margin: auto;
     position: relative;
-    top: 50%;
+    top: 48%;
     transform: translateY(-50%);
 }
 
@@ -66,7 +66,7 @@ input[type="checkbox"] {
     text-align: center;
     color: #aaa;
     margin-left: 17px;
-    width: 81%; /* Set a smaller fixed width */
+    width: 79%; /* Set a smaller fixed width */
     height: 130px; /* Reduce height */
     overflow: hidden; /* Prevent overflow if image exceeds the bounds */
     position: relative; /* For positioning the image preview */
@@ -169,3 +169,36 @@ input[type="checkbox"] {
     box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
     transform: translateY(0);
   }
+
+
+  /* Align Not Available Time Start and End on the same line */
+.form-group-inline {
+    display: flex;
+    justify-content: center; /* Center both fields */
+    gap: 0.2rem; /* Reduce the gap between the fields */
+}
+
+/* This controls the width of Not Available Time fields */
+.form-group-inline-item {
+    width: 47%; /* Reduce width to fit both fields */
+}
+
+.form-custom {
+    font-weight: bold;
+    font-size: 13px; /* Smaller font size */
+    color: #333;
+    margin-bottom: 3px; /* Reduce margin */
+    text-align: center; /* Center label text */
+    margin-left: 8px;
+}
+
+textarea {
+    width: 94%;  /* Make the textarea take the full width */
+    padding: 0.4rem;
+    border: 1px solid #ccc;
+    margin-left: 2.7%;
+    font-size: 14px;
+    min-height: 0px;  /* Set a minimum height for the textarea */
+    resize: vertical;  /* Allow users to resize the height of the textarea */
+    box-sizing: border-box;  /* Ensure padding is included in the width */
+}

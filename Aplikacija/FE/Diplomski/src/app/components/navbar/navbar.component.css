@@ -12,6 +12,11 @@
     color: white;  
 }
 
+.nav-button span:hover {
+    color: #39dc79; /* Change text color on hover */
+    cursor: pointer;
+}
+
 
 
 

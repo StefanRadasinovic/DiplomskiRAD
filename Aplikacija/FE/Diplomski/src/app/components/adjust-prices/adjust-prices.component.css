@@ -1,0 +1,238 @@
+.container {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.filter-group {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+
+/* GROUP TABLE & FORM CLOSER */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px; /* Reduce gap between table and form */
+}
+
+
+.filter-input {
+  padding: 5px;
+  font-size: 16px;
+  width: 150px;
+  margin-right: 3px;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+.filter-select {
+  padding: 8px;
+  font-size: 16px;
+  width: 150px;
+  margin-right: 3px;
+}
+
+.user-table {
+  width: 90%;
+  border-collapse: collapse;
+  border-radius: 30px 0px 30px 0px;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+.user-table th,
+.user-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+  color: black;
+}
+
+.user-table th {
+  background-color: #4169E1;
+  font-weight: bold;
+  color: whitesmoke;
+}
+
+.user-table tr:hover {
+  background-color: #ffff99;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.user-table .active {
+  background-color: #e0e0e0;
+}
+
+.loading {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.search-button:enabled {
+  background-color: #4b97e7; 
+  color: white; 
+  border: none; 
+  cursor: pointer; 
+}
+
+.search-button:hover {
+  transform: translateY(-1px);
+}
+
+
+
+
+/*******************GET Pricelist bY iD********************/
+
+/* FORM STYLING */
+.form-wrapper {
+  background-color: #DEDEDE;
+  padding: 1rem; /* Reduce padding */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 25%; /* Adjusted width */
+  margin-top: 5px; /* Bring closer to table */
+}
+
+/* APPLY STYLING TO ALL INPUT TYPES */
+.form-group input {
+  width: 90%;
+  padding: 0.3rem;
+  margin: 0 auto;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+
+/* APPLY STYLING ONLY TO INPUTS INSIDE LABELS */
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"]
+.form-group input[type="datetime-local"],
+.form-group input[type="datetime"],
+.form-group input[type="checkbox"] {
+  width: 90%;
+  padding: 0.3rem;
+  margin: 0 auto;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+/**************/
+
+/* FORM LABEL STYLING */
+.form-group label {
+  font-weight: bold;
+  font-size: 13px;
+  color: #333;
+  display: block;
+  margin-bottom: 2px;
+  margin-left: 18px;
+}
+
+
+/*******/
+
+/* Center the form title */
+.form-title {
+  text-align: center; 
+  margin-bottom: 0.8rem;
+}
+
+textarea {
+  width: 94%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  margin-left: 2.7%;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.zaMotor,
+.zaOpemu {
+  text-align: center; 
+}
+
+.error-message {
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  text-align: center;       
+  font-size: 16px;         
+  color: red;              
+}
+
+
+.success-message {
+  text-align: center;
+  color: green;
+  margin-top: 1rem;
+}
+
+
+/***********ADJUST PRICELIST************/
+
+.submit-button:hover {
+  transform: translateY(-1px);
+}
+
+.submit-button:active {
+  background-color: #27ae60;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
+.submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Submit button and action section styling */
+.form-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+
+.submit-button {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #27ae60;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px; /* Smaller font size */
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin-left: 1rem;
+  min-height: 2.8rem; /* Reduced minimum height */
+  padding: calc(.5rem - 1px) calc(2.3rem - 1px); /* Reduced padding */
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+/*GRAFIKON*/
+.chart-container {
+  width: 90%;
+  height: 450px; 
+}
+
+

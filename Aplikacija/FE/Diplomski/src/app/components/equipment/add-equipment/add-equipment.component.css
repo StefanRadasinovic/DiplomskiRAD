@@ -4,17 +4,18 @@
     padding: 2.0rem; /* Reduce padding to make the wrapper smaller */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 30%; /* Make the form smaller */
+    width: 25%; /* Make the form smaller */
+    height: 78%;
     margin: auto;
     position: relative;
-    top: 50%;
+    top: 47%;
     transform: translateY(-50%);
 }
 
 /* Center the title */
 .form-title {
     text-align: center; 
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 
@@ -27,7 +28,7 @@
 }
 
 input[type="text"]{
-    width: 93%; /* Reduce input width */
+    width: 90%; /* Reduce input width */
     padding: 0.4rem; /* Smaller padding */
     margin-left: 0; /* Align inputs to the left */
     border: 1px solid #ccc;
@@ -96,7 +97,7 @@ input[type="checkbox"] {
 }
 
 select {
-    width: 96%; /* Match input width */
+    width: 94%; /* Match input width */
     padding: 0.4rem; /* Smaller padding */
     margin-left: 0; /* Align inputs to the left */
     border: 1px solid #ccc;
@@ -152,8 +153,8 @@ p {
     text-align: center;
     cursor: pointer;
     color: #aaa;
-    width: 83%; /* Set a fixed width */
-    height: 130px; /* Set a fixed height */
+    width: 78%; /* Set a fixed width */
+    height: 120px; /* Set a fixed height */
     overflow: hidden; /* Prevent overflow if image exceeds the bounds */
     position: relative; /* For positioning the image preview */
 }
@@ -167,4 +168,15 @@ p {
     left: 0;
     border: 1px solid #ddd; /* Optional: Add border */
     border-radius: 4px; /* Optional: Rounded corners */
+}
+
+textarea {
+    width: 95%;  /* Make the textarea take the full width */
+    padding: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    min-height: 0px;  /* Set a minimum height for the textarea */
+    resize: vertical;  /* Allow users to resize the height of the textarea */
+    box-sizing: border-box;  /* Ensure padding is included in the width */
 }

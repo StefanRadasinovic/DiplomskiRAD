@@ -22,5 +22,11 @@ namespace DiplomskiRAD.Models
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public MotorcycleType MotorcycleType { get; set; }
+
+        [JsonIgnore]
+        public List<Producer> Producers { get; set; }
+
+        [JsonIgnore]
+        public List<PriceList> PriceLists { get; set; }
     }
 }

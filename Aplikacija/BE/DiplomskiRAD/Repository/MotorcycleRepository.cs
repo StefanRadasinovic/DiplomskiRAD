@@ -17,17 +17,20 @@ namespace DiplomskiRAD.Repository
 
         public async Task<IEnumerable<Motorcycle>> GetWithOffsetPagination(int pageNumber, int pageSize)
         {
-            return await _context.Motorcycles.AsNoTracking()
-                .OrderBy(x => x.Id)
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .ToListAsync();
+            return await _context.Motorcycles
+            .Include(m => m.Producers)
+            .Include(m => m.PriceLists)
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
         }
+
 
         public async Task<Motorcycle> GetMotorById(Guid id)
         {
-            return await _context.Motorcycles.FindAsync(id);
+            return await _context.Motorcycles.Include(m => m.Producers).Include(m => m.PriceLists).FirstOrDefaultAsync(m => m.Id == id);
         }
+
 
         public async Task CreateMotor(Motorcycle newMotor)
         {
@@ -71,6 +74,33 @@ namespace DiplomskiRAD.Repository
 
             return await _context.Motorcycles.Where(m => m.MotorcycleType == type).ToListAsync();
         }
+
+        public async Task<IEnumerable<Motorcycle>> GetMotorsByName(string name)
+        {
+            return await _context.Set<Motorcycle>()
+                .Include(m => m.Producers) 
+                .Where(m => m.Name.ToLower().Contains(name.ToLower())) 
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Motorcycle>> GetMotorsByProducerName(string producerName)
+        {
+            return await _context.Set<Motorcycle>()
+                .Include(m => m.Producers)
+                .Where(m => m.Producers.Any(p => p.Name.ToLower().Contains(producerName.ToLower()))) 
+                .ToListAsync();
+        }
+
+        //kombinacija name+producerName
+        public async Task<IEnumerable<Motorcycle>> GetMotorsByNameAndProducerName(string name, string producerName) //kombinacija name+producerName
+        {
+            return await _context.Set<Motorcycle>()
+                .Include(m => m.Producers)
+                .Where(m => (string.IsNullOrEmpty(name) || m.Name.ToLower().Contains(name.ToLower())) &&
+                            (string.IsNullOrEmpty(producerName) || m.Producers.Any(p => p.Name.ToLower().Contains(producerName.ToLower()))))
+                .ToListAsync();
+        }
+
 
     }
 }

@@ -83,5 +83,28 @@ namespace DiplomskiRAD.Controllers
             await motorcycleService.DeleteMotor(id);
             return NoContent();
         }
+
+        [HttpGet("name/{name}")]
+        public async Task<ActionResult<IEnumerable<MotorcycleInfo>>> GetMotorsByName(string name)
+        {
+            var result = await motorcycleService.GetMotorsByName(name);
+            return Ok(result);
+        }
+
+        [HttpGet("producer/{producerName}")]
+        public async Task<ActionResult<IEnumerable<MotorcycleInfo>>> GetMotorsByProducerName(string producerName)
+        {
+            var result = await motorcycleService.GetMotorsByProducerName(producerName);
+            return Ok(result);
+        }
+
+        //kombinacija name+producerName
+        [HttpGet("name-producer")]
+        public async Task<ActionResult<IEnumerable<MotorcycleInfo>>> GetMotorsByNameAndProducerName(string name, string producerName)
+        {
+            var result = await motorcycleService.GetMotorsByNameAndProducerName(name, producerName);
+            return Ok(result);
+        }
+
     }
 }

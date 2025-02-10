@@ -14,6 +14,12 @@ namespace DiplomskiRAD.Models
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public EquipmentState EquipmentState { get; set; }
 
-        public double Amount { get; set; }  
+        public double Amount { get; set; }
+
+        [JsonIgnore]
+        public List<Producer> Producers { get; set; }
+
+        [JsonIgnore]
+        public List<PriceList> PriceLists { get; set; }
     }
 }

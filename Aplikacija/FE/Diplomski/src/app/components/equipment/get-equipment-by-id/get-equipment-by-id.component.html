@@ -11,16 +11,17 @@
     <br>
 
     <div class="form-group">
+      <label class="form-label">Producer:</label>
+      <input type="text" value="{{ equipment.producers[0].name}}" readonly />
+    </div>
+
+    <br>
+
+    <div class="form-group">
       <label class="form-label">State:</label>
       <input type="text" value="{{ equipment.equipmentState }}" readonly />
     </div>
 
-    <br>
-  
-    <div class="form-group">
-      <label class="form-label">Amount:</label>
-      <input type="text" value="{{ equipment.amount }}" readonly />
-    </div>
     
     <br>
   
@@ -30,6 +31,22 @@
       <img [src]="equipment.slika" alt="{{ equipment.name }}" class="image-preview" />
     </div>
   
+    <br>
+
+    <div class="form-group">
+      <label class="form-label">Price($):</label>
+      <input type="text" value="{{equipment.displayPriceOnly && equipment.displayPriceOnly.length > 0 ? equipment.displayPriceOnly[0].price : 'Without_Price'  }}"readonly />
+    </div>
+
+
+    <br>
+
+    <div class="form-group">
+      <label class="form-label">Description:</label>
+      <textarea value="{{ equipment.producers[0].description }}" readonly></textarea>
+    </div>
+
+
     <br>
   
     <div mat-dialog-actions class="button-container">

@@ -27,28 +27,26 @@
     <br>
   
     <!-- Form Group for Role -->
-    <div class="form-group">
+    <div class="form-group" *ngIf="isDisplayWorker(user) || isDisplayDirector(user)">
       <label class="form-label">Role:</label>
       <input type="text" value="{{ user.role }}" readonly />
     </div>
   
     <br>
   
-    <!-- Form Group for Number of Tasks (for DisplayWorkerDto) -->
+  
     <div *ngIf="isDisplayWorker(user)">
       <label class="form-label">Number Of Tasks:</label>
       <input type="text" value="{{ user.numOfTasks }}" readonly />
     </div>
   
-
-  
-    <!-- Form Group for Salary (for DisplayWorkerDto or DisplayDirectorDto) -->
+   
     <div *ngIf="isDisplayWorker(user) || isDisplayDirector(user)">
       <label class="form-label">Salary($):</label>
       <input type="text" value="{{ user.salary }}" readonly />
     </div>
   
-    <!-- Form Group for Number of Purchases (for DisplayClientDto) -->
+
     <div *ngIf="isDisplayClient(user)">
       <label class="form-label">Number Of Purchases:</label>
       <input type="text" value="{{ user.numOfPurchases }}" readonly />

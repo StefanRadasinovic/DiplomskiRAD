@@ -84,5 +84,28 @@ namespace DiplomskiRAD.Controllers
             await equipmentService.DeleteEquipment(id);
             return NoContent();
         }
+
+
+        [HttpGet("name/{name}")]
+        public async Task<ActionResult<IEnumerable<EquipmentInfo>>> GetEquipmentByName(string name)
+        {
+            var result = await equipmentService.GetEquipmentByName(name);
+            return Ok(result);
+        }
+
+        [HttpGet("producer/{producerName}")]
+        public async Task<ActionResult<IEnumerable<EquipmentInfo>>> GetEquipmentByProducerName(string producerName)
+        {
+            var result = await equipmentService.GetEquipmentByProducerName(producerName);
+            return Ok(result);
+        }
+
+        //kombinacija name+producerName
+        [HttpGet("name-producer")]
+        public async Task<ActionResult<IEnumerable<EquipmentInfo>>> GetEquipmentByNameAndProducerName(string name, string producerName)
+        {
+            var result = await equipmentService.GetEquipmentByNameAndProducerName(name, producerName);
+            return Ok(result);
+        }
     }
 }

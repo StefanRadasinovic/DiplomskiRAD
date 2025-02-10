@@ -18,6 +18,7 @@ import { GetUserByIdComponent } from './components/users/get-user-by-id/get-user
 import { AddWorkerComponent } from './components/users/add-worker/add-worker.component';
 import { UpdateUsersComponent } from './components/users/update-users/update-users.component';
 import { ShowUsersAdminComponent } from './components/users/show-users-admin/show-users-admin.component';
+import { AdjustPricesComponent } from './components/adjust-prices/adjust-prices.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -32,13 +33,14 @@ const routes: Routes = [
   {path: 'edit-motorcycles/:id', component: UpdateMotorComponent},
   {path: 'all-equipments', component: AllEquipmentComponent },
   {path: 'add-equipments', component: AddEquipmentComponent },
-  {path: 'equipments/:id', component: GetEquipmentByIdComponent},
-  {path: 'edit-equipments/:id', component: UpdateEquipmentComponent},
+  {path: 'equipment/:id', component: GetEquipmentByIdComponent},
+  {path: 'edit-equipment/:id', component: UpdateEquipmentComponent},
   {path: 'all-users', component: AllUsersComponent },
   {path: 'users/:id', component: GetUserByIdComponent },
   {path: 'display/:id', component: ShowUsersAdminComponent },
   {path: 'add-workers', component: AddWorkerComponent },
   {path: 'edit-users/:id', component: UpdateUsersComponent },
+  {path: 'adjust-prices', component: AdjustPricesComponent },
 ];
 
 @NgModule({

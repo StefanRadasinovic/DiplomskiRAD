@@ -41,6 +41,8 @@ export class UpdateEquipmentComponent implements OnInit {
         name: ['', Validators.required],
         equipmentState: [''],
         amount: [''],
+        producerName: [''],
+        description: [''],
         slika: [''] // Ensure this matches the expected field name
       });
     }
@@ -52,6 +54,8 @@ export class UpdateEquipmentComponent implements OnInit {
             name: eq.name,
             equipmentState: eq.equipmentState,
             amount: eq.amount,
+            producerName:eq.producers[0].name,
+            description:eq.producers[0].description,
             slika: eq.slika || '' // Default to an empty string if slika is undefined
           });
           this.imagePreview = eq.slika || null; // Set the initial image preview
@@ -63,8 +67,15 @@ export class UpdateEquipmentComponent implements OnInit {
   
     handleSubmit(): void {
       if (this.equipmentForm.valid) {
-        const updatedMotor: UpdateEquipmentDto = this.equipmentForm.value;
-        updatedMotor.slika = this.originalFileName;
+
+        const updatedMotor: UpdateEquipmentDto = {
+            ...this.equipmentForm.value,
+            producers: [{
+              name: this.equipmentForm.value.producerName,
+              description: this.equipmentForm.value.description
+              }]
+          };
+          updatedMotor.slika = this.originalFileName;
         
         console.log('Equipment Object Being Uploaded:', updatedMotor); // Log the entire object
         this.equipmentService.updateEquipment(this.equipmentId, updatedMotor).subscribe({

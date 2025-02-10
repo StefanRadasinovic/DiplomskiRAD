@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EquipmentService } from '../../../services/equipmentServices';
 import { CreateEquipmentDto } from '../../../models/equipmentDTO';
@@ -31,8 +31,18 @@ constructor(
       slika: [''] ,
       amount: [null],
       equipmentState: [''],
+      producers: this.fb.array([ 
+        this.fb.group({
+          name: [''],
+          description: ['']
+        })
+      ])
     });
   }
+
+  get producers(): FormArray {
+      return this.equipmentForm.get('producers') as FormArray;
+    }
 
   ngAfterViewInit() {
     if (this.dropZone) {

@@ -1,6 +1,5 @@
-<div class="motor-card" (click)="onCardClick()">
-    <h4><b>{{ motor.name }}  - {{motor.motorcycleType}}</b></h4>
-    <img [src]="getImage()" alt="{{ motor.name }}" class="motor-img">
-    <p>dodajCenu</p>
-  </div>
-  
+<div class="motor-card" (click)="onCardClick()"> 
+  <h4><b>{{ motor.producers[0].name }} - {{ motor.name }}</b></h4>
+  <img [src]="getImage()" alt="{{ motor.name }}" class="motor-img">
+  <h4><b><p>{{ motor.displayPriceOnly && motor.displayPriceOnly.length > 0 ? motor.displayPriceOnly[0].price + '$' : 'Without_Price' }}</p></b></h4>
+</div>

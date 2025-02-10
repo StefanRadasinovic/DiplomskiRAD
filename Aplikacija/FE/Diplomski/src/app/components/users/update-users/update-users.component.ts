@@ -84,6 +84,10 @@ export class UpdateUsersComponent implements OnInit {
     return user && user.role === 'DIREKTOR';
   }
 
+  isDisplayClient(user: DisplayWorkerDto | DisplayClientDto | DisplayDirectorDto): user is DisplayDirectorDto {
+    return user && user.role === 'KLIJENT';
+  }
+
   handleSubmit(): void {
     if (this.userForm.valid) {
       let updatedUser: UpdateWorkerDto | UpdateClientDto | UpdateDirectorDto;
