@@ -20,10 +20,10 @@ export interface OrderInfo
     orderAmount: number;
     totalPrice: string;
     orderStatus: string;
-    equipments?: EquipmentInfo[];
-    motorcycles?: MotorInfo[];
+    equipmentInfo?: EquipmentInfo[];
+    motorcycleInfo?: MotorInfo[];
     userId: string;
-    users?: UserInfo;
+    userInfo?: UserInfo;
 }
 
 

@@ -17,6 +17,7 @@ export interface EquipmentInfo
     id : string,
     name : string,
     slika? : string,
+    amount : number,
     producers: ProducerInfo[],
     displayPriceOnly?: DisplayPriceOnly[],
 }

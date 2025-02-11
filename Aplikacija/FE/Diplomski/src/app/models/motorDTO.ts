@@ -23,6 +23,7 @@ export interface MotorInfo
     slika? : string
     yearOfProduction : number,
     motorcycleType : string,
+    amount : number,
     producers: ProducerInfo[],
     displayPriceOnly?: DisplayPriceOnly[],
 }

@@ -12,9 +12,15 @@
   <a mat-button class="nav-button" *ngIf="userRole === 'DIREKTOR'" routerLink="/all-users"><span>Users</span></a>
   <a mat-button class="nav-button" *ngIf="userRole === 'DIREKTOR'" routerLink="/add-workers"><span>Add Worker</span></a>
   <a mat-button class="nav-button" *ngIf="userRole === 'DIREKTOR'" routerLink="/adjust-prices"><span>Adjust Prices</span></a>
+  <a mat-button class="nav-button" *ngIf="userRole === 'DIREKTOR'" routerLink="/all-pendingOrders"><span>Orders</span></a>
+
  
   <a mat-button  class="nav-button" *ngIf="userRole === 'RADNIK'" routerLink="/worker-homepage"><span>Radnik Homepage</span></a>
+
+
   <a mat-button  class="nav-button" *ngIf="userRole === 'KLIJENT'" routerLink="/client-homepage"><span>Klijent Homepage</span></a>
+  <a mat-button  class="nav-button" *ngIf="userRole === 'KLIJENT'" [routerLink]="['/all-orders', userId]"><span>Orders</span></a>
+
 
 
   <a mat-button class="nav-button" routerLink="register" *ngIf="userRole === 'ROLE_NOTAUTH'"><span>Register</span></a>  

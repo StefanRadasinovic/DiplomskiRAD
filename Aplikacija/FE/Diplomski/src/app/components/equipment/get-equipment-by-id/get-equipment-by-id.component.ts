@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EquipmentService } from '../../../services/equipmentServices';
 import { Equipment } from '../../../models/equipmentDTO';
-import { DialogComponent } from '../../dialog/dialog.component';
+import { DialogComponent } from '../../dialog/delete-dialog/dialog.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CreateOrderDto } from '../../../models/orderDTO';
 import { OrderService } from '../../../services/orderService';

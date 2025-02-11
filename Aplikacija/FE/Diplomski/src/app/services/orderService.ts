@@ -12,8 +12,8 @@ const baseUrl = 'https://localhost:7213/api/Order'
 export class OrderService {
     constructor(private http: HttpClient) { }
   
-    getAllPendingOrders(): Observable<OrderInfo> {
-      return this.http.get<OrderInfo>(`${baseUrl}/pending`);
+    getAllPendingOrders(): Observable<OrderInfo[]> {
+      return this.http.get<OrderInfo[]>(`${baseUrl}/pending`);
     }
 
     getOrderById(id: string): Observable<OrderInfo> {
