@@ -19,14 +19,6 @@ namespace DiplomskiRAD.Controllers
         }
 
 
-        //GETAllPendingOrders(userID) za zahteve koji su PENDING(na cekanju) - display along orderDetails + motorName+ProducerName+item.Amount+TotalPrice
-        //GETOrdersById(orderId) - display also th
-        //GETAllOrdersForUser(userId) - svi poslati zahtevi - kartice sa slikom iznad pise ime+proizvodjac ispod pise status
-
-        //CreateOrder(userId,motorId ili EquipmentId)-isto ko i za priceList Obe opcije
-        //DeclineOrder(orderId) stavi mu status-ODBIJEN
-        //AcceptOrder(orderId) stavi mu status - PRIHVACEN
-
         [HttpGet("pending")]
         public async Task<ActionResult<OrderInfo>> GetAllPendingOrders() 
         {

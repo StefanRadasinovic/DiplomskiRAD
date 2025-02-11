@@ -45,6 +45,9 @@ input[type="checkbox"] {
     display: flex;
     justify-content: center; /* Center both fields */
     gap: 0.2rem; /* Reduce the gap between the fields */
+    font-weight: bold;
+    font-size: 13px; /* Smaller font size */
+    color: #333;
 }
 
 /* This controls the width of Not Available Time fields */

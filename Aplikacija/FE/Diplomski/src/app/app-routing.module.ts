@@ -20,6 +20,7 @@ import { UpdateUsersComponent } from './components/users/update-users/update-use
 import { ShowUsersAdminComponent } from './components/users/show-users-admin/show-users-admin.component';
 import { AdjustPricesComponent } from './components/adjust-prices/adjust-prices.component';
 
+
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full' },
   {path: 'register', component: RegisterComponent },
@@ -41,6 +42,7 @@ const routes: Routes = [
   {path: 'add-workers', component: AddWorkerComponent },
   {path: 'edit-users/:id', component: UpdateUsersComponent },
   {path: 'adjust-prices', component: AdjustPricesComponent },
+
 ];
 
 @NgModule({

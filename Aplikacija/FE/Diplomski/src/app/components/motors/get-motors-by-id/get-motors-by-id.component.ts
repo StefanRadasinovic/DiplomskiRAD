@@ -4,6 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MotorService } from '../../../services/motorServices';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../dialog/dialog.component';
+import { DisplayClientDto, DisplayDirectorDto, DisplayWorkerDto, User } from '../../../models/userDTO';
+import { UserService } from '../../../services/userService';
+import { AuthorisationService } from '../../../services/authorisationService';
 
 @Component({
   selector: 'app-get-motors-by-id',
@@ -13,12 +16,16 @@ import { DialogComponent } from '../../dialog/dialog.component';
 export class GetMotorsByIdComponent implements OnInit {
   motor!: Motor;
   loading = true; // Add a loading flag
+  user!: DisplayWorkerDto | DisplayClientDto | DisplayDirectorDto; 
+
 
   constructor(
     private route: ActivatedRoute,
     private motorService: MotorService,
+    private userService: UserService,
     private dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private authService : AuthorisationService
   ) {}
 
   ngOnInit(): void {
@@ -28,6 +35,15 @@ export class GetMotorsByIdComponent implements OnInit {
       this.getMotorById(motorId.toString());
     } else {
       console.error('Invalid motor ID');
+    }
+
+    const userId = this.authService.getUserId();
+    if (userId !== null) {
+      
+      this.getUserById(userId);  
+      
+    } else {
+      console.error('Invalid User ID');
     }
   }
 
@@ -65,7 +81,42 @@ export class GetMotorsByIdComponent implements OnInit {
     });
   }
 
-  editMotor(motorId: string): void {
-    this.router.navigate(['/edit-motorcycles', motorId]);
-  }
+  getUserById(id: string): void {
+    this.userService.getUserById(id).subscribe({
+      next: (res) => {
+        this.user = res;
+        this.loading = false;
+        console.log(res);
+        console.log('KORISNIK JE:', res);
+      },
+      error: (err) => {
+        console.error('Error fetching motor details:', err);
+        this.loading = false; 
+      }
+    });
+}
+
+
+editMotor(motorId: string): void {
+  this.router.navigate(['/edit-motorcycles', motorId]);
+}
+
+buyMotor(motorId: string): void {
+  this.router.navigate(['/buy-items', motorId]);
+}
+
+
+isDisplayWorker(user: DisplayWorkerDto | DisplayClientDto | DisplayDirectorDto | undefined): user is DisplayWorkerDto {
+  return user !== undefined && user.role === 'RADNIK';
+}
+
+isDisplayClient(user: DisplayWorkerDto | DisplayClientDto | DisplayDirectorDto | undefined): user is DisplayClientDto {
+  return user !== undefined && user.role === 'KLIJENT';
+}
+
+isDisplayDirector(user: DisplayWorkerDto | DisplayClientDto | DisplayDirectorDto | undefined): user is DisplayDirectorDto {
+  return user !== undefined && user.role === 'DIREKTOR';
+}
+
+
 }

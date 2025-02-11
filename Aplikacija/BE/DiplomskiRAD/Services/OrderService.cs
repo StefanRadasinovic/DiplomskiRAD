@@ -99,7 +99,24 @@ namespace DiplomskiRAD.Services
                 throw new Exception("OrderId not found");
             }
 
+            var orderedEquipmentAmount = order.Equipments?.FirstOrDefault()?.Amount;
+            if (orderedEquipmentAmount != null && orderedEquipmentAmount < order.OrderAmount) 
+            {
+                throw new Exception("There is not enought available equipment for the order");
+            }
+
+  
+
+
+            var orderedMotorAmount = order.Motorcycles?.FirstOrDefault()?.Amount;
+            if (orderedMotorAmount != null && orderedMotorAmount < order.OrderAmount)
+            {
+                throw new Exception("There is not enought available motors for the order");
+            }
+
             order.OrderStatus = OrderStatus.PRIHVACEN;
+            order.User.numOfPurchases++;
+
             await _orderRepository.UpdateOrder(order);
         }
 

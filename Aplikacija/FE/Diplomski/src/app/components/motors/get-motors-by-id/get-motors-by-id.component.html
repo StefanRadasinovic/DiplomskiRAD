@@ -64,8 +64,9 @@
     <br>
   
     <div mat-dialog-actions class="button-container"> 
-      <button mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="editMotor(motor.id)">Edit<mat-icon>edit</mat-icon> </button>
-      <button mat-raised-button id="deleteMotor" color="primary" class="delete-button" (click)="deleteMotor()">Delete<mat-icon>delete</mat-icon></button>
+      <button *ngIf="isDisplayWorker(user) || isDisplayDirector(user)" mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="editMotor(motor.id)">Edit<mat-icon>edit</mat-icon> </button>
+      <button *ngIf="isDisplayClient(user)" mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="buyMotor(motor.id)">Buy<mat-icon>shopping_cart</mat-icon> </button>
+      <button *ngIf="isDisplayWorker(user) || isDisplayDirector(user)" mat-raised-button id="deleteMotor" color="primary" class="delete-button" (click)="deleteMotor()">Delete<mat-icon>delete</mat-icon></button>
     </div>
    <!---<button mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="editMotor(motor.id)">Buy<mat-icon>shopping_cart</mat-icon> </button>-->
   </div>

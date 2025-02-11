@@ -33,7 +33,7 @@
       </div>
       <div class="form-group-inline-item">
         <label for="kilometraza" class="form-label">Mileage(km):</label>
-        <input id="kilometraza" type="text" formControlName="kilometraza" required />
+        <input id="kilometraza" type="text" formControlName="kilometraza" onkeyup="if(this.value<=0)this.value=1" onblur="if(this.value<=0)this.value=1" required />
       </div>
     </div>
 
@@ -59,7 +59,7 @@
     <br>
     <div class="form-group">
       <label for="amount" class="form-label">Amount:</label>
-      <input id="amount" type="text" formControlName="amount" required />
+      <input id="amount" type="text" formControlName="amount" onkeyup="if(this.value<=0)this.value=1" onblur="if(this.value<=0)this.value=1" required />
     </div>
 
     <br>

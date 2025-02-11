@@ -42,6 +42,7 @@ import { ShowUsersAdminComponent } from './components/users/show-users-admin/sho
 import { AdjustPricesComponent } from './components/adjust-prices/adjust-prices.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +70,7 @@ import { AdjustPricesComponent } from './components/adjust-prices/adjust-prices.
     AddWorkerComponent,
     UpdateUsersComponent,
     ShowUsersAdminComponent,
-    AdjustPricesComponent
+    AdjustPricesComponent,
   ],
   imports: [
     BrowserModule,
