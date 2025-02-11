@@ -16,7 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddMotorsComponent } from './components/motors/add-motors/add-motors.component';
 import { AllMotorsComponent } from './components/motors/all-motors/all-motors.component';
-import { DialogComponent } from './components/dialog/dialog.component';
+import { DialogComponent } from './components/dialog/delete-dialog/dialog.component';
 import { GetMotorsByIdComponent } from './components/motors/get-motors-by-id/get-motors-by-id.component';
 import { UpdateMotorComponent } from './components/motors/update-motor/update-motor.component';
 import { EquipmentCardComponent } from './cards/equipment-card/equipment-card.component';
@@ -40,6 +40,11 @@ import { UpdateUsersComponent } from './components/users/update-users/update-use
 import { AuthInterceptor } from './services/InterceptorService';
 import { ShowUsersAdminComponent } from './components/users/show-users-admin/show-users-admin.component';
 import { AdjustPricesComponent } from './components/adjust-prices/adjust-prices.component';
+import { AcceptDialogComponent } from './components/dialog/accept-dialog/accept-dialog.component';
+import { DeclineDialogComponent } from './components/dialog/decline-dialog/decline-dialog.component';
+import { GetOrderForUserComponent } from './components/orders/get-order-for-user/get-order-for-user.component';
+import { GetOrderForAdminComponent } from './components/orders/get-order-for-admin/get-order-for-admin.component';
+
 
 
 @NgModule({
@@ -69,7 +74,11 @@ import { AdjustPricesComponent } from './components/adjust-prices/adjust-prices.
     AddWorkerComponent,
     UpdateUsersComponent,
     ShowUsersAdminComponent,
-    AdjustPricesComponent
+    AdjustPricesComponent,
+    AcceptDialogComponent,
+    DeclineDialogComponent,
+    GetOrderForUserComponent,
+    GetOrderForAdminComponent,
   ],
   imports: [
     BrowserModule,

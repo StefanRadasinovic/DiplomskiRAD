@@ -19,6 +19,9 @@ import { AddWorkerComponent } from './components/users/add-worker/add-worker.com
 import { UpdateUsersComponent } from './components/users/update-users/update-users.component';
 import { ShowUsersAdminComponent } from './components/users/show-users-admin/show-users-admin.component';
 import { AdjustPricesComponent } from './components/adjust-prices/adjust-prices.component';
+import { GetOrderForAdminComponent } from './components/orders/get-order-for-admin/get-order-for-admin.component';
+import { GetOrderForUserComponent } from './components/orders/get-order-for-user/get-order-for-user.component';
+
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -41,6 +44,9 @@ const routes: Routes = [
   {path: 'add-workers', component: AddWorkerComponent },
   {path: 'edit-users/:id', component: UpdateUsersComponent },
   {path: 'adjust-prices', component: AdjustPricesComponent },
+  {path: 'all-pendingOrders', component: GetOrderForAdminComponent },
+  {path: 'all-orders/:id', component: GetOrderForUserComponent },
+
 ];
 
 @NgModule({

@@ -28,5 +28,8 @@ namespace DiplomskiRAD.Models
 
         [JsonIgnore]
         public List<PriceList> PriceLists { get; set; }
+
+        [JsonIgnore]
+        public List<Order> Orders { get; set; }
     }
 }

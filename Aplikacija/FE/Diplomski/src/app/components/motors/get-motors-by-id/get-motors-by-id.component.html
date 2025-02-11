@@ -62,12 +62,37 @@
     </div>
 
     <br>
-  
-    <div mat-dialog-actions class="button-container">
-      <button mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="editMotor(motor.id)">Edit<mat-icon>edit</mat-icon> </button>
-      <button mat-raised-button id="deleteMotor" color="primary" class="delete-button" (click)="deleteMotor()">Delete<mat-icon>delete</mat-icon></button>
+
+     <!---CREATE ORDER-->
+     <form *ngIf="isDisplayClient(user)" [formGroup]="creatingOrderForm" (ngSubmit)="handleSubmit()">
+
+      <div class="form-group">
+        <label class="form-label">Order Amount:</label>
+        <input name="orderAmount" type="number" formControlName="orderAmount" min="1" onkeyup="if(this.value<=0)this.value=1" onblur="if(this.value<=0)this.value=1" required />
+
     </div>
+
+    <br>
+
+    <div class="form-group">
+      <label class="form-label">Total Price($):</label>
+      <input type="text" [value]="totalSum" readonly />
+    </div>
+
+    <br>
+
+    <div class="form-action">
+      <button  mat-raised-button id="submitMotor" color="primary" class="submit-button" [disabled]="creatingOrderForm.invalid">Buy <mat-icon>shopping_cart</mat-icon> </button>
+  </div>
   
+</form>
+<p class="success-message" *ngIf="createMessage">{{ createMessage }}</p>
+  
+    <div mat-dialog-actions class="button-container"> 
+      <button *ngIf="isDisplayWorker(user) || isDisplayDirector(user)" mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="editMotor(motor.id)">Edit<mat-icon>edit</mat-icon> </button>
+      <button *ngIf="isDisplayWorker(user) || isDisplayDirector(user)" mat-raised-button id="deleteMotor" color="primary" class="delete-button" (click)="deleteMotor()">Delete<mat-icon>delete</mat-icon></button>
+    </div>
+   <!---<button mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="editMotor(motor.id)">Buy<mat-icon>shopping_cart</mat-icon> </button>-->
   </div>
   
   <ng-template #loadingTemplate>

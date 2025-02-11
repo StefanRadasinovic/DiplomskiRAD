@@ -299,14 +299,14 @@ priceData: { date: string, price: number }[] = [];
                 });
                 console.log("Displayed Motor:", res);
 
-                this.loadPriceData(this.role, item.id);
+                this.loadGraph(this.role, item.id);
              
             },
             error: (err) => {
 
                 this.displayForMotor = null;
                 this.errorMessage = 'No prices for current motor';
-                this.errorMessageGraph = 'No graph for current motor';
+                this.errorMessageGraph = 'No chart for current motor';
                 console.error('Error fetching motor details:', err);
                 this.loading = false;
 
@@ -338,14 +338,14 @@ priceData: { date: string, price: number }[] = [];
                 });
 
                 console.log("Displayed Equipment:", res);
-                this.loadPriceData(this.role, item.id);
+                this.loadGraph(this.role, item.id);
     
             },
             error: (err) => {
               
                 this.displayForEquipment = null;
                 this.errorMessage = 'No prices for current equipment';
-                this.errorMessageGraph = 'No graph for current equipment';
+                this.errorMessageGraph = 'No chart for current equipment';
                 console.error('Error fetching equipment details:', err);
                 this.loading = false;
 
@@ -368,27 +368,30 @@ priceData: { date: string, price: number }[] = [];
   handleSubmit() {
     if (this.creatingPriceListForm.valid) {
       const motorData: CreatePriceListDto = this.creatingPriceListForm.value;
-    
+  
       this.priceListService.createPriceList(this.currentItem.id, motorData).subscribe({
-        
         next: () => {
+
           console.log("ProductId je: ", this.currentItem.id);
           this.createMessage = "Uspesno dodat!";
+
           setTimeout(() => {
-            this.router.navigate(['/all-motorcycles']);
+            this.createMessage = '';  
+            this.setActiveItem(this.currentItem, this.currentItem.id);  
           }, 800);
         },
         error: (error) => {
-          console.error('Error adding motor ', error);
+          console.error('Error adding price ', error);
           console.log(motorData);
         }
       });
     }
   }
+  
 
 
   //Grafik
-  loadPriceData(role: string, currentItemId: string): void {
+  loadGraph(role: string, currentItemId: string): void {
     if (!role || !currentItemId) {
       console.error('Role or item ID missing');
       return;

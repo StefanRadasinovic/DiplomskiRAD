@@ -39,7 +39,7 @@
 }
 
 .user-table {
-  width: 90%;
+  width: 100%;
   border-collapse: collapse;
   border-radius: 30px 0px 30px 0px;
   font-family: "Trebuchet MS", sans-serif;
@@ -75,17 +75,17 @@
   font-weight: bold;
 }
 
-.search-button:enabled {
-  background-color: #4b97e7; 
-  color: white; 
-  border: none; 
-  cursor: pointer; 
+.search-button {
+  background-color: grey;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
 .search-button:hover {
   transform: translateY(-1px);
+  background-color: #4b97e7;
 }
-
 
 
 
@@ -101,16 +101,29 @@
   margin-top: 5px; /* Bring closer to table */
 }
 
-/* APPLY STYLING TO ALL INPUT TYPES */
-.form-group input {
-  width: 90%;
-  padding: 0.3rem;
-  margin: 0 auto;
-  display: block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 13px;
+.form-title {
+  text-align: center; 
+  margin-bottom: 0.8rem;
 }
+
+
+/* APPLY STYLING TO ALL INPUT TYPES */
+
+.form-group-inline {
+  display: flex;
+  justify-content: center; /* Center both fields */
+  gap: 0.2rem; /* Reduce the gap between the fields */
+  font-weight: bold;
+  font-size: 13px; /* Smaller font size */
+  color: #333;
+  
+}
+
+/* This controls the width of Not Available Time fields */
+.form-group-inline-item {
+  width: 47%; /* Reduce width to fit both fields */
+}
+
 
 
 /* APPLY STYLING ONLY TO INPUTS INSIDE LABELS */
@@ -129,7 +142,6 @@
   font-size: 13px;
 }
 
-/**************/
 
 /* FORM LABEL STYLING */
 .form-group label {
@@ -142,70 +154,77 @@
 }
 
 
-/*******/
-
-/* Center the form title */
-.form-title {
-  text-align: center; 
-  margin-bottom: 0.8rem;
+.form-custom {
+  font-weight: bold;         
+  font-size: 13px;          
+  color: #333;               
+  display: block;            
+  margin-bottom: 2px;        
+  margin-left: 8px;         
 }
 
-textarea {
-  width: 94%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  margin-left: 2.7%;
-  font-size: 14px;
-  resize: vertical;
+.form-group-inline-item input {
+  width: 90%;                
+  padding: 0.3rem;           
+  margin: 0 auto;            
+  display: block;            
+  border: 1px solid #ccc;    
+  border-radius: 4px;       
+  font-size: 13px;           
 }
 
-.zaMotor,
-.zaOpemu {
-  text-align: center; 
-}
 
-.error-message {
+/*************************************/
+
+
+.button-container {
   display: flex;
-  justify-content: center; 
-  align-items: center;    
-  text-align: center;       
-  font-size: 16px;         
-  color: red;              
+  justify-content: center; /* Centers the buttons horizontally */
+  gap: 2rem; /* Adds space between the buttons */
 }
 
-
-.success-message {
-  text-align: center;
-  color: green;
-  margin-top: 1rem;
+.delete-button {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #D11A2A;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px; /* Smaller font size */
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin-left: 1rem;
+  min-height: 2.8rem; /* Reduced minimum height */
+  padding: calc(.5rem - 1px) calc(1.8rem - 1px); /* Reduced padding */
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
 }
 
-
-/***********ADJUST PRICELIST************/
-
-.submit-button:hover {
+.delete-button:hover {
   transform: translateY(-1px);
 }
 
-.submit-button:active {
-  background-color: #27ae60;
+.delete-button:active {
+  background-color:  #D11A2A;
   box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
   transform: translateY(0);
 }
-.submit-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-/* Submit button and action section styling */
-.form-action {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-}
 
 
-.submit-button {
+
+.edit-button {
   align-items: center;
   background-clip: padding-box;
   background-color: #27ae60;
@@ -234,10 +253,17 @@ textarea {
   width: auto;
 }
 
-/*GRAFIKON*/
-.chart-container {
-  width: 90%;
-  height: 450px; 
+.edit-button:hover {
+  transform: translateY(-1px);
 }
+
+.edit-button:active {
+  background-color:  #27ae60;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
+
+
+
 
 
