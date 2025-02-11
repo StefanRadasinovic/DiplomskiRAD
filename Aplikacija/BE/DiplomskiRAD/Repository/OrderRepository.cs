@@ -39,7 +39,6 @@ namespace DiplomskiRAD.Repository
                 .Include(o => o.Equipments).ThenInclude(e => e.PriceLists)
 
                 .Include(o => o.User)
-                .OrderBy(o => o.OrderStatus == OrderStatus.NA_CEKANJU)
                 .FirstOrDefaultAsync(o => o.Id == orderId);
         }
 

@@ -20,8 +20,8 @@ export class OrderService {
           return this.http.get<OrderInfo>(`${baseUrl}/${id}`);
     }
 
-    getAllOrdersForUser(id: string): Observable<OrderInfo> {
-        return this.http.get<OrderInfo>(`${baseUrl}/user/${id}`);
+    getAllOrdersForUser(id: string): Observable<OrderInfo[]> {
+        return this.http.get<OrderInfo[]>(`${baseUrl}/user/${id}`);
     }
   
     createOrder(userId: string, itemId: string, data: CreateOrderDto): Observable<OrderInfo> {

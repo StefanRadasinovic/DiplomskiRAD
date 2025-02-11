@@ -264,6 +264,40 @@
 }
 
 
+.drop-zone {
+  border: 1px; /* Corrected border property */
+  border-radius: 4px;
+  padding: 1.5rem; /* Reduce padding */
+  text-align: center;
+  color: #aaa;
+  margin-left: 17px;
+  width: 78%; /* Set a smaller fixed width */
+  height: 130px; /* Reduce height */
+  overflow: hidden; /* Prevent overflow if image exceeds the bounds */
+  position: relative; /* For positioning the image preview */
+}
+
+.image-preview {
+  width: 100%; /* Fill the drop zone's width */
+  height: 100%; /* Fill the drop zone's height */
+  object-fit: fill; /* Stretch the image to fill the drop zone */
+  position: absolute; /* Ensure it fills the drop zone */
+  top: 0;
+  left: 0;
+  border: 1px; /* Optional: Add border */
+  border-radius: 4px; /* Optional: Rounded corners */
+}
+
+.form-label-slika {
+  font-weight: bold;
+  font-size: 13px; /* Smaller font size */
+  color: #333;
+  margin-bottom: 3px; /* Reduce margin */
+  text-align: center; /* Center label text */
+  margin-left: 17px;
+}
+
+
 
 
 

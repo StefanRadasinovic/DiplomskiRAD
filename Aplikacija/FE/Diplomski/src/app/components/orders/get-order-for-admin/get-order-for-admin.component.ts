@@ -75,6 +75,13 @@ export class GetOrderForAdminComponent  implements AfterViewInit {
           next: (res) => {
 
               this.displayForOrder = res;
+              if ((this.displayForOrder.motorcycleInfo?.[0]?.slika === '' && this.displayForOrder.equipmentInfo?.[0]?.slika === '') || 
+                 (this.displayForOrder.motorcycleInfo?.[0]?.slika === null && this.displayForOrder.equipmentInfo?.[0]?.slika === null))
+                {
+                  if (this.displayForOrder.equipmentInfo?.[0]) this.displayForOrder.equipmentInfo[0].slika = 'https://placehold.co/700x300/EEE/31343C?text=300x300';
+                  if (this.displayForOrder.motorcycleInfo?.[0]) this.displayForOrder.motorcycleInfo[0].slika = 'https://placehold.co/700x300/EEE/31343C?text=300x300';
+                }
+                
               this.loading = false;
               console.log("Displayed Order:", this.displayForOrder);
           },

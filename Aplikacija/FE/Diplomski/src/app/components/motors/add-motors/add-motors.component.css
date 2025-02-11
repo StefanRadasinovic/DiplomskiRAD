@@ -26,7 +26,12 @@
     margin-bottom: 4px; /* Reduce margin to bring fields closer */
 }
 
-input[type="text"]{
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="datetime-local"]
+input[type="datetime"]
+{
     width: 93%; /* Reduce input width */
     padding: 0.4rem; /* Smaller padding */
     margin-left: 0; /* Align inputs to the left */
