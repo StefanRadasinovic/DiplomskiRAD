@@ -116,7 +116,7 @@
 /* APPLY STYLING ONLY TO INPUTS INSIDE LABELS */
 .form-group input[type="text"],
 .form-group input[type="number"],
-.form-group input[type="date"]
+.form-group input[type="date"],
 .form-group input[type="datetime-local"],
 .form-group input[type="datetime"],
 .form-group input[type="checkbox"] {

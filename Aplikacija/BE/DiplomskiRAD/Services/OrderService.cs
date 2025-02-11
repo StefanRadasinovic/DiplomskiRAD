@@ -99,19 +99,24 @@ namespace DiplomskiRAD.Services
                 throw new Exception("OrderId not found");
             }
 
-            var orderedEquipmentAmount = order.Equipments?.FirstOrDefault()?.Amount;
-            if (orderedEquipmentAmount != null && orderedEquipmentAmount < order.OrderAmount) 
+            var equipment = order.Equipments?.FirstOrDefault();
+            if (equipment != null)
             {
-                throw new Exception("There is not enought available equipment for the order");
+                if (equipment.Amount < order.OrderAmount)
+                {
+                    throw new Exception("nema dovoljno equipment");
+                }
+                equipment.Amount -= order.OrderAmount;
             }
 
-  
-
-
-            var orderedMotorAmount = order.Motorcycles?.FirstOrDefault()?.Amount;
-            if (orderedMotorAmount != null && orderedMotorAmount < order.OrderAmount)
+            var motorcycle = order.Motorcycles?.FirstOrDefault();
+            if (motorcycle != null)
             {
-                throw new Exception("There is not enought available motors for the order");
+                if (motorcycle.Amount < order.OrderAmount)
+                {
+                    throw new Exception("nema dovoljno motor");
+                }
+                motorcycle.Amount -= order.OrderAmount; 
             }
 
             order.OrderStatus = OrderStatus.PRIHVACEN;
@@ -119,6 +124,7 @@ namespace DiplomskiRAD.Services
 
             await _orderRepository.UpdateOrder(order);
         }
+
 
         public async Task DeclineOrder(Guid orderId)
         {

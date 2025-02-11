@@ -30,7 +30,6 @@
   </table>
 
       <div *ngIf="isLoading" class="loading">
-          <p>Loading...</p>
       </div>
 
 
@@ -70,6 +69,11 @@
         <br>
     
         <!-----OVDE IDE SLIKA -->
+        <div class="form-group"></div>
+          <label class="form-label-slika">Picture:</label>
+          <div class="drop-zone">
+          <img [src]="displayForOrder.motorcycleInfo?.[0]?.slika || displayForOrder.equipmentInfo?.[0]?.slika" alt="{{ displayForOrder.motorcycleInfo?.[0]?.name || displayForOrder.equipmentInfo?.[0]?.name  }}" class="image-preview" />
+          </div>
       
         <br>
     

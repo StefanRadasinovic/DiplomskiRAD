@@ -1,7 +1,7 @@
 <div class="home-container">
     <mat-toolbar class="header">
       <span class="title">Available Equipment</span>
-      <button mat-raised-button
+      <button *ngIf="isDisplayWorker(user) || isDisplayDirector(user)"  mat-raised-button
               id="btnAddTitle"
               (click)="navigateToAddEquipment()"
               color="primary"
