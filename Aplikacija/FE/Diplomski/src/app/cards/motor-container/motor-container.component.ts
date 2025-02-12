@@ -25,6 +25,10 @@ export class MotorContainerComponent implements OnInit {
   isDisabledPrev = true;
   isDisabledNext = false;
 
+  surname = '';
+  name = '';
+  helper: PaginatedMotorProps[] = [];
+
   constructor(private motorService: MotorService, private router:Router) {}
 
   ngOnInit(): void {
@@ -67,5 +71,29 @@ export class MotorContainerComponent implements OnInit {
   onMotorSelected(motorId: string) {
     this.router.navigate(['/motorcycles', motorId]); 
   }
+
+  filterByNameAndSurname(): void { 
+    this.motorService.getAllWithPagination(this.pageNumber, this.pageSize).subscribe({
+      next: (data) => {
+        const filteredData = data.data.filter(motor =>  
+          motor.name?.toLowerCase().includes(this.name.toLowerCase()) &&
+          motor.producers[0]?.name.toLowerCase().includes(this.surname.toLowerCase()) 
+        );
+
+        this.motors = {
+          data: filteredData,
+          pageNumber: data.pageNumber,
+          pageSize: data.pageSize,
+          totalPages: data.totalPages,
+          totalRecord: data.totalRecord,
+        };
+        this.isDisabledPrev = this.pageNumber <= 1;
+        this.isDisabledNext = this.pageNumber >= this.motors.totalPages;
+      },
+      error: (e) => console.error(e)
+    });
+  }
+  
+  
 
 }

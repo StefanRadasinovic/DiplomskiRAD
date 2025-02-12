@@ -1,17 +1,28 @@
 <div *ngIf="isLoading">Loading data...</div>
 <div *ngIf="!isLoading">
   <div class="nav-pagination">
-    <div class="pagination-buttons">
-      <button class="pagination-button" (click)="handlePagePrev()" [disabled]="isDisabledPrev"><mat-icon>chevron_left</mat-icon>Prev</button>
-      <button class="pagination-button" (click)="handlePageNext()" [disabled]="isDisabledNext">Next <mat-icon>chevron_right</mat-icon></button>
+    <div class="filter-group">
+      <input type="text" class="filter-input" [(ngModel)]="surname" placeholder="Search by Producer">
+      <input type="text" class="filter-input" [(ngModel)]="name" placeholder="Search by Name">
+      <button mat-raised-button id="search" color="primary" class="search-button" (click)="filterByNameAndSurname()">Search</button>
     </div>
-    <div class="select-container">
-      <select (change)="handlePageSizeChange($event)" [value]="pageSize">
-        <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
-      </select>
+
+    <div class="pagination-wrapper">
+
+      <div class="pagination-buttons">
+        <button class="pagination-button" (click)="handlePagePrev()" [disabled]="isDisabledPrev"><mat-icon>chevron_left</mat-icon>Prev</button>
+        <button class="pagination-button" (click)="handlePageNext()" [disabled]="isDisabledNext">Next <mat-icon>chevron_right</mat-icon></button>
+      </div>
+
+      <div class="select-container">
+        <select (change)="handlePageSizeChange($event)" [value]="pageSize">
+          <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
+        </select>
+      </div>
+
     </div>
   </div>
-          
+  
   <br>
 
   <div class="motor-grid">
