@@ -28,5 +28,11 @@ namespace DiplomskiRAD.Models
 
         public ICollection<Order> Orders { get; set; }
 
+        public ICollection<Service> Services { get; set; }
+
+        public ICollection<TaskService> TaskServices { get; set; }
+
+        public ICollection<Review> Reviews { get; set; }
+
     }
 }
