@@ -51,7 +51,9 @@
           <hr />
       
           <br />
-  
+
+          <h3 [ngClass]="getStatusClass(displayForOrder.orderStatus)">Status: {{ displayForOrder.orderStatus }}</h3>
+     
          
           <div class="form-group-inline">
             <div class="form-group-inline-item">
@@ -100,13 +102,5 @@
             <input type="text" value="{{displayForOrder.totalPrice  }}"readonly />
           </div>
 
-          <br>
-      
-          <div class="form-group">
-            <label class="form-label">Status:</label>
-            <input type="text" value="{{displayForOrder.orderStatus}}"readonly />
-          </div>
-      
-          
     </div>
   </div>

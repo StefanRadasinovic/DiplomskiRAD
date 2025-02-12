@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DiplomskiRAD.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250210153942_SeedData")]
+    [Migration("20250212114817_SeedData")]
     partial class SeedData
     {
         /// <inheritdoc />
@@ -94,8 +94,8 @@ namespace DiplomskiRAD.Migrations
                     b.Property<int>("OrderStatus")
                         .HasColumnType("integer");
 
-                    b.Property<decimal>("TotalPrice")
-                        .HasColumnType("numeric");
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("double precision");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid");

@@ -91,8 +91,8 @@ namespace DiplomskiRAD.Migrations
                     b.Property<int>("OrderStatus")
                         .HasColumnType("integer");
 
-                    b.Property<decimal>("TotalPrice")
-                        .HasColumnType("numeric");
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("double precision");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid");

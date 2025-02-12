@@ -297,6 +297,38 @@
   margin-left: 17px;
 }
   
+.status-PRIHVACEN {
+  color: #089000;
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  text-align: center;   
+}
+
+.status-NA_CEKANJU {
+  color: #4A90E2;
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  text-align: center;   
+}
+
+.status-ODBIJEN {
+  color: #b71c1c;
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  text-align: center;   
+}
+
+.status-default {
+  color: black;
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  text-align: center;   
+}
+
   
   
   

@@ -84,13 +84,13 @@ namespace DiplomskiRAD.Migrations
 
             migrationBuilder.Sql(@"INSERT INTO ""Motorcycles""  VALUES
                     ('" + motorGuids[0] + @"', 'YZF', 'motor3.jpg', 0, 2025, 0, 3, 0),
-                    ('" + motorGuids[1] + @"', 'RSV4', 'motor4.jpg', 2000, 2020, 1, 2, 0),
-                    ('" + motorGuids[2] + @"', 'ATV', 'skuter1.jpg', 570, 2023, 1, 1, 2),
+                    ('" + motorGuids[1] + @"', 'RSV4', 'motor4.jpg', 2200, 2020, 1, 2, 0),
+                    ('" + motorGuids[2] + @"', 'ATV', 'skuter1.jpg', 570, 2023, 1, 2, 2),
                     ('" + motorGuids[3] + @"', 'eFLUX', 'elektricni1.jpg', 0, 2024, 0, 5, 3),
-                    ('" + motorGuids[4] + @"', 'COBRA', 'quad1.jpg', 3200, 2022, 1, 2, 4),
-                    ('" + motorGuids[5] + @"', 'NINJA', 'motor5.jpg', 0, 2020, 0, 1, 0),
-                    ('" + motorGuids[6] + @"', 'CYBER', 'elektricni2.jpg', 0, 2025, 0, 2, 3),
-                    ('" + motorGuids[7] + @"', 'R9', 'motor7.jpg', 4200, 2024, 1, 2, 3)");
+                    ('" + motorGuids[4] + @"', 'COBRA', 'quad1.jpg', 2000, 2022, 1, 2, 4),
+                    ('" + motorGuids[5] + @"', 'NINJA', 'motor5.jpg', 1000, 2023, 1, 2, 0),
+                    ('" + motorGuids[6] + @"', 'CYBER', 'elektricni2.jpg', 0, 2025, 0, 4, 3),
+                    ('" + motorGuids[7] + @"', 'R9', 'motor7.jpg', 1500, 2024, 1, 4, 3)");
 
 
             migrationBuilder.CreateTable(
@@ -106,6 +106,78 @@ namespace DiplomskiRAD.Migrations
                 {
                     table.PrimaryKey("PK_PriceLists", x => x.Id);
                 });
+
+
+            var priceListGuids = new[] {
+                Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(),
+                Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(),
+                Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(),
+                Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(),
+                Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(),
+                Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(),
+                Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(),
+                Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(),
+                Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(),
+                Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid()
+            };
+
+            migrationBuilder.Sql(@"INSERT INTO ""PriceLists""  VALUES
+                    ('" + priceListGuids[0] + @"', 10000, '2025-02-10 01:00:00 +01', '2025-06-10 01:00:00 +01'),
+                    ('" + priceListGuids[1] + @"', 17000, '2025-06-11 01:00:00 +01', '2025-12-11 01:00:00 +01'),
+                    ('" + priceListGuids[2] + @"', 14000, '2025-12-12 01:00:00 +01', '2026-02-12 01:00:00 +01'),
+                                           
+                    ('" + priceListGuids[3] + @"', 13000, '2025-02-10 01:00:00 +01','2025-06-10 01:00:00 +01'),
+                    ('" + priceListGuids[4] + @"', 20000, '2025-06-11 01:00:00 +01', '2025-12-11 01:00:00 +01'),
+                    ('" + priceListGuids[5] + @"', 17000, '2025-12-12 01:00:00 +01', '2026-02-12 01:00:00 +01'),
+                              
+                    ('" + priceListGuids[6] + @"', 6700,  '2025-02-10 01:00:00 +01', '2025-06-10 01:00:00 +01'),
+                    ('" + priceListGuids[7] + @"', 6700,  '2025-06-11 01:00:00 +01',  '2025-12-11 01:00:00 +01'),
+                    ('" + priceListGuids[8] + @"', 4500,  '2025-12-12 01:00:00 +01',  '2026-02-12 01:00:00 +01'),
+                                        
+                    ('" + priceListGuids[9] + @"', 9500,  '2025-02-10 01:00:00 +01', '2025-06-10 01:00:00 +01'),
+                    ('" + priceListGuids[10] + @"', 7600, '2025-06-11 01:00:00 +01',  '2025-12-11 01:00:00 +01'),
+                    ('" + priceListGuids[11] + @"', 8500, '2025-12-12 01:00:00 +01',  '2026-02-12 01:00:00 +01'),
+                            
+                    ('" + priceListGuids[12] + @"', 6500, '2025-02-10 01:00:00 +01', '2025-06-10 01:00:00 +01'),
+                    ('" + priceListGuids[13] + @"', 4700, '2025-06-11 01:00:00 +01',  '2025-12-11 01:00:00 +01'),
+                    ('" + priceListGuids[14] + @"', 5500, '2025-12-12 01:00:00 +01',  '2026-02-12 01:00:00 +01'),
+                                        
+                    ('" + priceListGuids[15] + @"', 7100, '2025-02-10 01:00:00 +01', '2025-06-10 01:00:00 +01'),
+                    ('" + priceListGuids[16] + @"', 8200, '2025-06-11 01:00:00 +01',  '2025-12-11 01:00:00 +01'),
+                    ('" + priceListGuids[17] + @"', 6600, '2025-12-12 01:00:00 +01',  '2026-02-12 01:00:00 +01'),
+                                         
+                    ('" + priceListGuids[18] + @"', 6500, '2025-02-10 01:00:00 +01', '2025-06-10 01:00:00 +01'),
+                    ('" + priceListGuids[19] + @"', 7300, '2025-06-11 01:00:00 +01',  '2025-12-11 01:00:00 +01'),
+                    ('" + priceListGuids[20] + @"', 6900, '2025-12-12 01:00:00 +01',  '2026-02-12 01:00:00 +01'),
+                                           
+                    ('" + priceListGuids[21] + @"', 10000, '2025-02-10 01:00:00 +01', '2025-06-10 01:00:00 +01'),
+                    ('" + priceListGuids[22] + @"', 11000, '2025-06-11 01:00:00 +01', '2025-12-11 01:00:00 +01'),
+                    ('" + priceListGuids[23] + @"', 9000,  '2025-12-12 01:00:00 +01', '2026-02-12 01:00:00 +01'),
+                                      
+                    ('" + priceListGuids[24] + @"', 200,   '2025-02-10 01:00:00 +01', '2025-06-10 01:00:00 +01'),
+                    ('" + priceListGuids[25] + @"', 150,   '2025-06-11 01:00:00 +01', '2025-12-11 01:00:00 +01'),
+                    ('" + priceListGuids[26] + @"', 170,   '2025-12-12 01:00:00 +01', '2026-02-12 01:00:00 +01'),
+                                                
+                    ('" + priceListGuids[27] + @"', 100,   '2025-02-10 01:00:00 +01', '2025-06-10 01:00:00 +01'),
+                    ('" + priceListGuids[28] + @"', 120,   '2025-06-11 01:00:00 +01', '2025-12-11 01:00:00 +01'),
+                    ('" + priceListGuids[29] + @"', 80,    '2025-12-12 01:00:00 +01', '2026-02-12 01:00:00 +01'),
+
+                    ('" + priceListGuids[30] + @"', 350, '2025-02-10 01:00:00 +01', '2025-06-10 01:00:00 +01'),
+                    ('" + priceListGuids[31] + @"', 320, '2025-06-11 01:00:00 +01', '2025-12-11 01:00:00 +01'),
+                    ('" + priceListGuids[32] + @"', 270, '2025-12-12 01:00:00 +01', '2026-02-12 01:00:00 +01'),
+
+                    ('" + priceListGuids[33] + @"', 30, '2025-02-10 01:00:00 +01', '2025-06-10 01:00:00 +01'),
+                    ('" + priceListGuids[34] + @"', 32, '2025-06-11 01:00:00 +01', '2025-12-11 01:00:00 +01'),
+                    ('" + priceListGuids[35] + @"', 27, '2025-12-12 01:00:00 +01', '2026-02-12 01:00:00 +01'),
+                                                    
+                    ('" + priceListGuids[36] + @"', 80, '2025-02-10 01:00:00 +01', '2025-06-10 01:00:00 +01'),
+                    ('" + priceListGuids[37] + @"', 70, '2025-06-11 01:00:00 +01',  '2025-12-11 01:00:00 +01'),
+                    ('" + priceListGuids[38] + @"', 50, '2025-06-11 01:00:00 +01',  '2025-12-11 01:00:00 +01')");
+
+
+
+
+
 
             migrationBuilder.CreateTable(
                 name: "Producers",
@@ -408,6 +480,62 @@ namespace DiplomskiRAD.Migrations
                     ('" + equipGuids[2] + @"', '" + producerGuids[9] + @"'),
                     ('" + equipGuids[3] + @"', '" + producerGuids[11] + @"'),
                     ('" + equipGuids[4] + @"', '" + producerGuids[8] + @"')");
+
+
+            migrationBuilder.Sql(@"INSERT INTO ""MotorcyclePriceList""  VALUES
+                    ('" + motorGuids[0] + @"', '" + priceListGuids[0] + @"'),
+                    ('" + motorGuids[0] + @"', '" + priceListGuids[1] + @"'),
+                    ('" + motorGuids[0] + @"', '" + priceListGuids[2] + @"'),
+
+                    ('" + motorGuids[1] + @"', '" + priceListGuids[3] + @"'),
+                    ('" + motorGuids[1] + @"', '" + priceListGuids[4] + @"'),
+                    ('" + motorGuids[1] + @"', '" + priceListGuids[5] + @"'),
+            
+                    ('" + motorGuids[2] + @"', '" + priceListGuids[6] + @"'),
+                    ('" + motorGuids[2] + @"', '" + priceListGuids[7] + @"'),
+                    ('" + motorGuids[2] + @"', '" + priceListGuids[8] + @"'),
+
+                    ('" + motorGuids[3] + @"', '" + priceListGuids[9] + @"'),
+                    ('" + motorGuids[3] + @"', '" + priceListGuids[10] + @"'),
+                    ('" + motorGuids[3] + @"', '" + priceListGuids[11] + @"'),
+
+                    ('" + motorGuids[4] + @"', '" + priceListGuids[12] + @"'),
+                    ('" + motorGuids[4] + @"', '" + priceListGuids[13] + @"'),
+                    ('" + motorGuids[4] + @"', '" + priceListGuids[14] + @"'),
+
+                    ('" + motorGuids[5] + @"', '" + priceListGuids[15] + @"'),
+                    ('" + motorGuids[5] + @"', '" + priceListGuids[16] + @"'),
+                    ('" + motorGuids[5] + @"', '" + priceListGuids[17] + @"'),
+
+                    ('" + motorGuids[6] + @"', '" + priceListGuids[18] + @"'),
+                    ('" + motorGuids[6] + @"', '" + priceListGuids[19] + @"'),
+                    ('" + motorGuids[6] + @"', '" + priceListGuids[20] + @"'),
+
+                    ('" + motorGuids[7] + @"', '" + priceListGuids[21] + @"'),
+                    ('" + motorGuids[7] + @"', '" + priceListGuids[22] + @"'),
+                    ('" + motorGuids[7] + @"', '" + priceListGuids[23] + @"')");
+
+
+            migrationBuilder.Sql(@"INSERT INTO ""EquipmentPriceList""  VALUES
+                    ('" + equipGuids[0] + @"', '" + priceListGuids[24] + @"'),
+                    ('" + equipGuids[0] + @"', '" + priceListGuids[25] + @"'),
+                    ('" + equipGuids[0] + @"', '" + priceListGuids[26] + @"'),
+
+                    ('" + equipGuids[1] + @"', '" + priceListGuids[27] + @"'),
+                    ('" + equipGuids[1] + @"', '" + priceListGuids[28] + @"'),
+                    ('" + equipGuids[1] + @"', '" + priceListGuids[29] + @"'),
+
+                    ('" + equipGuids[2] + @"', '" + priceListGuids[30] + @"'),
+                    ('" + equipGuids[2] + @"', '" + priceListGuids[31] + @"'),
+                    ('" + equipGuids[2] + @"', '" + priceListGuids[32] + @"'),
+
+                    ('" + equipGuids[3] + @"', '" + priceListGuids[33] + @"'),
+                    ('" + equipGuids[3] + @"', '" + priceListGuids[34] + @"'),
+                    ('" + equipGuids[3] + @"', '" + priceListGuids[35] + @"'),
+
+                    ('" + equipGuids[4] + @"', '" + priceListGuids[36] + @"'),
+                    ('" + equipGuids[4] + @"', '" + priceListGuids[37] + @"'),
+                    ('" + equipGuids[4] + @"', '" + priceListGuids[38] + @"')");
 
         }
 
