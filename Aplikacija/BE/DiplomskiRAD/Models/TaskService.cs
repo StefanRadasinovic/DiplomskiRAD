@@ -1,5 +1,6 @@
 ﻿using DiplomskiRAD.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace DiplomskiRAD.Models
 {
@@ -25,6 +26,7 @@ namespace DiplomskiRAD.Models
 
         public User User { get; set; }
 
+        [JsonIgnore]
         public ICollection<SparePart> SpareParts { get; set; }
     }
 }

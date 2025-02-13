@@ -371,10 +371,10 @@ namespace DiplomskiRAD.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    ServiceDescription = table.Column<string>(type: "text", nullable: false),
+                    FailureDescription = table.Column<string>(type: "text", nullable: false),
                     Picture = table.Column<string>(type: "text", nullable: true),
-                    StartDateService = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    EndDateService = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    StartDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     ServiceStatus = table.Column<int>(type: "integer", nullable: false),
                     razlogOdbijanja = table.Column<string>(type: "text", nullable: true),
                     UserId = table.Column<Guid>(type: "uuid", nullable: false)

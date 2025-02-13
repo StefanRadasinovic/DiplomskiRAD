@@ -44,6 +44,11 @@ import { AcceptDialogComponent } from './components/dialog/accept-dialog/accept-
 import { DeclineDialogComponent } from './components/dialog/decline-dialog/decline-dialog.component';
 import { GetOrderForUserComponent } from './components/orders/get-order-for-user/get-order-for-user.component';
 import { GetOrderForAdminComponent } from './components/orders/get-order-for-admin/get-order-for-admin.component';
+import { AllServicesUserComponent } from './components/motor-service/all-services-user/all-services-user.component';
+import { AllServicesAdminComponent } from './components/motor-service/all-services-admin/all-services-admin.component';
+import { AddServiceComponent } from './components/motor-service/add-service/add-service.component';
+import { CancelDialogComponent } from './components/dialog/cancel-dialog/cancel-dialog.component';
+import { AddReviewComponent } from './components/reviews/add-review/add-review.component';
 
 
 
@@ -79,6 +84,11 @@ import { GetOrderForAdminComponent } from './components/orders/get-order-for-adm
     DeclineDialogComponent,
     GetOrderForUserComponent,
     GetOrderForAdminComponent,
+    AllServicesUserComponent,
+    AllServicesAdminComponent,
+    AddServiceComponent,
+    CancelDialogComponent,
+    AddReviewComponent,
   ],
   imports: [
     BrowserModule,

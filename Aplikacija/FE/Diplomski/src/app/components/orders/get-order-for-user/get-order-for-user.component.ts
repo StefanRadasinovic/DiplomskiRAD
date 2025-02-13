@@ -21,7 +21,6 @@ import { DisplayClientDto, DisplayDirectorDto, DisplayWorkerDto } from '../../..
 export class GetOrderForUserComponent implements OnInit {
 
  user!: DisplayWorkerDto | DisplayClientDto | DisplayDirectorDto; 
-  displayedColumns: string[] = ['itemName', 'producer', 'orderAmount', 'totalPrice'];
   isLoading = true;
   orders: OrderInfo[] = [];
 

@@ -26,6 +26,8 @@ builder.Services.AddScoped<PriceListRepository>();
 builder.Services.AddScoped<PriceListService>();
 builder.Services.AddScoped<OrderService>();
 builder.Services.AddScoped<OrderRepository>();
+builder.Services.AddScoped<ServiceService>();
+builder.Services.AddScoped<ServiceRepository>();
 
 
 builder.Services.AddCors(options =>

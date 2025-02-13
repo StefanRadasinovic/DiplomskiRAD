@@ -21,6 +21,10 @@ import { ShowUsersAdminComponent } from './components/users/show-users-admin/sho
 import { AdjustPricesComponent } from './components/adjust-prices/adjust-prices.component';
 import { GetOrderForAdminComponent } from './components/orders/get-order-for-admin/get-order-for-admin.component';
 import { GetOrderForUserComponent } from './components/orders/get-order-for-user/get-order-for-user.component';
+import { AllServicesAdminComponent } from './components/motor-service/all-services-admin/all-services-admin.component';
+import { AllServicesUserComponent } from './components/motor-service/all-services-user/all-services-user.component';
+import { AddServiceComponent } from './components/motor-service/add-service/add-service.component';
+import { AddReviewComponent } from './components/reviews/add-review/add-review.component';
 
 
 const routes: Routes = [
@@ -46,6 +50,10 @@ const routes: Routes = [
   {path: 'adjust-prices', component: AdjustPricesComponent },
   {path: 'all-pendingOrders', component: GetOrderForAdminComponent },
   {path: 'all-orders/:id', component: GetOrderForUserComponent },
+  {path: 'display-services/:id', component: AllServicesAdminComponent },
+  {path: 'all-service/:id', component: AllServicesUserComponent },
+  {path: 'add-service', component: AddServiceComponent },
+  {path: 'add-review/:id', component: AddReviewComponent },
 
 ];
 
