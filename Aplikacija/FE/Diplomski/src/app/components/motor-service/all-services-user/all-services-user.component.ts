@@ -163,11 +163,13 @@ user!: DisplayWorkerDto | DisplayClientDto | DisplayDirectorDto;
       this.serviceService.deleteService(this.currentItem.id).subscribe({
         next: () => {
           console.log('Service deleted successfully');
+          this.errorMessage="";
           this.router.navigate(['/all-service', this.user.id]).then(() => {
             window.location.reload();
           });
         },
         error: (err) => {
+          this.errorMessage="Service can't be canceled <24h before starting";
           console.error('Service can not be canceled 24h before the start:', err);
         }
       });

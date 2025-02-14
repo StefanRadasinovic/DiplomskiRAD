@@ -15,6 +15,20 @@ export interface Service
     reviews : Review
 }
 
+export interface ServiceInfo
+{
+    id : string,
+    failureDescription : string,
+    picture? : string
+    startDate : string,
+    endDate : string,
+    serviceStatus : string,
+    razlogOdbijanja : string,
+    userInfo: UserInfo,
+    //taskServices:TaskService
+    reviews : Review
+}
+
 
 export interface UserServiceInfo //DODAJ MU MOZDA I REVIEW-GRADE KOJI MU JE DAO 
 {
@@ -44,4 +58,9 @@ export interface CreateServiceDto
     failureDescription : string,
     picture? : string
     startDate : string,
+}
+
+export interface DeclineServiceDto
+{
+    razlogOdbijanja : string
 }

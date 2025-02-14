@@ -60,7 +60,7 @@ namespace DiplomskiRAD.Services
 
         //OVO CES MORATI DA MENJAS DA IMAS DETALJE I O TASKOVIMA I RADNICIMA KOJI RADE NA NJIMA + USER KOJI JE POKRENUO SERVICE-UserInfo
         //Stavi da umesto service-a vraca ServiceInfo dto koji ce imati sve ovo. FORMATIRAJ DATUM ZA RESPONSE U ToString("yyyy-MM-dd"),
-        public async Task<Service> GetServiceById(Guid serviceId)
+        public async Task<ServiceInfo> GetServiceById(Guid serviceId)
         {
             var service = await _serviceRepository.GetServiceById(serviceId);
             if (service == null)
@@ -68,9 +68,26 @@ namespace DiplomskiRAD.Services
                 throw new Exception("Service Id doesn't exist");
             }
 
+            var serviceInfo = new ServiceInfo
+            {
+                Id = service.Id,
+                FailureDescription = service.FailureDescription,
+                Picture = service.Picture,
+                StartDate = service.StartDate.ToString("yyyy-MM-dd"),
+                EndDate = service.EndDate?.ToString("yyyy-MM-dd"),
+                ServiceStatus = service.ServiceStatus,
+                razlogOdbijanja = service.razlogOdbijanja,
+                UserInfo = new UserInfo
+                {
+                    Id = service.User.Id,
+                    Name = service.User.Name,
+                    Surname = service.User.Surname,
+                    Username = service.User.Username,
+                    Role = service.User.Role
+                }
+            };
             
-
-            return service;
+            return serviceInfo;
         }
 
 
@@ -121,7 +138,7 @@ namespace DiplomskiRAD.Services
             await _serviceRepository.Update(service);
         }
 
-        public async Task DeclineService(Guid serviceId, DeleteServiceDto dto)
+        public async Task DeclineService(Guid serviceId, DeclineServiceDto dto)
         {
             var service = await _serviceRepository.GetServiceById(serviceId);
             if (service == null) 

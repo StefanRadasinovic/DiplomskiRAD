@@ -114,6 +114,8 @@
             <button *ngIf="displayForServices.serviceStatus === 'NA_CEKANJU'" mat-raised-button id="deleteMotor" color="primary" class="delete-button" (click)="deleteService()">Cancel Request<mat-icon>delete</mat-icon></button>
           </div>
 
+          <p class="error-message">{{errorMessage}}</p>
+
     </div>
   </div>
 </div>

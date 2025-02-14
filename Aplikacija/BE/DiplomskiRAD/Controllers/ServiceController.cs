@@ -42,7 +42,7 @@ namespace DiplomskiRAD.Controllers
 
         //OVO CES MORATI DA MENJAS DA IMAS DETALJE I O TASKOVIMA I RADNICIMA KOJI RADE NA NJIMA
         [HttpGet("{serviceId}")]
-        public async Task<ActionResult<Service>> GetServiceById(Guid serviceId) 
+        public async Task<ActionResult<ServiceInfo>> GetServiceById(Guid serviceId) 
         {
             var existingService = await _serviceService.GetServiceById(serviceId);
             if (existingService == null)
@@ -76,17 +76,17 @@ namespace DiplomskiRAD.Controllers
 
 
         [HttpPut("accept/{serviceId}")]
-        public async Task<IActionResult> AcceptService(Guid serviceId)
+        public async Task<ActionResult> AcceptService(Guid serviceId)
         {
             await _serviceService.AcceptService(serviceId);
-            return Ok("Service prihvacen.");
+            return NoContent();
         }
 
         [HttpPut("decline/{serviceId}")]
-        public async Task<IActionResult> DeclineService(Guid serviceId, [FromBody] DeleteServiceDto dto)
+        public async Task<ActionResult> DeclineService(Guid serviceId, [FromBody] DeclineServiceDto dto)
         {
             await _serviceService.DeclineService(serviceId, dto);
-            return Ok("Service ODBIJEN.");
+            return NoContent();
         }
 
         [HttpDelete("{serviceId}")]

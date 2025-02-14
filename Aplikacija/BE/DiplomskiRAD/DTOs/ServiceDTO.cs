@@ -7,6 +7,27 @@ namespace DiplomskiRAD.DTOs
 {
     public class ServiceDTO
     {
+
+
+        public class ServiceInfo
+        {
+            public Guid Id { get; set; }
+
+            public string FailureDescription { get; set; }
+
+            public string? Picture { get; set; }
+
+            public string StartDate { get; set; } //datum pospeca zahteva 
+
+            public string? EndDate { get; set; }
+
+            public ServiceStatus ServiceStatus { get; set; }
+
+            public string? razlogOdbijanja { get; set; }
+
+            public UserInfo UserInfo { get; set; }
+
+        }
        
         public class UserServiceInfo
         {
@@ -56,7 +77,7 @@ namespace DiplomskiRAD.DTOs
 
         }
 
-        public class DeleteServiceDto
+        public class DeclineServiceDto
         {
             public string razlogOdbijanja { get; set; }
 

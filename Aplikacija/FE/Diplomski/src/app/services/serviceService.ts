@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { CreateOrderDto, OrderInfo } from "../models/orderDTO";
-import { CreateServiceDto, DirektorServiceInfo, Service, UserServiceInfo } from "../models/serviceDTO";
+import { CreateServiceDto, DeclineServiceDto, DirektorServiceInfo, Service, ServiceInfo, UserServiceInfo } from "../models/serviceDTO";
 
 const baseUrl = 'https://localhost:7213/api/Service'
 
@@ -17,8 +17,8 @@ export class ServiceService {
       return this.http.get<DirektorServiceInfo[]>(`${baseUrl}/pending-inProgress`);
     }
     
-    getServiceById(id: string): Observable<Service> {
-          return this.http.get<Service>(`${baseUrl}/${id}`);
+    getServiceById(id: string): Observable<ServiceInfo> {
+          return this.http.get<ServiceInfo>(`${baseUrl}/${id}`);
     }
 
     getAllServicesForUser(id: string): Observable<UserServiceInfo[]> {
@@ -34,12 +34,12 @@ export class ServiceService {
         return this.http.put<void>(`${baseUrl}/accept/${orderId}`, {});
     }
       
-    declineService(orderId: string): Observable<void> {
-        return this.http.put<void>(`${baseUrl}/decline/${orderId}`, {});
-    }
-
-    deleteService(serviceId: string): Observable<string> {
-      return this.http.delete<string>(`${baseUrl}/${serviceId}`);
+    declineService(orderId: string, data: DeclineServiceDto): Observable<void> {
+      return this.http.put<void>(`${baseUrl}/decline/${orderId}`, data);
+  }
+  
+    deleteService(serviceId: string): Observable<void> {
+      return this.http.delete<void>(`${baseUrl}/${serviceId}`);
   }
 
 }

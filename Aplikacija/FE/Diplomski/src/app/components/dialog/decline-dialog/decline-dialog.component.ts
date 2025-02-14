@@ -9,11 +9,13 @@ import { DialogComponent } from '../delete-dialog/dialog.component';
 })
 export class DeclineDialogComponent {
 
+  rejectionReason : string = "";
+
    constructor(public dialogRef: MatDialogRef<DialogComponent>) {}
   
-    onConfirm(): void {
-      this.dialogRef.close(true);
-    }
+   onConfirm(): void {
+    this.dialogRef.close({ rejectionReason: this.rejectionReason });  
+  }
   
     onCancel(): void {
       this.dialogRef.close(false);
