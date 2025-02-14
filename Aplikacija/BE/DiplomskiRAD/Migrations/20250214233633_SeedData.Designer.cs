@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DiplomskiRAD.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250212203753_SeedData")]
+    [Migration("20250214233633_SeedData")]
     partial class SeedData
     {
         /// <inheritdoc />
@@ -179,20 +179,20 @@ namespace DiplomskiRAD.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime?>("EndDateService")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("Picture")
+                    b.Property<string>("FailureDescription")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("ServiceDescription")
-                        .IsRequired()
+                    b.Property<string>("Picture")
                         .HasColumnType("text");
 
                     b.Property<int>("ServiceStatus")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("StartDateService")
+                    b.Property<DateTime>("StartDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<Guid>("UserId")
@@ -240,7 +240,7 @@ namespace DiplomskiRAD.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("EndDateTask")
+                    b.Property<DateTime?>("EndDateTask")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<Guid>("ServiceId")
@@ -257,7 +257,6 @@ namespace DiplomskiRAD.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("razlogOdbijanja")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");

@@ -10,11 +10,11 @@ namespace DiplomskiRAD.Models
 
         public string TaskDescription { get; set; }
 
-        public DateTime EndDateTask { get; set; }
+        public DateTime? EndDateTask { get; set; }
 
         public ServiceStatus Status { get; set; }
 
-        public string razlogOdbijanja { get; set; }
+        public string? razlogOdbijanja { get; set; }
 
         [ForeignKey(nameof(Service))]
         public Guid ServiceId { get; set; }
@@ -22,7 +22,7 @@ namespace DiplomskiRAD.Models
         public Service Service { get; set; }
 
         [ForeignKey(nameof(User))]
-        public Guid UserId { get; set; }
+        public Guid UserId { get; set; } //radnikID
 
         public User User { get; set; }
 

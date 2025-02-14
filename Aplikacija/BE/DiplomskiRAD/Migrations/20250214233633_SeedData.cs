@@ -3,12 +3,12 @@ using System.Security.Cryptography;
 using System.Text;
 using Microsoft.EntityFrameworkCore.Migrations;
 
+
 #nullable disable
 
 namespace DiplomskiRAD.Migrations
 {
     /// <inheritdoc />
-
     public partial class SeedData : Migration
     {
         /// <inheritdoc />
@@ -85,13 +85,13 @@ namespace DiplomskiRAD.Migrations
 
             migrationBuilder.Sql(@"INSERT INTO ""Motorcycles""  VALUES
                     ('" + motorGuids[0] + @"', 'YZF', 'motor3.jpg', 0, 2025, 0, 3, 0),
-                    ('" + motorGuids[1] + @"', 'RSV4', 'motor4.jpg', 2200, 2020, 1, 2, 0),
-                    ('" + motorGuids[2] + @"', 'ATV', 'skuter1.jpg', 570, 2023, 1, 2, 2),
+                    ('" + motorGuids[1] + @"', 'RSV4', 'motor4.jpg', 2000, 2020, 1, 2, 0),
+                    ('" + motorGuids[2] + @"', 'ATV', 'skuter1.jpg', 570, 2023, 1, 1, 2),
                     ('" + motorGuids[3] + @"', 'eFLUX', 'elektricni1.jpg', 0, 2024, 0, 5, 3),
-                    ('" + motorGuids[4] + @"', 'COBRA', 'quad1.jpg', 2000, 2022, 1, 2, 4),
-                    ('" + motorGuids[5] + @"', 'NINJA', 'motor5.jpg', 1000, 2023, 1, 2, 0),
-                    ('" + motorGuids[6] + @"', 'CYBER', 'elektricni2.jpg', 0, 2025, 0, 4, 3),
-                    ('" + motorGuids[7] + @"', 'R9', 'motor7.jpg', 1500, 2024, 1, 4, 3)");
+                    ('" + motorGuids[4] + @"', 'COBRA', 'quad1.jpg', 3200, 2022, 1, 2, 4),
+                    ('" + motorGuids[5] + @"', 'NINJA', 'motor5.jpg', 0, 2020, 0, 1, 0),
+                    ('" + motorGuids[6] + @"', 'CYBER', 'elektricni2.jpg', 0, 2025, 0, 2, 3),
+                    ('" + motorGuids[7] + @"', 'R9', 'motor7.jpg', 4200, 2024, 1, 2, 3)");
 
 
             migrationBuilder.CreateTable(
@@ -161,6 +161,7 @@ namespace DiplomskiRAD.Migrations
                     ('" + priceListGuids[36] + @"', 80, '2025-02-10 01:00:00 +01', '2025-06-10 01:00:00 +01'),
                     ('" + priceListGuids[37] + @"', 70, '2025-06-11 01:00:00 +01',  '2025-12-11 01:00:00 +01'),
                     ('" + priceListGuids[38] + @"', 50, '2025-06-11 01:00:00 +01',  '2025-12-11 01:00:00 +01')");
+
 
             migrationBuilder.CreateTable(
                 name: "Producers",
@@ -471,9 +472,9 @@ namespace DiplomskiRAD.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     TaskDescription = table.Column<string>(type: "text", nullable: false),
-                    EndDateTask = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    EndDateTask = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     Status = table.Column<int>(type: "integer", nullable: false),
-                    razlogOdbijanja = table.Column<string>(type: "text", nullable: false),
+                    razlogOdbijanja = table.Column<string>(type: "text", nullable: true),
                     ServiceId = table.Column<Guid>(type: "uuid", nullable: false),
                     UserId = table.Column<Guid>(type: "uuid", nullable: false)
                 },

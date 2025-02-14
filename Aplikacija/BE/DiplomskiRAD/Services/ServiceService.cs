@@ -5,6 +5,8 @@ using DiplomskiRAD.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using static DiplomskiRAD.DTOs.ServiceDTO;
+using static DiplomskiRAD.DTOs.SparePartDTO;
+using static DiplomskiRAD.DTOs.TaskServiceDTO;
 using static DiplomskiRAD.DTOs.UserDTO;
 
 namespace DiplomskiRAD.Services
@@ -38,6 +40,7 @@ namespace DiplomskiRAD.Services
         public async Task<IEnumerable<DirektorServiceInfo>> GetAllPendingAndInprogressServices()
         {
             var services = await _serviceRepository.GetAllPendingAndInprogressServices();
+
             return services.Select(s => new DirektorServiceInfo
             {
                 Id = s.Id,
@@ -47,6 +50,23 @@ namespace DiplomskiRAD.Services
                 EndDate = s.EndDate?.ToString("yyyy-MM-dd"),
                 ServiceStatus = s.ServiceStatus,
                 razlogOdbijanja = s.razlogOdbijanja,
+                TaskServiceInfo = s.TaskServices?.Select(task => new TaskServiceInfo
+                {
+                    Id = task.Id,
+                    TaskDescription = task.TaskDescription,
+                    Status = task.Status,
+                    EndDateTask = task.EndDateTask?.ToString("yyyy-MM-dd"),
+                    RazlogOdbijanja = task.razlogOdbijanja,
+                    WorkerInfo = task.User != null ? new UserInfo
+                    {
+                        Id = task.User.Id,
+                        Name = task.User.Name,
+                        Surname = task.User.Surname,
+                        Username = task.User.Username,
+                        Role = task.User.Role
+                    } : null
+                }).ToList() ?? new List<TaskServiceInfo>(),
+
                 UserInfo = s.User != null ? new UserInfo
                 {
                     Id = s.User.Id,
@@ -54,9 +74,10 @@ namespace DiplomskiRAD.Services
                     Surname = s.User.Surname,
                     Username = s.User.Username,
                     Role = s.User.Role
-                } : null 
+                } : null
             });
         }
+
 
         //OVO CES MORATI DA MENJAS DA IMAS DETALJE I O TASKOVIMA I RADNICIMA KOJI RADE NA NJIMA + USER KOJI JE POKRENUO SERVICE-UserInfo
         //Stavi da umesto service-a vraca ServiceInfo dto koji ce imati sve ovo. FORMATIRAJ DATUM ZA RESPONSE U ToString("yyyy-MM-dd"),
@@ -77,18 +98,41 @@ namespace DiplomskiRAD.Services
                 EndDate = service.EndDate?.ToString("yyyy-MM-dd"),
                 ServiceStatus = service.ServiceStatus,
                 razlogOdbijanja = service.razlogOdbijanja,
-                UserInfo = new UserInfo
+                UserInfo = service.User != null ? new UserInfo
                 {
                     Id = service.User.Id,
                     Name = service.User.Name,
                     Surname = service.User.Surname,
                     Username = service.User.Username,
                     Role = service.User.Role
-                }
+                } : null,
+                TaskServiceInfo = service.TaskServices?.Select(task => new TaskServiceInfo
+                {
+                    Id = task.Id,
+                    TaskDescription = task.TaskDescription,
+                    Status = task.Status,
+                    EndDateTask = task.EndDateTask?.ToString("yyyy-MM-dd"),
+                    RazlogOdbijanja = task.razlogOdbijanja,
+                    WorkerInfo = task.User != null ? new UserInfo
+                    {
+                        Id = task.User.Id,
+                        Name = task.User.Name,
+                        Surname = task.User.Surname,
+                        Username = task.User.Username,
+                        Role = task.User.Role
+                    } : null,
+                    SparePartInfo = task.SpareParts?.Select(sp => new SparePartInfo
+                    {
+                        Name = sp.Name,
+                        Amount = sp.Amount,
+                        IsSpartPartUsed = sp.IsSpartPartUsed
+                    }).ToList() ?? new List<SparePartInfo>()
+                }).ToList() ?? new List<TaskServiceInfo>()
             };
-            
+
             return serviceInfo;
         }
+
 
 
 

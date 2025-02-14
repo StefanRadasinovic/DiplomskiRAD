@@ -28,6 +28,9 @@ builder.Services.AddScoped<OrderService>();
 builder.Services.AddScoped<OrderRepository>();
 builder.Services.AddScoped<ServiceService>();
 builder.Services.AddScoped<ServiceRepository>();
+builder.Services.AddScoped<TaskServiceService>();
+builder.Services.AddScoped<TaskRepository>();
+builder.Services.AddScoped<SparePartsRepository>();
 
 
 builder.Services.AddCors(options =>
