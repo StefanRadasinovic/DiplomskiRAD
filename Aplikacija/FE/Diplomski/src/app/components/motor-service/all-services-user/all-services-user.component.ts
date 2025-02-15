@@ -186,8 +186,7 @@ user!: DisplayWorkerDto | DisplayClientDto | DisplayDirectorDto;
       this.router.navigate(['/add-service']);
     }
 
-    downloadPdf(serviceId: string): void {
-      //this.router.navigate(['/aaa', serviceId]);
+    downloadPdf(serviceId: string): void {  //OVDE CES ICI NA METODU GetAllTasksForService-svi detalji servisa
       console.log("kliknuo si download");
     }
 

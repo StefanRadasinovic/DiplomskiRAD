@@ -95,6 +95,7 @@
   
           <div mat-dialog-actions class="button-container">
             <button *ngIf="displayForServices.serviceStatus === 'NA_CEKANJU'" mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="handleAccept()">Accept <mat-icon>check</mat-icon> </button>
+            <button *ngIf="displayForServices.serviceStatus === 'U_TOKU'" mat-raised-button id="aMotor" color="primary" class="view-button" (click)="tasksDetails(currentItem.id)">View Tasks <mat-icon>details</mat-icon> </button>
             <button  *ngIf="displayForServices.serviceStatus === 'NA_CEKANJU' || displayForServices.serviceStatus === 'U_TOKU'" mat-raised-button id="deleteMotor" color="primary" class="delete-button" (click)="handleDecline()">Decline <mat-icon>close</mat-icon></button>
           </div>
     </div>

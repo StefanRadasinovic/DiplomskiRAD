@@ -41,11 +41,11 @@ export class LoginComponent {
   
         // Navigate based on user role
         if (userRole === 'DIREKTOR') {
-          this.router.navigate(['/director-homepage']);
+          this.router.navigate(['/all-motorcycles']);
         } else if (userRole === 'RADNIK') {
-          this.router.navigate(['/worker-homepage']);
+          this.router.navigate(['/all-motorcycles']);
         } else if (userRole === 'KLIJENT') {
-          this.router.navigate(['/client-homepage']);
+          this.router.navigate(['/all-motorcycles']);
         } else {
           this.router.navigate(['/login']);
         }

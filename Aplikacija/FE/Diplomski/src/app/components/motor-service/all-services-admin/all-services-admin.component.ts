@@ -25,18 +25,20 @@ export class AllServicesAdminComponent implements AfterViewInit {
     id: '',
     failureDescription: '',
     picture: '',
-    startDate: '',  
-    endDate: '',  
+    startDate: '',
+    endDate: '',
     serviceStatus: '',
     razlogOdbijanja: '',
     userInfo: {
-        id: '',  
-        name: '',  
-        surname: '', 
-        username: '', 
-        role: ''  
-    }
-};
+        id: '',
+        name: '',
+        surname: '',
+        username: '',
+        role: ''
+    },
+    taskServiceInfo: [] 
+}
+
 
   
   displayForServices: ServiceInfo = {} as ServiceInfo;
@@ -70,6 +72,22 @@ export class AllServicesAdminComponent implements AfterViewInit {
     }
     this.retrieveServices();
   }
+
+  
+  getUserById(id: string): void {
+    this.userService.getUserById(id).subscribe({
+      next: (res) => {
+        this.user = res;
+        this.loading = false;
+        console.log('KORISNIK JE:', res);
+      },
+      error: (err) => {
+        console.error('Error fetching user details:', err);
+        this.loading = false;
+      }
+    });
+  }
+
 
   retrieveServices(): void {
     this.serviceService.getAllPendingAndInprogressServices()
@@ -143,9 +161,7 @@ export class AllServicesAdminComponent implements AfterViewInit {
         this.serviceService.acceptService(this.currentItem.id).subscribe({
           next: () => {
             console.log('service: U_TOKU');
-            this.router.navigate(['/display-services', this.user.id]).then(() => {
-              window.location.reload();  
-            });
+            this.router.navigate(['/add-task', this.currentItem.id]);
           },
           error: (err) => console.error('Error accepting:', err)
         });
@@ -175,6 +191,10 @@ export class AllServicesAdminComponent implements AfterViewInit {
       }
     });
   }
+
+  tasksDetails(serviceId: string): void {
+    this.router.navigate(['/view-tasks', serviceId]);
+  }
   
 
 
@@ -192,20 +212,5 @@ export class AllServicesAdminComponent implements AfterViewInit {
         return 'status-default'; 
     }
   }
-
-  getUserById(id: string): void {
-    this.userService.getUserById(id).subscribe({
-      next: (res) => {
-        this.user = res;
-        this.loading = false;
-        console.log('KORISNIK JE:', res);
-      },
-      error: (err) => {
-        console.error('Error fetching user details:', err);
-        this.loading = false;
-      }
-    });
-  }
-
 
 }

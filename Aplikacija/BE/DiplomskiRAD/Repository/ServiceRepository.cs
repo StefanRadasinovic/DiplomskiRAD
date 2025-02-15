@@ -25,7 +25,7 @@ namespace DiplomskiRAD.Repository
             return await _context.Services
                                 .Where(s => s.ServiceStatus == ServiceStatus.NA_CEKANJU || s.ServiceStatus == ServiceStatus.U_TOKU)
                                 .Include(s => s.User)
-                                .Include(s => s.TaskServices)
+                                .Include(s => s.TaskServices).ThenInclude(p => p.User)
                                 .ToListAsync();
         }
 
@@ -35,7 +35,8 @@ namespace DiplomskiRAD.Repository
         {
             return await _context.Services
                                 .Include(s => s.User)
-                                .Include(s => s.TaskServices)
+                                .Include(s => s.TaskServices).ThenInclude(p=>p.User)
+                                .Include(s => s.TaskServices).ThenInclude(p => p.SpareParts)
                                 .Include(s => s.Reviews)
                                 .FirstOrDefaultAsync(o => o.Id == serviceId);
         }

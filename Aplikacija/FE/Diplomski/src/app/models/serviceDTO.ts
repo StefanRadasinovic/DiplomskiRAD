@@ -1,4 +1,5 @@
 import { Review } from "./reviewDTO"
+import { TaskService, TaskServiceInfo } from "./taskDTO"
 import { User, UserInfo } from "./userDTO"
 
 export interface Service
@@ -11,8 +12,8 @@ export interface Service
     serviceStatus : string,
     razlogOdbijanja : string,
     users : User,
-    //taskServices:TaskService
-    reviews : Review
+    taskServices:TaskService[]
+    reviews : Review[]
 }
 
 export interface ServiceInfo
@@ -25,7 +26,7 @@ export interface ServiceInfo
     serviceStatus : string,
     razlogOdbijanja : string,
     userInfo: UserInfo,
-    //taskServices:TaskService
+    taskServiceInfo : TaskServiceInfo[]
     reviews : Review
 }
 
@@ -51,6 +52,7 @@ export interface DirektorServiceInfo
     serviceStatus : string,
     razlogOdbijanja : string,
     userInfo: UserInfo,
+    taskServiceInfo : TaskServiceInfo[]
 }
 
 export interface CreateServiceDto

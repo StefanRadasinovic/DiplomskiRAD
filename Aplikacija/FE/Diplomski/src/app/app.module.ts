@@ -49,6 +49,10 @@ import { AllServicesAdminComponent } from './components/motor-service/all-servic
 import { AddServiceComponent } from './components/motor-service/add-service/add-service.component';
 import { CancelDialogComponent } from './components/dialog/cancel-dialog/cancel-dialog.component';
 import { AddReviewComponent } from './components/reviews/add-review/add-review.component';
+import { AddTasksComponent } from './components/tasks/add-tasks/add-tasks.component';
+import { AllTasksAdminComponent } from './components/tasks/all-tasks-admin/all-tasks-admin.component';
+import { AllTasksWorkerComponent } from './components/tasks/all-tasks-worker/all-tasks-worker.component';
+import { ViewTasksForServiceComponent } from './components/tasks/view-tasks-for-service/view-tasks-for-service.component';
 
 
 
@@ -89,6 +93,10 @@ import { AddReviewComponent } from './components/reviews/add-review/add-review.c
     AddServiceComponent,
     CancelDialogComponent,
     AddReviewComponent,
+    AddTasksComponent,
+    AllTasksAdminComponent,
+    AllTasksWorkerComponent,
+    ViewTasksForServiceComponent,
   ],
   imports: [
     BrowserModule,

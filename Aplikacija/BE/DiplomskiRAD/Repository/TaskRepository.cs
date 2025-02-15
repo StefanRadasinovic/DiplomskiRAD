@@ -18,17 +18,19 @@ namespace DiplomskiRAD.Repository
         public async Task<TaskService?> GetTaskById(Guid taskId)
         {
             return await _context.TaskServices
-                .Include(t => t.User)          
+                .Include(t => t.User)
+                .Include(t => t.Service)
                 .Include(t => t.SpareParts)    
                 .FirstOrDefaultAsync(t => t.Id == taskId);
         }
 
-        public async Task<List<TaskService>> GetTasksByUserId(Guid userId)
+        public async Task<List<TaskService>> GetTasksByUserId(Guid workerId) //SAMO PENDING I KOJI TRAJU 
         {
             return await _context.TaskServices
                 .Include(t => t.User)
+                .Include(t => t.Service)
                 .Include(t => t.SpareParts)
-                .Where(t => t.UserId == userId)
+                .Where(t => t.UserId == workerId && t.Status == ServiceStatus.NA_CEKANJU || t.Status == ServiceStatus.U_TOKU)
                 .ToListAsync();
         }
 
@@ -48,6 +50,7 @@ namespace DiplomskiRAD.Repository
         {
             return await _context.TaskServices
                  .Include(t => t.User)
+                 .Include(t => t.Service)
                  .Include(t => t.SpareParts)
                  .Where(t => t.Status == ServiceStatus.ODBIJEN || t.Status == ServiceStatus.U_TOKU).ToListAsync();
         }

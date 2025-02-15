@@ -57,43 +57,23 @@ namespace DiplomskiRAD.Controllers
         [HttpPut("accept/{taskId}/{userId}")]
         public async Task<ActionResult> AcceptTask(Guid taskId, Guid userId)
         {
-            try
-            {
                 await _taskService.AcceptTask(taskId, userId);
-                return Ok("Task accepted successfully.");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Error accepting task: {ex.Message}");
-            }
+                return NoContent();
         }
 
         [HttpPut("decline/{taskId}")]
         public async Task<ActionResult> DeclineTask(Guid taskId, [FromBody] RejectTaskDto dto)
         {
-            try
-            {
-                await _taskService.DeclineTask(taskId, dto);
-                return Ok("Task declined successfully.");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Error declining task: {ex.Message}");
-            }
+
+            await _taskService.DeclineTask(taskId, dto);
+            return NoContent();
         }
 
         [HttpPut("finish/{taskId}")]
         public async Task<ActionResult> FinishTask(Guid taskId, [FromBody] UsedSparePartDto dto)
         {
-            try
-            {
                 await _taskService.FinishTask(taskId, dto);
-                return Ok("Task finished successfully.");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Error finishing task: {ex.Message}");
-            }
+                return NoContent();
         }
 
         [HttpGet("all-service-tasks/{serviceId}")]
@@ -110,12 +90,12 @@ namespace DiplomskiRAD.Controllers
             }
         }
 
-        [HttpGet("tasks-for-user/{userId}")]
-        public async Task<ActionResult> GetTasksForUser(Guid userId)
+        [HttpGet("tasks-for-worker/{workerId}")]
+        public async Task<ActionResult> GetTasksForUser(Guid workerId)
         {
             try
             {
-                var result = await _taskService.GetTasksForUser(userId);
+                var result = await _taskService.GetTasksForUser(workerId);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -124,7 +104,7 @@ namespace DiplomskiRAD.Controllers
             }
         }
 
-        [HttpGet("declined-tasks")]
+        [HttpGet("InProgress-declined-tasks")]
         public async Task<ActionResult> GetAllInProgressDeclinedTasks()
         {
             try

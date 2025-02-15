@@ -112,9 +112,9 @@ namespace DiplomskiRAD.Services
             return serviceInfo;
         }
 
-        public async Task<List<TaskServiceInfo>> GetTasksForUser(Guid userId)
+        public async Task<List<TaskServiceInfo>> GetTasksForUser(Guid workerId) ////SAMO PENDING I KOJI TRAJU 
         {
-            var tasks = await _taskRepository.GetTasksByUserId(userId);
+            var tasks = await _taskRepository.GetTasksByUserId(workerId);
             return tasks.Select(t => new TaskServiceInfo
             {
                 Id = t.Id,
@@ -123,9 +123,15 @@ namespace DiplomskiRAD.Services
                 Status = t.Status,
                 RazlogOdbijanja = t.razlogOdbijanja,
                 ServiceId = t.ServiceId,
+                SparePartInfo = t.SpareParts.Select(s => new SparePartInfo
+                {
+                    Id = s.Id,
+                    Name = s.Name,
+                    Amount = s.Amount,
+                    IsSpartPartUsed = s.IsSpartPartUsed
+                }).ToList()
             }).ToList();
         }
-
 
 
         public async Task AcceptTask(Guid taskId, Guid userId)
@@ -148,6 +154,11 @@ namespace DiplomskiRAD.Services
             if (task == null)
             {
                 throw new Exception("Task not found");
+            }
+
+            if (task.Status != ServiceStatus.U_TOKU && task.Status != ServiceStatus.NA_CEKANJU)
+            {
+                throw new Exception("Task mora biti prihvacen");
             }
 
             task.Status = ServiceStatus.ODBIJEN;
@@ -243,10 +254,26 @@ namespace DiplomskiRAD.Services
             return tasks.Select(t => new TaskServiceInfo
             {
                 Id = t.Id,
+                ServiceId = t.ServiceId,
                 TaskDescription = t.TaskDescription,
                 EndDateTask = t.EndDateTask?.ToString("yyyy-MM-dd"),
                 Status = t.Status,
-                RazlogOdbijanja = t.razlogOdbijanja
+                RazlogOdbijanja = t.razlogOdbijanja,
+                WorkerInfo = t.User != null ? new UserInfo
+                {
+                    Id = t.User.Id,
+                    Name = t.User.Name,
+                    Surname = t.User.Surname,
+                    Username = t.User.Username,
+                    Role = t.User.Role
+                } : null,
+                SparePartInfo = t.SpareParts?.Select(sp => new SparePartInfo
+                {
+                    Id = sp.Id,
+                    Name = sp.Name,
+                    Amount = sp.Amount,
+                    IsSpartPartUsed = sp.IsSpartPartUsed
+                }).ToList() ?? new List<SparePartInfo>()
             }).ToList();
         }
 

@@ -25,15 +25,17 @@ import { AllServicesAdminComponent } from './components/motor-service/all-servic
 import { AllServicesUserComponent } from './components/motor-service/all-services-user/all-services-user.component';
 import { AddServiceComponent } from './components/motor-service/add-service/add-service.component';
 import { AddReviewComponent } from './components/reviews/add-review/add-review.component';
+import { AllTasksAdminComponent } from './components/tasks/all-tasks-admin/all-tasks-admin.component';
+import { AddTasksComponent } from './components/tasks/add-tasks/add-tasks.component';
+import { AllTasksWorkerComponent } from './components/tasks/all-tasks-worker/all-tasks-worker.component';
+import { ViewTasksForServiceComponent } from './components/tasks/view-tasks-for-service/view-tasks-for-service.component';
+
 
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full' },
   {path: 'register', component: RegisterComponent },
   {path: 'login', component: LoginComponent },
-  {path:'director-homepage', component:DirectorHomepageComponent},
-  {path:'worker-homepage', component:RadnikHomepageComponent},
-  {path:'client-homepage', component:ClientHomepageComponent},
   {path: 'all-motorcycles', component: AllMotorsComponent },
   {path: 'add-motorcycles', component: AddMotorsComponent },
   {path: 'motorcycles/:id', component: GetMotorsByIdComponent}, 
@@ -54,6 +56,16 @@ const routes: Routes = [
   {path: 'all-service/:id', component: AllServicesUserComponent },
   {path: 'add-service', component: AddServiceComponent },
   {path: 'add-review/:id', component: AddReviewComponent },
+  {path: 'add-task/:id', component: AddTasksComponent },
+  {path: 'display-tasks/:id', component: AllTasksAdminComponent },
+  {path: 'all-tasks/:id', component: AllTasksWorkerComponent },
+  {path: 'view-tasks/:id', component: ViewTasksForServiceComponent },
+
+  /*
+  {path:'director-homepage', component:DirectorHomepageComponent},
+  {path:'worker-homepage', component:RadnikHomepageComponent},
+  {path:'client-homepage', component:ClientHomepageComponent},
+  */ 
 
 ];
 
