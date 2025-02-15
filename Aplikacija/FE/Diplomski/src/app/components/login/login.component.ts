@@ -31,7 +31,6 @@ export class LoginComponent {
         this.authService.setToken(response.token);
         console.log(loginUser);
         console.log("Successfully logged in");
-        alert("Welcome back! You have successfully logged in.");
 
         const userRole = this.authService.getUserRole();
         //console.log("rola je:",userRole);
@@ -41,10 +40,13 @@ export class LoginComponent {
   
         // Navigate based on user role
         if (userRole === 'DIREKTOR') {
+          alert("Welcome back! Logged in as DIREKTOR.");
           this.router.navigate(['/all-motorcycles']);
         } else if (userRole === 'RADNIK') {
+          alert("Welcome back! Logged in as RADNIK.");
           this.router.navigate(['/all-motorcycles']);
         } else if (userRole === 'KLIJENT') {
+          alert("Welcome back! Logged in as KLIJENT.");
           this.router.navigate(['/all-motorcycles']);
         } else {
           this.router.navigate(['/login']);

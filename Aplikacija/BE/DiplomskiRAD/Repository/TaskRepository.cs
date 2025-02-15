@@ -30,7 +30,7 @@ namespace DiplomskiRAD.Repository
                 .Include(t => t.User)
                 .Include(t => t.Service)
                 .Include(t => t.SpareParts)
-                .Where(t => t.UserId == workerId && t.Status == ServiceStatus.NA_CEKANJU || t.Status == ServiceStatus.U_TOKU)
+                .Where(t => t.UserId == workerId && (t.Status == ServiceStatus.NA_CEKANJU || t.Status == ServiceStatus.U_TOKU || t.Status == ServiceStatus.NA_CEKANJU))
                 .ToListAsync();
         }
 
@@ -60,7 +60,18 @@ namespace DiplomskiRAD.Repository
             return await _context.TaskServices
                 .Include(t => t.User)
                 .Include(t => t.SpareParts)
-                .Where(t => t.ServiceId == serviceId).ToListAsync();
+                .Where(t => t.ServiceId == serviceId)
+                .ToListAsync();
+        }
+
+        public async Task DeleteTask(Guid id)
+        {
+            var task = await _context.TaskServices.FindAsync(id);
+            if (task != null)
+            {
+                _context.TaskServices.Remove(task);
+                await _context.SaveChangesAsync();
+            }
         }
 
         /*
@@ -69,5 +80,7 @@ namespace DiplomskiRAD.Repository
             return await _context.TaskServices.Where(t => t.Status == status).ToListAsync();
         }
         */
+
+
     }
 }

@@ -55,7 +55,7 @@
   
           <div mat-dialog-actions class="button-container">
             <button *ngIf="displayForTasks.status === 'NA_CEKANJU'" mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="handleAccept()">Accept <mat-icon>check</mat-icon> </button>
-            <button *ngIf="displayForTasks.status === 'U_TOKU'" mat-raised-button id="aMotor" color="primary" class="edit-button" (click)="handleFinish()">Complete <mat-icon>add</mat-icon> </button>
+            <button *ngIf="displayForTasks.status === 'U_TOKU'" mat-raised-button id="aMotor" color="primary" class="edit-button" (click)="handleFinish()">Finish <mat-icon>add</mat-icon> </button>
             <button  *ngIf="displayForTasks.status === 'NA_CEKANJU' || displayForTasks.status === 'U_TOKU'" mat-raised-button id="deleteMotor" color="primary" class="delete-button" (click)="handleDecline()">Decline <mat-icon>close</mat-icon></button>
           </div>
     </div>

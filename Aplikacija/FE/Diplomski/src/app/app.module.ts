@@ -52,7 +52,8 @@ import { AddReviewComponent } from './components/reviews/add-review/add-review.c
 import { AddTasksComponent } from './components/tasks/add-tasks/add-tasks.component';
 import { AllTasksAdminComponent } from './components/tasks/all-tasks-admin/all-tasks-admin.component';
 import { AllTasksWorkerComponent } from './components/tasks/all-tasks-worker/all-tasks-worker.component';
-import { ViewTasksForServiceComponent } from './components/tasks/view-tasks-for-service/view-tasks-for-service.component';
+import { ViewTasksForServiceComponent } from './components/motor-service/view-tasks-for-service/view-tasks-for-service.component';
+import { FinishDialogComponent } from './components/dialog/finish-dialog/finish-dialog.component';
 
 
 
@@ -97,6 +98,7 @@ import { ViewTasksForServiceComponent } from './components/tasks/view-tasks-for-
     AllTasksAdminComponent,
     AllTasksWorkerComponent,
     ViewTasksForServiceComponent,
+    FinishDialogComponent,
   ],
   imports: [
     BrowserModule,

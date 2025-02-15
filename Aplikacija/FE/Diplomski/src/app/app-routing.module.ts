@@ -28,7 +28,7 @@ import { AddReviewComponent } from './components/reviews/add-review/add-review.c
 import { AllTasksAdminComponent } from './components/tasks/all-tasks-admin/all-tasks-admin.component';
 import { AddTasksComponent } from './components/tasks/add-tasks/add-tasks.component';
 import { AllTasksWorkerComponent } from './components/tasks/all-tasks-worker/all-tasks-worker.component';
-import { ViewTasksForServiceComponent } from './components/tasks/view-tasks-for-service/view-tasks-for-service.component';
+import { ViewTasksForServiceComponent } from './components/motor-service/view-tasks-for-service/view-tasks-for-service.component';
 
 
 

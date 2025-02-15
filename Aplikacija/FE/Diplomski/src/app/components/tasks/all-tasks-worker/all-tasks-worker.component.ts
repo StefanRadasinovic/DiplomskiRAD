@@ -9,6 +9,8 @@ import { TaskService } from '../../../services/taskService';
 import { DeclineServiceDto } from '../../../models/serviceDTO';
 import { DeclineDialogComponent } from '../../dialog/decline-dialog/decline-dialog.component';
 import { AcceptDialogComponent } from '../../dialog/accept-dialog/accept-dialog.component';
+import { UsedSparePartDto } from '../../../models/sparePartsDTO';
+import { FinishDialogComponent } from '../../dialog/finish-dialog/finish-dialog.component';
 
 @Component({
   selector: 'app-all-tasks-worker',
@@ -174,8 +176,9 @@ user!: DisplayWorkerDto | DisplayClientDto | DisplayDirectorDto;
             next: () => {
               console.log('Service: ODBIJEN');
               console.log('razlog odbijanja je:', declineData);
-              this.router.navigate(['/all-tasks', this.user.id]);
-              window.location.reload();
+              this.router.navigate(['/all-tasks', this.user.id]).then(() => {
+                window.location.reload();
+              });
             },
             error: (err) => console.error('Error declining Service:', err)
           });
@@ -191,7 +194,9 @@ user!: DisplayWorkerDto | DisplayClientDto | DisplayDirectorDto;
           this.taskService.acceptTask(this.currentItem.id, this.user.id).subscribe({
             next: () => {
               console.log('service: U_TOKU');
-              this.router.navigate(['/all-tasks', this.currentItem.id]);
+              this.router.navigate(['/all-tasks', this.user.id]).then(() => {
+                window.location.reload();
+              });
             },
             error: (err) => console.error('Error accepting:', err)
           });
@@ -200,30 +205,31 @@ user!: DisplayWorkerDto | DisplayClientDto | DisplayDirectorDto;
     }
 
     handleFinish(): void {
-      console.log('NEZAVESENA FJA');
-    }
-/*
-    handleFinish(): void {
-      const dialogRef = this.dialog.open(FinishTaskDialog); //NAPRAVI POSEBAN DIALOG
+      const dialogRef = this.dialog.open(FinishDialogComponent); //NAPRAVI POSEBAN DIALOG
     
       dialogRef.afterClosed().subscribe(result => {
-        if (result && result.rejectionReason) {
+        if (result) {
           const finishData: UsedSparePartDto = {
-            razlogOdbijanja: result.rejectionReason
+            name: result.name,
+            amount:result.amount
           };
     
-          this.taskService.declineTask(this.currentItem.id, finishData).subscribe({
+          console.log('Used parts are:', finishData);
+          console.log('Task iD JE :', this.currentItem.id);
+
+          this.taskService.finishTask(this.currentItem.id, finishData).subscribe({
             next: () => {
               console.log('Service: ZAVRSEN');
-              console.log('Used parts are:', finishData);
-              this.router.navigate(['/all-tasks', this.user.id]);
-              window.location.reload();
+             
+              this.router.navigate(['/all-tasks', this.user.id]).then(() => {
+                window.location.reload();
+              });
             },
             error: (err) => console.error('Error declining Service:', err)
           });
         }
       });
   }
-  */
+  
 
 }

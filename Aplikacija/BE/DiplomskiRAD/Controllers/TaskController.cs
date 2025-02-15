@@ -77,7 +77,7 @@ namespace DiplomskiRAD.Controllers
         }
 
         [HttpGet("all-service-tasks/{serviceId}")]
-        public async Task<ActionResult> GetAllTasksForService(Guid serviceId)
+        public async Task<ActionResult<IEnumerable<TaskServiceInfo>>> GetAllTasksForService(Guid serviceId)
         {
             try
             {
@@ -116,6 +116,20 @@ namespace DiplomskiRAD.Controllers
             {
                 return BadRequest($"Error retrieving declined tasks: {ex.Message}");
             }
+        }
+
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteTaks(Guid id)
+        {
+            var existingMotor = await _taskService.GetTaskById(id);
+            if (existingMotor == null)
+            {
+                return NotFound("Task doesn't exist");
+            }
+
+            await _taskService.DeleteTaks(id);
+            return NoContent();
         }
 
 

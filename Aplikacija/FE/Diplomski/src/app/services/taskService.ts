@@ -24,7 +24,7 @@ export class TaskService {
     getAllTasksForServiceId(serviceId: string): Observable<TaskServiceInfo[]> {
       return this.http.get<TaskServiceInfo[]>(`${baseUrl}/all-service-tasks/${serviceId}`);
     }
-  
+
     getTasksForUser(workerId: string): Observable<TaskServiceInfo[]> {
       return this.http.get<TaskServiceInfo[]>(`${baseUrl}/tasks-for-worker/${workerId}`);
     }

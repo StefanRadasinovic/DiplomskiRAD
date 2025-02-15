@@ -162,7 +162,9 @@ namespace DiplomskiRAD.Services
             }
 
             task.Status = ServiceStatus.ODBIJEN;
+            task.EndDateTask = DateTime.UtcNow;
             task.razlogOdbijanja = dto.RazlogOdbijanja;
+
             await _taskRepository.UpdateTask(task);
         }
 
@@ -212,7 +214,7 @@ namespace DiplomskiRAD.Services
 
 
         //OVO TI JE fja ZA PDF
-        public async Task<Dictionary<ServiceStatus, List<TaskServiceInfo>>> GetAllTasksForService(Guid serviceId)
+        public async Task<List<TaskServiceInfo>> GetAllTasksForService(Guid serviceId)
         {
             var tasks = await _taskRepository.GetAllTasksForService(serviceId);
 
@@ -241,13 +243,10 @@ namespace DiplomskiRAD.Services
                 }).ToList() ?? new List<SparePartInfo>()
             }).ToList();
 
-            var groupedTasks = taskInfos.GroupBy(t => t.Status)
-                                        .ToDictionary(g => g.Key, g => g.ToList());
-
-            return groupedTasks;
+            return taskInfos; 
         }
 
-        
+
         public async Task<List<TaskServiceInfo>> GetAllInProgressDeclinedTasks()
         {
             var tasks = await _taskRepository.GetAllInProgressDeclinedTasks();
@@ -275,6 +274,11 @@ namespace DiplomskiRAD.Services
                     IsSpartPartUsed = sp.IsSpartPartUsed
                 }).ToList() ?? new List<SparePartInfo>()
             }).ToList();
+        }
+
+        public async Task DeleteTaks(Guid id)
+        {
+            await _taskRepository.DeleteTask(id);
         }
 
     }

@@ -15,11 +15,13 @@ namespace DiplomskiRAD.Services
     {
         private readonly ServiceRepository _serviceRepository;
         private readonly UserRepository _userRepository;
+        private readonly TaskRepository _tasRepository;
 
-        public ServiceService(ServiceRepository serviceRepository, UserRepository userRepository)
+        public ServiceService(ServiceRepository serviceRepository, UserRepository userRepository, TaskRepository tasRepository)
         {
             _serviceRepository = serviceRepository;
             _userRepository = userRepository;
+            _tasRepository = tasRepository;
         }
 
         public async Task<IEnumerable<UserServiceInfo>> GetAllServicesForUser(Guid userId)
@@ -193,6 +195,12 @@ namespace DiplomskiRAD.Services
             service.razlogOdbijanja = dto.razlogOdbijanja;
             service.ServiceStatus = ServiceStatus.ODBIJEN;
             service.EndDate = DateTime.UtcNow;
+
+            //ako je otkazan brisi sve njegove taskove
+            foreach( var task in service.TaskServices)
+            {
+                await _tasRepository.DeleteTask(task.Id);
+            }
 
             await _serviceRepository.Update(service);
         }
