@@ -205,7 +205,7 @@ user!: DisplayWorkerDto | DisplayClientDto | DisplayDirectorDto;
     }
 
     handleFinish(): void {
-      const dialogRef = this.dialog.open(FinishDialogComponent); //NAPRAVI POSEBAN DIALOG
+      const dialogRef = this.dialog.open(FinishDialogComponent); 
     
       dialogRef.afterClosed().subscribe(result => {
         if (result) {

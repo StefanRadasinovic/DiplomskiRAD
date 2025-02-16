@@ -1,4 +1,5 @@
 ﻿using DiplomskiRAD.Data;
+using DiplomskiRAD.Enums;
 using DiplomskiRAD.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -54,6 +55,13 @@ namespace DiplomskiRAD.Repository
                 _context.Users.Remove(user);
                 await _context.SaveChangesAsync();
             }
+        }
+
+        public async Task<IEnumerable<User>> GetAllWorkers()
+        {
+            return await _context.Users
+                .Where(u => u.Role == Role.RADNIK)
+                .ToListAsync();
         }
     }
 }

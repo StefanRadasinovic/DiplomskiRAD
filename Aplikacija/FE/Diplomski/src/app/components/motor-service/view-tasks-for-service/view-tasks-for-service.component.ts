@@ -148,4 +148,8 @@ export class ViewTasksForServiceComponent  implements OnInit {
     }
   }
 
+  assignNewWorker() : void {
+    console.log('NEIMPLEMENTIRANA FJA'); //TRAZI NOVOG RADNIKA KOJI NIJE VEC NIJE ODBIO OVAJ SERVIS
+  }
+
 }

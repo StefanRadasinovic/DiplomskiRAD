@@ -74,13 +74,6 @@ namespace DiplomskiRAD.Repository
             }
         }
 
-        /*
-        public async Task<List<TaskService>> GetTasksByStatus(ServiceStatus status)
-        {
-            return await _context.TaskServices.Where(t => t.Status == status).ToListAsync();
-        }
-        */
-
 
     }
 }

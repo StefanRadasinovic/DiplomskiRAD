@@ -179,5 +179,19 @@ namespace DiplomskiRAD.Services
         {
             await _userRepository.DeleteUser(id);
         }
+
+        public async Task<IEnumerable<UserDTO.UserInfo>> GetAllWorkers()
+        {
+            var users = await _userRepository.GetAllWorkers();
+
+            return users.Select(user => new UserInfo
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Surname = user.Surname,
+                Username = user.Username,
+                Role = user.Role
+            });
+        }
     }
 }

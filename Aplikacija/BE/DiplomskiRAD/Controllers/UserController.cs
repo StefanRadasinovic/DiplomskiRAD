@@ -95,5 +95,13 @@ namespace DiplomskiRAD.Controllers
             return NoContent();
         }
 
+        [Authorize(Roles = "DIREKTOR")]
+        [HttpGet("workers")]
+        public async Task<ActionResult<IEnumerable<UserDTO.UserInfo>>> GetAllWorkers()
+        {
+            var users = await _userService.GetAllWorkers();
+            return Ok(users);
+        }
+
     }
 }
