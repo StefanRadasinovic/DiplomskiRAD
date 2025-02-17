@@ -1,4 +1,4 @@
-import { Review } from "./reviewDTO"
+import { Review, ReviewInfo } from "./reviewDTO"
 import { TaskService, TaskServiceInfo } from "./taskDTO"
 import { User, UserInfo } from "./userDTO"
 
@@ -27,11 +27,11 @@ export interface ServiceInfo
     razlogOdbijanja : string,
     userInfo: UserInfo,
     taskServiceInfo : TaskServiceInfo[]
-    reviews : Review
+    reviewInfos : ReviewInfo[]
 }
 
 
-export interface UserServiceInfo //DODAJ MU MOZDA I REVIEW-GRADE KOJI MU JE DAO 
+export interface UserServiceInfo 
 {
     id : string,
     failureDescription : string,
@@ -39,7 +39,8 @@ export interface UserServiceInfo //DODAJ MU MOZDA I REVIEW-GRADE KOJI MU JE DAO
     startDate : string,
     endDate : string,
     serviceStatus : string,
-    razlogOdbijanja : string
+    razlogOdbijanja : string,
+    reviewInfos : ReviewInfo[]
 }
 
 export interface DirektorServiceInfo
@@ -52,7 +53,8 @@ export interface DirektorServiceInfo
     serviceStatus : string,
     razlogOdbijanja : string,
     userInfo: UserInfo,
-    taskServiceInfo : TaskServiceInfo[]
+    taskServiceInfo : TaskServiceInfo[],
+    reviewInfos : ReviewInfo[],
 }
 
 export interface CreateServiceDto

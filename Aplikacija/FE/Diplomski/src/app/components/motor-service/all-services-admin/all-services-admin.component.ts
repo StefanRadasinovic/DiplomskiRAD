@@ -36,7 +36,8 @@ export class AllServicesAdminComponent implements AfterViewInit {
         username: '',
         role: ''
     },
-    taskServiceInfo: [] 
+    taskServiceInfo: [] ,
+    reviewInfos:[]
 }
 
 

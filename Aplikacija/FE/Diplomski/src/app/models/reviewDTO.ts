@@ -1,11 +1,12 @@
+import { ServiceInfo } from "./serviceDTO";
 import { UserInfo } from "./userDTO";
 
-export interface Review  //proveri  ovo
+export interface Review  
 { 
     id : string,
     comment : string,
     grade? : number
-    serviceId : string,
+    services : ServiceInfo,
     users: UserInfo
 }
 
@@ -19,5 +20,4 @@ export interface CreateReviewDto
 {
     comment : string,
     grade? : number
-    serviceId : string,
 }

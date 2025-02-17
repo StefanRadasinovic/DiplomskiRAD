@@ -37,6 +37,7 @@
           <th>Start Date</th>
           <th>End Date</th>
           <th>Status</th>
+          <th>Grade</th>
           <th>Download pdf</th>
         </tr>
       </thead>
@@ -46,6 +47,7 @@
             <td>{{ service.startDate || 'N/A' }}</td>
             <td>{{ service.endDate || 'N/A' }}</td>
             <td>{{ service.serviceStatus }}</td>
+            <td>{{ service.reviewInfos[0]?.grade || 'N/A' }}</td>
             <td>
               <a *ngIf="service.serviceStatus === 'ZAVRSEN' || service.serviceStatus === 'ODBIJEN'" 
                  class="download-button download-link" 
@@ -110,7 +112,7 @@
           <br>
       
           <div mat-dialog-actions class="button-container"> 
-            <button *ngIf="displayForServices.serviceStatus === 'ZAVRSEN'" mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="reviewService(currentItem.id)">Review<mat-icon>grade</mat-icon> </button>
+            <button *ngIf="(displayForServices.serviceStatus === 'ZAVRSEN' || displayForServices.serviceStatus === 'ODBIJEN') && !displayForServices.reviewInfos?.length" mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="addReview()">Review <mat-icon>grade</mat-icon></button>
             <button *ngIf="displayForServices.serviceStatus === 'NA_CEKANJU'" mat-raised-button id="deleteMotor" color="primary" class="delete-button" (click)="deleteService()">Cancel Request<mat-icon>delete</mat-icon></button>
           </div>
 

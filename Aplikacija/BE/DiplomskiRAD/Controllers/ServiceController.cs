@@ -3,6 +3,7 @@ using DiplomskiRAD.Services;
 using Microsoft.AspNetCore.Mvc;
 using static DiplomskiRAD.DTOs.OrderDTO;
 using static DiplomskiRAD.DTOs.PriceListDTO;
+using static DiplomskiRAD.DTOs.ReviewDTO;
 using static DiplomskiRAD.DTOs.ServiceDTO;
 
 namespace DiplomskiRAD.Controllers
@@ -40,7 +41,6 @@ namespace DiplomskiRAD.Controllers
         }
 
 
-        //OVO CES MORATI DA MENJAS DA IMAS DETALJE I O TASKOVIMA I RADNICIMA KOJI RADE NA NJIMA
         [HttpGet("{serviceId}")]
         public async Task<ActionResult<ServiceInfo>> GetServiceById(Guid serviceId) 
         {

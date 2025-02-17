@@ -1,6 +1,7 @@
 ﻿using DiplomskiRAD.Enums;
 using DiplomskiRAD.Models;
 using System.ComponentModel.DataAnnotations.Schema;
+using static DiplomskiRAD.DTOs.ReviewDTO;
 using static DiplomskiRAD.DTOs.SparePartDTO;
 using static DiplomskiRAD.DTOs.TaskServiceDTO;
 using static DiplomskiRAD.DTOs.UserDTO;
@@ -31,6 +32,8 @@ namespace DiplomskiRAD.DTOs
 
             public List<TaskServiceInfo> TaskServiceInfo { get; set; }
 
+            public List<ReviewInfo> ReviewInfos { get; set; }
+
         }
        
         public class UserServiceInfo
@@ -48,6 +51,8 @@ namespace DiplomskiRAD.DTOs
             public ServiceStatus ServiceStatus { get; set; }
 
             public string? razlogOdbijanja { get; set; }
+
+            public List<ReviewInfo> ReviewInfos { get; set; }
 
         }
 
@@ -71,6 +76,8 @@ namespace DiplomskiRAD.DTOs
             public UserInfo UserInfo { get; set; }
 
             public List<TaskServiceInfo> TaskServiceInfo { get; set; }
+
+            public List<ReviewInfo> ReviewInfos { get; set; }
 
         }
 

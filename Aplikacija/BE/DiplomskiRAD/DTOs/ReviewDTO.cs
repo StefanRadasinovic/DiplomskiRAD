@@ -18,7 +18,6 @@ namespace DiplomskiRAD.DTOs
 
             public int Grade { get; set; }
 
-            public Guid ServiceId { get; set; }
         }
     }
 }

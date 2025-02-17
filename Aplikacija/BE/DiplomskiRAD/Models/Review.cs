@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace DiplomskiRAD.Models
 {
@@ -13,11 +14,13 @@ namespace DiplomskiRAD.Models
         [ForeignKey(nameof(Service))]
         public Guid ServiceId { get; set; }
 
+        [JsonIgnore]
         public Service Services { get; set; }
 
         [ForeignKey(nameof(User))]
         public Guid UserId { get; set; }
 
+        [JsonIgnore]
         public User Users { get; set; }
     }
 }

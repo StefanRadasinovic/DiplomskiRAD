@@ -8,6 +8,11 @@ import { DisplayClientDto, DisplayDirectorDto, DisplayWorkerDto } from '../../..
 import { Service, UserServiceInfo } from '../../../models/serviceDTO';
 import { DialogComponent } from '../../dialog/delete-dialog/dialog.component';
 import { CancelDialogComponent } from '../../dialog/cancel-dialog/cancel-dialog.component';
+import { jsPDF } from 'jspdf';
+import autoTable from 'jspdf-autotable';
+import { ReviewDialogComponent } from '../../dialog/review-dialog/review-dialog.component';
+import { CreateReviewDto } from '../../../models/reviewDTO';
+import { ReviewService } from '../../../services/reviewService';
 
 @Component({
   selector: 'app-all-services-user',
@@ -28,7 +33,8 @@ user!: DisplayWorkerDto | DisplayClientDto | DisplayDirectorDto;
     startDate : '',
     endDate : '',
     serviceStatus : '',
-    razlogOdbijanja: ''
+    razlogOdbijanja: '',
+    reviewInfos:[]
   };
   
   displayForServices: UserServiceInfo = {} as UserServiceInfo;
@@ -51,6 +57,7 @@ user!: DisplayWorkerDto | DisplayClientDto | DisplayDirectorDto;
               private dialog: MatDialog,
               private authService : AuthorisationService,
               private userService: UserService,
+              private reviewService: ReviewService,
           ) { }
 
   ngOnInit(): void {
@@ -175,22 +182,91 @@ user!: DisplayWorkerDto | DisplayClientDto | DisplayDirectorDto;
       });
     }
   });
-}
+}   
 
+addReview(): void {
+  const dialogRef = this.dialog.open(ReviewDialogComponent);
 
-    reviewService(serviceId: string): void {
-      this.router.navigate(['/add-review', serviceId]);
+  dialogRef.afterClosed().subscribe(result => {
+    if (result && result.comment && result.grade) {
+      const reviewData: CreateReviewDto = {
+        comment: result.comment,
+        grade: result.grade
+      };
+
+      this.reviewService.createReview(this.currentItem.id, this.user.id, reviewData).subscribe({
+        next: () => {
+        
+          console.log('Komentar je:', reviewData);
+          this.router.navigate(['/display-services', this.user.id]);
+          window.location.reload();
+        },
+        error: (err) => console.error('Error reviewing Service:', err)
+      });
     }
+  });
+}
+ 
 
     navigateToAddService() {
       this.router.navigate(['/add-service']);
     }
 
-    downloadPdf(serviceId: string): void {  //OVDE CES ICI NA METODU GetAllTasksForService-svi detalji servisa
-      console.log("kliknuo si download");
-    }
-
+    downloadPdf(serviceId: string): void {
+      this.serviceService.getServiceById(serviceId).subscribe(service => {
+        const doc = new jsPDF();
     
+        doc.setFontSize(20).text('Service Report', 105, 15, { align: 'center' });
+        doc.setFontSize(14).text(`STATUS: ${service.serviceStatus}`, 105, 40, { align: 'center' });
+    
+        doc.setFontSize(10).text('Motorcycle-Service Ltd.', 150, 10);
+        doc.text('Bulevar Oslobodjenja 11, Novi Sad', 150, 15);
+        doc.text('Phone: 021-456-7890', 150, 20);
+    
+        doc.setFontSize(12).setFont('helvetica', 'bold').text('Client Information:', 10, 50);
+        doc.setFont('helvetica', 'normal')
+           .text('Name:', 10, 60).text(`${service.userInfo.name}`, 28, 60).line(28, 61, 75, 61)
+           .text('Surname:', 10, 70).text(`${service.userInfo.surname}`, 32, 70).line(32, 71, 75, 71)
+           .text('Username:', 10, 80).text(`${service.userInfo.username}`, 36, 80).line(36, 81, 75, 81);
+    
+        doc.setFont('helvetica', 'bold').text('Service Information:', 10, 95);
+        autoTable(doc, {
+          startY: 100,
+          headStyles: { fontSize: 12 },
+          bodyStyles: { fontSize: 11 },
+          columnStyles: {
+            3: { halign: 'center' } 
+          },
+          head: [['Task Description', 'End Date', 'Status', 'Used Parts', 'Amount']],
+          body: service.taskServiceInfo.map(task => [
+            task.taskDescription,
+            task.endDateTask || '-',
+            task.status,
+            task.sparePartInfo.map(sp => sp.name).join(', '),
+            task.sparePartInfo.map(sp => sp.amount ?? '-').join(', ')
+          ]),
+        });
+    
+        
+        const finalY = (doc as any).lastAutoTable.finalY + 25;
 
-
+        doc.setFontSize(12).setFont('helvetica', 'bold').text('Signature:', 10, finalY);
+        const signatureImg = new Image();
+        signatureImg.src = 'signature.jpg'; 
+        signatureImg.onload = () => {
+                                             //x, y, widht, height
+          doc.addImage(signatureImg, 'JPEG', 35, finalY - 15, 50, 20);
+        
+          
+          const sealImg = new Image();
+          sealImg.src = 'seal.jpg';
+        
+          sealImg.onload = () => {
+                                         //x, y, widht, height
+            doc.addImage(sealImg, 'JPEG', 115, finalY - 5, 60, 60); 
+            doc.save(`Service_${serviceId}.pdf`);
+          };
+        };
+  });
+ }
 }

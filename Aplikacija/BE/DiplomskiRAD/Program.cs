@@ -31,6 +31,8 @@ builder.Services.AddScoped<ServiceRepository>();
 builder.Services.AddScoped<TaskServiceService>();
 builder.Services.AddScoped<TaskRepository>();
 builder.Services.AddScoped<SparePartsRepository>();
+builder.Services.AddScoped<ReviewService>();
+builder.Services.AddScoped<ReviewRepository>(); 
 
 
 builder.Services.AddCors(options =>

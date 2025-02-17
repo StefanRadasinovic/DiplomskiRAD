@@ -4,6 +4,7 @@ using DiplomskiRAD.Models;
 using DiplomskiRAD.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using static DiplomskiRAD.DTOs.ReviewDTO;
 using static DiplomskiRAD.DTOs.ServiceDTO;
 using static DiplomskiRAD.DTOs.SparePartDTO;
 using static DiplomskiRAD.DTOs.TaskServiceDTO;
@@ -26,7 +27,13 @@ namespace DiplomskiRAD.Services
 
         public async Task<IEnumerable<UserServiceInfo>> GetAllServicesForUser(Guid userId)
         {
-            var services = await _serviceRepository.GetAllServicesByUserId(userId);
+            var user = await _userRepository.GetUserById(userId);
+            if (user == null)
+            {
+                throw new Exception("user Id doesn't exist");
+            }
+
+            var services = await _serviceRepository.GetAllServicesForUser(userId);
             return services.Select(s => new UserServiceInfo
             {
                 Id = s.Id,
@@ -35,7 +42,12 @@ namespace DiplomskiRAD.Services
                 StartDate = s.StartDate.ToString("yyyy-MM-dd"),
                 EndDate = s.EndDate?.ToString("yyyy-MM-dd"),
                 ServiceStatus = s.ServiceStatus,
-                razlogOdbijanja = s.razlogOdbijanja
+                razlogOdbijanja = s.razlogOdbijanja,
+                ReviewInfos = s.Reviews?.Select(r => new ReviewInfo
+                {
+                    Comment = r.Comment,
+                    Grade = r.Grade,
+                }).ToList() ?? new List<ReviewInfo>(),
             });
         }
 
@@ -52,6 +64,13 @@ namespace DiplomskiRAD.Services
                 EndDate = s.EndDate?.ToString("yyyy-MM-dd"),
                 ServiceStatus = s.ServiceStatus,
                 razlogOdbijanja = s.razlogOdbijanja,
+
+                ReviewInfos = s.Reviews?.Select(r => new ReviewInfo
+                {
+                    Comment = r.Comment,
+                    Grade = r.Grade,
+                }).ToList() ?? new List<ReviewInfo>(),
+
                 TaskServiceInfo = s.TaskServices?.Select(task => new TaskServiceInfo
                 {
                     Id = task.Id,
@@ -69,6 +88,7 @@ namespace DiplomskiRAD.Services
                     } : null
                 }).ToList() ?? new List<TaskServiceInfo>(),
 
+
                 UserInfo = s.User != null ? new UserInfo
                 {
                     Id = s.User.Id,
@@ -81,8 +101,6 @@ namespace DiplomskiRAD.Services
         }
 
 
-        //OVO CES MORATI DA MENJAS DA IMAS DETALJE I O TASKOVIMA I RADNICIMA KOJI RADE NA NJIMA + USER KOJI JE POKRENUO SERVICE-UserInfo
-        //Stavi da umesto service-a vraca ServiceInfo dto koji ce imati sve ovo. FORMATIRAJ DATUM ZA RESPONSE U ToString("yyyy-MM-dd"),
         public async Task<ServiceInfo> GetServiceById(Guid serviceId)
         {
             var service = await _serviceRepository.GetServiceById(serviceId);
@@ -100,6 +118,13 @@ namespace DiplomskiRAD.Services
                 EndDate = service.EndDate?.ToString("yyyy-MM-dd"),
                 ServiceStatus = service.ServiceStatus,
                 razlogOdbijanja = service.razlogOdbijanja,
+
+                ReviewInfos = service.Reviews?.Select(r => new ReviewInfo
+                {
+                    Comment = r.Comment,
+                    Grade = r.Grade,
+                }).ToList() ?? new List<ReviewInfo>(),
+
                 UserInfo = service.User != null ? new UserInfo
                 {
                     Id = service.User.Id,
@@ -125,6 +150,7 @@ namespace DiplomskiRAD.Services
                     } : null,
                     SparePartInfo = task.SpareParts?.Select(sp => new SparePartInfo
                     {
+                        Id = sp.Id, 
                         Name = sp.Name,
                         Amount = sp.Amount,
                         IsSpartPartUsed = sp.IsSpartPartUsed
@@ -134,8 +160,6 @@ namespace DiplomskiRAD.Services
 
             return serviceInfo;
         }
-
-
 
 
         public async Task<UserServiceInfo> CreateService(Guid userId, CreateServiceDto dto)

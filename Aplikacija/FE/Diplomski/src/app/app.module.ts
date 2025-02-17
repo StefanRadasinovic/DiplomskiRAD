@@ -55,6 +55,8 @@ import { AllTasksWorkerComponent } from './components/tasks/all-tasks-worker/all
 import { ViewTasksForServiceComponent } from './components/motor-service/view-tasks-for-service/view-tasks-for-service.component';
 import { FinishDialogComponent } from './components/dialog/finish-dialog/finish-dialog.component';
 import { AssingNewWorkerComponent } from './components/tasks/assing-new-worker/assing-new-worker.component';
+import { PdfFileComponent } from './components/pdf-file/pdf-file.component';
+import { ReviewDialogComponent } from './components/dialog/review-dialog/review-dialog.component';
 
 
 
@@ -101,6 +103,8 @@ import { AssingNewWorkerComponent } from './components/tasks/assing-new-worker/a
     ViewTasksForServiceComponent,
     FinishDialogComponent,
     AssingNewWorkerComponent,
+    PdfFileComponent,
+    ReviewDialogComponent,
   ],
   imports: [
     BrowserModule,

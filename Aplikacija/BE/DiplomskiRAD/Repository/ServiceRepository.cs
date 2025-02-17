@@ -15,9 +15,11 @@ namespace DiplomskiRAD.Repository
             _context = context;
         }
 
-        public async Task<IEnumerable<Service>> GetAllServicesByUserId(Guid userId)
+        public async Task<IEnumerable<Service>> GetAllServicesForUser(Guid userId)
         {
-            return await _context.Services.Where(s => s.UserId == userId).ToListAsync();
+            return await _context.Services
+                                .Include(s => s.Reviews)
+                                .Where(s => s.UserId == userId).ToListAsync();
         }
 
         public async Task<IEnumerable<Service>> GetAllPendingAndInprogressServices()
