@@ -29,7 +29,7 @@ import { AllTasksAdminComponent } from './components/tasks/all-tasks-admin/all-t
 import { AddTasksComponent } from './components/tasks/add-tasks/add-tasks.component';
 import { AllTasksWorkerComponent } from './components/tasks/all-tasks-worker/all-tasks-worker.component';
 import { ViewTasksForServiceComponent } from './components/motor-service/view-tasks-for-service/view-tasks-for-service.component';
-
+import { AssingNewWorkerComponent } from './components/tasks/assing-new-worker/assing-new-worker.component';
 
 
 const routes: Routes = [
@@ -60,6 +60,8 @@ const routes: Routes = [
   {path: 'display-tasks/:id', component: AllTasksAdminComponent },
   {path: 'all-tasks/:id', component: AllTasksWorkerComponent },
   {path: 'view-tasks/:id', component: ViewTasksForServiceComponent },
+  {path: 'assign-worker/:id', component: AssingNewWorkerComponent },
+
 
   /*
   {path:'director-homepage', component:DirectorHomepageComponent},

@@ -45,5 +45,9 @@ getAllWorkers(): Observable<UserInfo[]> {
   });
 }
 
+getAllFreeUsersForTask(taskId: string): Observable<UserInfo[]> {
+  return this.http.get<UserInfo[]>(`${baseUrl}/free-workers/${taskId}`);
+}
+
 
 }

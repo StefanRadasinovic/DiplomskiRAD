@@ -23,7 +23,8 @@ namespace DiplomskiRAD.Repository
         public async Task<IEnumerable<Service>> GetAllPendingAndInprogressServices()
         {
             return await _context.Services
-                                .Where(s => s.ServiceStatus == ServiceStatus.NA_CEKANJU || s.ServiceStatus == ServiceStatus.U_TOKU)
+                                .Where(s => s.ServiceStatus == ServiceStatus.NA_CEKANJU || 
+                                       s.ServiceStatus == ServiceStatus.U_TOKU || s.ServiceStatus == ServiceStatus.NA_CEKANJU)
                                 .Include(s => s.User)
                                 .Include(s => s.TaskServices).ThenInclude(p => p.User)
                                 .ToListAsync();

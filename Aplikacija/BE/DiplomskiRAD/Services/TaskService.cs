@@ -281,5 +281,51 @@ namespace DiplomskiRAD.Services
             await _taskRepository.DeleteTask(id);
         }
 
+
+        public async Task<TaskServiceInfo> AssingOtherWorker(Guid taskId, Guid userId)
+        {
+            var task = await _taskRepository.GetTaskById(taskId);
+            if (task == null)
+            {
+                throw new Exception("Task doesn't exist");
+            }
+
+            var declinedUsers = await _userRepository.GetAllDeclineUsersForTask(taskId);
+            if (declinedUsers.Any(u => u.Id == userId))
+            {
+                throw new Exception("user already declined the task.");
+            }
+
+            var user = await _userRepository.GetUserById(userId);
+            if (user == null)
+            {
+                throw new Exception("User doesn't exist.");
+            }
+
+            //resetuj
+            task.Status = ServiceStatus.NA_CEKANJU;
+            task.UserId = userId;
+            task.EndDateTask = null;
+            task.razlogOdbijanja = null;
+
+            await _taskRepository.UpdateTask(task);
+
+            return new TaskServiceInfo
+            {
+                Id = task.Id,
+                ServiceId = task.ServiceId,
+                TaskDescription = task.TaskDescription,
+                Status = task.Status,
+                WorkerInfo = new UserInfo
+                {
+                    Id = user.Id,
+                    Name = user.Name,
+                    Surname = user.Surname,
+                    Username = user.Username,
+                    Role = user.Role
+                }
+            };
+
+        }
     }
 }

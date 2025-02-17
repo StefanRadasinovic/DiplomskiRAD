@@ -54,6 +54,7 @@ import { AllTasksAdminComponent } from './components/tasks/all-tasks-admin/all-t
 import { AllTasksWorkerComponent } from './components/tasks/all-tasks-worker/all-tasks-worker.component';
 import { ViewTasksForServiceComponent } from './components/motor-service/view-tasks-for-service/view-tasks-for-service.component';
 import { FinishDialogComponent } from './components/dialog/finish-dialog/finish-dialog.component';
+import { AssingNewWorkerComponent } from './components/tasks/assing-new-worker/assing-new-worker.component';
 
 
 
@@ -99,6 +100,7 @@ import { FinishDialogComponent } from './components/dialog/finish-dialog/finish-
     AllTasksWorkerComponent,
     ViewTasksForServiceComponent,
     FinishDialogComponent,
+    AssingNewWorkerComponent,
   ],
   imports: [
     BrowserModule,

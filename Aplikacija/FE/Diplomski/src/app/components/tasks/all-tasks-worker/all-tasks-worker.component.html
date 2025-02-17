@@ -4,6 +4,7 @@
       <div class="dropdown">
         <select [(ngModel)]="status" class="filter-select">
           <option value="">Select Status</option>
+          <option value="NA_CEKANJU">NA_CEKANJU</option>
           <option value="U_TOKU">U_TOKU</option>
           <option value="NA_CEKANJU">NA_CEKANJU</option>
         </select>
@@ -56,7 +57,7 @@
           <div mat-dialog-actions class="button-container">
             <button *ngIf="displayForTasks.status === 'NA_CEKANJU'" mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="handleAccept()">Accept <mat-icon>check</mat-icon> </button>
             <button *ngIf="displayForTasks.status === 'U_TOKU'" mat-raised-button id="aMotor" color="primary" class="edit-button" (click)="handleFinish()">Finish <mat-icon>add</mat-icon> </button>
-            <button  *ngIf="displayForTasks.status === 'NA_CEKANJU' || displayForTasks.status === 'U_TOKU'" mat-raised-button id="deleteMotor" color="primary" class="delete-button" (click)="handleDecline()">Decline <mat-icon>close</mat-icon></button>
+            <button  *ngIf="displayForTasks.status === 'NA_CEKANJU' || displayForTasks.status === 'U_TOKU'" mat-raised-button id="deleteMotor" color="primary" class="delete-button" (click)="handleDecline()">Cancel <mat-icon>close</mat-icon></button>
           </div>
     </div>
   </div>

@@ -148,8 +148,8 @@ export class AllTasksAdminComponent implements AfterViewInit {
   }
 
 
-  assignNewWorker() : void {
-    console.log('NEIMPLEMENTIRANA FJA'); //TRAZI NOVOG RADNIKA KOJI NIJE VEC NIJE ODBIO OVAJ SERVIS
+  assignNewWorker(taskId : string) : void {
+    this.router.navigate(['/assign-worker',taskId]) 
   }
 
 

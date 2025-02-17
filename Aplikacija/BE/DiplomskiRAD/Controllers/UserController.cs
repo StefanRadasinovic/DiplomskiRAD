@@ -103,5 +103,17 @@ namespace DiplomskiRAD.Controllers
             return Ok(users);
         }
 
+        
+        [HttpGet("free-workers/{taskId}")]
+        public async Task<ActionResult<IEnumerable<UserDTO.UserInfo>>> GetAllFreeUsersForTask(Guid taskId)
+        {
+            var user = await _userService.GetAllFreeUsersForTask(taskId);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
+        }
+
     }
 }

@@ -40,6 +40,20 @@ namespace DiplomskiRAD.Controllers
             }
         }
 
+
+        [HttpPut("assign-otherWorker/{taskId}/{userId}")]
+        public async Task<ActionResult<TaskServiceInfo>> AssingOtherWorker(Guid taskId, Guid userId)
+        {
+            var existingTask = await _taskService.AssingOtherWorker(taskId, userId);
+            if (existingTask == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(existingTask);
+
+        }
+
         [HttpGet("{taskId}")]
         public async Task<ActionResult<TaskServiceInfo>> GetTaskById(Guid taskId)
         {

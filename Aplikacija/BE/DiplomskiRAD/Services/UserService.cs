@@ -12,11 +12,13 @@ namespace DiplomskiRAD.Services
     {
         private readonly UserRepository _userRepository;
         private readonly TokenService _tokenService;
+        private readonly TaskRepository _taskRepository;
 
-        public UserService(UserRepository repository, TokenService tokenService)
+        public UserService(UserRepository repository, TokenService tokenService, TaskRepository taskRepository)
         {
             _userRepository = repository;
             _tokenService = tokenService;
+            _taskRepository = taskRepository;
         }
 
         public async Task Register(UserDTO.UserRegistrationDto userDto)
@@ -146,13 +148,13 @@ namespace DiplomskiRAD.Services
                 user.Username = updateDict["username"].GetString();
 
             if (updateDict.ContainsKey("password") && updateDict["password"].ValueKind != JsonValueKind.Null)
-                user.Password = _tokenService.HashPassword(updateDict["password"].GetString());  // Ensure hashing
+                user.Password = _tokenService.HashPassword(updateDict["password"].GetString());
 
             if (updateDict.ContainsKey("role") && updateDict["role"].ValueKind != JsonValueKind.Null)
             {
                 if (Enum.TryParse(typeof(DiplomskiRAD.Enums.Role), updateDict["role"].GetString(), out var roleValue))
                 {
-                    user.Role = (DiplomskiRAD.Enums.Role)roleValue;  // Properly casting to enum
+                    user.Role = (DiplomskiRAD.Enums.Role)roleValue;  
                 }
                 else
                 {
@@ -183,6 +185,29 @@ namespace DiplomskiRAD.Services
         public async Task<IEnumerable<UserDTO.UserInfo>> GetAllWorkers()
         {
             var users = await _userRepository.GetAllWorkers();
+
+            return users.Select(user => new UserInfo
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Surname = user.Surname,
+                Username = user.Username,
+                Role = user.Role
+            });
+        }
+
+
+        public async Task<IEnumerable<UserDTO.UserInfo>> GetAllFreeUsersForTask(Guid taskId)
+        {
+
+            var existingTask = await _taskRepository.GetTaskById(taskId);
+
+            if(existingTask == null) 
+            {
+                throw new Exception("taskId not found");
+            }
+
+            var users = await _userRepository.GetAllFreeUsersForTask(taskId);
 
             return users.Select(user => new UserInfo
             {

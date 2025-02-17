@@ -44,6 +44,11 @@ export class TaskService {
     finishTask(taskId: string, data: UsedSparePartDto): Observable<void> {
         return this.http.put<void>(`${baseUrl}/finish/${taskId}`, data);
     }
+
+    assignOtherWorker(taskId: string, userId: string): Observable<TaskServiceInfo> {
+      return this.http.put<TaskServiceInfo>(`${baseUrl}/assign-otherWorker/${taskId}/${userId}`, {});
+    }
+    
     
   }
   

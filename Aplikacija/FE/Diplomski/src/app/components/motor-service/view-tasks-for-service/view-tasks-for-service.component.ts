@@ -120,7 +120,7 @@ export class ViewTasksForServiceComponent  implements OnInit {
 
 
   filterByNameAndSurname(): void {
-    this.taskService.getAllInProgressDeclinedTasks().subscribe({
+    this.taskService.getAllTasksForServiceId(this.serviceId).subscribe({
         next: (data) => {
           this.tasks = data.filter(centre => 
             centre.workerInfo?.name.includes(this.name.toLowerCase()) &&
@@ -147,9 +147,10 @@ export class ViewTasksForServiceComponent  implements OnInit {
         return 'status-default'; 
     }
   }
-
-  assignNewWorker() : void {
-    console.log('NEIMPLEMENTIRANA FJA'); //TRAZI NOVOG RADNIKA KOJI NIJE VEC NIJE ODBIO OVAJ SERVIS
+  
+  assignNewWorker(taskId : string) : void {
+    this.router.navigate(['/assign-worker',taskId]) 
   }
+
 
 }
