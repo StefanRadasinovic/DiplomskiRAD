@@ -28,9 +28,9 @@
       <tbody>
         <tr *ngFor="let task of tasks; let i = index" [class.active]="currentIndex === i" (click)="setActiveOrders(task, i)">
 
-            <td>{{ task.workerInfo.name || 'N/A' }}</td>
-            <td>{{ task.workerInfo.surname || 'N/A' }}</td>
-            <td>{{ task.endDateTask || 'N/A' }}</td>
+            <td>{{ task.workerInfo.name || '-' }}</td>
+            <td>{{ task.workerInfo.surname || '-' }}</td>
+            <td>{{ task.endDateTask || '-' }}</td>
             <td>{{ task.status }}</td>
           </tr>
       </tbody>
@@ -86,7 +86,7 @@
 
           <div class="form-group" *ngIf="displayForTasks.status === 'ZAVRSEN'">
             <label class="form-label">Spare parts:</label>
-            <input type="text" value="{{displayForTasks.sparePartInfo[0].name }}"readonly />
+            <input type="text" value="{{displayForTasks.sparePartInfo[0].name || '-'}}"readonly />
           </div>
 
           <br>

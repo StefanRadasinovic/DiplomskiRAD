@@ -25,10 +25,10 @@
       <tbody>
         <tr *ngFor="let task of tasks; let i = index" [class.active]="currentIndex === i" (click)="setActiveOrders(task, i)">
             <td>
-              {{ task.workerInfo.name || 'N/A' }}
+              {{ task.workerInfo.name || '-' }}
             </td>
             <td>
-              {{ task.workerInfo.surname || 'N/A' }}
+              {{ task.workerInfo.surname || '-' }}
             </td>
             <td>{{ task.status }}</td>
           </tr>

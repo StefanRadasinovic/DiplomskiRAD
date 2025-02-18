@@ -212,6 +212,7 @@ addReview(): void {
       this.router.navigate(['/add-service']);
     }
 
+
     downloadPdf(serviceId: string): void {
       this.serviceService.getServiceById(serviceId).subscribe(service => {
         const doc = new jsPDF();
@@ -225,48 +226,56 @@ addReview(): void {
     
         doc.setFontSize(12).setFont('helvetica', 'bold').text('Client Information:', 10, 50);
         doc.setFont('helvetica', 'normal')
-           .text('Name:', 10, 60).text(`${service.userInfo.name}`, 28, 60).line(28, 61, 75, 61)
+           .text('Name:', 10, 60).text(`${service.userInfo.name}`, 32, 60).line(32, 61, 75, 61)
            .text('Surname:', 10, 70).text(`${service.userInfo.surname}`, 32, 70).line(32, 71, 75, 71)
-           .text('Username:', 10, 80).text(`${service.userInfo.username}`, 36, 80).line(36, 81, 75, 81);
+           .text('Username:', 10, 80).text(`${service.userInfo.username}`, 32, 80).line(32, 81, 75, 81);
     
         doc.setFont('helvetica', 'bold').text('Service Information:', 10, 95);
-        autoTable(doc, {
-          startY: 100,
-          headStyles: { fontSize: 12 },
-          bodyStyles: { fontSize: 11 },
-          columnStyles: {
-            3: { halign: 'center' } 
-          },
-          head: [['Task Description', 'End Date', 'Status', 'Used Parts', 'Amount']],
-          body: service.taskServiceInfo.map(task => [
-            task.taskDescription,
-            task.endDateTask || '-',
-            task.status,
-            task.sparePartInfo.map(sp => sp.name).join(', '),
-            task.sparePartInfo.map(sp => sp.amount ?? '-').join(', ')
-          ]),
-        });
+        doc.setFont('helvetica', 'normal') 
+           .text('Rejection Reason:', 10, 105).text(`${service.razlogOdbijanja ?? '-'}`, 48, 105).line(47, 106, 120, 106)
+           .text('Failure Description:', 10, 115).text(`${service.failureDescription}`, 48, 115).line(47, 116, 120, 116)
+           .text('Start Date:', 10, 125).text(`${service.startDate}`, 32, 125).line(32, 126, 75, 126)
+           .text('End Date:', 10, 135).text(`${service.endDate}`, 32, 135).line(32, 136, 75, 136);
     
         
-        const finalY = (doc as any).lastAutoTable.finalY + 25;
-
+        if (service.taskServiceInfo && service.taskServiceInfo.length > 0) {
+          autoTable(doc, {
+            startY: 145,
+            headStyles: { fontSize: 12 },
+            bodyStyles: { fontSize: 11 },
+            columnStyles: {
+              3: { halign: 'center' }
+            },
+            head: [['Task Description', 'End Date', 'Status', 'Used Parts', 'Amount']],
+            body: service.taskServiceInfo.map(task => [
+              task.taskDescription,
+              task.endDateTask || '-',
+              task.status,
+              task.sparePartInfo.map(sp => sp.name ?? '-').join(', ') || '-',
+              task.sparePartInfo.map(sp => (sp.amount && sp.amount !== 0 ? sp.amount : '-')).join(', ')
+            ]),
+          });
+        }
+    
+        const finalY = (doc as any).lastAutoTable ? (doc as any).lastAutoTable.finalY + 25 : 160;
+    
         doc.setFontSize(12).setFont('helvetica', 'bold').text('Signature:', 10, finalY);
         const signatureImg = new Image();
         signatureImg.src = 'signature.jpg'; 
         signatureImg.onload = () => {
-                                             //x, y, widht, height
           doc.addImage(signatureImg, 'JPEG', 35, finalY - 15, 50, 20);
-        
-          
+    
           const sealImg = new Image();
           sealImg.src = 'seal.jpg';
-        
+    
           sealImg.onload = () => {
-                                         //x, y, widht, height
-            doc.addImage(sealImg, 'JPEG', 115, finalY - 5, 60, 60); 
+                                          //x,y,width,height
+            doc.addImage(sealImg, 'JPEG', 115, finalY - 22, 60, 57); 
             doc.save(`Service_${serviceId}.pdf`);
           };
         };
-  });
- }
+      });
+    }
+    
+
 }

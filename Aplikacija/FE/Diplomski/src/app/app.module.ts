@@ -48,14 +48,12 @@ import { AllServicesUserComponent } from './components/motor-service/all-service
 import { AllServicesAdminComponent } from './components/motor-service/all-services-admin/all-services-admin.component';
 import { AddServiceComponent } from './components/motor-service/add-service/add-service.component';
 import { CancelDialogComponent } from './components/dialog/cancel-dialog/cancel-dialog.component';
-import { AddReviewComponent } from './components/reviews/add-review/add-review.component';
 import { AddTasksComponent } from './components/tasks/add-tasks/add-tasks.component';
 import { AllTasksAdminComponent } from './components/tasks/all-tasks-admin/all-tasks-admin.component';
 import { AllTasksWorkerComponent } from './components/tasks/all-tasks-worker/all-tasks-worker.component';
 import { ViewTasksForServiceComponent } from './components/motor-service/view-tasks-for-service/view-tasks-for-service.component';
 import { FinishDialogComponent } from './components/dialog/finish-dialog/finish-dialog.component';
 import { AssingNewWorkerComponent } from './components/tasks/assing-new-worker/assing-new-worker.component';
-import { PdfFileComponent } from './components/pdf-file/pdf-file.component';
 import { ReviewDialogComponent } from './components/dialog/review-dialog/review-dialog.component';
 
 
@@ -96,14 +94,12 @@ import { ReviewDialogComponent } from './components/dialog/review-dialog/review-
     AllServicesAdminComponent,
     AddServiceComponent,
     CancelDialogComponent,
-    AddReviewComponent,
     AddTasksComponent,
     AllTasksAdminComponent,
     AllTasksWorkerComponent,
     ViewTasksForServiceComponent,
     FinishDialogComponent,
     AssingNewWorkerComponent,
-    PdfFileComponent,
     ReviewDialogComponent,
   ],
   imports: [

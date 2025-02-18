@@ -27,10 +27,10 @@
       <tbody>
         <tr *ngFor="let service of services; let i = index" [class.active]="currentIndex === i" (click)="setActiveOrders(service, i)">
             <td>
-              {{ service.userInfo.name || 'N/A' }}
+              {{ service.userInfo.name || '-' }}
             </td>
             <td>
-              {{ service.userInfo.surname || 'N/A' }}
+              {{ service.userInfo.surname || '-' }}
             </td>
             <td>{{ service.startDate }}</td>
             <td>{{ service.serviceStatus }}</td>

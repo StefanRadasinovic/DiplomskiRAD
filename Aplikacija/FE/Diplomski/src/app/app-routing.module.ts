@@ -24,7 +24,6 @@ import { GetOrderForUserComponent } from './components/orders/get-order-for-user
 import { AllServicesAdminComponent } from './components/motor-service/all-services-admin/all-services-admin.component';
 import { AllServicesUserComponent } from './components/motor-service/all-services-user/all-services-user.component';
 import { AddServiceComponent } from './components/motor-service/add-service/add-service.component';
-import { AddReviewComponent } from './components/reviews/add-review/add-review.component';
 import { AllTasksAdminComponent } from './components/tasks/all-tasks-admin/all-tasks-admin.component';
 import { AddTasksComponent } from './components/tasks/add-tasks/add-tasks.component';
 import { AllTasksWorkerComponent } from './components/tasks/all-tasks-worker/all-tasks-worker.component';
@@ -55,7 +54,6 @@ const routes: Routes = [
   {path: 'display-services/:id', component: AllServicesAdminComponent },
   {path: 'all-service/:id', component: AllServicesUserComponent },
   {path: 'add-service', component: AddServiceComponent },
-  {path: 'add-review/:id', component: AddReviewComponent },
   {path: 'add-task/:id', component: AddTasksComponent },
   {path: 'display-tasks/:id', component: AllTasksAdminComponent },
   {path: 'all-tasks/:id', component: AllTasksWorkerComponent },

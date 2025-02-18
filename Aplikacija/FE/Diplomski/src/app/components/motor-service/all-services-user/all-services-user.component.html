@@ -44,10 +44,10 @@
       <tbody>
         <tr *ngFor="let service of services; let i = index" [class.active]="currentIndex === i" (click)="setActiveOrders(service, i)">
 
-            <td>{{ service.startDate || 'N/A' }}</td>
-            <td>{{ service.endDate || 'N/A' }}</td>
+            <td>{{ service.startDate || '-' }}</td>
+            <td>{{ service.endDate || '-' }}</td>
             <td>{{ service.serviceStatus }}</td>
-            <td>{{ service.reviewInfos[0]?.grade || 'N/A' }}</td>
+            <td>{{ service.reviewInfos[0]?.grade || '-' }}</td>
             <td>
               <a *ngIf="service.serviceStatus === 'ZAVRSEN' || service.serviceStatus === 'ODBIJEN'" 
                  class="download-button download-link" 

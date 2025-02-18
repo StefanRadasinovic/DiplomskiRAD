@@ -12,10 +12,12 @@ import { UserInfo } from '../../../models/userDTO';
   styleUrl: './add-tasks.component.css'
 })
 export class AddTasksComponent implements OnInit {
+
   taskForm: FormGroup;
   createMessage: string = "";
   serviceId!: string;
   users: UserInfo[] = [];
+  isSubmitting: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -49,8 +51,10 @@ export class AddTasksComponent implements OnInit {
 
   removeTask(index: number) {
     this.tasks.removeAt(index);
+    this.taskForm.markAsPristine(); 
+    this.taskForm.markAsUntouched();
     if (this.tasks.length === 0) {
-      this.addTask(); 
+      this.addTask();
     }
   }
 
@@ -61,9 +65,25 @@ export class AddTasksComponent implements OnInit {
     });
   }
 
-  handleSubmit() {
+  handleSubmit(event: Event) {
+    event.preventDefault(); // Prevent form submission from triggering automatically
+    event.stopPropagation(); // Stop event bubbling
+  
+    this.isSubmitting = true; // Mark that submission was triggered by user
+  
     if (this.taskForm.valid) {
-      this.tasks.controls.forEach((taskGroup: AbstractControl) => {
+      // Filter out incomplete tasks
+      const validTasks = this.tasks.controls.filter(taskGroup => 
+        taskGroup.get('userId')?.value && taskGroup.get('taskDescription')?.value
+      );
+  
+      if (validTasks.length === 0) {
+        this.createMessage = "No valid tasks to submit.";
+        this.isSubmitting = false;
+        return;
+      }
+  
+      validTasks.forEach((taskGroup: AbstractControl) => {
         const userId = taskGroup.get('userId')?.value;
         const taskDto: CreateTaskDto = {
           taskDescription: taskGroup.get('taskDescription')?.value
@@ -72,15 +92,21 @@ export class AddTasksComponent implements OnInit {
         this.taskService.createTask(this.serviceId, userId, taskDto)
           .subscribe({
             next: () => {
-              this.createMessage = "Uspesno dodat!",
+              this.createMessage = "Successfully added!";
               this.router.navigate(['/view-tasks', this.serviceId]).then(() => {
                 window.location.reload();
               });
             },
-            error: err => console.error('Error adding task:', err)
+            error: err => {
+              console.error('Error adding task:', err);
+              this.isSubmitting = false;
+            }
           });
       });
+    } else {
+      this.isSubmitting = false;
     }
   }
+  
   
 }
