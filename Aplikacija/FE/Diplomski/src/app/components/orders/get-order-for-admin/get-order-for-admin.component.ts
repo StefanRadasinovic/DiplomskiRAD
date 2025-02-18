@@ -13,7 +13,7 @@ import { AcceptDialogComponent } from '../../dialog/accept-dialog/accept-dialog.
 })
 export class GetOrderForAdminComponent  implements AfterViewInit {
 
-  displayedColumns: string[] = ['itemName', 'producer', 'orderAmount', 'totalPrice'];
+  
   isLoading = true;
   orders: OrderInfo[] = [];
 

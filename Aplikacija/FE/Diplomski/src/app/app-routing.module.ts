@@ -21,15 +21,20 @@ import { ShowUsersAdminComponent } from './components/users/show-users-admin/sho
 import { AdjustPricesComponent } from './components/adjust-prices/adjust-prices.component';
 import { GetOrderForAdminComponent } from './components/orders/get-order-for-admin/get-order-for-admin.component';
 import { GetOrderForUserComponent } from './components/orders/get-order-for-user/get-order-for-user.component';
+import { AllServicesAdminComponent } from './components/motor-service/all-services-admin/all-services-admin.component';
+import { AllServicesUserComponent } from './components/motor-service/all-services-user/all-services-user.component';
+import { AddServiceComponent } from './components/motor-service/add-service/add-service.component';
+import { AllTasksAdminComponent } from './components/tasks/all-tasks-admin/all-tasks-admin.component';
+import { AddTasksComponent } from './components/tasks/add-tasks/add-tasks.component';
+import { AllTasksWorkerComponent } from './components/tasks/all-tasks-worker/all-tasks-worker.component';
+import { ViewTasksForServiceComponent } from './components/motor-service/view-tasks-for-service/view-tasks-for-service.component';
+import { AssingNewWorkerComponent } from './components/tasks/assing-new-worker/assing-new-worker.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full' },
   {path: 'register', component: RegisterComponent },
   {path: 'login', component: LoginComponent },
-  {path:'director-homepage', component:DirectorHomepageComponent},
-  {path:'worker-homepage', component:RadnikHomepageComponent},
-  {path:'client-homepage', component:ClientHomepageComponent},
   {path: 'all-motorcycles', component: AllMotorsComponent },
   {path: 'add-motorcycles', component: AddMotorsComponent },
   {path: 'motorcycles/:id', component: GetMotorsByIdComponent}, 
@@ -46,6 +51,21 @@ const routes: Routes = [
   {path: 'adjust-prices', component: AdjustPricesComponent },
   {path: 'all-pendingOrders', component: GetOrderForAdminComponent },
   {path: 'all-orders/:id', component: GetOrderForUserComponent },
+  {path: 'display-services/:id', component: AllServicesAdminComponent },
+  {path: 'all-service/:id', component: AllServicesUserComponent },
+  {path: 'add-service', component: AddServiceComponent },
+  {path: 'add-task/:id', component: AddTasksComponent },
+  {path: 'display-tasks/:id', component: AllTasksAdminComponent },
+  {path: 'all-tasks/:id', component: AllTasksWorkerComponent },
+  {path: 'view-tasks/:id', component: ViewTasksForServiceComponent },
+  {path: 'assign-worker/:id', component: AssingNewWorkerComponent },
+
+
+  /*
+  {path:'director-homepage', component:DirectorHomepageComponent},
+  {path:'worker-homepage', component:RadnikHomepageComponent},
+  {path:'client-homepage', component:ClientHomepageComponent},
+  */ 
 
 ];
 

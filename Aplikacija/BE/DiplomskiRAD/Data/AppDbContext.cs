@@ -15,6 +15,11 @@ namespace DiplomskiRAD.Data
         public DbSet<Producer> Producers { get; set; }
         public DbSet<PriceList> PriceLists { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<SparePart> SpareParts { get; set; }
+        public DbSet<TaskService> TaskServices { get; set; }
+
+        public DbSet<Review> Reviews { get; set; }
 
 
 
@@ -49,7 +54,42 @@ namespace DiplomskiRAD.Data
             modelBuilder.Entity<Order>()
                 .HasOne(r => r.User)  
                 .WithMany(u => u.Orders)  
-                .HasForeignKey(r => r.UserId); 
+                .HasForeignKey(r => r.UserId);
+
+
+            modelBuilder.Entity<Service>()
+                .HasOne(r => r.User)
+                .WithMany(u => u.Services)
+                .HasForeignKey(r => r.UserId);
+
+
+            modelBuilder.Entity<TaskService>()
+                .HasOne(r => r.Service)
+                .WithMany(u => u.TaskServices)
+                .HasForeignKey(r => r.ServiceId);
+
+            modelBuilder.Entity<TaskService>()
+                .HasOne(r => r.User)
+                .WithMany(u => u.TaskServices)
+                .HasForeignKey(r => r.UserId);
+
+            modelBuilder.Entity<SparePart>()
+                .HasOne(r => r.TaskService)
+                .WithMany(u => u.SpareParts)
+                .HasForeignKey(r => r.TaskServiceId);
+
+
+            modelBuilder.Entity<Review>()
+                .HasOne(r => r.Services)
+                .WithMany(u => u.Reviews)
+                .HasForeignKey(r => r.ServiceId);
+
+            modelBuilder.Entity<Review>()
+                .HasOne(r => r.Users)
+                .WithMany(u => u.Reviews)
+                .HasForeignKey(r => r.UserId);
+
+
         }
 
     }

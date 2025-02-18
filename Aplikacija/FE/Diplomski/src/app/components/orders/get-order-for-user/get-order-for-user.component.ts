@@ -21,7 +21,6 @@ import { DisplayClientDto, DisplayDirectorDto, DisplayWorkerDto } from '../../..
 export class GetOrderForUserComponent implements OnInit {
 
  user!: DisplayWorkerDto | DisplayClientDto | DisplayDirectorDto; 
-  displayedColumns: string[] = ['itemName', 'producer', 'orderAmount', 'totalPrice'];
   isLoading = true;
   orders: OrderInfo[] = [];
 
@@ -128,6 +127,8 @@ export class GetOrderForUserComponent implements OnInit {
                 } else {
                   this.isMotor = false; 
                 }
+                
+                const statusClass  = this.getStatusClass(this.displayForOrder.orderStatus);
           
               this.loading = false;
               console.log("jel motor: ", this.isMotor);
@@ -161,5 +162,19 @@ export class GetOrderForUserComponent implements OnInit {
       });
 }
 
-  
+  getStatusClass(status: string): string {
+    switch (status) {
+      case 'PRIHVACEN':
+        return 'status-PRIHVACEN';
+      case 'NA_CEKANJU':
+          return 'status-NA_CEKANJU';
+      case 'ODBIJEN':
+          return 'status-ODBIJEN';
+      default:
+        return 'status-default'; 
+    }
+  }
+
+
+
 }

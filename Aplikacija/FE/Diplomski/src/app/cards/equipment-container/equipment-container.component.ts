@@ -25,6 +25,10 @@ equipments: PaginatedEquipmentProps = {
   isDisabledPrev = true;
   isDisabledNext = false;
 
+    surname = '';
+    name = '';
+    helper: PaginatedEquipmentProps[] = [];
+
   constructor(private equipmentService: EquipmentService, private router:Router) {}
 
   ngOnInit(): void {
@@ -66,6 +70,29 @@ equipments: PaginatedEquipmentProps = {
 
   onEquipmentSelected(equipmentId: string) {
     this.router.navigate(['/equipment', equipmentId]); 
+  }
+
+
+  filterByNameAndSurname(): void { 
+    this.equipmentService.getAllWithPagination(this.pageNumber, this.pageSize).subscribe({
+      next: (data) => {
+        const filteredData = data.data.filter(equip =>  
+          equip.name?.toLowerCase().includes(this.name.toLowerCase()) &&
+          equip.producers[0]?.name.toLowerCase().includes(this.surname.toLowerCase()) 
+        );
+
+        this.equipments = {
+          data: filteredData,
+          pageNumber: data.pageNumber,
+          pageSize: data.pageSize,
+          totalPages: data.totalPages,
+          totalRecord: data.totalRecord,
+        };
+        this.isDisabledPrev = this.pageNumber <= 1;
+        this.isDisabledNext = this.pageNumber >= this.equipments.totalPages;
+      },
+      error: (e) => console.error(e)
+    });
   }
 
 

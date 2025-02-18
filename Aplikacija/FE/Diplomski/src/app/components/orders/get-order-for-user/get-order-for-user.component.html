@@ -29,10 +29,10 @@
       <tbody>
         <tr *ngFor="let order of orders; let i = index" [class.active]="currentIndex === i" (click)="setActiveOrders(order, i)">
             <td>
-              {{ order.motorcycleInfo?.[0]?.name || order.equipmentInfo?.[0]?.name || 'N/A' }}
+              {{ order.motorcycleInfo?.[0]?.name || order.equipmentInfo?.[0]?.name || '-' }}
             </td>
             <td>
-              {{ order.motorcycleInfo?.[0]?.producers?.[0]?.name || order.equipmentInfo?.[0]?.producers?.[0]?.name || 'N/A' }}
+              {{ order.motorcycleInfo?.[0]?.producers?.[0]?.name || order.equipmentInfo?.[0]?.producers?.[0]?.name || '-' }}
             </td>
             <td>{{ order.orderAmount }}</td>
             <td>{{ order.totalPrice }}</td>
@@ -51,7 +51,9 @@
           <hr />
       
           <br />
-  
+
+          <h3 [ngClass]="getStatusClass(displayForOrder.orderStatus)">Status: {{ displayForOrder.orderStatus }}</h3>
+     
          
           <div class="form-group-inline">
             <div class="form-group-inline-item">
@@ -100,13 +102,5 @@
             <input type="text" value="{{displayForOrder.totalPrice  }}"readonly />
           </div>
 
-          <br>
-      
-          <div class="form-group">
-            <label class="form-label">Status:</label>
-            <input type="text" value="{{displayForOrder.orderStatus}}"readonly />
-          </div>
-      
-          
     </div>
   </div>

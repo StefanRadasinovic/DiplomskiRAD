@@ -53,14 +53,14 @@
 
             <!-- MOTOR -->
             <h1 class="zaMotor" *ngIf="role === 'MOTORCYCLE' && displayForMotor">
-                {{ displayForMotor?.justMotorcycleNames?.[0]?.producers?.[0]?.name || 'NO_PRODUCER' }} -
-                {{ displayForMotor?.justMotorcycleNames?.[0]?.name || 'NO_NAME' }}
+                {{ displayForMotor?.justMotorcycleNames?.[0]?.producers?.[0]?.name || '-' }} -
+                {{ displayForMotor?.justMotorcycleNames?.[0]?.name || '-' }}
             </h1>
 
             <!-- EQUIPMENT -->
             <h1 class="zaOpemu" *ngIf="role === 'EQUIPMENT' && displayForEquipment">
-              {{ displayForEquipment?.justEquipmentName?.[0]?.producers?.[0]?.name || 'NO_PRODUCER' }} -
-              {{ displayForEquipment?.justEquipmentName?.[0]?.name || 'NO_NAME' }}
+              {{ displayForEquipment?.justEquipmentName?.[0]?.producers?.[0]?.name || '-' }} -
+              {{ displayForEquipment?.justEquipmentName?.[0]?.name || '-' }}
           </h1>
           
           <br>

@@ -67,26 +67,27 @@ priceData: { date: string, price: number }[] = [];
         text: 'Prices'
       },
       min: 0, // Set minimum Y-axis value
-      max: 18000, // Set maximum Y-axis value
+      max: 25000, // Set maximum Y-axis value
       ticks: {
         stepSize: 3000,
         callback: function (tickValue: string | number) {
           if (typeof tickValue === 'number') {
-            return tickValue.toLocaleString(); // Formats as "3,000", "6,000"...
+            return tickValue.toLocaleString(); 
           }
-          return tickValue; // Return as is for non-number values
+          return tickValue; 
         }
       }
     }
   },
   plugins: {
     legend: {
-      display: true
+      display: true,
+
     }
   }
   };
 
-  public lineChartLabels: string[] = []; // X-axis (dates)
+  public lineChartLabels: string[] = []; 
   public lineChartData: ChartData<'line'> = {
     labels: this.lineChartLabels,
     datasets: [
@@ -421,6 +422,8 @@ priceData: { date: string, price: number }[] = [];
             borderColor: '#4b97e7',
             fill: false,
             pointBackgroundColor: '#4b97e7',
+            backgroundColor: '#ffff99', 
+           
           }
         ],
         labels: this.lineChartLabels

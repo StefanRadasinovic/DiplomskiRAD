@@ -39,4 +39,15 @@ deleteUser(id: string): Observable<void> {
     return this.http.delete<void>(`${baseUrl}/${id}`);
 }
 
+getAllWorkers(): Observable<UserInfo[]> {
+  return this.http.get<UserInfo[]>(`${baseUrl}/workers`, {
+    headers: { Authorization: `Bearer ${this.authService.getToken()}` }
+  });
+}
+
+getAllFreeUsersForTask(taskId: string): Observable<UserInfo[]> {
+  return this.http.get<UserInfo[]>(`${baseUrl}/free-workers/${taskId}`);
+}
+
+
 }

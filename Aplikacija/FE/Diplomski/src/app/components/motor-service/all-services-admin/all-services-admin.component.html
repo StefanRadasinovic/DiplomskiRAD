@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="filter-group">
+      <input type="text" class="filter-input" [(ngModel)]="name" placeholder="Search by Name">
+      <input type="text" class="filter-input" [(ngModel)]="surname" placeholder="Search by Surname">
+      <input type="date" class="filter-input" [(ngModel)]="startingDate" placeholder="Search by Producer">
+      <div class="dropdown">
+        <select [(ngModel)]="status" class="filter-select">
+          <option value="">Select Status</option>
+          <option value="U_TOKU">U_TOKU</option>
+          <option value="NA_CEKANJU">NA_CEKANJU</option>
+        </select>
+      </div>
+
+      <button mat-raised-button id="search" color="primary" class="search-button" (click)="filterByNameAndSurname()">Search</button>
+    </div>
+  
+    <div class="content-wrapper">
+    <table class="user-table" *ngIf="!isLoading">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>Start date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let service of services; let i = index" [class.active]="currentIndex === i" (click)="setActiveOrders(service, i)">
+            <td>
+              {{ service.userInfo.name || '-' }}
+            </td>
+            <td>
+              {{ service.userInfo.surname || '-' }}
+            </td>
+            <td>{{ service.startDate }}</td>
+            <td>{{ service.serviceStatus }}</td>
+          </tr>
+      </tbody>
+    </table>
+  
+        <div *ngIf="isLoading" class="loading">
+        </div>
+  
+  
+        <!---Get OrderById-->
+        <div class="form-wrapper" *ngIf="currentItem">
+          <h4 class="form-title">Service Info</h4>
+          <hr />
+      
+          <h3 [ngClass]="getStatusClass(displayForServices.serviceStatus)">Status: {{ displayForServices.serviceStatus }}</h3>
+          
+      
+      
+          <div class="form-group-inline">
+            <div class="form-group-inline-item">
+              <label class="form-custom ">User name:</label>
+              <input type="text" value="{{  displayForServices.userInfo.name  }}" readonly  />
+            </div>
+            <div class="form-group-inline-item">
+              <label  class="form-custom ">User surname:</label>
+              <input type="text" value="{{ displayForServices.userInfo.surname  }}" readonly />
+            </div>
+          </div>
+      
+      
+          <br>
+
+          <div class="form-group">
+            <label class="form-label">Start date:</label>
+            <input type="text" value="{{displayForServices.startDate}}"readonly />
+          </div>
+
+          <br>
+      
+          <!-----OVDE IDE SLIKA -->
+          <div class="form-group"></div>
+            <label class="form-label-slika">Picture:</label>
+            <div class="drop-zone">
+            <img [src]="displayForServices.picture" alt="{{ displayForServices.picture  }}" class="image-preview" />
+            </div>
+
+            <br>
+
+            
+            <div class="form-group">
+                <label class="form-label">Failure Description:</label>
+                <textarea value="{{displayForServices.failureDescription }}" readonly></textarea>
+              </div>
+
+    
+      
+          <br>
+  
+          <div mat-dialog-actions class="button-container">
+            <button *ngIf="displayForServices.serviceStatus === 'NA_CEKANJU'" mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="handleAccept()">Accept <mat-icon>check</mat-icon> </button>
+            <button *ngIf="displayForServices.serviceStatus === 'U_TOKU'" mat-raised-button id="aMotor" color="primary" class="view-button" (click)="tasksDetails(currentItem.id)">View Tasks <mat-icon>details</mat-icon> </button>
+            <button  *ngIf="displayForServices.serviceStatus === 'NA_CEKANJU' || displayForServices.serviceStatus === 'U_TOKU'" mat-raised-button id="deleteMotor" color="primary" class="delete-button" (click)="handleDecline()">Decline <mat-icon>close</mat-icon></button>
+          </div>
+    </div>
+  </div>

@@ -18,10 +18,10 @@
     <tbody>
       <tr *ngFor="let order of orders; let i = index" [class.active]="currentIndex === i" (click)="setActiveOrders(order, i)">
           <td>
-            {{ order.motorcycleInfo?.[0]?.name || order.equipmentInfo?.[0]?.name || 'N/A' }}
+            {{ order.motorcycleInfo?.[0]?.name || order.equipmentInfo?.[0]?.name || '-' }}
           </td>
           <td>
-            {{ order.motorcycleInfo?.[0]?.producers?.[0]?.name || order.equipmentInfo?.[0]?.producers?.[0]?.name || 'N/A' }}
+            {{ order.motorcycleInfo?.[0]?.producers?.[0]?.name || order.equipmentInfo?.[0]?.producers?.[0]?.name || '-' }}
           </td>
           <td>{{ order.orderAmount }}</td>
           <td>{{ order.totalPrice }}</td>

@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="filter-group">
+      <input type="text" class="filter-input" [(ngModel)]="name" placeholder="Search by Name">
+      <input type="text" class="filter-input" [(ngModel)]="surname" placeholder="Search by Surname">
+      <div class="dropdown">
+        <select [(ngModel)]="status" class="filter-select">
+          <option value="">Select Status</option>
+          <option value="U_TOKU">U_TOKU</option>
+          <option value="ODBIJEN">ODBIJEN</option>
+        </select>
+      </div>
+
+      <button mat-raised-button id="search" color="primary" class="search-button" (click)="filterByNameAndSurname()">Search</button>
+    </div>
+  
+    <div class="content-wrapper">
+    <table class="user-table" *ngIf="!isLoading">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks; let i = index" [class.active]="currentIndex === i" (click)="setActiveOrders(task, i)">
+            <td>
+              {{ task.workerInfo.name || '-' }}
+            </td>
+            <td>
+              {{ task.workerInfo.surname || '-' }}
+            </td>
+            <td>{{ task.status }}</td>
+          </tr>
+      </tbody>
+    </table>
+  
+        <div *ngIf="isLoading" class="loading">
+        </div>
+  
+  
+        <!---Get TaskById-->
+        <div class="form-wrapper" *ngIf="currentItem">
+          <h4 class="form-title">Task Info</h4>
+          <hr />
+      
+          <h3 [ngClass]="getStatusClass(displayForTasks.status)">Status: {{ displayForTasks.status }}</h3>
+          
+      
+      
+          <div class="form-group">
+            <label class="form-label">Worker Name:</label>
+            <input type="text" value="{{displayForTasks.workerInfo.name}}"readonly />
+          </div>
+      
+      
+          <br>
+
+          <div class="form-group">
+            <label class="form-label">Worker Surname:</label>
+            <input type="text" value="{{displayForTasks.workerInfo.surname}}"readonly />
+          </div>
+
+          <br>
+
+          <div class="form-group">
+            <label class="form-label">Task Description:</label>
+            <textarea value="{{displayForTasks.taskDescription }}" readonly></textarea>
+          </div>
+      
+      
+          <br>
+
+          <div class="form-group" *ngIf="displayForTasks.status === 'ODBIJEN'">
+            <label class="form-label">Rejection Reason:</label>
+            <textarea value="{{displayForTasks.razlogOdbijanja }}" readonly></textarea>
+          </div>
+    
+      
+          <br>
+  
+          <div mat-dialog-actions class="button-container">                                                                                                                         
+            <button *ngIf="displayForTasks.status === 'ODBIJEN'" mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="assignNewWorker(displayForTasks.id)">Assign new Worker <mat-icon>add</mat-icon> </button>
+          </div>
+    </div>
+  </div>

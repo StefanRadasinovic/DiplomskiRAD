@@ -44,6 +44,17 @@ import { AcceptDialogComponent } from './components/dialog/accept-dialog/accept-
 import { DeclineDialogComponent } from './components/dialog/decline-dialog/decline-dialog.component';
 import { GetOrderForUserComponent } from './components/orders/get-order-for-user/get-order-for-user.component';
 import { GetOrderForAdminComponent } from './components/orders/get-order-for-admin/get-order-for-admin.component';
+import { AllServicesUserComponent } from './components/motor-service/all-services-user/all-services-user.component';
+import { AllServicesAdminComponent } from './components/motor-service/all-services-admin/all-services-admin.component';
+import { AddServiceComponent } from './components/motor-service/add-service/add-service.component';
+import { CancelDialogComponent } from './components/dialog/cancel-dialog/cancel-dialog.component';
+import { AddTasksComponent } from './components/tasks/add-tasks/add-tasks.component';
+import { AllTasksAdminComponent } from './components/tasks/all-tasks-admin/all-tasks-admin.component';
+import { AllTasksWorkerComponent } from './components/tasks/all-tasks-worker/all-tasks-worker.component';
+import { ViewTasksForServiceComponent } from './components/motor-service/view-tasks-for-service/view-tasks-for-service.component';
+import { FinishDialogComponent } from './components/dialog/finish-dialog/finish-dialog.component';
+import { AssingNewWorkerComponent } from './components/tasks/assing-new-worker/assing-new-worker.component';
+import { ReviewDialogComponent } from './components/dialog/review-dialog/review-dialog.component';
 
 
 
@@ -79,6 +90,17 @@ import { GetOrderForAdminComponent } from './components/orders/get-order-for-adm
     DeclineDialogComponent,
     GetOrderForUserComponent,
     GetOrderForAdminComponent,
+    AllServicesUserComponent,
+    AllServicesAdminComponent,
+    AddServiceComponent,
+    CancelDialogComponent,
+    AddTasksComponent,
+    AllTasksAdminComponent,
+    AllTasksWorkerComponent,
+    ViewTasksForServiceComponent,
+    FinishDialogComponent,
+    AssingNewWorkerComponent,
+    ReviewDialogComponent,
   ],
   imports: [
     BrowserModule,

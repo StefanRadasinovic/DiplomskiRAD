@@ -91,8 +91,8 @@ namespace DiplomskiRAD.Migrations
                     b.Property<int>("OrderStatus")
                         .HasColumnType("integer");
 
-                    b.Property<decimal>("TotalPrice")
-                        .HasColumnType("numeric");
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("double precision");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid");
@@ -140,6 +140,129 @@ namespace DiplomskiRAD.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Producers");
+                });
+
+            modelBuilder.Entity("DiplomskiRAD.Models.Review", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Grade")
+                        .HasColumnType("integer");
+
+                    b.Property<Guid>("ServiceId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ServiceId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Reviews");
+                });
+
+            modelBuilder.Entity("DiplomskiRAD.Models.Service", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("FailureDescription")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Picture")
+                        .HasColumnType("text");
+
+                    b.Property<int>("ServiceStatus")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("razlogOdbijanja")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Services");
+                });
+
+            modelBuilder.Entity("DiplomskiRAD.Models.SparePart", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<double>("Amount")
+                        .HasColumnType("double precision");
+
+                    b.Property<int>("IsSpartPartUsed")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("TaskServiceId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TaskServiceId");
+
+                    b.ToTable("SpareParts");
+                });
+
+            modelBuilder.Entity("DiplomskiRAD.Models.TaskService", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime?>("EndDateTask")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("ServiceId")
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("TaskDescription")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("razlogOdbijanja")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ServiceId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("TaskServices");
                 });
 
             modelBuilder.Entity("DiplomskiRAD.Models.User", b =>
@@ -282,6 +405,66 @@ namespace DiplomskiRAD.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("DiplomskiRAD.Models.Review", b =>
+                {
+                    b.HasOne("DiplomskiRAD.Models.Service", "Services")
+                        .WithMany("Reviews")
+                        .HasForeignKey("ServiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DiplomskiRAD.Models.User", "Users")
+                        .WithMany("Reviews")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Services");
+
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("DiplomskiRAD.Models.Service", b =>
+                {
+                    b.HasOne("DiplomskiRAD.Models.User", "User")
+                        .WithMany("Services")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("DiplomskiRAD.Models.SparePart", b =>
+                {
+                    b.HasOne("DiplomskiRAD.Models.TaskService", "TaskService")
+                        .WithMany("SpareParts")
+                        .HasForeignKey("TaskServiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TaskService");
+                });
+
+            modelBuilder.Entity("DiplomskiRAD.Models.TaskService", b =>
+                {
+                    b.HasOne("DiplomskiRAD.Models.Service", "Service")
+                        .WithMany("TaskServices")
+                        .HasForeignKey("ServiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DiplomskiRAD.Models.User", "User")
+                        .WithMany("TaskServices")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Service");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("EquipmentOrder", b =>
                 {
                     b.HasOne("DiplomskiRAD.Models.Equipment", null)
@@ -372,9 +555,27 @@ namespace DiplomskiRAD.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("DiplomskiRAD.Models.Service", b =>
+                {
+                    b.Navigation("Reviews");
+
+                    b.Navigation("TaskServices");
+                });
+
+            modelBuilder.Entity("DiplomskiRAD.Models.TaskService", b =>
+                {
+                    b.Navigation("SpareParts");
+                });
+
             modelBuilder.Entity("DiplomskiRAD.Models.User", b =>
                 {
                     b.Navigation("Orders");
+
+                    b.Navigation("Reviews");
+
+                    b.Navigation("Services");
+
+                    b.Navigation("TaskServices");
                 });
 #pragma warning restore 612, 618
         }

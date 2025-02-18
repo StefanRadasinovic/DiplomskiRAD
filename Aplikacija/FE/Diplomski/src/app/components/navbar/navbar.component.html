@@ -8,18 +8,19 @@
   <a mat-button class="nav-button" *ngIf="userRole != 'ROLE_NOTAUTH'"  routerLink="/all-motorcycles"><span>Motorcycles</span></a>
   <a mat-button class="nav-button" *ngIf="userRole != 'ROLE_NOTAUTH'"  routerLink="/all-equipments"><span>Equipment</span></a>
 
-  <a mat-button class="nav-button" *ngIf="userRole === 'DIREKTOR'" routerLink="/director-homepage"><span>Direktor Homepage</span></a>
   <a mat-button class="nav-button" *ngIf="userRole === 'DIREKTOR'" routerLink="/all-users"><span>Users</span></a>
   <a mat-button class="nav-button" *ngIf="userRole === 'DIREKTOR'" routerLink="/add-workers"><span>Add Worker</span></a>
   <a mat-button class="nav-button" *ngIf="userRole === 'DIREKTOR'" routerLink="/adjust-prices"><span>Adjust Prices</span></a>
   <a mat-button class="nav-button" *ngIf="userRole === 'DIREKTOR'" routerLink="/all-pendingOrders"><span>Orders</span></a>
-
+  <a mat-button class="nav-button" *ngIf="userRole === 'DIREKTOR'" [routerLink]="['/display-services', userId]"><span>Services</span></a>
+  <a mat-button class="nav-button" *ngIf="userRole === 'DIREKTOR'" [routerLink]="['/display-tasks', userId]"><span>Tasks</span></a>
  
-  <a mat-button  class="nav-button" *ngIf="userRole === 'RADNIK'" routerLink="/worker-homepage"><span>Radnik Homepage</span></a>
+  
+  <a mat-button  class="nav-button" *ngIf="userRole === 'RADNIK'" [routerLink]="['/all-tasks', userId]"><span>Tasks</span></a>
 
 
-  <a mat-button  class="nav-button" *ngIf="userRole === 'KLIJENT'" routerLink="/client-homepage"><span>Klijent Homepage</span></a>
   <a mat-button  class="nav-button" *ngIf="userRole === 'KLIJENT'" [routerLink]="['/all-orders', userId]"><span>Orders</span></a>
+  <a mat-button  class="nav-button" *ngIf="userRole === 'KLIJENT'" [routerLink]="['/all-service', userId]"><span>Services</span></a>
 
 
 
