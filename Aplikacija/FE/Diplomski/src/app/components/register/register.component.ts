@@ -12,6 +12,8 @@ export class RegisterComponent {
 
   constructor(private authService: AuthorisationService, private router: Router) { }
 
+  successMessage : string = "";
+
   userRegisterDto: UserRegisterDto = {
     name:'',
     surname:'',
@@ -30,10 +32,14 @@ export class RegisterComponent {
     this.authService.register(this.userRegisterDto).subscribe(
       (response) => {
         console.log('Registration successful', response);
-        alert("You have registered successfully");
-        this.router.navigate(['/login']); 
+        //alert("You have registered successfully");
+        this.successMessage = "You have registered successfully";
+        setTimeout(() => {
+          this.router.navigate(['/login']); 
+        }, 900);
       },
       (error) => {
+        alert("Username already exist");
         console.error('Registration failed', error);
       }
     );

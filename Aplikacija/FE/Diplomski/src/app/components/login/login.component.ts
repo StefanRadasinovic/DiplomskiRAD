@@ -40,13 +40,13 @@ export class LoginComponent {
   
         // Navigate based on user role
         if (userRole === 'DIREKTOR') {
-          alert("Welcome back! Logged in as DIREKTOR.");
+          console.log("Welcome back! Logged in as DIREKTOR.");
           this.router.navigate(['/all-motorcycles']);
         } else if (userRole === 'RADNIK') {
-          alert("Welcome back! Logged in as RADNIK.");
+          console.log("Welcome back! Logged in as RADNIK.");
           this.router.navigate(['/all-motorcycles']);
         } else if (userRole === 'KLIJENT') {
-          alert("Welcome back! Logged in as KLIJENT.");
+          console.log("Welcome back! Logged in as KLIJENT.");
           this.router.navigate(['/all-motorcycles']);
         } else {
           this.router.navigate(['/login']);

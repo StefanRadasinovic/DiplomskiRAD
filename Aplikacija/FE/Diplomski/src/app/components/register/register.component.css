@@ -104,6 +104,12 @@ span a {
     font-size: 16px;
 }
 
+p {
+    text-align: center;
+    color: green;
+    margin-top: 1rem;
+}
+
 
 /* New CSS for centering the Agree with Terms & Conditions */
 .form-box .terms-wrapper {
