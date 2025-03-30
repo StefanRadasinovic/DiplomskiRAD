@@ -1,0 +1,17 @@
+<div class="form-box">
+    <div class="header-text">Login Here</div>
+    <form #userForm="ngForm" (ngSubmit)="loginUser(userForm.value)">
+      <input type="text" name="username" placeholder="Enter Username" id="title" required [(ngModel)]="ime">
+      <br><br>
+      <input type="password" name="password" placeholder="Enter Password" id="description" required [(ngModel)]="sifra">
+      <br><br>
+      <button type="submit">Login</button>
+      <br>
+      <div class="terms-wrapper">
+        <label for="terms"></label>
+        <span>Don't have an account? <a (click)="redirect()">Register</a></span>
+    </div>
+    </form>
+  </div>
+  
+  

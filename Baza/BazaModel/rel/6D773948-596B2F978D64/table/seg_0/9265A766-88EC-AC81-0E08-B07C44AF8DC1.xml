@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9265A766-88EC-AC81-0E08-B07C44AF8DC1" name="poseduje">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<ordsAlias>relation_22</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdMotocikla" id="21C779AF-D1DC-011E-96F6-337E562C25C0">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4BF18D37-7BBD-F1C8-9D36-A0389960E418" referredColumn="4D3EE574-D9A0-E864-3230-AA5353BFE486"/>
+</associations>
+</Column>
+<Column name="IdCenovnika" id="3856FF3D-DE10-4EE5-FBE6-CFBBA23EFC20">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1FBD0AC8-E05D-B5CF-0B07-F7094281F1D0" referredColumn="771B6561-F6C9-9604-A976-B981D41F9D03"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DC97D38C-CE4C-1136-06EB-FDAF8CE000BF" name="poseduje_PK">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="21C779AF-D1DC-011E-96F6-337E562C25C0"/>
+<colUsage columnID="3856FF3D-DE10-4EE5-FBE6-CFBBA23EFC20"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="70A1469A-9ACB-13D6-C71A-DA7C231F5F81" name="poseduje_Motocikl_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>E313722C-1646-334F-3190-648C2BD668B4</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="21C779AF-D1DC-011E-96F6-337E562C25C0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C07E49A9-9771-D1E4-854B-31CADC912E20" name="poseduje_Cenovnik_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>E313722C-1646-334F-3190-648C2BD668B4</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3856FF3D-DE10-4EE5-FBE6-CFBBA23EFC20"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

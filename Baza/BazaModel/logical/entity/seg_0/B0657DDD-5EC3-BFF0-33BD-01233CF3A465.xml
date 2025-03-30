@@ -95,6 +95,20 @@
 <dataTypeSize>4</dataTypeSize>
 <ownDataTypeParameters>4,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="RazOdb" id="3C99D09C-D15F-59B4-7BD9-33AEA41F305E">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 15:32:13 UTC</createdTime>
+<commentInRDBMS><![CDATA[RazlogOdbijanjaServisa]]></commentInRDBMS>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="IdUsera" id="AA2A4EBE-3F08-15F0-AB92-CDCAC509A21C">
 <createdBy>User</createdBy>
 <createdTime>2024-12-22 19:34:37 UTC</createdTime>

@@ -1,0 +1,50 @@
+<div class="form-wrapper">
+    <form [formGroup]="equipmentForm" (ngSubmit)="handleSubmit()" class="motor-form">
+      <h4 class="form-title">Add Worker</h4>
+      <hr />
+  
+      <!-- Form Group for Name -->
+      <div class="form-group">
+        <label for="name" class="form-label">Name:</label>
+        <input id="name" type="text" formControlName="name" required />
+      </div>
+  
+    <br>
+
+    <div class="form-group">
+        <label for="surname" class="form-label">Surname:</label>
+        <input id="surname" type="text" formControlName="surname" required />
+    </div>
+
+  <br>
+
+  <div class="form-group">
+    <label for="username" class="form-label">Username:</label>
+    <input id="username" type="text" formControlName="username" required />
+</div>
+
+<br>
+
+<div class="form-group">
+    <label for="password" class="form-label">Password:</label>
+    <input id="password" type="password" formControlName="password" required />
+</div>
+
+<br>
+
+<div class="form-group">
+    <label for="salary" class="form-label">Salary($):</label>
+    <input id="salary" type="text" onkeyup="if(this.value<=0)this.value=1" onblur="if(this.value<=0)this.value=1" formControlName="salary" required />
+</div>
+
+<br>
+  
+      <!-- Submit Button -->
+      <div class="form-action">
+        <button type="submit" [disabled]="equipmentForm.invalid" class="submit-button">Confirm</button>
+      </div>
+  
+      <!-- Message -->
+      <p>{{ createMessage }}</p>
+    </form>
+  </div>

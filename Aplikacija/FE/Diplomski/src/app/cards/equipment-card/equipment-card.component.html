@@ -1,0 +1,6 @@
+<div class="motor-card" (click)="onCardClick()">
+    <h4><b>{{ equipment.producers[0].name }} - {{ equipment.name }}</b></h4>
+    <img [src]="getImage()" alt="{{ equipment.name }}" class="motor-img">
+    <h4><b><p>{{ equipment.displayPriceOnly && equipment.displayPriceOnly.length > 0 ? equipment.displayPriceOnly[0].price + '$' : 'Without_Price' }}</p></b></h4>
+  </div>
+  

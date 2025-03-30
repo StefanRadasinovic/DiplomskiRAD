@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="83BC02BB-6BD6-0504-5975-2BC0ED2EF827" name="obuhvata">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<ordsAlias>relation_24</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdMotocikla" id="FDF25CB9-E5B1-9290-4C4C-B9EABE9C820F">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2DA44D8B-E676-2C8D-7647-221CC0EB6E32" referredColumn="4D3EE574-D9A0-E864-3230-AA5353BFE486"/>
+</associations>
+</Column>
+<Column name="IdPor" id="A49D5929-7AEF-F58D-991E-419C73E6081A">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0FB8AE3A-0B2D-5336-FFC4-195C5B6DA303" referredColumn="22ADB507-5E49-C57A-4026-0FA536661394"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="29843743-E6F5-5AC9-4B80-548023FA6CFB" name="obuhvata_PK">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FDF25CB9-E5B1-9290-4C4C-B9EABE9C820F"/>
+<colUsage columnID="A49D5929-7AEF-F58D-991E-419C73E6081A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E09ECCCA-190A-0923-956A-4031BE189077" name="obuhvata_Motocikl_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>D811F020-F01C-361B-A1BD-E04403DE3ADD</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FDF25CB9-E5B1-9290-4C4C-B9EABE9C820F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0454637E-1AF6-9007-5809-3F61836F1DAC" name="obuhvata_Porudzbina_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-01-21 19:29:02 UTC</createdTime>
+<generatorID>D811F020-F01C-361B-A1BD-E04403DE3ADD</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A49D5929-7AEF-F58D-991E-419C73E6081A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,73 @@
+
+import { DisplayPriceOnly } from "./priceListDTO";
+import { CreateProducerDto, Producer, ProducerInfo, UpdateProducerDto } from "./producerDTO";
+
+export interface Motor
+{
+    id : string,
+    name : string,
+    slika? : string
+    kilometraza : number,
+    yearOfProduction : number,
+    motorcycleState: string,
+    amount : number,
+    motorcycleType : string,
+    producers: Producer[],
+    displayPriceOnly?: DisplayPriceOnly[],
+}
+
+export interface MotorInfo
+{
+    id : string,
+    name : string,
+    slika? : string
+    yearOfProduction : number,
+    motorcycleType : string,
+    amount : number,
+    producers: ProducerInfo[],
+    displayPriceOnly?: DisplayPriceOnly[],
+}
+
+export interface PaginatedMotorProps { //Za Paginaciju
+    data: Array<MotorInfo>;
+    pageNumber: number;
+    pageSize: number;
+    totalPages: number;
+    totalRecord: number;
+}
+
+
+export interface CreateMotorDto
+{
+    id : string,
+    name : string,
+    slika? : string
+    kilometraza : number,
+    yearOfProduction : number,
+    motorcycleState: string,
+    amount : number,
+    motorcycleType : string,
+    producers: CreateProducerDto[],
+
+}
+
+export interface UpdateMotorDto 
+{
+    name : string,
+    Slika? : string
+    kilometraza : number,
+    yearOfProduction : number,
+    motorcycleState: string,
+    amount : number,
+    motorcycleType : string,
+    producers: UpdateProducerDto[],
+
+}
+
+export interface JustMotorcycleName
+{
+    id : string,
+    name : string,
+    producers?: ProducerInfo[],
+
+}
