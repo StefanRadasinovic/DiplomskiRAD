@@ -1,0 +1,335 @@
+.click-text-label{
+    margin-left: 80px;
+  }
+  
+  
+  .container {
+    margin-top: 20px;
+    padding: 20px;
+  }
+  
+  .filter-group {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  
+  /* GROUP TABLE & FORM CLOSER */
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* Reduce gap between table and form */
+  }
+  
+  
+  .filter-input {
+    padding: 5px;
+    font-size: 16px;
+    width: 150px;
+    margin-right: 3px;
+    font-family: "Trebuchet MS", sans-serif;
+  }
+  
+  .filter-select {
+    padding: 8px;
+    font-size: 16px;
+    width: 150px;
+    margin-right: 3px;
+  }
+  
+  .user-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 30px 0px 30px 0px;
+    font-family: "Trebuchet MS", sans-serif;
+  }
+  
+  .user-table th,
+  .user-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+    color: black;
+  }
+  
+  .user-table th {
+    background-color: #4169E1;
+    font-weight: bold;
+    color: whitesmoke;
+  }
+  
+  .user-table tr:hover {
+    background-color: #ffff99;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .user-table .active {
+    background-color: #e0e0e0;
+  }
+  
+  .loading {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .search-button {
+    background-color: grey;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .search-button:hover {
+    transform: translateY(-1px);
+    background-color: #4b97e7;
+  }
+  
+  
+  
+  /*******************GET Pricelist bY iD********************/
+  
+  /* FORM STYLING */
+  .form-wrapper {
+    background-color: #DEDEDE;
+    padding: 1rem; /* Reduce padding */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 25%; /* Adjusted width */
+    margin-top: 5px; /* Bring closer to table */
+  }
+  
+  .form-title {
+    text-align: center; 
+    margin-bottom: 0.8rem;
+  }
+  
+  
+  /* APPLY STYLING TO ALL INPUT TYPES */
+  
+  .form-group-inline {
+    display: flex;
+    justify-content: center; /* Center both fields */
+    gap: 0.2rem; /* Reduce the gap between the fields */
+    font-weight: bold;
+    font-size: 13px; /* Smaller font size */
+    color: #333;
+    
+  }
+  
+  /* This controls the width of Not Available Time fields */
+  .form-group-inline-item {
+    width: 47%; /* Reduce width to fit both fields */
+  }
+  
+  
+  
+  /* APPLY STYLING ONLY TO INPUTS INSIDE LABELS */
+  .form-group input[type="text"],
+  .form-group input[type="number"],
+  .form-group input[type="date"]
+  .form-group input[type="datetime-local"],
+  .form-group input[type="datetime"],
+  .form-group input[type="checkbox"] {
+    width: 90%;
+    padding: 0.3rem;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  
+  
+  /* FORM LABEL STYLING */
+  .form-group label {
+    font-weight: bold;
+    font-size: 13px;
+    color: #333;
+    display: block;
+    margin-bottom: 2px;
+    margin-left: 18px;
+  }
+  
+  
+  .form-custom {
+    font-weight: bold;         
+    font-size: 13px;          
+    color: #333;               
+    display: block;            
+    margin-bottom: 2px;        
+    margin-left: 8px;         
+  }
+  
+  .form-group-inline-item input {
+    width: 90%;                
+    padding: 0.3rem;           
+    margin: 0 auto;            
+    display: block;            
+    border: 1px solid #ccc;    
+    border-radius: 4px;       
+    font-size: 13px;           
+  }
+  
+  
+  /*************************************/
+  
+  
+  .button-container {
+    display: flex;
+    justify-content: center; /* Centers the buttons horizontally */
+    gap: 2rem; /* Adds space between the buttons */
+  }
+  
+  .delete-button {
+    align-items: center;
+    background-clip: padding-box;
+    background-color: #D11A2A;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px; /* Smaller font size */
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin-left: 1rem;
+    min-height: 2.8rem; /* Reduced minimum height */
+    padding: calc(.5rem - 1px) calc(1.8rem - 1px); /* Reduced padding */
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+  }
+  
+  .delete-button:hover {
+    transform: translateY(-1px);
+  }
+  
+  .delete-button:active {
+    background-color:  #D11A2A;
+    box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+    transform: translateY(0);
+  }
+  
+  
+  
+  .edit-button {
+    align-items: center;
+    background-clip: padding-box;
+    background-color: #27ae60;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px; /* Smaller font size */
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin-left: 1rem;
+    min-height: 2.8rem; /* Reduced minimum height */
+    padding: calc(.5rem - 1px) calc(2.3rem - 1px); /* Reduced padding */
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+  }
+  
+  .edit-button:hover {
+    transform: translateY(-1px);
+  }
+  
+  .edit-button:active {
+    background-color:  #27ae60;
+    box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+    transform: translateY(0);
+  }
+  
+  
+.drop-zone {
+  border: 1px; /* Corrected border property */
+  border-radius: 4px;
+  padding: 1.5rem; /* Reduce padding */
+  text-align: center;
+  color: #aaa;
+  margin-left: 17px;
+  width: 78%; /* Set a smaller fixed width */
+  height: 130px; /* Reduce height */
+  overflow: hidden; /* Prevent overflow if image exceeds the bounds */
+  position: relative; /* For positioning the image preview */
+}
+
+.image-preview {
+  width: 100%; /* Fill the drop zone's width */
+  height: 100%; /* Fill the drop zone's height */
+  object-fit: fill; /* Stretch the image to fill the drop zone */
+  position: absolute; /* Ensure it fills the drop zone */
+  top: 0;
+  left: 0;
+  border: 1px; /* Optional: Add border */
+  border-radius: 4px; /* Optional: Rounded corners */
+}
+
+.form-label-slika {
+  font-weight: bold;
+  font-size: 13px; /* Smaller font size */
+  color: #333;
+  margin-bottom: 3px; /* Reduce margin */
+  text-align: center; /* Center label text */
+  margin-left: 17px;
+}
+  
+.status-PRIHVACEN {
+  color: #089000;
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  text-align: center;   
+}
+
+.status-NA_CEKANJU {
+  color:#ffaa1d ;
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  text-align: center;   
+}
+
+.status-ODBIJEN {
+  color: #b71c1c;
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  text-align: center;   
+}
+
+.status-default {
+  color: black;
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  text-align: center;   
+}
+
+  
+  
+  
+  

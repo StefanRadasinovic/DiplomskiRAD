@@ -1,0 +1,99 @@
+<div class="form-wrapper">
+  <form [formGroup]="motorForm" (ngSubmit)="handleSubmit()" class="motor-form">
+    <h4 class="form-title">Add Motorcycle</h4>
+    <hr />
+
+    <!-- Form Group for Name and producer -->
+    <div class="form-group-inline">
+      <div class="form-group-inline-item">
+        <label for="name" class="form-label">Name:</label>
+        <input id="name" type="text" formControlName="name" required />
+      </div>
+      <div class="form-group-inline-item">
+        <div formArrayName="producers">
+          <div *ngFor="let producer of producers.controls; let i = index" [formGroupName]="i">
+            <div class="form-group">
+              <label for="producer-{{i}}-name" class="form-label">Producer:</label>
+              <input id="producer-{{i}}-name" type="text" formControlName="name" required />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="form-group-inline">
+      <div class="form-group-inline-item">
+        <label for="motorcycleState" class="form-label">State:</label>
+        <select id="motorcycleState" formControlName="motorcycleState" required>
+          <option value="NOV">NOV</option>
+          <option value="POLOVAN">POLOVAN</option>
+        </select>
+      </div>
+      <div class="form-group-inline-item">
+        <label for="kilometraza" class="form-label">Mileage(km):</label>
+        <input id="kilometraza" type="number" formControlName="kilometraza" onkeyup="if(this.value<=0)this.value=1" onblur="if(this.value<=0)this.value=1" required />
+      </div>
+    </div>
+
+    <br>
+    <div class="form-group-inline">
+      <div class="form-group-inline-item">
+        <label for="motorcycleType" class="form-label">Type:</label>
+        <select id="motorcycleType" formControlName="motorcycleType" required>
+          <option value="SPORTSKI_MOTOR">SPORTSKI_MOTOR</option>
+          <option value="SKUTER">SKUTER</option>
+          <option value="ELEKTRICNI">ELEKTRICNI</option>
+          <option value="QUAD">QUAD</option>
+          <option value="MOPED">MOPED</option>
+          <option value="OSTALO">OSTALO</option>
+        </select>
+      </div>
+      <div class="form-group-inline-item">
+        <label for="yearOfProduction" class="form-label">Year of production</label>
+        <input id="yearOfProduction" type="text" formControlName="yearOfProduction" required />
+      </div>
+    </div>
+
+    <br>
+    <div class="form-group">
+      <label for="amount" class="form-label">Amount:</label>
+      <input id="amount" type="number" formControlName="amount" onkeyup="if(this.value<=0)this.value=1" onblur="if(this.value<=0)this.value=1" required />
+    </div>
+
+    <br>
+    <label for="slika" class="form-label">Picture:</label>
+    <div class="drop-zone" 
+       #dropZone
+       (dragover)="onDragOver($event)" 
+       (drop)="onDrop($event)" 
+       (click)="fileInput.click()">
+       <br>
+      <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden />
+      <br>
+      <mat-icon class="large-icon">cloud_upload</mat-icon>
+      <p class="upload-text">Drag and drop a picture here, or click to upload</p>
+      <img *ngIf="imagePreview" [src]="imagePreview" alt="Image Preview" class="image-preview" />
+    </div>
+
+    <br>
+    <div formArrayName="producers">
+      <div *ngFor="let producer of producers.controls; let i = index" [formGroupName]="i">
+        <div class="form-group">
+          <label for="producer-{{i}}-description" class="form-label">Description:</label>
+          <textarea id="producer-{{i}}-description" formControlName="description" required></textarea>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <!-- Submit Button -->
+    <div class="form-action">
+      <button type="submit" [disabled]="motorForm.invalid" class="submit-button">Confirm</button>
+    </div>
+
+    <!-- Message -->
+    <p>{{ createMessage }}</p>
+  </form>
+</div>

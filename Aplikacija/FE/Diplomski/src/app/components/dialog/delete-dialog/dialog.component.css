@@ -1,0 +1,37 @@
+/* Centering buttons */
+.button-container {
+    display: flex;
+    justify-content: center; /* Centers the buttons horizontally */
+    gap: 1rem; /* Adds space between the buttons */
+  }
+  
+  /* Style for Cancel button */
+  .cancel-button {
+    background-color: gray; /* Gray color for Cancel button */
+    color: white;
+    border: none; /* Remove border */
+    border-radius: 6px;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cancel-button:hover {
+    background-color: darkgray; /* Darker gray on hover */
+  }
+  
+  /* Style for Delete button */
+  .delete-button {
+    background-color: #D11A2A; /* Keep the Delete button red */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .delete-button:hover {
+    background-color: #b71c1c; /* Darker red on hover */
+  }
+  

@@ -27,7 +27,6 @@
 <createdTime>2025-01-21 19:29:02 UTC</createdTime>
 <generatorID>48602115-0895-92F8-CFCD-94D34212AAEC</generatorID>
 <ownerDesignName>BazaModel</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT020</logicalDatatype>
