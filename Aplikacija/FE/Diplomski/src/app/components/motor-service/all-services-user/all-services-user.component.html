@@ -6,7 +6,7 @@
       <input type="date" class="filter-input" [(ngModel)]="endingDate" placeholder="Search by Producer">
       <div class="dropdown">
         <select [(ngModel)]="status" class="filter-select">
-          <option value="">Select Status</option>
+          <option value="">Odaberi Status</option>
           <option value="ZAVRSEN">ZAVRSEN</option>
           <option value="U_TOKU">U_TOKU</option>
           <option value="NA_CEKANJU">NA_CEKANJU</option>
@@ -14,7 +14,7 @@
         </select>
       </div>
 
-     <button mat-raised-button id="search" color="primary" class="search-button" (click)="filterByNameAndSurname()">Search</button>
+     <button mat-raised-button id="search" color="primary" class="search-button" (click)="filterByNameAndSurname()">Trazi</button>
 
       <mat-toolbar class="header">
       <span class="title"></span>
@@ -23,7 +23,7 @@
               (click)="navigateToAddService()"
               color="primary"
               class="add-title-button">
-        Request Service 
+        Zahtev za Servisiranje
         <mat-icon>add</mat-icon>
       </button>
     </mat-toolbar>
@@ -34,11 +34,11 @@
     <table class="user-table" *ngIf="!isLoading">
       <thead>
         <tr>
-          <th>Start Date</th>
-          <th>End Date</th>
+          <th>Pocetni Datum</th>
+          <th>Krajnji Datum</th>
           <th>Status</th>
-          <th>Grade</th>
-          <th>Download pdf</th>
+          <th>Ocena</th>
+          <th>Preuzmi pdf</th>
         </tr>
       </thead>
       <tbody>
@@ -66,7 +66,7 @@
   
         <!---Get ServiceById-->
         <div class="form-wrapper" *ngIf="currentItem">
-          <h4 class="form-title">Service Info</h4>
+          <h4 class="form-title">Detalji Servisa</h4>
           <hr />
       
           <br />
@@ -75,21 +75,21 @@
      
           <!---SAMO AKO JE STATUS ODBIJEN-->
           <div class="form-group" *ngIf="displayForServices.serviceStatus === 'ODBIJEN'">
-            <label class="form-label">Rejection Reason:</label>
+            <label class="form-label">Razlog Odbijanja:</label>
             <textarea value="{{displayForServices.razlogOdbijanja }}" readonly></textarea>
           </div>
 
           <br>
 
           <div class="form-group">
-            <label class="form-label">Start Date:</label>
+            <label class="form-label">Pocetni Datum:</label>
             <input type="text" value="{{displayForServices.startDate  }}"readonly />
           </div>
 
           <br>
 
           <div class="form-group">
-            <label class="form-label">End Date:</label>
+            <label class="form-label">Krajnji Datum:</label>
             <input type="text" value="{{displayForServices.endDate  }}"readonly />
           </div>
           
@@ -97,7 +97,7 @@
           <br>
       
           <div class="form-group"></div>
-          <label class="form-label-slika">Picture:</label>
+          <label class="form-label-slika">Slika:</label>
           <div class="drop-zone">
           <img [src]="displayForServices.picture" alt="{{ displayForServices.picture }}" class="image-preview" />
           </div>
@@ -105,15 +105,15 @@
           <br>
 
           <div class="form-group">
-            <label class="form-label">Failure Description:</label>
+            <label class="form-label">Opis Kvara:</label>
             <textarea value="{{displayForServices.failureDescription }}" readonly></textarea>
           </div>
       
           <br>
       
           <div mat-dialog-actions class="button-container"> 
-            <button *ngIf="(displayForServices.serviceStatus === 'ZAVRSEN' || displayForServices.serviceStatus === 'ODBIJEN') && !displayForServices.reviewInfos?.length" mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="addReview()">Review <mat-icon>grade</mat-icon></button>
-            <button *ngIf="displayForServices.serviceStatus === 'NA_CEKANJU'" mat-raised-button id="deleteMotor" color="primary" class="delete-button" (click)="deleteService()">Cancel Request<mat-icon>delete</mat-icon></button>
+            <button *ngIf="(displayForServices.serviceStatus === 'ZAVRSEN' || displayForServices.serviceStatus === 'ODBIJEN') && !displayForServices.reviewInfos?.length" mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="addReview()">Dodaj Recenziju <mat-icon>grade</mat-icon></button>
+            <button *ngIf="displayForServices.serviceStatus === 'NA_CEKANJU'" mat-raised-button id="deleteMotor" color="primary" class="delete-button" (click)="deleteService()">Otkazi Zahtev<mat-icon>delete</mat-icon></button>
           </div>
 
           <p class="error-message">{{errorMessage}}</p>

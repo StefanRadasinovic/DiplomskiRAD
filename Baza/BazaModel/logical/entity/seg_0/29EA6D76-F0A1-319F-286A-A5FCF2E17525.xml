@@ -3,9 +3,6 @@
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 16:55:22 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
-<engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
-</engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
 <fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
@@ -18,13 +15,10 @@
 <discriminatorAttributeID>E1285E20-FEFD-B791-AF21-ABE863BA0A58</discriminatorAttributeID>
 <completeSubtypes>true</completeSubtypes>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="IdUsera" id="690653CF-B2FC-EB95-5F64-E7B25625671B">
+<Attribute name="IdKorisnika" id="690653CF-B2FC-EB95-5F64-E7B25625671B">
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 16:56:36 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
-<engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
-</engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -34,9 +28,6 @@
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 16:56:49 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
-<engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
-</engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -46,9 +37,6 @@
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 16:57:11 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
-<engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
-</engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -58,9 +46,6 @@
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 16:57:21 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
-<engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
-</engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -70,9 +55,6 @@
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 16:57:36 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
-<engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
-</engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -82,9 +64,6 @@
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 16:57:49 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
-<engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
-</engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -96,9 +75,6 @@
 <createdBy>User</createdBy>
 <createdTime>2024-12-05 16:56:48 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
-<engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
-</engineerTo>
 <pk>true</pk>
 <usedAttributes>
 <attributeRef>690653CF-B2FC-EB95-5F64-E7B25625671B</attributeRef>

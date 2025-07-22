@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="76CFC313-5574-21BB-C462-3E307CEB1E09" name="Porudzbina">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<generatorID>AE8551C5-1959-1057-153A-8CFEF1C1F4EA</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdPor" id="A498E18C-93CD-24AE-7315-73B814962B13">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<commentInRDBMS><![CDATA[IdPorudzbine]]></commentInRDBMS>
+<generatorID>37CFB7C3-1F01-70A2-98D7-6A5242C145C6</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="KolP" id="B7821B7E-6CCC-FD47-3271-A407F73C31BB">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<commentInRDBMS><![CDATA[Kolicina Porudzbine]]></commentInRDBMS>
+<generatorID>8E887C75-5160-A936-78D2-D5B561DCC3C5</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Ukc" id="9019DA1A-787D-7F4F-CB9E-83E1CADBA295">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<commentInRDBMS><![CDATA[Ukupna cena]]></commentInRDBMS>
+<generatorID>02EE1D87-C4C9-FDDA-A43C-8E6E3147B072</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="StatusP" id="BCB7D433-9805-CF91-1BF3-DF1907B2C98D">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<commentInRDBMS><![CDATA[Status: obijen,zavrsen,na cekanju]]></commentInRDBMS>
+<generatorID>3F942D47-CCB7-0668-6ACD-5AA02A9D5242</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Klijent_IdUsera" id="394C5A0D-D27A-AAC7-DC4A-4D1C206894D1">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<generatorID>3E65C811-161A-9433-449C-AA48183DA9B8</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="06B3BED6-A41C-08C3-0A96-22006B41B4C9" referredColumn="FA768BD7-550A-05C5-0C30-96D0E8383C89"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="250EEC53-FC66-CC27-9450-D7E87B91BB44" name="Porudzbina_PK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<generatorID>66EB8EC2-07B7-3604-689D-C732CF22FA37</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A498E18C-93CD-24AE-7315-73B814962B13"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4CB5DEC0-B67D-6DA0-BC19-01F4659E3B1C" name="Porudzbina_Klijent_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:01 UTC</createdTime>
+<generatorID>BB4D20E5-138B-7CAE-D4D5-EA727CE520CA</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="394C5A0D-D27A-AAC7-DC4A-4D1C206894D1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

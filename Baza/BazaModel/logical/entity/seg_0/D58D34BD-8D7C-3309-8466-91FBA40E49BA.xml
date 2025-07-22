@@ -4,7 +4,7 @@
 <createdTime>2024-12-27 16:12:19 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+<item key="E76DD1A3-34D3-6F16-1324-91B9EFE8632C" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -21,7 +21,7 @@
 <commentInRDBMS><![CDATA[Id recenzije]]></commentInRDBMS>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+<item key="E76DD1A3-34D3-6F16-1324-91B9EFE8632C" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -33,7 +33,7 @@
 <createdTime>2024-12-27 16:12:42 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+<item key="E76DD1A3-34D3-6F16-1324-91B9EFE8632C" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -45,20 +45,20 @@
 <createdTime>2024-12-27 16:12:48 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+<item key="E76DD1A3-34D3-6F16-1324-91B9EFE8632C" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="IdUsera" id="9A5A2DBF-FE69-4377-D589-F78BB85DBB89">
+<Attribute name="IdKorisnika" id="9A5A2DBF-FE69-4377-D589-F78BB85DBB89">
 <createdBy>User</createdBy>
 <createdTime>2024-12-27 16:13:46 UTC</createdTime>
 <generatorID>5419A61E-72C4-5B1C-7ABC-A1217FA5715D</generatorID>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+<item key="E76DD1A3-34D3-6F16-1324-91B9EFE8632C" value="true"/>
 </engineerTo>
 <referedAttribute>690653CF-B2FC-EB95-5F64-E7B25625671B</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
@@ -72,7 +72,7 @@
 <generatorID>4DB6E471-D5A4-71B6-00FB-A412AE395A55</generatorID>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+<item key="E76DD1A3-34D3-6F16-1324-91B9EFE8632C" value="true"/>
 </engineerTo>
 <referedAttribute>A2A274E3-86D3-EFB7-FF25-5B83069A8872</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
@@ -87,11 +87,24 @@
 <createdTime>2024-12-27 16:12:39 UTC</createdTime>
 <ownerDesignName>BazaModel</ownerDesignName>
 <engineerTo>
-<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+<item key="E76DD1A3-34D3-6F16-1324-91B9EFE8632C" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
 <attributeRef>ADEF9556-4911-C0F1-1B33-5B3FA024DFB3</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="74C35423-6518-AADF-1F58-F323D6A48BBA" name="KorisnikServis">
+<createdBy>User</createdBy>
+<createdTime>2025-07-14 09:28:34 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="E76DD1A3-34D3-6F16-1324-91B9EFE8632C" value="true"/>
+</engineerTo>
+<newElementsIDs>9A5A2DBF-FE69-4377-D589-F78BB85DBB89,DA67044C-6CCB-1699-706F-0B4F7237F4DE</newElementsIDs>
+<usedAttributes>
+<attributeRef>9A5A2DBF-FE69-4377-D589-F78BB85DBB89</attributeRef>
+<attributeRef>DA67044C-6CCB-1699-706F-0B4F7237F4DE</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

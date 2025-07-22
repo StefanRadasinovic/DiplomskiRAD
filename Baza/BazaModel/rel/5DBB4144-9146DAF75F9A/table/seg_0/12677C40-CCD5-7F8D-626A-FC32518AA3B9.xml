@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="12677C40-CCD5-7F8D-626A-FC32518AA3B9" name="proizvodi">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:01 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<ordsAlias>relation_15</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdProizv" id="61BDBC99-2595-12F7-5556-FC5A912DBDE5">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:01 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E1A37EA0-9F47-C3CA-85A9-18EA8CD60C1C" referredColumn="BD120433-220F-2AEA-128C-472D59217CDA"/>
+</associations>
+</Column>
+<Column name="IdArtikla" id="81ED85F6-6960-8F47-3412-FE77C9093278">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:01 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4A21D99A-DAD1-7D98-7246-BC96D2FB0586" referredColumn="07172937-4C64-70E2-F0AB-15B7050C8590"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CD17AA6B-4CB9-5FFE-4CA3-97F152954B93" name="proizvodi">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:01 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="61BDBC99-2595-12F7-5556-FC5A912DBDE5"/>
+<colUsage columnID="81ED85F6-6960-8F47-3412-FE77C9093278"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9E4F4125-4671-41F8-6B7D-8C895FD12B75" name="proizvodi_Proizvodjac_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:01 UTC</createdTime>
+<generatorID>BCAFFFD7-ADEF-9DAA-6B60-3F237537E53A</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="61BDBC99-2595-12F7-5556-FC5A912DBDE5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0AE7E2AA-5058-1BBF-4256-E461A918C689" name="proizvodi_Artikal_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:01 UTC</createdTime>
+<generatorID>BCAFFFD7-ADEF-9DAA-6B60-3F237537E53A</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="81ED85F6-6960-8F47-3412-FE77C9093278"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

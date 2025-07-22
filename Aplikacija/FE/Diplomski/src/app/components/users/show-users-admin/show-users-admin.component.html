@@ -1,10 +1,10 @@
 <div class="form-wrapper" *ngIf="!loading; else loadingTemplate">
-    <h4 class="form-title">User Info</h4>
+    <h4 class="form-title">Detalji Korisnika</h4>
     <hr />
   
     <!-- Form Group for Name -->
     <div class="form-group">
-      <label class="form-label">Name:</label>
+      <label class="form-label">Ime:</label>
       <input type="text" value="{{ user.name }}" readonly />
     </div>
   
@@ -12,7 +12,7 @@
   
     <!-- Form Group for Surname -->
     <div class="form-group">
-      <label class="form-label">Surname:</label>
+      <label class="form-label">Prezime:</label>
       <input type="text" value="{{ user.surname }}" readonly />
     </div>
   
@@ -20,7 +20,7 @@
   
     <!-- Form Group for Username -->
     <div class="form-group">
-      <label class="form-label">Username:</label>
+      <label class="form-label">Korisnicko Ime:</label>
       <input type="text" value="{{ user.username }}" readonly />
     </div>
   
@@ -28,7 +28,7 @@
   
     <!-- Form Group for Role -->
     <div class="form-group">
-      <label class="form-label">Role:</label>
+      <label class="form-label">Uloga:</label>
       <input type="text" value="{{ user.role }}" readonly />
     </div>
   
@@ -36,7 +36,7 @@
   
     <!-- Form Group for Number of Tasks (for DisplayWorkerDto) -->
     <div *ngIf="isDisplayWorker(user)">
-      <label class="form-label">Number Of Tasks:</label>
+      <label class="form-label">Broj Zadataka:</label>
       <input type="text" value="{{ user.numOfTasks }}" readonly />
     </div>
   
@@ -44,13 +44,13 @@
   
     <!-- Form Group for Salary (for DisplayWorkerDto or DisplayDirectorDto) -->
     <div *ngIf="isDisplayWorker(user) || isDisplayDirector(user)">
-      <label class="form-label">Salary($):</label>
+      <label class="form-label">Plata($):</label>
       <input type="text" value="{{ user.salary }}" readonly />
     </div>
   
     <!-- Form Group for Number of Purchases (for DisplayClientDto) -->
     <div *ngIf="isDisplayClient(user)">
-      <label class="form-label">Number Of Purchases:</label>
+      <label class="form-label">Broj Porudzbina:</label>
       <input type="text" value="{{ user.numOfPurchases }}" readonly />
     </div>
   
@@ -59,10 +59,10 @@
     <!-- Edit and Delete Buttons -->
     <div mat-dialog-actions class="button-container">
       <button mat-raised-button id="editUser" color="primary" class="edit-button" (click)="editUser(user.id)">
-        Edit<mat-icon>edit</mat-icon>
+        Izmeni<mat-icon>edit</mat-icon>
       </button>
       <button  *ngIf="userRole === 'DIREKTOR'" mat-raised-button id="deleteUser" color="primary" class="delete-button" (click)="deleteUser()">
-        Delete<mat-icon>delete</mat-icon>
+        Obrisi<mat-icon>delete</mat-icon>
       </button>
     </div>
   </div>

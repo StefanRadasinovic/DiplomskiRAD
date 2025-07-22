@@ -2,9 +2,9 @@
 <div *ngIf="!isLoading">
   <div class="nav-pagination">
     <div class="filter-group">
-      <input type="text" class="filter-input" [(ngModel)]="surname" placeholder="Search by Producer">
-      <input type="text" class="filter-input" [(ngModel)]="name" placeholder="Search by Name">
-      <button mat-raised-button id="search" color="primary" class="search-button" (click)="filterByNameAndSurname()">Search</button>
+      <input type="text" class="filter-input" [(ngModel)]="surname" placeholder="Proizvodjac">
+      <input type="text" class="filter-input" [(ngModel)]="name" placeholder="Naziv">
+      <button mat-raised-button id="search" color="primary" class="search-button" (click)="filterByNameAndSurname()">Pretrazi</button>
     </div>
 
     <div class="pagination-wrapper">

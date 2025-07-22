@@ -1,39 +1,39 @@
 <div class="form-wrapper">
     <form [formGroup]="equipmentForm" (ngSubmit)="handleSubmit()" class="motor-form">
-      <h4 class="form-title">Add Worker</h4>
+      <h4 class="form-title">Dodaj Radnika</h4>
       <hr />
   
       <!-- Form Group for Name -->
       <div class="form-group">
-        <label for="name" class="form-label">Name:</label>
+        <label for="name" class="form-label">Ime:</label>
         <input id="name" type="text" formControlName="name" required />
       </div>
   
     <br>
 
     <div class="form-group">
-        <label for="surname" class="form-label">Surname:</label>
+        <label for="surname" class="form-label">Prezime:</label>
         <input id="surname" type="text" formControlName="surname" required />
     </div>
 
   <br>
 
   <div class="form-group">
-    <label for="username" class="form-label">Username:</label>
+    <label for="username" class="form-label">Korisnicko ime:</label>
     <input id="username" type="text" formControlName="username" required />
 </div>
 
 <br>
 
 <div class="form-group">
-    <label for="password" class="form-label">Password:</label>
+    <label for="password" class="form-label">Lozinka:</label>
     <input id="password" type="password" formControlName="password" required />
 </div>
 
 <br>
 
 <div class="form-group">
-    <label for="salary" class="form-label">Salary($):</label>
+    <label for="salary" class="form-label">Plata($):</label>
     <input id="salary" type="text" onkeyup="if(this.value<=0)this.value=1" onblur="if(this.value<=0)this.value=1" formControlName="salary" required />
 </div>
 
@@ -41,7 +41,7 @@
   
       <!-- Submit Button -->
       <div class="form-action">
-        <button type="submit" [disabled]="equipmentForm.invalid" class="submit-button">Confirm</button>
+        <button type="submit" [disabled]="equipmentForm.invalid" class="submit-button">Potvrdi</button>
       </div>
   
       <!-- Message -->
