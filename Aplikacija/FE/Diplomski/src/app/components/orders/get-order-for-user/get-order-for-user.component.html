@@ -12,17 +12,17 @@
       </div>
       
 
-      <button mat-raised-button id="search" color="primary" class="search-button" (click)="filterByNameAndSurname()">Search</button>
+      <button mat-raised-button id="search" color="primary" class="search-button" (click)="filterByNameAndSurname()">Pretrazi</button>
     </div>
   
     <div class="content-wrapper">
     <table class="user-table" *ngIf="!isLoading">
       <thead>
         <tr>
-          <th>Item name</th>
-          <th>Item producer</th>
-          <th>Ordered amount</th>
-          <th>Total price($)</th>
+          <th>Naziv Artikla</th>
+          <th>Proizvodjac</th>
+          <th>Kolicina</th>
+          <th>Ukupna cena($)</th>
           <th>Status</th>
         </tr>
       </thead>
@@ -47,7 +47,7 @@
   
         <!---Get OrderById-->
         <div class="form-wrapper" *ngIf="currentItem">
-          <h4 class="form-title">Order Info</h4>
+          <h4 class="form-title">Detalji Porudzbine</h4>
           <hr />
       
           <br />
@@ -57,11 +57,11 @@
          
           <div class="form-group-inline">
             <div class="form-group-inline-item">
-              <label class="form-custom ">Item name:</label>
+              <label class="form-custom ">Naziv Artikla:</label>
               <input type="text" value="{{  displayForOrder.motorcycleInfo?.[0]?.name || displayForOrder.equipmentInfo?.[0]?.name }}" readonly  />
             </div>
             <div class="form-group-inline-item">
-              <label  class="form-custom ">Item producer:</label>
+              <label  class="form-custom ">Proizvodjac:</label>
               <input type="text" value="{{ displayForOrder.motorcycleInfo?.[0]?.producers?.[0]?.name || displayForOrder.equipmentInfo?.[0]?.producers?.[0]?.name }}" readonly />
             </div>
           </div>
@@ -71,11 +71,11 @@
           <!---SAMO AKO JE ITEM MOTOR-->
           <div  *ngIf="isMotor"  class="form-group-inline">
             <div class="form-group-inline-item">
-              <label class="form-custom ">Type:</label>
+              <label class="form-custom ">Tip:</label>
               <input type="text" value="{{  displayForOrder.motorcycleInfo?.[0]?.motorcycleType}}" readonly  />
             </div>
             <div class="form-group-inline-item">
-              <label  class="form-custom ">Year of production:</label>
+              <label  class="form-custom ">Godina proizvodnje:</label>
               <input type="text" value="{{ displayForOrder.motorcycleInfo?.[0]?.yearOfProduction}}" readonly />
             </div>
           </div>
@@ -83,7 +83,7 @@
           <br>
       
           <div class="form-group"></div>
-          <label class="form-label-slika">Picture:</label>
+          <label class="form-label-slika">Slika:</label>
           <div class="drop-zone">
           <img [src]="displayForOrder.motorcycleInfo?.[0]?.slika || displayForOrder.equipmentInfo?.[0]?.slika" alt="{{ displayForOrder.motorcycleInfo?.[0]?.name || displayForOrder.equipmentInfo?.[0]?.name  }}" class="image-preview" />
           </div>
@@ -91,14 +91,14 @@
           <br>
       
           <div class="form-group">
-            <label class="form-label">Ordered amount:</label>
+            <label class="form-label">Narucena kolicina:</label>
             <input type="text" value="{{displayForOrder.orderAmount  }}"readonly />
           </div>
       
           <br>
       
           <div class="form-group">
-            <label class="form-label">Total price($):</label>
+            <label class="form-label">Ukupna cena($):</label>
             <input type="text" value="{{displayForOrder.totalPrice  }}"readonly />
           </div>
 

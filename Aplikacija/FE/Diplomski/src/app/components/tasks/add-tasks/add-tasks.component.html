@@ -1,12 +1,12 @@
 <div class="form-wrapper">
   <form [formGroup]="taskForm" (submit)="handleSubmit($event)" class="task-form">
-    <h4 class="form-title">Add Tasks</h4>
+    <h4 class="form-title">Dodaj Zadatak</h4>
     <hr />
 
     
     <div [formGroup]="tasks.at(0)">
       <div class="form-group">
-        <label class="form-label">Worker:</label>
+        <label class="form-label">Radnik:</label>
         <select formControlName="userId">
           <option *ngFor="let user of users" [value]="user.id">
             {{ user.name }} {{ user.surname }}
@@ -17,7 +17,7 @@
       <br />
 
       <div class="form-group">
-        <label class="form-label">Task Description:</label>
+        <label class="form-label">Opis Zadatka:</label>
         <textarea formControlName="taskDescription" required></textarea>
       </div>
     </div>
@@ -40,13 +40,13 @@
           <br />
 
           <div class="form-group">
-            <label class="form-label">Task Description:</label>
+            <label class="form-label">Opis Zadatka:</label>
             <textarea formControlName="taskDescription" required></textarea>
           </div>
 
           <button mat-raised-button color="primary" class="delete-button" 
                   (click)="removeTask(i); $event.preventDefault(); $event.stopPropagation();">
-            Cancel <mat-icon>close</mat-icon>
+            Otkazi <mat-icon>close</mat-icon>
           </button>
 
           <hr />
@@ -56,7 +56,7 @@
 
  
     <button mat-raised-button color="primary" class="add-button" (click)="addTask()" type="button">
-      New Task <mat-icon>add</mat-icon>
+      Novi Zadatak <mat-icon>add</mat-icon>
     </button>
 
     <br /><br />
@@ -64,7 +64,7 @@
    
     <div class="form-action">
       <button type="submit" [disabled]="taskForm.invalid || isSubmitting" class="submit-button">
-        Confirm
+        Potvrdi
       </button>
     </div>
   </form>

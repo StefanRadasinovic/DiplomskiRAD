@@ -4,7 +4,7 @@
       <input type="text" class="filter-input" [(ngModel)]="surname" placeholder="Search by Surname">
       <div class="dropdown">
         <select [(ngModel)]="status" class="filter-select">
-          <option value="">Select Status</option>
+          <option value="">Odaberi Status</option>
           <option value="NA_CEKANJU">NA_CEKANJU</option>
           <option value="U_TOKU">U_TOKU</option>
           <option value="ZAVRSEN">ZAVRSEN</option>
@@ -19,9 +19,9 @@
     <table class="user-table" *ngIf="!isLoading">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Surname</th>
-          <th>End Date</th>
+          <th>Ime</th>
+          <th>Prezime</th>
+          <th>Datum Zavrsetka</th>
           <th>Status</th>
         </tr>
       </thead>
@@ -51,11 +51,11 @@
       
           <div class="form-group-inline">
             <div class="form-group-inline-item">
-              <label class="form-custom ">Worker Name:</label>
+              <label class="form-custom ">Ime Radnika:</label>
               <input type="text" value="{{  displayForTasks.workerInfo.name  }}" readonly  />
             </div>
             <div class="form-group-inline-item">
-              <label  class="form-custom ">Worker Surname:</label>
+              <label  class="form-custom ">Prezime Radnika:</label>
               <input type="text" value="{{ displayForTasks.workerInfo.surname  }}" readonly />
             </div>
           </div>
@@ -63,7 +63,7 @@
           <br>
 
           <div class="form-group">
-            <label class="form-label">Task Description:</label>
+            <label class="form-label">Opis Zadatka:</label>
             <textarea value="{{displayForTasks.taskDescription }}" readonly></textarea>
           </div>
       
@@ -71,28 +71,28 @@
           <br>
 
           <div class="form-group" *ngIf="displayForTasks.status === 'ODBIJEN'">
-            <label class="form-label">Rejection Reason:</label>
+            <label class="form-label">Razlog Odbijanja:</label>
             <textarea value="{{displayForTasks.razlogOdbijanja }}" readonly></textarea>
           </div>
 
           <br>
 
           <div class="form-group" *ngIf="displayForTasks.status === 'ZAVRSEN'">
-            <label class="form-label">End Date:</label>
+            <label class="form-label">Datum Zavrsetka:</label>
             <input type="text" value="{{displayForTasks.endDateTask}}"readonly />
           </div>
 
           <br>
 
           <div class="form-group" *ngIf="displayForTasks.status === 'ZAVRSEN'">
-            <label class="form-label">Spare parts:</label>
+            <label class="form-label">Rezervni delovi:</label>
             <input type="text" value="{{displayForTasks.sparePartInfo[0].name || '-'}}"readonly />
           </div>
 
           <br>
 
           <div class="form-group" *ngIf="displayForTasks.status === 'ZAVRSEN'">
-            <label class="form-label">Amount:</label>
+            <label class="form-label">Kolicina:</label>
             <input type="text" value="{{displayForTasks.sparePartInfo[0].amount}}"readonly />
           </div>
     
@@ -100,7 +100,7 @@
           <br>
   
           <div mat-dialog-actions class="button-container">
-            <button *ngIf="displayForTasks.status === 'ODBIJEN' || displayForTasks.status === 'NA_CEKANJU'" mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="assignNewWorker(displayForTasks.id)">Assign new Worker <mat-icon>add</mat-icon> </button>
+            <button *ngIf="displayForTasks.status === 'ODBIJEN' || displayForTasks.status === 'NA_CEKANJU'" mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="assignNewWorker(displayForTasks.id)">Dodeli drugom Radniku<mat-icon>add</mat-icon> </button>
           </div>
           
     </div>

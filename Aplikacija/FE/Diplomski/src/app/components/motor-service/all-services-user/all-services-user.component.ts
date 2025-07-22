@@ -217,25 +217,25 @@ addReview(): void {
       this.serviceService.getServiceById(serviceId).subscribe(service => {
         const doc = new jsPDF();
     
-        doc.setFontSize(20).text('Service Report', 105, 15, { align: 'center' });
+        doc.setFontSize(20).text('Izvestaj Servisiranja', 105, 15, { align: 'center' });
         doc.setFontSize(14).text(`STATUS: ${service.serviceStatus}`, 105, 40, { align: 'center' });
     
         doc.setFontSize(10).text('Motorcycle-Service Ltd.', 150, 10);
         doc.text('Bulevar Oslobodjenja 11, Novi Sad', 150, 15);
-        doc.text('Phone: 021-456-7890', 150, 20);
+        doc.text('Tel: 021-456-7890', 150, 20);
     
-        doc.setFontSize(12).setFont('helvetica', 'bold').text('Client Information:', 10, 50);
+        doc.setFontSize(12).setFont('helvetica', 'bold').text('Detalji Klijenta:', 10, 50);
         doc.setFont('helvetica', 'normal')
-           .text('Name:', 10, 60).text(`${service.userInfo.name}`, 32, 60).line(32, 61, 75, 61)
-           .text('Surname:', 10, 70).text(`${service.userInfo.surname}`, 32, 70).line(32, 71, 75, 71)
-           .text('Username:', 10, 80).text(`${service.userInfo.username}`, 32, 80).line(32, 81, 75, 81);
+           .text('Ime:', 10, 60).text(`${service.userInfo.name}`, 42, 60).line(41, 61, 75, 61)
+           .text('Prezime:', 10, 70).text(`${service.userInfo.surname}`, 42, 70).line(41, 71, 75, 71)
+           .text('Korisnicko Ime:', 10, 80).text(`${service.userInfo.username}`, 42, 80).line(41, 81, 75, 81);
     
-        doc.setFont('helvetica', 'bold').text('Service Information:', 10, 95);
+        doc.setFont('helvetica', 'bold').text('Detalji Servisiranja:', 10, 95);
         doc.setFont('helvetica', 'normal') 
-           .text('Rejection Reason:', 10, 105).text(`${service.razlogOdbijanja ?? '-'}`, 48, 105).line(47, 106, 120, 106)
-           .text('Failure Description:', 10, 115).text(`${service.failureDescription}`, 48, 115).line(47, 116, 120, 116)
-           .text('Start Date:', 10, 125).text(`${service.startDate}`, 32, 125).line(32, 126, 75, 126)
-           .text('End Date:', 10, 135).text(`${service.endDate}`, 32, 135).line(32, 136, 75, 136);
+           .text('Razlog Odbijanja:', 10, 105).text(`${service.razlogOdbijanja ?? '-'}`, 48, 105).line(47, 106, 120, 106)
+           .text('Opis Kvara:', 10, 115).text(`${service.failureDescription}`, 48, 115).line(47, 116, 120, 116)
+           .text('Datum pocetka:', 10, 125).text(`${service.startDate}`, 48, 125).line(47, 126, 75, 126)
+           .text('Datum zavrsetka:', 10, 135).text(`${service.endDate}`, 48, 135).line(47, 136, 75, 136);
     
         
         if (service.taskServiceInfo && service.taskServiceInfo.length > 0) {
@@ -246,7 +246,7 @@ addReview(): void {
             columnStyles: {
               3: { halign: 'center' }
             },
-            head: [['Task Description', 'End Date', 'Status', 'Used Parts', 'Amount']],
+            head: [['Opis Zadatka', 'Datum Zavrsetka', 'Status', 'Rezervni Delovi', 'Kolicina']],
             body: service.taskServiceInfo.map(task => [
               task.taskDescription,
               task.endDateTask || '-',
@@ -259,7 +259,7 @@ addReview(): void {
     
         const finalY = (doc as any).lastAutoTable ? (doc as any).lastAutoTable.finalY + 25 : 160;
     
-        doc.setFontSize(12).setFont('helvetica', 'bold').text('Signature:', 10, finalY);
+        doc.setFontSize(12).setFont('helvetica', 'bold').text('Potpis:', 10, finalY);
         const signatureImg = new Image();
         signatureImg.src = 'signature.jpg'; 
         signatureImg.onload = () => {

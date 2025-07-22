@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E2F049FF-6007-E29F-BEFA-13221981BD78" name="ima">
+<createdBy>User</createdBy>
+<createdTime>2025-07-14 10:09:12 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<ordsAlias>relation_17</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdCenovnika" id="CFEBA5F0-A4BC-5601-738B-CD3211019052">
+<createdBy>User</createdBy>
+<createdTime>2025-07-14 10:09:12 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="71E2BB7C-B814-4566-0ADA-45E541AE522D" referredColumn="0C4B7EFC-6342-64C6-F257-09D676DE99D7"/>
+</associations>
+</Column>
+<Column name="IdArtikla" id="EC438BC0-3091-4BE0-0334-9FE8CDD28CEB">
+<createdBy>User</createdBy>
+<createdTime>2025-07-14 10:09:12 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AA46FBC3-25B3-ED6C-0455-BDE9CF294239" referredColumn="A167CC3E-D399-3A89-4683-1BAEC9C2E651"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="337CE884-65CE-DCCF-3E97-BCF16DFE6702" name="ima">
+<createdBy>User</createdBy>
+<createdTime>2025-07-14 10:09:12 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CFEBA5F0-A4BC-5601-738B-CD3211019052"/>
+<colUsage columnID="EC438BC0-3091-4BE0-0334-9FE8CDD28CEB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="801FF478-BFFA-74B8-0797-8F97ADF5FA2D" name="ima_Cenovnik_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-14 10:09:12 UTC</createdTime>
+<generatorID>6E648A30-A72E-15AE-8266-C212C58D3C00</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CFEBA5F0-A4BC-5601-738B-CD3211019052"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="993ABCCC-A499-FAE3-D656-D5F47C1D1456" name="ima_Artikal_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-14 10:09:12 UTC</createdTime>
+<generatorID>6E648A30-A72E-15AE-8266-C212C58D3C00</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EC438BC0-3091-4BE0-0334-9FE8CDD28CEB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,112 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C0BF077A-5B00-AB56-B99E-2B980159200B" name="Recenzija">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<generatorID>D58D34BD-8D7C-3309-8466-91FBA40E49BA</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdRec" id="F0BDC4AC-13B5-E76A-7DEA-CD7C7889A04D">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<commentInRDBMS><![CDATA[Id recenzije]]></commentInRDBMS>
+<generatorID>ADEF9556-4911-C0F1-1B33-5B3FA024DFB3</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Kom" id="5EB033EB-9C81-2D47-BF7D-28D80DB36969">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<generatorID>9899DC71-FF4A-1613-3160-79F722D921D7</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Ocena" id="5A541A82-5114-5C12-7B6E-3FC8E6451C52">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<generatorID>256ED8A5-B969-5B58-5D33-17291CFC9345</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Klijent_IdUsera" id="3262421E-7411-52AC-CB12-340107326A5F">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<generatorID>9A5A2DBF-FE69-4377-D589-F78BB85DBB89</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3EF685A6-20CF-4C54-AB5D-297570C7146D" referredColumn="FA768BD7-550A-05C5-0C30-96D0E8383C89"/>
+</associations>
+</Column>
+<Column name="Servis_IdServisa" id="66CD58A1-708D-C8A1-186D-AD2F130D90C7">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<generatorID>DA67044C-6CCB-1699-706F-0B4F7237F4DE</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="82DA844C-FE6B-79F0-7063-E8E0F196A188" referredColumn="3693F0FA-EF37-A9F3-F1CB-B1D5266987E2"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="56F0AC6C-7F18-A26F-DD72-65DD225E56F2" name="Recenzija_PK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<generatorID>D641EBB8-529C-A1CA-5E1F-E7B0830987BC</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F0BDC4AC-13B5-E76A-7DEA-CD7C7889A04D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9087B6FE-F459-2763-D79C-3D0382A22BA5" name="Recenzija_Klijent_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:01 UTC</createdTime>
+<generatorID>5419A61E-72C4-5B1C-7ABC-A1217FA5715D</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3262421E-7411-52AC-CB12-340107326A5F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="01C0095E-16DE-F65F-21F2-591838637200" name="Recenzija_Servis_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:01 UTC</createdTime>
+<generatorID>4DB6E471-D5A4-71B6-00FB-A412AE395A55</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="66CD58A1-708D-C8A1-186D-AD2F130D90C7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

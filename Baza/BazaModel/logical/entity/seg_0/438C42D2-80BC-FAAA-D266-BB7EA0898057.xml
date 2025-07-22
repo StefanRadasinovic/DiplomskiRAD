@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="438C42D2-80BC-FAAA-D266-BB7EA0898057" name="Motocikl">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 10:56:13 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<hierarchicalParent>F7C0D226-6D35-DA47-ED0E-A1BB41F26A61</hierarchicalParent>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Kilm" id="E19704D7-6A7D-5A59-1862-D5B3A2F8A088">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 10:56:19 UTC</createdTime>
+<commentInRDBMS><![CDATA[Kilometraza]]></commentInRDBMS>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="God" id="7F07FB5B-48D3-1530-3AE2-13FFEAC97F73">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:01:04 UTC</createdTime>
+<commentInRDBMS><![CDATA[Godiste]]></commentInRDBMS>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Stm" id="BA3C452B-60B9-4BCA-375F-47ACBFBDD804">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:05:20 UTC</createdTime>
+<commentInRDBMS><![CDATA[Stanje: Nov ili polovan]]></commentInRDBMS>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TipM" id="E017DCAF-DA37-9DAE-ED2A-0F3728A69777">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:05:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[TipMotocikla: sportski motor, moped, skuter, elektricni, quad, ostalo]]></commentInRDBMS>
+<ownerDesignName>BazaModel</ownerDesignName>
+<engineerTo>
+<item key="6D773948-229E-B7A4-1A39-596B2F978D64" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

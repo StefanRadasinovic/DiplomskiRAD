@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="540113E4-3644-80E8-F777-C8E902415B94" name="RezervniDeo">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<generatorID>2FF75F81-0263-DF77-EF62-A608AF82CE3B</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdRezD" id="8991A696-656F-9748-4FDB-4CC813E686F8">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<commentInRDBMS><![CDATA[IdRezervnogDela]]></commentInRDBMS>
+<generatorID>1EDD9F59-6680-9150-E84A-B7E1B85E3241</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ImeRd" id="D6E17778-66C3-AF4D-7EB1-A643EEDD0E52">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<commentInRDBMS><![CDATA[Ime rezervnog dela]]></commentInRDBMS>
+<generatorID>7B131307-F440-01D8-3169-22A06E3A596D</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="KolRd" id="36714A1B-8D67-AD90-4352-9C8479EE7C5B">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<commentInRDBMS><![CDATA[Kolicina dostupnih rezervnih delova]]></commentInRDBMS>
+<generatorID>08E758BE-21E1-DCCB-57A4-E304874618A8</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UpotRd" id="6CC4E296-5F96-61F4-DD1E-72321F7E072F">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<comment><![CDATA[Da li je rezervni deo upotrebljen]]></comment>
+<generatorID>F68FD2DA-047A-B3F6-A6B3-0B25F28FEB5C</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Zadatak_IdZadatka" id="0BDD5E55-A558-803F-9C7C-CEB392EE4BEB">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<generatorID>6DCADF6C-9D75-138E-F3FF-C2C385A574B8</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="146B91BE-5D96-2FF8-DD7D-036814A31235" referredColumn="F1A8CBED-8870-26F2-D6B4-6583A5383800"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B21E248D-09E3-7880-C317-40855B0E1F5A" name="RezervniDeo_PK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<generatorID>4C7FF493-7E05-AE90-2381-FE661C1153A3</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8991A696-656F-9748-4FDB-4CC813E686F8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2E4398DD-C93A-A5A0-A9B2-D93097369303" name="RezervniDeo_Zadatak_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:01 UTC</createdTime>
+<generatorID>B7F17396-A915-83D9-4D38-098239592916</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0BDD5E55-A558-803F-9C7C-CEB392EE4BEB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

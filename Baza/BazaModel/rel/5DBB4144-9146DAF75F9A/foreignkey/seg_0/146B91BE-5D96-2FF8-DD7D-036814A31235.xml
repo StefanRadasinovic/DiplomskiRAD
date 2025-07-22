@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="146B91BE-5D96-2FF8-DD7D-036814A31235" containerWithKeyObject="540113E4-3644-80E8-F777-C8E902415B94" localFKIndex="2E4398DD-C93A-A5A0-A9B2-D93097369303" name="RezervniDeo_Zadatak_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:01 UTC</createdTime>
+<generatorID>B7F17396-A915-83D9-4D38-098239592916</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<referredTableLongName>Zadatak</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2C5C54E5-9003-EA67-3A82-8FD170079229</referredTableID>
+<keyObject>265B4E8D-545A-830B-01A4-354951E6A184</keyObject>
+<referredKeyID>265B4E8D-545A-830B-01A4-354951E6A184</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>IdZadatka</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

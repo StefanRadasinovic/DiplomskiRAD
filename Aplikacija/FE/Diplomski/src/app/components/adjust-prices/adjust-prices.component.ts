@@ -306,8 +306,8 @@ priceData: { date: string, price: number }[] = [];
             error: (err) => {
 
                 this.displayForMotor = null;
-                this.errorMessage = 'No prices for current motor';
-                this.errorMessageGraph = 'No chart for current motor';
+                this.errorMessage = 'Nema cene za trenutni motor';
+                this.errorMessageGraph = 'Nema grafika za trenutni motor';
                 console.error('Error fetching motor details:', err);
                 this.loading = false;
 
@@ -345,8 +345,8 @@ priceData: { date: string, price: number }[] = [];
             error: (err) => {
               
                 this.displayForEquipment = null;
-                this.errorMessage = 'No prices for current equipment';
-                this.errorMessageGraph = 'No chart for current equipment';
+                this.errorMessage = 'Nema cene za trenutnu DodatnuOpremu';
+                this.errorMessageGraph = 'Nema grafika za trenutnu DodatnuOpremu';
                 console.error('Error fetching equipment details:', err);
                 this.loading = false;
 

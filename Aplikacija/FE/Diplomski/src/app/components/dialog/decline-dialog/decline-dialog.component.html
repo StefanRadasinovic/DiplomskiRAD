@@ -1,13 +1,13 @@
 <!-- delete-confirmation-dialog.component.html -->
-<h1 mat-dialog-title>Confirm decline</h1>
+<h1 mat-dialog-title>Potvrdi odbijanje</h1>
 <div class="form-group">
-  <label class="form-label">Rejection Reason:</label>
+  <label class="form-label">Razlog Odbijanja:</label>
   <textarea [(ngModel)]="rejectionReason"></textarea>
 </div>
 
 <div mat-dialog-content></div> 
 
 <div mat-dialog-actions class="button-container">
-  <button mat-button class="cancel-button" (click)="onCancel()">Cancel</button>
-  <button mat-button color="warn" class="delete-button" (click)="onConfirm()" [disabled]="!rejectionReason.trim()">Decline</button>
+  <button mat-button class="cancel-button" (click)="onCancel()">Otkazi</button>
+  <button mat-button color="warn" class="delete-button" (click)="onConfirm()" [disabled]="!rejectionReason.trim()">Odbij</button>
 </div>

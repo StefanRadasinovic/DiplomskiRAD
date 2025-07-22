@@ -3,21 +3,21 @@
       <input type="text" class="filter-input" [(ngModel)]="taskDescription" placeholder="Search by Task">
       <div class="dropdown">
         <select [(ngModel)]="status" class="filter-select">
-          <option value="">Select Status</option>
+          <option value="">Odaberi Status</option>
           <option value="NA_CEKANJU">NA_CEKANJU</option>
           <option value="U_TOKU">U_TOKU</option>
           <option value="NA_CEKANJU">NA_CEKANJU</option>
         </select>
       </div>
 
-      <button mat-raised-button id="search" color="primary" class="search-button" (click)="filterByNameAndSurname()">Search</button>
+      <button mat-raised-button id="search" color="primary" class="search-button" (click)="filterByNameAndSurname()">Pretrazi</button>
     </div>
   
     <div class="content-wrapper">
     <table class="user-table" *ngIf="!isLoading">
       <thead>
         <tr>
-          <th>Task Description</th>
+          <th>Opis Zadatka</th>
           <th>Status</th>
         </tr>
       </thead>
@@ -39,7 +39,7 @@
   
         <!---Get OrderById-->
         <div class="form-wrapper" *ngIf="currentItem">
-          <h4 class="form-title">Task Info</h4>
+          <h4 class="form-title">Detalji Zadatka</h4>
           <hr />
       
           <h3 [ngClass]="getStatusClass(displayForTasks.status)">Status: {{ displayForTasks.status }}</h3>
@@ -47,7 +47,7 @@
       
       
           <div class="form-group">
-            <label class="form-label">Task Description:</label>
+            <label class="form-label">Opis Zadatka:</label>
             <textarea value="{{displayForTasks.taskDescription}}" readonly></textarea>
           </div>
         
@@ -55,9 +55,9 @@
         <br>
   
           <div mat-dialog-actions class="button-container">
-            <button *ngIf="displayForTasks.status === 'NA_CEKANJU'" mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="handleAccept()">Accept <mat-icon>check</mat-icon> </button>
-            <button *ngIf="displayForTasks.status === 'U_TOKU'" mat-raised-button id="aMotor" color="primary" class="edit-button" (click)="handleFinish()">Finish <mat-icon>add</mat-icon> </button>
-            <button  *ngIf="displayForTasks.status === 'NA_CEKANJU' || displayForTasks.status === 'U_TOKU'" mat-raised-button id="deleteMotor" color="primary" class="delete-button" (click)="handleDecline()">Cancel <mat-icon>close</mat-icon></button>
+            <button *ngIf="displayForTasks.status === 'NA_CEKANJU'" mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="handleAccept()">Prihvati <mat-icon>check</mat-icon> </button>
+            <button *ngIf="displayForTasks.status === 'U_TOKU'" mat-raised-button id="aMotor" color="primary" class="edit-button" (click)="handleFinish()">Zavrsi <mat-icon>add</mat-icon> </button>
+            <button  *ngIf="displayForTasks.status === 'NA_CEKANJU' || displayForTasks.status === 'U_TOKU'" mat-raised-button id="deleteMotor" color="primary" class="delete-button" (click)="handleDecline()">Odbij <mat-icon>close</mat-icon></button>
           </div>
     </div>
   </div>

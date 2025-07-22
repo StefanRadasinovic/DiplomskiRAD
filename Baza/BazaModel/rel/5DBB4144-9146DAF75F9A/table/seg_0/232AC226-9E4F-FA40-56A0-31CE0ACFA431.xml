@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="232AC226-9E4F-FA40-56A0-31CE0ACFA431" name="Motocikl">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:01 UTC</createdTime>
+<generatorID>438C42D2-80BC-FAAA-D266-BB7EA0898057</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdArtikla" id="276847A7-594C-164C-DCA8-E40E201A9677">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:01 UTC</createdTime>
+<generatorID>3F1E9592-C6BE-C635-06DF-029A9CC562F7</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="32F13A0E-EC7A-97F1-9387-4FF862C03770" referredColumn="07172937-4C64-70E2-F0AB-15B7050C8590"/>
+</associations>
+</Column>
+<Column name="Kilm" id="2C62E0AD-2A13-D8D8-EE5E-7E2E0BA80F3E">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:01 UTC</createdTime>
+<commentInRDBMS><![CDATA[Kilometraza]]></commentInRDBMS>
+<generatorID>E19704D7-6A7D-5A59-1862-D5B3A2F8A088</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="God" id="E82E0198-70EE-A5F1-4551-40D2166B4365">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:01 UTC</createdTime>
+<commentInRDBMS><![CDATA[Godiste]]></commentInRDBMS>
+<generatorID>7F07FB5B-48D3-1530-3AE2-13FFEAC97F73</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Stm" id="6163FC2A-B2FD-990D-FC84-DD0282524E64">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:01 UTC</createdTime>
+<commentInRDBMS><![CDATA[Stanje: Nov ili polovan]]></commentInRDBMS>
+<generatorID>BA3C452B-60B9-4BCA-375F-47ACBFBDD804</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TipM" id="ED24F46E-2BEC-2334-34BD-BE2C746E21C7">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:01 UTC</createdTime>
+<commentInRDBMS><![CDATA[TipMotocikla: sportski motor, moped, skuter, elektricni, quad, ostalo]]></commentInRDBMS>
+<generatorID>E017DCAF-DA37-9DAE-ED2A-0F3728A69777</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="28971865-3B2D-1D91-AF72-9F3F62598F7C" name="Motocikl_PK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:01 UTC</createdTime>
+<generatorID>0A7F238C-6DE9-800A-D3FF-0D740AD8C31C</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="276847A7-594C-164C-DCA8-E40E201A9677"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1552CBC7-71D5-8B24-5A67-05776B8232A7" name="Motocikl_Artikal_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:01 UTC</createdTime>
+<generatorID>2A730C8A-DA1C-9F43-B298-FFFF0C8FFE44</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="276847A7-594C-164C-DCA8-E40E201A9677"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

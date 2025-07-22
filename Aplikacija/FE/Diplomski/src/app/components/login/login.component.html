@@ -1,15 +1,15 @@
 <div class="form-box">
-    <div class="header-text">Login Here</div>
+    <div class="header-text">Prijavi se Ovde</div>
     <form #userForm="ngForm" (ngSubmit)="loginUser(userForm.value)">
-      <input type="text" name="username" placeholder="Enter Username" id="title" required [(ngModel)]="ime">
+      <input type="text" name="username" placeholder="Unesi Korisnicko Ime" id="title" required [(ngModel)]="ime">
       <br><br>
-      <input type="password" name="password" placeholder="Enter Password" id="description" required [(ngModel)]="sifra">
+      <input type="password" name="password" placeholder="Unesi Lozinku" id="description" required [(ngModel)]="sifra">
       <br><br>
-      <button type="submit">Login</button>
+      <button type="submit">Prijava</button>
       <br>
       <div class="terms-wrapper">
         <label for="terms"></label>
-        <span>Don't have an account? <a (click)="redirect()">Register</a></span>
+        <span>Nemas nalog? <a (click)="redirect()">Registruj se</a></span>
     </div>
     </form>
   </div>
