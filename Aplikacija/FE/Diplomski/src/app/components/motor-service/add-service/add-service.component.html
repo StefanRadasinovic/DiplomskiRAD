@@ -1,0 +1,45 @@
+<div class="form-wrapper">
+    <form [formGroup]="equipmentForm" (ngSubmit)="handleSubmit()" class="motor-form">
+      <h4 class="form-title">Nalog za Servisiranje</h4>
+      <hr />
+  
+      <br>
+    
+      <div class="form-group">
+        <label class="form-label">Datum dospeca:</label>
+        <input type="date" formControlName="startDate" required >
+    </div>
+
+    <br>
+  
+    <label for="picture" class="form-label">Slika:</label>
+    <div class="drop-zone" 
+       #dropZone
+       (dragover)="onDragOver($event)" 
+       (drop)="onDrop($event)" 
+       (click)="fileInput.click()">
+      <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden />
+      <br>
+      <mat-icon class="large-icon">cloud_upload</mat-icon>
+      <p class="upload-text">Drag and drop a picture here, or click to upload</p>
+      <img *ngIf="imagePreview" [src]="imagePreview" alt="Image Preview" class="image-preview" />
+  </div>
+
+  <br>
+
+  <div class="form-group">
+    <label for="failureDescription" class="form-label">Opis Kvara:</label>
+    <textarea  formControlName="failureDescription" required> </textarea>
+  </div>
+
+  <br>
+  
+      <!-- Submit Button -->
+      <div class="form-action">
+        <button type="submit" [disabled]="equipmentForm.invalid" class="submit-button">Potvrdi</button>
+      </div>
+  
+      <!-- Message -->
+      <p>{{ createMessage }}</p>
+    </form>
+  </div>

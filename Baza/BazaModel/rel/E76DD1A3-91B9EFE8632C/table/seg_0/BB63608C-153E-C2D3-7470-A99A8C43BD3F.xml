@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BB63608C-153E-C2D3-7470-A99A8C43BD3F" name="sadrzi">
+<createdBy>User</createdBy>
+<createdTime>2025-07-14 10:09:12 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<ordsAlias>relation_18</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdArtikla" id="781B3EB6-3B7D-5F4E-CE6C-2338411C3699">
+<createdBy>User</createdBy>
+<createdTime>2025-07-14 10:09:12 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D18DEA96-AF62-4437-7CF7-7A3371E0183F" referredColumn="A167CC3E-D399-3A89-4683-1BAEC9C2E651"/>
+</associations>
+</Column>
+<Column name="IdPor" id="7B5E2179-934F-4D62-D6B1-310C8A0AF9F6">
+<createdBy>User</createdBy>
+<createdTime>2025-07-14 10:09:12 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5F2B801A-3041-05ED-3AB5-293A5774D1CB" referredColumn="416EDE54-CC06-101A-3133-2A35CDC5946E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="32E6F8D8-8A90-BC60-6272-962D01DDD044" name="sadrzi">
+<createdBy>User</createdBy>
+<createdTime>2025-07-14 10:09:12 UTC</createdTime>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="781B3EB6-3B7D-5F4E-CE6C-2338411C3699"/>
+<colUsage columnID="7B5E2179-934F-4D62-D6B1-310C8A0AF9F6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E110EA9A-42D8-2F25-07ED-BD73AD578178" name="sadrzi_Artikal_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-14 10:09:12 UTC</createdTime>
+<generatorID>35D24B86-CC77-7DBA-9915-0DB0850C6AC2</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="781B3EB6-3B7D-5F4E-CE6C-2338411C3699"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D965E7F4-0309-272A-6D53-E8E05DCF8F59" name="sadrzi_Porudzbina_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-14 10:09:12 UTC</createdTime>
+<generatorID>35D24B86-CC77-7DBA-9915-0DB0850C6AC2</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7B5E2179-934F-4D62-D6B1-310C8A0AF9F6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

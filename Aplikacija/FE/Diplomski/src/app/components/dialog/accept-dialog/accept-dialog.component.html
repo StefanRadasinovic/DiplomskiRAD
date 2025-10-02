@@ -1,0 +1,9 @@
+<!-- delete-confirmation-dialog.component.html -->
+<h1 mat-dialog-title>Potvrdi prihvatanje</h1>
+<div mat-dialog-content>
+  <p>Da li stvarno zelite da prihvatite?</p>
+</div>
+<div mat-dialog-actions class="button-container">
+  <button mat-button class="cancel-button" (click)="onCancel()">Otkazi</button>
+  <button mat-button color="warn" class="delete-button" (click)="onConfirm()">Potvrdi</button>
+</div>

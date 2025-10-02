@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="AA46FBC3-25B3-ED6C-0455-BDE9CF294239" containerWithKeyObject="E2F049FF-6007-E29F-BEFA-13221981BD78" localFKIndex="993ABCCC-A499-FAE3-D656-D5F47C1D1456" name="ima_Artikal_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-14 10:09:12 UTC</createdTime>
+<generatorID>6E648A30-A72E-15AE-8266-C212C58D3C00</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<referredTableLongName>Artikal</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>115AEFBF-0677-7912-4BAE-E762A9834B16</referredTableID>
+<keyObject>5289B631-9D11-4CAD-150D-50FF40E941D5</keyObject>
+<referredKeyID>5289B631-9D11-4CAD-150D-50FF40E941D5</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>IdArtikla</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -6,8 +6,7 @@ Direktor moze da odbije zahtev u potpunosti(ukoliko takav motocikl ne moze da se
 Kada direktor odabere radnika i zadatak, sam taj zadatak dobija status "u toku".Kad se zadatak zavrsi
 prelazi u stanje "zavrsen", a ceo proces servisiranja je "zavrsen" kada su svi zadaci "zavrseni".Radnik moze da obije zadatak
 (mozda uz neko obrazlozenje...) gde se status zadatka vraca u status "u toku" i direktor moze da odabere drugog radnika ili da 
-skroz odbije servis.Prilikom zadatka radnik moze da zameni delove motocikla (entitet RezervniDelovi) ukoliko ih ima na stanju.
-Nakon zavrsetka servisiranja klijent dobija pdf izvestaja i moze da ostavi komentar na usluge servisiranja.
+skroz odbije servis.Nakon zavrsetka servisiranja klijent dobija pdf izvestaja i moze da ostavi komentar na usluge servisiranja.
 
 (2)Kupovina - klijent odabira proizvode: motocikl ili dodatnu opremu i salje zahtev za kupovinu.tada dospeva na listu cekanja 
 gde direktor moze da ih vidi(status-na cekanju).I direktor moze da odobri ili odbije zahtev za kupovinu.
@@ -16,6 +15,6 @@ gde direktor moze da ih vidi(status-na cekanju).I direktor moze da odobri ili od
 
 (4)CRUD za dodatnu opremu
 
-(5)Komentari na uslugu
+(5)Komentari na uslugu servisiranja
 
-*Moguce dodatne funkcionalnosti: ocene proizvoda/servisa i komentari, analitika prodaje, popust na silver/golden klijente prilikom kupovine....
+*Moguce dodatne funkcionalnosti: ocene proizvoda, analitika prodaje, popust na silver/golden klijente prilikom kupovine....

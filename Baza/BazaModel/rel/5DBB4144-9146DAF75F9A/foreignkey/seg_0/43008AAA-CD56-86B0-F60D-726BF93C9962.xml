@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="43008AAA-CD56-86B0-F60D-726BF93C9962" containerWithKeyObject="2C5C54E5-9003-EA67-3A82-8FD170079229" localFKIndex="309C9D0B-28AE-22D6-5851-5F982D97309C" name="Zadatak_Servis_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:01 UTC</createdTime>
+<generatorID>83613C36-5920-5FB7-C66F-47654C464D00</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<referredTableLongName>Servis</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>F6FB60CD-B017-C5DF-BC31-F56669A98347</referredTableID>
+<keyObject>151E21CC-305A-57C1-838E-550D697DF9A8</keyObject>
+<referredKeyID>151E21CC-305A-57C1-838E-550D697DF9A8</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>IdServisa</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

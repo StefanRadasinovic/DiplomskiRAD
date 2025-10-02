@@ -1,0 +1,17 @@
+<div class="form-box">
+    <div class="header-text">Prijavi se Ovde</div>
+    <form #userForm="ngForm" (ngSubmit)="loginUser(userForm.value)">
+      <input type="text" name="username" placeholder="Unesi Korisnicko Ime" id="title" required [(ngModel)]="ime">
+      <br><br>
+      <input type="password" name="password" placeholder="Unesi Lozinku" id="description" required [(ngModel)]="sifra">
+      <br><br>
+      <button type="submit">Prijava</button>
+      <br>
+      <div class="terms-wrapper">
+        <label for="terms"></label>
+        <span>Nemas nalog? <a (click)="redirect()">Registruj se</a></span>
+    </div>
+    </form>
+  </div>
+  
+  

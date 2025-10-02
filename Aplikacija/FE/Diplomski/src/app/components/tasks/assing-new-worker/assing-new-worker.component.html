@@ -1,0 +1,22 @@
+<div class="form-wrapper">
+  <form [formGroup]="taskForm" (ngSubmit)="handleSubmit()" class="task-form">
+    <h4 class="form-title">Dodeli drugom Radniku</h4>
+    <hr />
+
+    <!-- Worker selection -->
+    <div class="form-group">
+      <label class="form-label">Radnik:</label>
+      <select formControlName="userId" required>
+        <option *ngFor="let user of users" [value]="user.id">{{ user.name }} {{ user.surname }}</option>
+      </select>
+    </div>
+
+    <br>
+
+    <div class="form-action">
+      <button type="submit" [disabled]="!taskForm.valid" class="submit-button">Dodeli</button>
+    </div>
+  </form>
+
+  <p>{{ createMessage }}</p>
+</div>

@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4575A2C0-F429-3D1F-1B1D-4F1ECDA91A05" name="DodatnaOprema">
+<createdBy>User</createdBy>
+<createdTime>2025-07-14 10:09:12 UTC</createdTime>
+<generatorID>8CEDC318-85AD-08ED-3026-3896287FF257</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdArtikla" id="9A09F18F-6483-D4DE-B4C9-9EF64C3CCB49">
+<createdBy>User</createdBy>
+<createdTime>2025-07-14 10:09:12 UTC</createdTime>
+<generatorID>3F1E9592-C6BE-C635-06DF-029A9CC562F7</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9F16244B-6F68-CE50-B845-67A71B5A2567" referredColumn="A167CC3E-D399-3A89-4683-1BAEC9C2E651"/>
+</associations>
+</Column>
+<Column name="Stdo" id="77CE6B64-25BD-49F6-77EC-815CF62EE634">
+<createdBy>User</createdBy>
+<createdTime>2025-07-14 10:09:12 UTC</createdTime>
+<generatorID>BACA4AF7-6D04-37C9-44E1-6AFC8B4D6B28</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FDC53041-FC32-3D40-913E-D3A69B82E521" name="DodatnaOprema_PK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-14 10:09:12 UTC</createdTime>
+<generatorID>0A7F238C-6DE9-800A-D3FF-0D740AD8C31C</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9A09F18F-6483-D4DE-B4C9-9EF64C3CCB49"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0BDF5768-BF6B-F803-7C66-9690069EA0AD" name="DodatnaOprema_Artikal_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-14 10:09:12 UTC</createdTime>
+<generatorID>966A9A96-94F4-D2D3-66DC-B24BB28A7B4F</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9A09F18F-6483-D4DE-B4C9-9EF64C3CCB49"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

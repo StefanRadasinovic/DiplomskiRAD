@@ -1,0 +1,73 @@
+<div class="form-wrapper" *ngIf="!loading; else loadingTemplate">
+    <h4 class="form-title">Detalji Korisnika</h4>
+    <hr />
+  
+    <!-- Form Group for Name -->
+    <div class="form-group">
+      <label class="form-label">Ime:</label>
+      <input type="text" value="{{ user.name }}" readonly />
+    </div>
+  
+    <br>
+  
+    <!-- Form Group for Surname -->
+    <div class="form-group">
+      <label class="form-label">Prezime:</label>
+      <input type="text" value="{{ user.surname }}" readonly />
+    </div>
+  
+    <br>
+  
+    <!-- Form Group for Username -->
+    <div class="form-group">
+      <label class="form-label">Korisnicko Ime:</label>
+      <input type="text" value="{{ user.username }}" readonly />
+    </div>
+  
+    <br>
+  
+    <!-- Form Group for Role -->
+    <div class="form-group">
+      <label class="form-label">Uloga:</label>
+      <input type="text" value="{{ user.role }}" readonly />
+    </div>
+  
+    <br>
+  
+    <!-- Form Group for Number of Tasks (for DisplayWorkerDto) -->
+    <div *ngIf="isDisplayWorker(user)">
+      <label class="form-label">Broj Zadataka:</label>
+      <input type="text" value="{{ user.numOfTasks }}" readonly />
+    </div>
+  
+    <br>
+  
+    <!-- Form Group for Salary (for DisplayWorkerDto or DisplayDirectorDto) -->
+    <div *ngIf="isDisplayWorker(user) || isDisplayDirector(user)">
+      <label class="form-label">Plata($):</label>
+      <input type="text" value="{{ user.salary }}" readonly />
+    </div>
+  
+    <!-- Form Group for Number of Purchases (for DisplayClientDto) -->
+    <div *ngIf="isDisplayClient(user)">
+      <label class="form-label">Broj Porudzbina:</label>
+      <input type="text" value="{{ user.numOfPurchases }}" readonly />
+    </div>
+  
+    <br>
+  
+    <!-- Edit and Delete Buttons -->
+    <div mat-dialog-actions class="button-container">
+      <button mat-raised-button id="editUser" color="primary" class="edit-button" (click)="editUser(user.id)">
+        Izmeni<mat-icon>edit</mat-icon>
+      </button>
+      <button  *ngIf="userRole === 'DIREKTOR'" mat-raised-button id="deleteUser" color="primary" class="delete-button" (click)="deleteUser()">
+        Obrisi<mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+  
+  <ng-template #loadingTemplate>
+    <p>Loading user details...</p>
+  </ng-template>
+  

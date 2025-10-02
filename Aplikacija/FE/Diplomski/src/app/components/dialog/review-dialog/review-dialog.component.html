@@ -1,0 +1,22 @@
+<!-- delete-confirmation-dialog.component.html -->
+<h1 mat-dialog-title>Dodaj Recenziju</h1>
+
+
+<div class="form-group">
+  <label class="form-label">Komentar:</label>
+  <textarea [(ngModel)]="comment"></textarea>
+</div>
+  
+<br>
+
+  <div class="form-group">
+    <label class="form-label">Ocena(1-10):</label>
+    <input type="number" [(ngModel)]="grade" onkeyup="if(this.value<=0)this.value=1" onblur="if(this.value<=0)this.value=1" max="10">
+  </div>
+
+<div mat-dialog-content></div> 
+
+<div mat-dialog-actions class="button-container">
+  <button mat-button class="cancel-button" (click)="onCancel()">Otkazi</button>
+  <button [disabled]="!comment || !grade" mat-button color="warn" class="delete-button" (click)="onConfirm()">Prihvati</button>
+</div>

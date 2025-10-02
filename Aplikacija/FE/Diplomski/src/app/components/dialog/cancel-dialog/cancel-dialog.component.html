@@ -1,0 +1,9 @@
+<!-- delete-confirmation-dialog.component.html -->
+<h1 mat-dialog-title>Potvrdi brisanje</h1>
+<div mat-dialog-content>
+  <p>Da li stvarno zelite da otkazete?</p>
+</div>
+<div mat-dialog-actions class="button-container">
+  <button mat-button class="cancel-button" (click)="onCancel()">Ne</button>
+  <button mat-button color="warn" class="confirm-button" (click)="onConfirm()">Da</button>
+</div>

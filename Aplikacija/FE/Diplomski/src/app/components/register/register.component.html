@@ -1,0 +1,23 @@
+<div class="form-box">
+    <div class="header-text">Registracija</div>
+    <form #userForm='ngForm' (ngSubmit)="registerUser(userForm.value)">
+        <input type="text" name="name" placeholder="Unesi Ime" id="name" required [(ngModel)]="userRegisterDto.name"> 
+        <br><br>
+        <input type="text" name="surname" placeholder="Unesi Prezime" id="surname" required [(ngModel)]="userRegisterDto.surname"> 
+        <br><br>
+        <input type="text" name="username" placeholder="Unesi Korisnicko Ime" id="username" required [(ngModel)]="userRegisterDto.username"> 
+        <br><br>
+        <input type="password" name="password" placeholder="Unesi Lozinku" id="password" required [(ngModel)]="userRegisterDto.password"> 
+        <br><br>
+        <button type="submit" name="submit" value="Register">Potvrdi</button>
+
+        <div class="terms-wrapper">
+            <input id="terms" type="checkbox"> 
+            <label for="terms"></label>
+            <span>Vec imas nalog? <a (click)="redirect()">Prijavi se</a></span>
+        </div>
+
+        <div><p>{{ successMessage }}</p></div>
+    </form>
+</div>
+            

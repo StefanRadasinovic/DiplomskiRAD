@@ -1,0 +1,61 @@
+<div class="form-wrapper">
+  <form [formGroup]="userForm" (ngSubmit)="handleSubmit()" class="motor-form">
+    <h4 class="form-title">Izmeni Korisnika</h4>
+    <hr />
+
+    <div class="form-group">
+      <label for="name" class="form-label">Ime:</label>
+      <input for="name" type="text" formControlName="name" />
+    </div>
+
+    <br>
+
+    <div class="form-group">
+      <label for="surname" class="form-label">Prezime:</label>
+      <input for="surname" type="text" formControlName="surname" />
+    </div>
+
+    <br>
+
+    <div class="form-group">
+      <label for="username" class="form-label">Korisnicko Ime:</label>
+      <input id="username" formControlName="username" type="text" />
+    </div>
+    
+    <br>
+
+    <div class="form-group">
+      <label for="password" class="form-label">Lozinka:</label>
+      <input id="password" type="password" formControlName="password" />
+    </div>
+    
+    <br>
+
+    <div class="form-group">
+      <label for="role">Uloga:</label>
+      <select id="role" formControlName="role" [disabled]="loggedInUserRole !== 'DIREKTOR'">
+        <option value="DIREKTOR">DIREKTOR</option>
+        <option value="RADNIK">RADNIK</option>
+        <option value="KLIJENT">KLIJENT</option>
+      </select>
+    </div>
+    
+    <br>
+  
+
+    <div class="form-group" >
+      <label for="salary" class="form-label"   *ngIf="user?.role === 'DIREKTOR' || user?.role === 'RADNIK'" >Plata($):</label>
+      <input id="salary" type="text" onkeyup="if(this.value<=0)this.value=1" onblur="if(this.value<=0)this.value=1" formControlName="salary" 
+      *ngIf="user?.role === 'DIREKTOR' || user?.role === 'RADNIK'"/>
+    </div>
+    
+    <br>
+
+    <div class="form-action">
+      <button type="submit" class="submit-button" [disabled]="userForm.invalid">Potvrdi</button>
+    </div>
+
+   <div class="succesMessage"><p>{{ updateMessage }}</p></div>  
+   <div class="errorMessage"><p>{{ errorMessage }}</p></div>
+  </form>
+</div>

@@ -1,0 +1,16 @@
+<div class="home-container">
+    <mat-toolbar class="header">
+      <span class="title">Dostupni Motocikli</span>
+      <button *ngIf="isDisplayWorker(user) || isDisplayDirector(user)" mat-raised-button
+              id="btnAddTitle"
+              (click)="navigateToAddMotor()"
+              color="primary"
+              class="add-title-button">
+        Dodaj Motocikl 
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-toolbar>
+    <hr />
+    <app-motor-container></app-motor-container>
+  </div>
+  

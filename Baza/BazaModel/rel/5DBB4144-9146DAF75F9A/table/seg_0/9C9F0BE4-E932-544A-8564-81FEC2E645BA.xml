@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9C9F0BE4-E932-544A-8564-81FEC2E645BA" name="Proizvodjac">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<generatorID>AC9EC1A6-EE61-D56F-223A-FBD776AEFBCF</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdProizv" id="BD120433-220F-2AEA-128C-472D59217CDA">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<commentInRDBMS><![CDATA[Ovo je IdProizvodjaca]]></commentInRDBMS>
+<generatorID>FC2B1351-2A04-ABB8-16FA-FAB90867E338</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NazP" id="57F4DC0A-A033-B362-76C4-5AABA85174A4">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<commentInRDBMS><![CDATA[NazivProizvodjaca]]></commentInRDBMS>
+<generatorID>161B6ABD-CF4C-074C-F0EC-AC13537CA8C2</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="OpisP" id="A82E8AA3-2681-0FF3-F02A-F44E579CB6A1">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<generatorID>2B01EF1F-931E-EB04-7CC8-B1D7782FC573</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4F28C1E7-0211-90E8-A6A8-37E9B8337FA0" name="Proizvodjac_PK">
+<createdBy>User</createdBy>
+<createdTime>2025-07-11 11:55:00 UTC</createdTime>
+<generatorID>71757AEE-9872-A467-FC97-8790E1FF3246</generatorID>
+<ownerDesignName>BazaModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BD120433-220F-2AEA-128C-472D59217CDA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

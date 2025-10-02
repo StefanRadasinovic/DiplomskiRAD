@@ -1,0 +1,101 @@
+<div class="form-wrapper" *ngIf="!loading; else loadingTemplate">
+    <h4 class="form-title">Detalji Motocikla</h4>
+    <hr />
+  
+    <div class="form-group-inline">
+      <div class="form-group-inline-item">
+        <label class="form-custom ">Naziv:</label>
+        <input type="text" value="{{ motor.name }}" readonly  />
+      </div>
+      <div class="form-group-inline-item">
+        <label  class="form-custom ">Proizvodjac:</label>
+        <input type="text" value="{{ motor.producers[0].name }}" readonly />
+      </div>
+    </div>
+
+    <br>
+
+    <div class="form-group-inline">
+      <div class="form-group-inline-item">
+        <label class="form-custom ">Stanje:</label>
+        <input type="text" value="{{ motor.motorcycleState }}" readonly  />
+      </div>
+      <div class="form-group-inline-item">
+        <label  class="form-custom ">Kilometraza(km):</label>
+        <input type="text" value="{{ motor.kilometraza }}" readonly />
+      </div>
+    </div>
+  
+    <br>
+
+    <div class="form-group-inline">
+      <div class="form-group-inline-item">
+        <label class="form-custom">Tip:</label>
+      <input type="text" value="{{ motor.motorcycleType }}" readonly />
+      </div>
+      <div class="form-group-inline-item">
+        <label class="form-custom">Godina Proizvodnje:</label>
+        <input type="text" value="{{ motor.yearOfProduction }}" readonly />
+      </div>
+    </div>
+    
+    <br>
+  
+    <div class="form-group"></div>
+    <label class="form-label">Slika:</label>
+    <div class="drop-zone">
+      <img [src]="motor.slika" alt="{{ motor.name }}" class="image-preview" />
+    </div>
+
+    <br>
+
+    <div class="form-group">
+      <label class="form-label">Cena($):</label>
+      <input type="text" value="{{motor.displayPriceOnly && motor.displayPriceOnly.length > 0 ? motor.displayPriceOnly[0].price : '-'  }}"readonly />
+    </div>
+  
+    <br>
+
+    <div class="form-group">
+      <label class="form-label">Opis:</label>
+      <textarea value="{{ motor.producers[0].description }}" readonly></textarea>
+    </div>
+
+    <br>
+
+     <!---CREATE ORDER-->
+     <form *ngIf="isDisplayClient(user)" [formGroup]="creatingOrderForm" (ngSubmit)="handleSubmit()">
+
+      <div class="form-group">
+        <label class="form-label">Porucena Kolicina:</label>
+        <input name="orderAmount" type="number" formControlName="orderAmount" min="1" onkeyup="if(this.value<=0)this.value=1" onblur="if(this.value<=0)this.value=1" required />
+
+    </div>
+
+    <br>
+
+    <div class="form-group">
+      <label class="form-label">Ukupna Cena($):</label>
+      <input type="text" [value]="totalSum" readonly />
+    </div>
+
+    <br>
+
+    <div class="form-action">
+      <button  mat-raised-button id="submitMotor" color="primary" class="submit-button" [disabled]="creatingOrderForm.invalid">Poruci <mat-icon>shopping_cart</mat-icon> </button>
+  </div>
+  
+</form>
+<p class="success-message" *ngIf="createMessage">{{ createMessage }}</p>
+  
+    <div mat-dialog-actions class="button-container"> 
+      <button *ngIf="isDisplayWorker(user) || isDisplayDirector(user)" mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="editMotor(motor.id)">Izmeni<mat-icon>edit</mat-icon> </button>
+      <button *ngIf="isDisplayWorker(user) || isDisplayDirector(user)" mat-raised-button id="deleteMotor" color="primary" class="delete-button" (click)="deleteMotor()">Obrisi<mat-icon>delete</mat-icon></button>
+    </div>
+   <!---<button mat-raised-button id="editMotor" color="primary" class="edit-button" (click)="editMotor(motor.id)">Buy<mat-icon>shopping_cart</mat-icon> </button>-->
+  </div>
+  
+  <ng-template #loadingTemplate>
+    <p>Loading motor details...</p>
+  </ng-template>
+  
